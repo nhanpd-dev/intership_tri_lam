@@ -8,6 +8,7 @@ const resources = {
   vi,
   en
 }
+console.log('========> resources', resources)
 const INIT_LANGUAGE = getLocalStorage(STORAGE.LANGUAGE) || 'vi'
 
 i18next
@@ -20,12 +21,17 @@ i18next
       loadPath: './{{lng}}.json'
     },
     react: {
-      useSuspense: true
+      bindI18n: 'languageChanged',
+      bindI18nStore: '',
+      transEmptyNodeValue: '',
+      transSupportBasicHtmlNodes: true,
+      transKeepBasicHtmlNodesFor: ['br', 'strong', 'i'],
+      useSuspense: true,
     },
     lng: INIT_LANGUAGE,
     fallbackLng: INIT_LANGUAGE,
     preload: [INIT_LANGUAGE],
-    // interpolation: { escapeValue: false }
+    interpolation: { escapeValue: false }
   })
 
 i18next.off('languageChanged')

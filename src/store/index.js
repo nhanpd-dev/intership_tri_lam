@@ -51,13 +51,11 @@
    // Make reducers hot reloadable, see http://mxs.is/googmo
    /* istanbul ignore next */
    if (module.hot) {
-    console.log(';;;')
      module.hot.accept('./reducers', () => {
        store.replaceReducer(createReducer(store.injectedReducers))
      })
    }
-   console.log('store', store)
-
+   
    return store
  }
  
