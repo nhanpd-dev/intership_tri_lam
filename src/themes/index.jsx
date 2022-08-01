@@ -2,8 +2,7 @@
 import React from 'react'
 import {
   ThemeProvider as StyledComponentsThemeProvider,
-  createGlobalStyle,
-  css
+  createGlobalStyle
 } from 'styled-components'
 import COLORS from './colors'
 import { FONTS_SIZE } from './fonts'

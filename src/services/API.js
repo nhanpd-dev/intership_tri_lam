@@ -33,7 +33,6 @@ class AxiosClient {
     this.axiosClient.interceptors.response.use(
       (response) => {
         const { status, data } = response
-        console.log('=====>')
         notification.success({
           message: i18next.t('name'),
           description: i18next.t('name'),
@@ -46,7 +45,7 @@ class AxiosClient {
       },
       (error) => {
         if (error.response) {
-          const { data, status } = error.response
+          const { data } = error.response
           const transformError = {
             type: data.error,
             status: data.code,
