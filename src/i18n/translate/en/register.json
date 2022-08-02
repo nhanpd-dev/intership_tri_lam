@@ -1,0 +1,19 @@
+{
+    "register": "Sign In",
+    "password": "Password",
+    "fullName": "Full Name",
+    "gender": "Gender",
+    "male": "Male",
+    "feMale": "Female",
+    "date": "Birth Date",
+    "numberPhone": "Phone Number",
+    "loginNow": "Login now",
+    "haveAccount": "You already have an account?",
+    "field-required": "Please enter this entry",
+    "email-fail": "Please enter the correct email",
+    "password-min": "Password must be at least 8 characters",
+    "password-max": "Password no more than 16 characters",
+    "fullName-min": "Full name must be at least 6 characters",
+    "fullName-max": "Full name no more than 30 characters",
+    "phoneNumber-required": "Phone number must be 11 digits"
+}

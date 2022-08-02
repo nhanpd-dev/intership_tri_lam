@@ -1,0 +1,19 @@
+{
+    "register": "Đăng ký",
+    "password": "Mật khẩu",
+    "fullName": "Họ tên",
+    "gender": "Giới tính",
+    "male": "Nam",
+    "feMale": "Nữ",
+    "date": "Ngày sinh",
+    "numberPhone": "Số điện thoại",
+    "haveAccount": "Bạn đã có tài khoản?",
+    "loginNow": "Đăng nhập ngay",
+    "field-required": "Vui lòng nhập trường này",
+    "email-fail": "Email không chính xác",
+    "password-min": "Mật khẩu ít nhất 8 ký tự",
+    "password-max": "Mật khẩu không quá 16 ký tự",
+    "fullName-min": "Họ tên ít nhất 6 ký tự",
+    "fullName-max": "Họ tên không quá 30 ký tự",
+    "phoneNumber-required": "Số điện thoại phải đúng 11 số"
+}

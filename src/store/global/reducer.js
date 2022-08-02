@@ -7,22 +7,20 @@
  * @param  {state} login state
  * @param  {action} login action
  */
-import { createReducer, updateObject } from '../../utils/redux'
-import {
-  TEST_SAGA
-} from './constants'
+import { createReducer, updateObject } from '../../utils/redux';
+import { TEST_SAGA } from './constants';
 
 export const initialState = {
-  isLoading:false,
-  users: []
-}
+    isLoading: false,
+    users: [],
+};
 
 function testReducer(state, { isOnline }) {
-  return updateObject(state, {
-    isOnline
-  })
+    return updateObject(state, {
+        isOnline,
+    });
 }
 
 export default createReducer(initialState, {
-  [TEST_SAGA]: testReducer
-})
+    [TEST_SAGA]: testReducer,
+});

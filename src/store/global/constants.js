@@ -1,1 +1,1 @@
-export const TEST_SAGA = '@APP/TEST_SAGA'
+export const TEST_SAGA = '@APP/TEST_SAGA';
