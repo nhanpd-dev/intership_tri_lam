@@ -5,19 +5,12 @@
  * The global state selectors
  */
 
- import { createSelector } from 'reselect'
- import { initialState } from './reducer'
- 
- const selectGlobalState = state => state.globalStore || initialState
- 
- const makeSelectUsers = () =>
- createSelector(
-   selectGlobalState,
-   state => state.users
- )
+import { createSelector } from "reselect";
+import { initialState } from "./reducer";
 
- export {
-   selectGlobalState,
-   makeSelectUsers
- }
- 
+const selectGlobalState = (state) => state.globalStore || initialState;
+
+const makeSelectUsers = () =>
+  createSelector(selectGlobalState, (state) => state.users);
+
+export { selectGlobalState, makeSelectUsers };

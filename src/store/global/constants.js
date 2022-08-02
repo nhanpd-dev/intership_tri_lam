@@ -1,1 +1,3 @@
-export const TEST_SAGA = '@APP/TEST_SAGA'
+export const LOGIN_REQUEST = "LOGIN_REQUEST";
+export const LOGIN_SUCCCESS = "LOGIN_SUCCCESS";
+export const LOGIN_FAIL = "LOGIN_FAIL";

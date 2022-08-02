@@ -49,7 +49,7 @@ const PrimaryButton = ({
   ...rest
 }) => (
   <Wrapper
-    width={380}
+    width={320}
     border={border}
     backgroundcolor={backgroundcolor}
     disabled={disabled}

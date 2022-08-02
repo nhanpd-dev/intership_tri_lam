@@ -1,0 +1,15 @@
+{
+  "emailRequired": "Email is a required field",
+  "emailValid": "Email must be a valid email",
+  "emailMaxCharacter": "Email must be at most 50 characters",
+  "passwordRequired": "Password is a required field",
+  "passwordMinCharacter": "Password must be at least 8 characters",
+  "passwordMaxCharacter": "Password must be at most 16 characters",
+  "email": "Email",
+  "password": "Password",
+  "signIn": "SIGN IN",
+  "hasAccout": "Dont have account",
+  "signUp": "Sign Up",
+  "success": "Login Success",
+  "fail": "Login Fail"
+}

@@ -1,14 +1,14 @@
-import React, { useEffect } from "react"
-import { useTranslation } from "react-i18next"
-import { useGlobalStore } from "./hooks/useGlobal"
+import React from "react";
 import AppRoutes from "./routes";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
-  const { testSaga } = useGlobalStore();
-  useEffect(() => {
-    testSaga();
-  }, []);
-  return <AppRoutes />
+  return (
+    <>
+      <AppRoutes />
+      <ToastContainer />
+    </>
+  );
 }
 
 export default App;
