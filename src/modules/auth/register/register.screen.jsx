@@ -1,9 +1,9 @@
-import React, { useEffect } from "react"
-import { useTranslation } from "react-i18next"
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 function RegisterScreen() {
-  const { t } = useTranslation(['common']);
-  return <div>{t('name')}</div>;
+  const { t } = useTranslation(["common"]);
+  return <div>{t("name")}</div>;
 }
 
 export default RegisterScreen;

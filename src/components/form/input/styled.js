@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
-import { Form } from 'antd'
-import styled from 'styled-components'
-
+import { Form } from "antd";
+import styled from "styled-components";
 export const WrapperFormItem = styled(Form.Item)`
   height: max-content;
   width: 100%;
@@ -20,9 +19,9 @@ export const WrapperFormItem = styled(Form.Item)`
       height: 100%;
     }
   }
-`
+`;
 
 export const WrapperLabel = styled.div`
   width: 100%;
   font-size: 13px;
-`
+`;

@@ -5,14 +5,14 @@ import reducer from "../store/global/reducer";
 import saga from "../store/global/saga";
 import { makeSelectUsers } from "../store/global/selector";
 import { loginRequest } from "../store/global/action";
-//lay du lieu tu redux
 export const useGlobalStore = () => {
   useInjectSaga({ key: "globalStore", saga });
   useInjectReducer({ key: "globalStore", reducer });
+
   const dispatch = useDispatch();
   const users = useSelector(makeSelectUsers());
-  const loginUser = (data, callback, callback1) => {
-    dispatch(loginRequest(data, callback, callback1));
+  const loginUser = (data, callbackSuccess, callbackFailure) => {
+    dispatch(loginRequest(data, callbackSuccess, callbackFailure));
   };
 
   return { users, loginUser };

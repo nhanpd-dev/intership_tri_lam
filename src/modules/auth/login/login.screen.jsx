@@ -1,17 +1,28 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useTranslation } from "react-i18next";
 import Banner from "../../../assets/images/shopingcart.png";
-import { Wrapper } from "./styled";
 import { SigninSchema } from "./schema";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { useGlobalStore } from "../../../hooks/useGlobal";
-import { notification } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
+import {
+  Container,
+  WrapperImg,
+  WrapperForm,
+  FormLogin,
+  FormItem,
+  FlexItem,
+  ButtonItem,
+  ValidationError,
+} from "./styled";
+
 export default function LoginScreen() {
   const { loginUser } = useGlobalStore();
+
   const { t } = useTranslation(["login"]);
+
   const {
     register,
     handleSubmit,
@@ -19,99 +30,68 @@ export default function LoginScreen() {
   } = useForm({
     resolver: yupResolver(SigninSchema),
   });
+
   const onSubmit = (data) => {
-    loginUser(
-      data,
-      () => {
-        notification.success({
-          message: t("success"),
-          duration: 2,
-        });
-      },
-      () => {
-        notification.error({
-          message: t("fail"),
-          duration: 2,
-        });
-      }
-    );
+    loginUser(data);
   };
 
   return (
-    <Wrapper>
-      <section>
-        <div className='imgBx'>
-          <img src={Banner} alt='banner' />
-        </div>
-        <div className='contentBx'>
-          <div className='formBx'>
-            <h2>{t("signIn")}</h2>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div className='inputBx'>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <span>
-                    <MailOutlined style={{ marginRight: 10 }} />
-                    Email<p style={{ color: "red" }}>*</p>
-                  </span>
-                  <input
-                    name='email'
-                    type='text'
-                    {...register("email")}
-                    placeholder='Email'
-                  />
-                </div>
-                <div className='error'>
-                  {errors.email ? t(errors.email?.message) : ""}
-                </div>
-              </div>
-              <div className='inputBx'>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <span>
-                    <LockOutlined style={{ marginRight: 10 }} />
-                    {t("password")}
-                    <p style={{ color: "red" }}>*</p>
-                  </span>
-                  <input
-                    className='title-input'
-                    name='passsword'
-                    type='password'
-                    {...register("password")}
-                    placeholder={t("password")}
-                  />{" "}
-                </div>
-
-                <div className='error'>
-                  {errors.password ? t(errors.password?.message) : ""}
-                </div>
-              </div>
-              <div
-                className='inputBx'
-                style={{ display: "flex", justifyContent: "flex-end" }}
-              >
-                <input type='submit' value={t("signIn")} />
-              </div>
-              <div className='inputBx'>
+    <Container>
+      <WrapperImg>
+        <img src={Banner} alt='banner' />
+      </WrapperImg>
+      <WrapperForm>
+        <FormLogin>
+          <h2>{t("signIn")}</h2>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <FormItem>
+              <FlexItem>
                 <p>
-                  {t("hasAccout")}?<Link to='/register'>{t("signUp")}</Link>
+                  <MailOutlined className='email-icon' />
+                  {t("email")}
+                  <span>*</span>
                 </p>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-      ;
-    </Wrapper>
+                <input
+                  name='email'
+                  type='text'
+                  {...register("email")}
+                  placeholder={t("email")}
+                />
+              </FlexItem>
+              <ValidationError>
+                {errors.email && t(errors.email?.message)}
+              </ValidationError>
+            </FormItem>
+            <FormItem>
+              <FlexItem>
+                <p>
+                  <LockOutlined className='lock-icon' />
+                  {t("password")}
+                  <span>*</span>
+                </p>
+                <input
+                  name='passsword'
+                  type='password'
+                  {...register("password")}
+                  placeholder={t("password")}
+                />
+              </FlexItem>
+              <ValidationError>
+                {errors.password && t(errors.password?.message)}
+              </ValidationError>
+            </FormItem>
+            <ButtonItem>
+              <button>{t("signIn")}</button>
+            </ButtonItem>
+            <FormItem>
+              <p className='link'>
+                {t("dont_have_account")}?
+                <Link to='/register'>{t("signUp")}</Link>
+              </p>
+            </FormItem>
+          </form>
+        </FormLogin>
+      </WrapperForm>
+    </Container>
   );
 }

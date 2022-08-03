@@ -3,18 +3,14 @@ import { put, call, takeLatest } from "redux-saga/effects";
 import { loginSuccess, loginFail } from "./action";
 import { LOGIN_REQUEST } from "./constants";
 import { loginUser } from "../../services";
-
-export function* loginSaga({ payload, callback, callback1 }) {
+export function* loginSaga({ payload }) {
   try {
-    const res = yield call(loginUser, payload);
-    callback();
-    if (res) {
-      localStorage.setItem("token", JSON.stringify(res.data.data.token));
+    const response = yield call(loginUser, payload);
+    if (response) {
+      // localStorage.setItem("token", JSON.stringify(response.data.data.token));
       yield put(loginSuccess());
     }
   } catch (error) {
-    console.log(error);
-    callback1();
     yield put(loginFail(error));
   }
 }

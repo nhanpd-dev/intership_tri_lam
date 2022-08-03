@@ -1,9 +1,7 @@
 /* eslint-disable symbol-description */
 import axios from "axios";
 import JSONBig from "json-bigint";
-import { notification } from "antd";
 import i18next from "i18next";
-
 import { assign } from "lodash";
 import { BASE_API_URL } from "../constants";
 import { STORAGE, getLocalStorage } from "../utils";

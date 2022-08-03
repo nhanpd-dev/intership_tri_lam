@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 /* eslint-disable react/prop-types */
-import React, { Children } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Button } from "antd";
 import { Text } from "../text";

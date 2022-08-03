@@ -1,15 +1,15 @@
 {
-  "emailRequired": "Email không được trống",
-  "emailValid": "Chưa đúng định dạng email",
-  "emailMaxCharacter": "Email không được quá 50 kí tự",
-  "passwordRequired": "Mật khẩu không được trống",
-  "passwordMinCharacter": "Mật khẩu không được ít hơn 8 kí tự",
-  "passwordMaxCharacter": "Mật khẩu không được nhiều hơn 16 kí tự",
-  "email": "Email",
+  "email_is_required": "Email không được trống",
+  "email_invalid": "Chưa đúng định dạng email",
+  "email_must_50_char": "Email không được quá 50 kí tự",
+  "password_is_required": "Mật khẩu không được trống",
+  "password_must_least_8_char": "Mật khẩu không được ít hơn 8 kí tự",
+  "password_must_16_char": "Mật khẩu không được nhiều hơn 16 kí tự",
+  "email": "Thư điện tử",
   "password": "Mật khẩu",
   "signIn": "ĐĂNG NHẬP",
-  "hasAccout": "Chưa có tài khoản",
+  "dont_have_account": "Chưa có tài khoản",
   "signUp": "Đăng Ký",
-  "success": "Đăng nhập thành công",
-  "fail": "Đăng nhập thất bại"
+  "login_success": "Đăng nhập thành công",
+  "login_fail": "Đăng nhập thất bại"
 }

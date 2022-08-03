@@ -1,17 +1,17 @@
+import "./i18n";
 import React from "react";
+import reportWebVitals from "./reportWebVitals";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
-
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 import configureStore from "./store";
-import "antd/dist/antd.min.css";
 import ThemeProvider, { ThemedGlobalStyle } from "./themes";
-import "./i18n";
+import "antd/dist/antd.min.css";
 
 const initialState = {};
 export const store = configureStore(initialState);
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
