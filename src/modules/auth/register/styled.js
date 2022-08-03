@@ -9,15 +9,12 @@ export const Wrapper = styled.div`
     box-sizing: border-box;
   }
 
-  .red-color {
-    color: #ff0000;
-  }
-
   .icon {
     margin-right: 10px;
   }
 
-  .flex-end {
+  .submit-register,
+  .login-help {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 20px;
@@ -40,7 +37,7 @@ export const Wrapper = styled.div`
       mix-blend-mode: screen;
     }
 
-    img {
+    .logo_register-focus {
       position: absolute;
       top: 0;
       left: 0;
@@ -75,19 +72,19 @@ export const FormRegister = styled.div`
   align-items: center;
 
   @media (max-width: 768px) {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      justify-content: center;
-      align-items: center;
-      z-index: 1;
-    
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
 `;
 
 export const ContentRegister = styled.div`
-  width: 60%;
+  width: 80%;
 
-  h2 {
+  .text_header-register {
     text-align: center;
     color: #607d8b;
     font-weight: 600;
@@ -99,15 +96,16 @@ export const ContentRegister = styled.div`
     letter-spacing: 1px;
   }
 
-  span {
+  .content_register-focus {
     align-items: center;
+    width: 200px;
     font-size: 16px;
     color: #607d8b;
     display: flex;
     font-weight: 300;
     letter-spacing: 1px;
 
-    p {
+    .red-color {
       color: #ff0000;
     }
   }
@@ -119,24 +117,34 @@ export const ContentRegister = styled.div`
       background-color: #ffffffe6;
       margin: 31px;
     }
+
+    .content_register-focus {
+      width: 120px;
+    }
 `;
 
 export const Fields = styled.div`
   margin-bottom: 20px;
 
   .error {
+    display: flex;
+  }
+
+  .mr-error {
+    width: 350px;
+    height: 1px;
+  }
+
+  .title-error {
     width: 100%;
     height: 3px;
     margin-top: 7px;
     color: #ff0000;
-    display: flex;
-    justify-content: flex-end;
   }
 `;
 
 export const ContentField = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
   .gender-input {
@@ -145,7 +153,7 @@ export const ContentField = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 60%;
+  width: 65%;
   padding: 6px 20px;
   font-weight: 400;
   border: 1px solid ${COLORS.background};
@@ -158,7 +166,7 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 60%;
+  width: 30%;
   padding: 6px 20px;
   font-size: 16px;
   letter-spacing: 1px;

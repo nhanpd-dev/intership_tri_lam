@@ -32,113 +32,122 @@ function RegisterScreen() {
   return (
     <Wrapper>
       <ScreenRegister>
-        <div className="logo-register">
-          <img src={LogoRegister} alt="banner" />
+        <div className='logo-register'>
+          <img className='logo_register-focus' src={LogoRegister} alt='banner' />
         </div>
         <FormRegister>
           <ContentRegister>
-            <h2>{t('register')}</h2>
+            <h2 className='text_header-register'>{t('register')}</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
               {/* Email */}
               <Fields>
                 <ContentField>
-                  <span>
-                    <MailOutlined className="icon" />
+                  <span className='content_register-focus'>
+                    <MailOutlined className='icon' />
                     {t('email')}
-                    <p className="red-color">*</p>
+                    <p className='red-color'>*</p>
                   </span>
-                  <Input name="email" type="text" placeholder="Email" {...register('email')} />
+                  <Input name='email' type='text' placeholder={t('email')} {...register('email')} />
                 </ContentField>
-                <div className="error">{errors.email ? t(errors.email?.message) : ''}</div>
+                <div className='error'>
+                  <div className='mr-error'></div>
+                  <div className='title-error'>{errors.email ? t(errors.email?.message) : ''}</div>
+                </div>
               </Fields>
 
               {/* Password */}
               <Fields>
                 <ContentField>
-                  <span>
-                    <LockOutlined className="icon" />
+                  <span className='content_register-focus'>
+                    <LockOutlined className='icon' />
                     {t('password')}
-                    <p className="red-color">*</p>
+                    <p className='red-color'>*</p>
                   </span>
-                  <Input name="passsword" type="password" placeholder={t('password')} {...register('password')} />
+                  <Input name='passsword' type='password' placeholder={t('password')} {...register('password')} />
                 </ContentField>
-                <div className="error">{errors.password ? t(errors.password?.message) : ''}</div>
+                <div className='error'>
+                  <div className='mr-error'></div>
+                  <div className='title-error'>{errors.password ? t(errors.password?.message) : ''}</div>
+                </div>
               </Fields>
 
               {/* Full Name */}
               <Fields>
                 <ContentField>
-                  <span>
-                    <UserOutlined className="icon" />
+                  <span className='content_register-focus'>
+                    <UserOutlined className='icon' />
                     {t('fullName')}
-                    <p className="red-color">*</p>
+                    <p className='red-color'>*</p>
                   </span>
-                  <Input name="fullname" type="text" placeholder={t('fullName')} {...register('fullname')} />
+                  <Input name='fullname' type='text' placeholder={t('fullName')} {...register('fullname')} />
                 </ContentField>
-
-                <div className="error">{errors.fullname ? t(errors.fullname?.message) : ''}</div>
+                <div className='error'>
+                  <div className='mr-error'></div>
+                  <div className='title-error'>{errors.fullname ? t(errors.fullname?.message) : ''}</div>
+                </div>
               </Fields>
 
               {/* Gender */}
               <Fields>
                 <ContentField>
-                  <span>
-                    <ManOutlined className="icon" />
+                  <span className='content_register-focus'>
+                    <ManOutlined className='icon' />
                     {t('gender')}
-                    <p className="red-color">*</p>
+                    <p className='red-color'>*</p>
                   </span>
                   <div>
                     <ContentField>
-                      <Input
-                        className="gender-input"
-                        type="radio"
-                        name="gender"
-                        value="nam"
-                        checked
-                        {...register('gender')}
-                      />
+                      <Input className='gender-input' type='radio' value='nam' checked {...register('gender')} />
                       <label>{t('male')}</label>
-
-                      <Input className="gender-input" type="radio" value="nu" {...register('gender')} />
+                      <Input className='gender-input' type='radio' value='nu' {...register('gender')} />
                       <label>{t('feMale')}</label>
                     </ContentField>
                   </div>
                 </ContentField>
-                <div className="error">{errors.gender ? t(errors.gender?.message) : ''}</div>
+                <div className='error'>
+                  <div className='mr-error'></div>
+                  <div className='title-error'>{errors.gender ? t(errors.gender?.message) : ''}</div>
+                </div>
               </Fields>
 
               {/* BirthDate */}
               <Fields>
                 <ContentField>
-                  <span>
-                    <CalendarOutlined className="icon" />
+                  <span className='content_register-focus'>
+                    <CalendarOutlined className='icon' />
                     {t('birthDate')}
                   </span>
-                  <Input name="birthDate" type="date" {...register('birthDate')} />
+                  <Input name='birthDate' type='date' {...register('birthDate')} />
                 </ContentField>
-                <div className="error">{errors.date ? t(errors.date?.message) : ''}</div>
+                <div className='error'>
+                  <div className='mr-error'></div>
+                  <div className='title-error'>{errors.date ? t(errors.date?.message) : ''}</div>
+                </div>
               </Fields>
 
               {/* Phone Number */}
               <Fields>
                 <ContentField>
-                  <span>
-                    <PhoneOutlined className="icon" />
+                  <span className='content_register-focus'>
+                    <PhoneOutlined className='icon' />
                     {t('numberPhone')}
-                    <p className="red-color">*</p>
+                    <p className='red-color'>*</p>
                   </span>
-                  <Input name="phonenumber" type="text" placeholder={t('numberPhone')} {...register('phonenumber')} />
+                  <Input name='phonenumber' type='text' placeholder={t('numberPhone')} {...register('phonenumber')} />
                 </ContentField>
-                <div className="error">{errors.phonenumber ? t(errors.phonenumber?.message) : ''}</div>
+                <div className='error'>
+                  <div className='mr-error'></div>
+                  <div className='title-error'>{errors.phonenumber ? t(errors.phonenumber?.message) : ''}</div>
+                </div>
               </Fields>
 
               {/* Button Submit Register */}
-              <div className=" flex-end">
-                <Button className="title-input title-button">{t('register')}</Button>
+              <div className='submit-register'>
+                <Button className='title-input title-button'>{t('register')}</Button>
               </div>
-              <div className=" flex-end">
+              <div className='login-help'>
                 {t('you_have_account')}
-                <Link to="/login">{t('login_now')}</Link>
+                <Link to='/login'>{t('login_now')}</Link>
               </div>
             </form>
           </ContentRegister>
