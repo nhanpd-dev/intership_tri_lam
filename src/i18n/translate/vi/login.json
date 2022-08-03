@@ -7,9 +7,9 @@
   "password_must_16_char": "Mật khẩu không được nhiều hơn 16 kí tự",
   "email": "Thư điện tử",
   "password": "Mật khẩu",
-  "signIn": "ĐĂNG NHẬP",
+  "sign_in": "ĐĂNG NHẬP",
   "dont_have_account": "Chưa có tài khoản",
-  "signUp": "Đăng Ký",
+  "sign_up": "Đăng Ký",
   "login_success": "Đăng nhập thành công",
   "login_fail": "Đăng nhập thất bại"
 }

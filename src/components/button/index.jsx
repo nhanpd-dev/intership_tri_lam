@@ -1,18 +1,17 @@
 /* eslint-disable react/jsx-pascal-case */
 /* eslint-disable react/prop-types */
-import React from "react";
-import styled from "styled-components";
-import { Button } from "antd";
-import { Text } from "../text";
+import React from 'react';
+import styled from 'styled-components';
+import { Button } from 'antd';
+import { Text } from '../text';
 
 const Wrapper = styled(Button)`
   background-color: ${({ backgroundcolor, theme, disabled }) =>
     disabled ? theme.grey : theme.COLORS[backgroundcolor]} !important;
   padding: 8px;
-  width: ${({ width }) => `${width}px` || "max-content"};
+  width: ${({ width }) => `${width}px` || 'max-content'};
   border-radius: 4px;
-  border: ${({ theme, border }) =>
-    border ? `1px solid ${theme[border]}` : "none"};
+  border: ${({ theme, border }) => (border ? `1px solid ${theme[border]}` : 'none')};s
   cursor: pointer;
   transition: opacity 0.2s;
   margin: 0;
@@ -23,13 +22,12 @@ const Wrapper = styled(Button)`
 
   &:active {
     opacity: 0.7;
-    border: ${({ border }) => (border ? `1px solid ${border}` : "none")};
+    border: ${({ border }) => (border ? `1px solid ${border}` : 'none')};
   }
 
   &:focus {
     opacity: 0.7;
-    border: ${({ theme, border }) =>
-      border ? `1px solid ${border}` : [theme.COLORS.white]};
+    border: ${({ theme, border }) => (border ? `1px solid ${border}` : [theme.COLORS.white])};
   }
 
   &.disabled {
@@ -41,11 +39,11 @@ const PrimaryButton = ({
   title,
   onClick,
   disabled = false,
-  backgroundcolor = "primary",
+  backgroundcolor = 'primary',
   border,
-  fontSize = "size_17",
+  fontSize = 'size_17',
   fontWeight = 400,
-  color = "white",
+  color = 'white',
   ...rest
 }) => (
   <Wrapper
