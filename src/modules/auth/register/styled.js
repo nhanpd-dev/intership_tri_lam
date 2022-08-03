@@ -13,11 +13,23 @@ export const Wrapper = styled.div`
     margin-right: 10px;
   }
 
-  .submit-register,
+  .submit-register {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0px 10px 0;
+  }
+
   .login-help {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 20px;
+  }
+
+  .mr-icon {
+    margin-right: 5px;
+  }
+
+  .ml-10 {
+    margin-left: 10px;
   }
 
   .logo-register {
@@ -32,9 +44,10 @@ export const Wrapper = styled.div`
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(225deg, #009fff, #ec2f4b);
+      background: ;
       z-index: 1;
       mix-blend-mode: screen;
+      background: ${COLORS.background};
     }
 
     .logo_register-focus {
@@ -90,11 +103,31 @@ export const ContentRegister = styled.div`
     font-weight: 600;
     font-size: 1.5em;
     text-transform: uppercase;
-    margin-bottom: 20px;
-    border-bottom: 4px solid ${COLORS.background};
+    margin-right: 20px;
+    border-bottom: 4px solid ${COLORS.primary};
     display: inline-block;
     letter-spacing: 1px;
   }
+
+  .back-home {
+    text-align: center;
+    color: #607d8b;
+    font-weight: 600;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    margin-right: 20px;
+    border-bottom: 4px solid #97cdff;
+    display: inline-block;
+    letter-spacing: 1px;
+
+    &:hover {
+      border-bottom: 4px solid ${COLORS.primary};
+      color:  ${COLORS.primary};
+    }
+  }
+
+
 
   .content_register-focus {
     align-items: center;
@@ -111,13 +144,16 @@ export const ContentRegister = styled.div`
   }
 
   @media (max-width: 768px) {
+
     {
       width: 100%;
       padding: 29px;
       background-color: #ffffffe6;
       margin: 31px;
+      border-radius: 5px;
     }
 
+    
     .content_register-focus {
       width: 120px;
     }
@@ -138,8 +174,15 @@ export const Fields = styled.div`
   .title-error {
     width: 100%;
     height: 3px;
-    margin-top: 7px;
+    margin-bottom: 7px;
     color: #ff0000;
+  }
+
+  @media (max-width: 768px) {
+    .mr-error {
+      width: 28px;
+      height: 20px;
+    }
   }
 `;
 
@@ -156,13 +199,13 @@ export const Input = styled.input`
   width: 65%;
   padding: 6px 20px;
   font-weight: 400;
-  border: 1px solid ${COLORS.background};
+  border: 1px solid ${COLORS.primary};
   font-size: 16px;
   letter-spacing: 1px;
   color: #607d8b;
   background: transparent;
   border-radius: 30px;
-  outline-color: ${COLORS.background};
+  outline-color: ${COLORS.primary};
 `;
 
 export const Button = styled.button`
@@ -171,12 +214,16 @@ export const Button = styled.button`
   font-size: 16px;
   letter-spacing: 1px;
   border-radius: 30px;
-  background-color: ${COLORS.background};
+  background-color: ${COLORS.primary};
   color: #fff;
   border: none;
   font-weight: 400;
   cursor: pointer;
   box-shadow: 5px 5px 10px #888888;
+
+  @media (max-width: 768px) {
+    width: 40%;
+  }
 
   &:hover {
     background: #f53677;
