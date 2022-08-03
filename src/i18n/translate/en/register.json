@@ -7,7 +7,7 @@
   "male": "Male",
   "feMale": "Female",
   "birthDate": "Birth Date",
-  "numberPhone": "Phone Number",
+  "phoneNumber": "Phone Number",
   "login_now": "Login now",
   "you_have_account": "You already have an account?",
   "enter_this_field": "Please enter this entry",

@@ -1,9 +1,9 @@
 import AxiosClient from './API';
 import { ENDPOINTS } from './constants';
 
-async function getUsers() {
-    const axiosClient = new AxiosClient();
-    return axiosClient.get(ENDPOINTS.GET_USERS).then((res) => res.data);
+async function registerUser(data) {
+  const axiosClient = new AxiosClient();
+  return axiosClient.post(ENDPOINTS.REGISTER, data);
 }
 
-export { getUsers };
+export { registerUser };

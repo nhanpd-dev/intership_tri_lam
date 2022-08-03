@@ -10,10 +10,10 @@ function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<DashboardScreen />} />
-        <Route path='/login' element={<LoginScreen />} />
-        <Route path='/register' element={<RegisterScreen />} />
-        <Route path='*' element={<NotFoundScreen />} />
+        <Route path="/" element={<DashboardScreen />} />
+        <Route path="/login" element={<LoginScreen />} />
+        <Route path="/register" element={<RegisterScreen />} />
+        <Route path="*" element={<NotFoundScreen />} />
       </Routes>
     </BrowserRouter>
   );
