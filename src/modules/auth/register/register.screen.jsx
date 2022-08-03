@@ -1,178 +1,151 @@
-/* eslint-disable no-useless-escape */
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Link } from 'react-router-dom';
+import {
+  MailOutlined,
+  LockOutlined,
+  UserOutlined,
+  ManOutlined,
+  CalendarOutlined,
+  PhoneOutlined,
+} from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
+
 import { schema } from './schema';
 import LogoRegister from '../../../assets/imgs/logo.png';
-import { Wrapper } from './styled';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import {
-    MailOutlined,
-    LockOutlined,
-    UserOutlined,
-    ManOutlined,
-    CalendarOutlined,
-    PhoneOutlined,
-} from '@ant-design/icons';
+import { Button, ContentField, ContentRegister, Fields, FormRegister, Input, ScreenRegister, Wrapper } from './styled';
 
 function RegisterScreen() {
-    const [checkGender, setCheckGender] = useState('nam');
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm({ resolver: yupResolver(schema) });
+  const { t } = useTranslation(['register']);
 
-    const onSubmit = (data) => {
-        console.log(data);
-    };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
 
-    const { t } = useTranslation(['register']);
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
-    return (
-        <Wrapper>
-            <section>
-                <div className="imgBx">
-                    <img src={LogoRegister} alt="banner" />
-                </div>
-                <div className="contentBx">
-                    <div className="formBx">
-                        <h2>{t('register')}</h2>
-                        <form onSubmit={handleSubmit(onSubmit)}>
-                            <div className="inputBx">
-                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                    <span>
-                                        <MailOutlined style={{ marginRight: 10 }} />
-                                        Email<p style={{ color: 'red' }}>*</p>
-                                    </span>
-                                    <input name="email" type="text" {...register('email')} placeholder="Email" />
-                                </div>
+  return (
+    <Wrapper>
+      <ScreenRegister>
+        <div className="logo-register">
+          <img src={LogoRegister} alt="banner" />
+        </div>
+        <FormRegister>
+          <ContentRegister>
+            <h2>{t('register')}</h2>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              {/* Email */}
+              <Fields>
+                <ContentField>
+                  <span>
+                    <MailOutlined className="icon" />
+                    {t('email')}
+                    <p className="red-color">*</p>
+                  </span>
+                  <Input name="email" type="text" placeholder="Email" {...register('email')} />
+                </ContentField>
+                <div className="error">{errors.email ? t(errors.email?.message) : ''}</div>
+              </Fields>
 
-                                <div className="error">{errors.email ? t(errors.email?.message) : ''}</div>
-                            </div>
-                            <div className="inputBx">
-                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                    <span>
-                                        <LockOutlined style={{ marginRight: 10 }} />
-                                        {t('password')}
-                                        <p style={{ color: 'red' }}>*</p>
-                                    </span>
-                                    <input
-                                        className="title-input"
-                                        name="passsword"
-                                        type="password"
-                                        {...register('password')}
-                                        placeholder={t('password')}
-                                    />{' '}
-                                </div>
+              {/* Password */}
+              <Fields>
+                <ContentField>
+                  <span>
+                    <LockOutlined className="icon" />
+                    {t('password')}
+                    <p className="red-color">*</p>
+                  </span>
+                  <Input name="passsword" type="password" placeholder={t('password')} {...register('password')} />
+                </ContentField>
+                <div className="error">{errors.password ? t(errors.password?.message) : ''}</div>
+              </Fields>
 
-                                <div className="error">{errors.password ? t(errors.password?.message) : ''}</div>
-                            </div>
-                            <div className="inputBx">
-                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                    <span>
-                                        <UserOutlined style={{ marginRight: 10 }} />
-                                        {t('fullName')}
-                                        <p style={{ color: 'red' }}>*</p>
-                                    </span>
-                                    <input
-                                        className="title-input"
-                                        name="fullname"
-                                        type="text"
-                                        {...register('fullname')}
-                                        placeholder={t('fullName')}
-                                    />
-                                </div>
+              {/* Full Name */}
+              <Fields>
+                <ContentField>
+                  <span>
+                    <UserOutlined className="icon" />
+                    {t('fullName')}
+                    <p className="red-color">*</p>
+                  </span>
+                  <Input name="fullname" type="text" placeholder={t('fullName')} {...register('fullname')} />
+                </ContentField>
 
-                                <div className="error">{errors.fullname ? t(errors.fullname?.message) : ''}</div>
-                            </div>
-                            <div className="inputBx">
-                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                    <span>
-                                        <ManOutlined style={{ marginRight: 10 }} />
-                                        {t('gender')}
-                                        <p style={{ color: 'red' }}>*</p>
-                                    </span>
-                                    <div>
-                                        <div
-                                            style={{
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'space-between',
-                                            }}
-                                        >
-                                            <input
-                                                className="gender-input"
-                                                {...register('gender')}
-                                                type="radio"
-                                                name="gender"
-                                                value="nam"
-                                                onChange={(e) => setCheckGender(e.target.value)}
-                                                checked={checkGender === 'nam'}
-                                            />
-                                            <label htmlFor="Nam">{t('male')}</label>
+                <div className="error">{errors.fullname ? t(errors.fullname?.message) : ''}</div>
+              </Fields>
 
-                                            <input
-                                                className="gender-input"
-                                                type="radio"
-                                                {...register('gender')}
-                                                value="nu"
-                                                onChange={(e) => setCheckGender(e.target.value)}
-                                                checked={checkGender === 'nu'}
-                                            />
-                                            <label htmlFor="Nu">{t('feMale')}</label>
-                                        </div>
-                                    </div>
-                                </div>
+              {/* Gender */}
+              <Fields>
+                <ContentField>
+                  <span>
+                    <ManOutlined className="icon" />
+                    {t('gender')}
+                    <p className="red-color">*</p>
+                  </span>
+                  <div>
+                    <ContentField>
+                      <Input
+                        className="gender-input"
+                        type="radio"
+                        name="gender"
+                        value="nam"
+                        checked
+                        {...register('gender')}
+                      />
+                      <label>{t('male')}</label>
 
-                                <div className="error">{errors.gender ? t(errors.gender?.message) : ''}</div>
-                            </div>
-                            <div className="inputBx">
-                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                    <span>
-                                        <CalendarOutlined style={{ marginRight: 10 }} />
-                                        {t('date')}
-                                        <p style={{ color: 'red' }}>*</p>
-                                    </span>
-                                    <input className="title-input" name="date" type="date" {...register('date')} />
-                                </div>
+                      <Input className="gender-input" type="radio" value="nu" {...register('gender')} />
+                      <label>{t('feMale')}</label>
+                    </ContentField>
+                  </div>
+                </ContentField>
+                <div className="error">{errors.gender ? t(errors.gender?.message) : ''}</div>
+              </Fields>
 
-                                <div className="error">{errors.date ? t(errors.date?.message) : ''}</div>
-                            </div>
-                            <div className="inputBx">
-                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                    <span>
-                                        <PhoneOutlined style={{ marginRight: 10 }} />
-                                        {t('numberPhone')}
-                                        <p style={{ color: 'red' }}>*</p>
-                                    </span>
-                                    <input
-                                        className="title-input"
-                                        name="phonenumber"
-                                        type="text"
-                                        {...register('phonenumber')}
-                                        placeholder={t('numberPhone')}
-                                    />
-                                </div>
+              {/* BirthDate */}
+              <Fields>
+                <ContentField>
+                  <span>
+                    <CalendarOutlined className="icon" />
+                    {t('birthDate')}
+                  </span>
+                  <Input name="birthDate" type="date" {...register('birthDate')} />
+                </ContentField>
+                <div className="error">{errors.date ? t(errors.date?.message) : ''}</div>
+              </Fields>
 
-                                <div className="error">{errors.phonenumber ? t(errors.phonenumber?.message) : ''}</div>
-                            </div>
-                            <div className="inputBx" style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                                <input type="submit" value={t('register')} />
-                            </div>
-                            <div className="inputBx" style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                                {t('haveAccount')}
-                                <Link style={{ marginLeft: 4 }} to="/login">
-                                    {t('loginNow')}
-                                </Link>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
-        </Wrapper>
-    );
+              {/* Phone Number */}
+              <Fields>
+                <ContentField>
+                  <span>
+                    <PhoneOutlined className="icon" />
+                    {t('numberPhone')}
+                    <p className="red-color">*</p>
+                  </span>
+                  <Input name="phonenumber" type="text" placeholder={t('numberPhone')} {...register('phonenumber')} />
+                </ContentField>
+                <div className="error">{errors.phonenumber ? t(errors.phonenumber?.message) : ''}</div>
+              </Fields>
+
+              {/* Button Submit Register */}
+              <div className=" flex-end">
+                <Button className="title-input title-button">{t('register')}</Button>
+              </div>
+              <div className=" flex-end">
+                {t('you_have_account')}
+                <Link to="/login">{t('login_now')}</Link>
+              </div>
+            </form>
+          </ContentRegister>
+        </FormRegister>
+      </ScreenRegister>
+    </Wrapper>
+  );
 }
 
 export default RegisterScreen;
