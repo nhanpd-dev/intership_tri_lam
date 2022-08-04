@@ -45,24 +45,24 @@ export default function LoginScreen() {
             <form onSubmit={handleSubmit(onSubmit)}>
               <FiledInput t={t} register={register} nameField={'email'} Icon={MailOutlined} />
               <Row>
-                <Col span={18} offset={6}>
+                <Col span={17} offset={7}>
                   <ValidationError>{errors.email && t(errors.email?.message)}</ValidationError>
                 </Col>
               </Row>
               <FiledInput t={t} register={register} nameField={'password'} Icon={LockOutlined} />
 
               <Row>
-                <Col span={18} offset={6}>
+                <Col span={17} offset={7}>
                   <ValidationError>{errors.password && t(errors.password?.message)}</ValidationError>
                 </Col>
               </Row>
               <Row>
-                <Col span={18} offset={6}>
+                <Col span={17} offset={7}>
                   <ButtonItem className='button-signin'>{t('sign_in')}</ButtonItem>
                 </Col>
               </Row>
               <Row>
-                <Col span={18} offset={6}>
+                <Col span={17} offset={7}>
                   <p>
                     {t('dont_have_account')}?<Link to='/register'>{t('sign_up')}</Link>
                   </p>
