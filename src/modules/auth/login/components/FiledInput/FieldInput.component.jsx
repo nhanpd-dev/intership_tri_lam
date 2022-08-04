@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'antd';
 import { LabelItem, InputItem } from './styled';
+
 export default function FiledInput({ t, register, nameField, Icon }) {
   return (
     <Row type='flex' align='middle'>

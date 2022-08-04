@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import COLORS from '../../../themes/colors';
 import { FONTS_SIZE } from '../../../themes/fonts';
+
 export const Container = styled.div`
   position: relative;
   width: 100%;
