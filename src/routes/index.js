@@ -1,10 +1,10 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginScreen from "../modules/auth/login/login.screen";
-import RegisterScreen from "../modules/auth/register/register.screen";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LoginScreen from '../modules/auth/login/login.screen';
+import RegisterScreen from '../modules/auth/register/register.screen';
 
-import DashboardScreen from "../modules/dashboard/dashboard.screen";
-import NotFoundScreen from "../modules/notFound/notFound.screen";
+import DashboardScreen from '../modules/dashboard/dashboard.screen';
+import NotFoundScreen from '../modules/notFound/notFound.screen';
 
 function AppRoutes() {
   return (

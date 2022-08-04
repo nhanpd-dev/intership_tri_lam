@@ -1,3 +1,3 @@
 export const ENDPOINTS = {
-    GET_USERS: '/users'
-}
+  REGISTER: 'v1/auth/register',
+};

@@ -1,25 +1,23 @@
 /* eslint-disable no-console */
-import { put, call, takeLatest } from 'redux-saga/effects'
-// import {
-//   getMaintainNoticeSuccess,
-//   getMaintainNoticeFailure,
-//   getStatusMaintainSuccess,
-//   getStatusMaintainFailure
-// } from './actions'
-import { TEST_SAGA } from './constants'
+import { call, put, takeLatest } from 'redux-saga/effects';
 
-import { getUsers } from '../../services'
+import * as Types from './constants';
+import { registerUser } from '../../services/test';
+import { registerFail, registerSuccess } from './action';
 
-export function* testSaga() {
+export function* registerSaga({ payload, callback }) {
   try {
-    const users = yield call(getUsers)
-    console.log('=====> get users: ', users)
+    const response = yield call(registerUser, payload);
+    if (response) {
+      yield put(registerSuccess());
+      callback();
+    }
   } catch (error) {
-    console.log('====>error: ',error)
+    yield put(registerFail(error));
+    console.log(error);
   }
 }
 
-
 export default function* globalSaga() {
-  yield takeLatest(TEST_SAGA, testSaga)
+  yield takeLatest(Types.REGISTER_REQUEST, registerSaga);
 }
