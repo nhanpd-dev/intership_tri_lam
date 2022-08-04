@@ -1,5 +1,5 @@
 {
-  "register": "Sign Up",
+  "signUp": "Sign Up",
   "email": "Email",
   "password": "Password",
   "fullName": "Full Name",

@@ -1,0 +1,79 @@
+import styled from 'styled-components';
+
+import COLORS from '../../themes/colors';
+
+export const Header = styled.div`
+  * {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+
+  .mt-20 {
+    margin-top: 20px;
+  }
+
+  #header_layout {
+    width: 100%;
+    height: 100px;
+    background-color: ${COLORS.primary};
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+`;
+
+export const Logo = styled.div`
+
+    .logo_tiki {
+      width: 60px;
+      height: 40px;
+      margin-bottom: 20px;
+
+      .logo_tiki-img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .logo_freeship-img {
+        width: 82px;
+        height: 12px;
+      }
+    }
+  }
+`;
+
+export const Search = styled.div`
+  display: flex;
+  position: relative;
+
+  .search_input {
+    width: 620px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+
+    &:focus,
+    &:hover {
+      box-shadow: inset 0 1px 2px #00000014, 0 0 0 0.15rem #e6d485f2;
+    }
+  }
+
+  .search_btn {
+    background-color: #0d5cb6;
+    width: 120px;
+    position: absolute;
+    height: 40px;
+    border: none;
+    right: 0px;
+    color: #ffffff;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    &:hover {
+      background: #f53677;
+    }
+  }
+`;
