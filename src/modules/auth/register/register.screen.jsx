@@ -105,7 +105,7 @@ function RegisterScreen() {
               <div className='login-help'>
                 {t('you_have_account')}
                 <Link to='/login' className='ml-10'>
-                  {t('login_now')}
+                  {t('sign_in_now')}
                 </Link>
               </div>
             </form>

@@ -21,7 +21,7 @@ function HeaderLayout() {
         </Logo>
 
         <Search className='search'>
-          <Input className='search_input' placeholder={t('title_input_search_header')}></Input>
+          <Input className='search_input' placeholder={t('title_input_search_header')} />
           <Button className='search_btn'>
             <SearchOutlined />
             {t('search')}

@@ -3,12 +3,6 @@ import styled from 'styled-components';
 import COLORS from '../../../themes/colors';
 
 export const Wrapper = styled.div`
-  * {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-  }
-
   .submit-register {
     display: flex;
     justify-content: flex-end;

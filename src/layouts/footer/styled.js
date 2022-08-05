@@ -8,12 +8,6 @@ export const Footer = styled.div`
   margin-top: 20px;
   background-color: #fff;
 
-  * {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-  }
-
   .border_right {
     border-right: 1px solid ${COLORS.primary};
   }

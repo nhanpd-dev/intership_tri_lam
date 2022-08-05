@@ -3,12 +3,6 @@ import styled from 'styled-components';
 import COLORS from '../../themes/colors';
 
 export const Header = styled.div`
-  * {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-  }
-
   .mt-20 {
     margin-top: 20px;
   }

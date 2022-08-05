@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import { Footer } from './styled';
 import RowContent from '../../components/rowContent';
 import {
-  LOGO_TIKI,
   IMG_MOMO,
   IMG_ATM,
   IMG_GRAP,
@@ -47,8 +46,7 @@ function FooterLayout() {
 
       <Col span={8} className='footer_col'>
         <h2 className='content_footer'>{t('payment_methods')}</h2>
-        <img className='footer-img-pay' src={LOGO_TIKI} alt='tiki' />
-        <img className='footer-img-pay' src={IMG_MOMO} alt='tiki' />
+        <img className='footer-img-pay' src={IMG_MOMO} alt='momo' />
         <img className='footer-img-pay' src={IMG_ATM} alt='atm' />
         <img className='footer-img-pay' src={IMG_GRAP} alt='grap' />
         <img className='footer-img-pay' src={IMG_TRAGOP} alt='tragop' />
