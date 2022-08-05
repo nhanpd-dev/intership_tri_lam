@@ -11,7 +11,6 @@ function FieldRegister({ t, register, nameField, Icon, type }) {
           {t(nameField)}
           <p className='red-color'>*</p>
         </span>
-
         {type === 'radio' ? (
           <div className='selector-gender'>
             {t('male')}

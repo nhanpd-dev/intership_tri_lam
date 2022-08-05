@@ -1,5 +1,6 @@
 {
   "signUp": "Đăng ký",
+  "login_now": "Đăng nhập ngay",
   "email": "Thư điện tử",
   "password": "Mật khẩu",
   "fullName": "Họ tên",
@@ -8,7 +9,6 @@
   "feMale": "Nữ",
   "birthDate": "Ngày sinh",
   "phoneNumber": "Số điện thoại",
-  "login_now": "Đăng nhập ngay",
   "you_have_account": "Bạn đã có tài khoản?",
   "enter_this_field": "Vui lòng nhập trường này",
   "email_is_incorrect": "Email không chính xác",

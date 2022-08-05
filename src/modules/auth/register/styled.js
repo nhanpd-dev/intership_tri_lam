@@ -9,10 +9,6 @@ export const Wrapper = styled.div`
     box-sizing: border-box;
   }
 
-  .icon {
-    margin-right: 10px;
-  }
-
   .submit-register {
     display: flex;
     justify-content: flex-end;

@@ -4,7 +4,7 @@ import COLORS from '../../themes/colors';
 
 export const Content = styled.div`
   .content_sub {
-    margin-bottom: 5px;
+    margin-bottom: 7px;
     color: #808089;
 
     .phone_support {

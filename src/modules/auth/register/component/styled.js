@@ -14,12 +14,13 @@ export const ContentField = styled.div`
   display: flex;
   align-items: center;
 
-  .gender-input {
-    margin: 0 10px;
+  .icon {
+    margin-right: 10px;
   }
 
   .selector-gender {
     display: flex;
+    padding: 0 20px;
   }
 
   .check-input {

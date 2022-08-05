@@ -26,8 +26,8 @@ export const AuthAndCart = styled.div`
       background: #fff;
       position: absolute;
       top: 50px;
-      box-shadow: rgb(0 0 0 / 18%) 0px 6px 12px 0px;
-      border: 1px solid rgb(239, 239, 239);
+      box-shadow: #0000002e 0px 6px 12px 0px;
+      border: 1px solid #efefef;
       z-index: 1;
       animation: ${rotate};
       animation-duration: 0.5s;

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { Content } from './styled';
 
-function RowContent({ t, nameRow, linkTo }) {
+function RowContent({ t, linkTo, nameRow }) {
   return (
     <Content>
       <Row>

@@ -1,5 +1,5 @@
 const images = {
-  imgFreship: require('./img-freeship.png'),
+  imgFreship: require('./imgFreeship.png'),
   logoRegister: require('./logoRegister.png'),
   logoTiki: require('./logoTiki.png'),
   tikiSvg: require('./visa.svg').default,
@@ -9,8 +9,8 @@ const images = {
   tragop: require('./tragop.svg').default,
   viettelpay: require('./viettelpay.svg').default,
   visa: require('./visa.svg').default,
-  vnpay: require('./vnpay.svg').default,
   zalopay: require('./zalopay.svg').default,
+  vnpay: require('./vnpay.svg').default,
 };
 
 export default images;

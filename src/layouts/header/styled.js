@@ -55,7 +55,7 @@ export const Search = styled.div`
 
     &:focus,
     &:hover {
-      box-shadow: inset 0 1px 2px #00000014, 0 0 0 0.15rem #e6d485f2;
+      box-shadow: 0 1px 2px #00000014, 0 0 0 0.15rem #e6d485f2;
     }
   }
 

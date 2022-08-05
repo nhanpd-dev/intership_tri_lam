@@ -1,9 +1,9 @@
 import { Button, Input, Row } from 'antd';
 import React from 'react';
 import { SearchOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 
 import { Header, Logo, Search } from './styled';
-import { useTranslation } from 'react-i18next';
 import AuthLayout from '../auth.layout/auth.layout';
 import images from '../../assets/imgs';
 

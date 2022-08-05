@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { CaretUpOutlined, ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
-import { AuthAndCart } from './styled';
 import RowContent from '../../components/rowContent';
+import { AuthAndCart } from './styled';
 
 function AuthLayout() {
   const { t } = useTranslation(['header', 'register']);

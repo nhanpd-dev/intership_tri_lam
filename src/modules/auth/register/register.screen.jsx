@@ -13,13 +13,13 @@ import {
   HomeOutlined,
 } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
+import { replace } from 'lodash';
 
 import { useGlobalStore } from '../../../hooks/useGlobal';
 import { schema } from './schema';
-import images from '../../../assets/imgs';
 import { Button, ContentRegister, Error, FormRegister, ScreenRegister, Wrapper } from './styled';
-import { replace } from 'lodash';
 import FieldRegister from './component/fieldRegister';
+import images from '../../../assets/imgs';
 
 function RegisterScreen() {
   const { t } = useTranslation(['register', 'common']);
