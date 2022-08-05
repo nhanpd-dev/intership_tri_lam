@@ -1,17 +1,14 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from 'react-i18next'
-import { PrimaryButton } from '../../components'
+import React from 'react';
+
+import FooterLayout from '../../layouts/footer/footer.layout';
+import HeaderLayout from '../../layouts/header/header.layout';
 
 function DashboardScreen() {
-  const { t } = useTranslation(['common'])
-  const navigate = useNavigate();
-  const onNavigate = () => navigate("login");
   return (
-    <div>
-      Navigate
-      <PrimaryButton onClick={onNavigate} title={t('login')} />
-    </div>
+    <>
+      <HeaderLayout />
+      <FooterLayout />
+    </>
   );
 }
 

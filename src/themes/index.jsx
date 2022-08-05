@@ -1,18 +1,15 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
-import {
-  ThemeProvider as StyledComponentsThemeProvider,
-  createGlobalStyle
-} from 'styled-components'
-import COLORS from './colors'
-import { FONTS_SIZE } from './fonts'
+import React from 'react';
+import { ThemeProvider as StyledComponentsThemeProvider, createGlobalStyle } from 'styled-components';
+import COLORS from './colors';
+import { FONTS_SIZE } from './fonts';
 
 export const MEDIA_WIDTHS = {
   upToExtraSmall: 500,
   upToSmall: 720,
   upToMedium: 960,
-  upToLarge: 1280
-}
+  upToLarge: 1280,
+};
 
 // const mediaWidthTemplates = Object.keys(MEDIA_WIDTHS).reduce(
 //   (accumulator, size) => {
@@ -28,8 +25,8 @@ export const MEDIA_WIDTHS = {
 const INPUT_WIDTH = {
   input_small: '380px',
   input_medium: '512px',
-  input_large: '810px'
-}
+  input_large: '810px',
+};
 
 const theme = () => ({
   COLORS,
@@ -38,22 +35,26 @@ const theme = () => ({
     sx: 8,
     sm: 16,
     md: 24,
-    lg: 32
+    lg: 32,
   },
 
-  INPUT_WIDTH
+  INPUT_WIDTH,
   // media queries
   // mediaWidth: mediaWidthTemplates
-})
+});
 
 export default function ThemeProvider({ children }) {
-  return <StyledComponentsThemeProvider theme={theme()}>{children}</StyledComponentsThemeProvider>
+  return <StyledComponentsThemeProvider theme={theme()}>{children}</StyledComponentsThemeProvider>;
 }
 
 export const ThemedGlobalStyle = createGlobalStyle`
 html, body {
   width: 100%;
   height: 100%;
+}
+
+p {
+  margin: 0;
 }
 
 body {
@@ -103,4 +104,4 @@ body {
     box-shadow: inset 0 1px 2px rgb(0 0 0 / 8%), 0 0 0 0.25rem rgb(108 93 211 / 25%);
   }
 }
-`
+`;
