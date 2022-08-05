@@ -2,7 +2,16 @@
 import React, { useState } from 'react';
 import { Col, Row } from 'antd';
 import { Link } from 'react-router-dom';
-import { CaretUpOutlined, ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
+import {
+  AlertOutlined,
+  AuditOutlined,
+  CaretUpOutlined,
+  LikeOutlined,
+  LogoutOutlined,
+  ShoppingCartOutlined,
+  ShoppingOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
 import RowContent from '../../components/rowContent';
@@ -11,7 +20,7 @@ import { AuthAndCart } from './styled';
 function AuthLayout() {
   const { t } = useTranslation(['header', 'register']);
 
-  const [testLogin, setTestLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   return (
     <AuthAndCart className='auth_cart'>
@@ -19,18 +28,34 @@ function AuthLayout() {
         <Col>
           <UserOutlined className='icon_auth' />
         </Col>
-        {testLogin ? (
+        {isLogin ? (
           <>
             <Col className='register_login'>
-              <Row>Tai khoan</Row>
+              <Row>{t('account')}</Row>
               <Row>Le Quang Bao Lam</Row>
             </Col>
             <div className='user_infor'>
-              <RowContent t={t} nameRow={'Thông tin tài khoản'} linkTo='/' />
-              <RowContent t={t} nameRow={'Thông báo của tôi'} linkTo='/' />
-              <RowContent t={t} nameRow={'Đơn hàng của tôi'} linkTo='/' />
-              <RowContent t={t} nameRow={'Nhận xét sản phẩm đã mua'} linkTo='/' />
-              <RowContent t={t} nameRow={'Đăng xuất'} linkTo='/' />
+              <Row className='text_user-infor'>
+                <AuditOutlined className='icon_user-infor' />
+                <RowContent t={t} nameRow={'account_nformation'} linkTo='/' />
+              </Row>
+              <Row className='text_user-infor'>
+                <AlertOutlined className='icon_user-infor' />
+                <RowContent t={t} nameRow={'my_notification'} linkTo='/' />
+              </Row>
+              <Row className='text_user-infor'>
+                <ShoppingOutlined className='icon_user-infor' />
+                <RowContent t={t} nameRow={'my_oder'} linkTo='/' />
+              </Row>
+              <Row className='text_user-infor'>
+                <LikeOutlined className='icon_user-infor' />
+                <RowContent t={t} nameRow={'review_products'} linkTo='/' />
+              </Row>
+              <Row className='text_user-infor'>
+                <LogoutOutlined className='icon_user-infor' />
+                <RowContent t={t} nameRow={'sign_out'} linkTo='/login' />
+              </Row>
+
               <CaretUpOutlined className='icon_user-up' />
             </div>
           </>
@@ -38,12 +63,12 @@ function AuthLayout() {
           <Col className='register_login'>
             <Row>
               <Link className='is_login' to='/login'>
-                {t('signIn')}
+                {t('sign_in')}
               </Link>
             </Row>
             <Row>
               <Link className='is_login' to='/register'>
-                {t('register:signUp')}
+                {t('register:sign_up')}
               </Link>
             </Row>
           </Col>

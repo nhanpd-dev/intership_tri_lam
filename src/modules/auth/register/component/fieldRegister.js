@@ -21,7 +21,7 @@ function FieldRegister({ t, register, nameField, Icon, type }) {
               placeholder={t(nameField)}
               {...register(nameField)}
             />
-            {t('feMale')}
+            {t('female')}
             <Input
               className='check-input'
               name={nameField}

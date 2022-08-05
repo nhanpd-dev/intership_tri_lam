@@ -1,11 +1,21 @@
 import { Col, Row } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { Footer } from './styled';
-import { useTranslation } from 'react-i18next';
 import RowContent from '../../components/rowContent';
-import images from '../../assets/imgs/index';
+import {
+  LOGO_TIKI,
+  IMG_MOMO,
+  IMG_ATM,
+  IMG_GRAP,
+  IMG_TRAGOP,
+  IMG_VIETTELPAY,
+  IMG_VISA,
+  IMG_ZALOPAY,
+  IMG_VNPAY,
+} from '../../assets/imgs/index';
 
 function FooterLayout() {
   const { t } = useTranslation(['footer']);
@@ -37,15 +47,15 @@ function FooterLayout() {
 
       <Col span={8} className='footer_col'>
         <h2 className='content_footer'>{t('payment_methods')}</h2>
-        <img className='footer-img-pay' src={images.tikiSvg} alt='tiki' />
-        <img className='footer-img-pay' src={images.momo} alt='tiki' />
-        <img className='footer-img-pay' src={images.atm} alt='atm' />
-        <img className='footer-img-pay' src={images.grap} alt='grap' />
-        <img className='footer-img-pay' src={images.tragop} alt='tragop' />
-        <img className='footer-img-pay' src={images.viettelpay} alt='viettelpay' />
-        <img className='footer-img-pay' src={images.visa} alt='visa' />
-        <img className='footer-img-pay' src={images.vnpay} alt='vnpay' />
-        <img className='footer-img-pay' src={images.zalopay} alt='zalopay' />
+        <img className='footer-img-pay' src={LOGO_TIKI} alt='tiki' />
+        <img className='footer-img-pay' src={IMG_MOMO} alt='tiki' />
+        <img className='footer-img-pay' src={IMG_ATM} alt='atm' />
+        <img className='footer-img-pay' src={IMG_GRAP} alt='grap' />
+        <img className='footer-img-pay' src={IMG_TRAGOP} alt='tragop' />
+        <img className='footer-img-pay' src={IMG_VIETTELPAY} alt='viettelpay' />
+        <img className='footer-img-pay' src={IMG_VISA} alt='visa' />
+        <img className='footer-img-pay' src={IMG_VNPAY} alt='vnpay' />
+        <img className='footer-img-pay' src={IMG_ZALOPAY} alt='zalopay' />
       </Col>
     </Footer>
   );

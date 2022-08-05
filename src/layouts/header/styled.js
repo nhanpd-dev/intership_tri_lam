@@ -67,10 +67,7 @@ export const Search = styled.div`
     border: none;
     right: 0px;
     color: #ffffff;
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    border-radius: 0 16px 16px 0;
 
     &:hover {
       background: #f53677;

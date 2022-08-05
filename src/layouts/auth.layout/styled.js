@@ -33,6 +33,17 @@ export const AuthAndCart = styled.div`
       animation-duration: 0.5s;
       animation-fill-mode: forwards;
 
+      .text_user-infor {
+        margin: 5px;
+      }
+
+      .icon_user-infor {
+        color: #000;
+        margin-right: 10px;
+        font-size: 16px;
+        margin-top: 2px;
+      }
+
       .icon_user-up {
         padding: 6px 62px;
         color: #fff;
@@ -48,10 +59,6 @@ export const AuthAndCart = styled.div`
 
       .is_login {
         color: #fff;
-      }
-
-      .go_to-auth {
-        color: #ffffff;
 
         &:hover {
           color: #fdd835;
@@ -59,8 +66,10 @@ export const AuthAndCart = styled.div`
       }
     }
 
-    &:hover .user_infor {
-      display: block;
+    &:hover {
+      .user_infor {
+        display: block;
+      }
     }
   }
 

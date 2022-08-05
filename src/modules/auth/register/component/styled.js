@@ -20,7 +20,7 @@ export const ContentField = styled.div`
 
   .selector-gender {
     display: flex;
-    padding: 0 20px;
+    padding: 0 6px;
   }
 
   .check-input {
