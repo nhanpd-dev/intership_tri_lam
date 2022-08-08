@@ -1,7 +1,7 @@
 export const COLORS = {
   primary: '#1890ff',
-  secondary: '#ffffffe6',
-  background_primary: '#fff',
+  secondary: '#f53677',
+  background_primary: '#ffffffe6',
   background_seconary: 'linear-gradient(225deg, #009fff, #ec2f4b)',
 };
 

@@ -35,7 +35,7 @@ export const Dashboard = styled.div`
           border: 1px solid ${COLORS.primary};
 
           &:hover {
-            border: 2px solid ${COLORS.seconary};
+            border: 2px solid ${COLORS.secondary};
           }
 
           .content_img-selection {
@@ -55,7 +55,7 @@ export const Dashboard = styled.div`
         font-size: 15px;
 
         &:hover {
-          color: ${COLORS.seconary};
+          color: ${COLORS.secondary};
         }
       }
     }

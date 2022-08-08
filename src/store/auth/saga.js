@@ -22,7 +22,6 @@ export function* registerSaga({ payload, callback }) {
     }
   } catch (error) {
     yield put(registerFail(error.message));
-    console.log(error);
   }
 }
 

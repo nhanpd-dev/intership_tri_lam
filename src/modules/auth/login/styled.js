@@ -82,7 +82,7 @@ export const FormLogin = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     padding: 30px;
-    background-color: ${COLORS.secondary};
+    background-color: ${COLORS.background_primary};
   }
 `;
 
