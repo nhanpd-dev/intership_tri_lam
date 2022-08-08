@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Header, Logo, Search } from './styled';
 import AuthLayout from '../auth.layout/auth.layout';
-import { IMG_FREESHIP, LOGO_TIKI } from '../../assets/imgs';
+import { IMG_FREESHIP, LOGO_TIKI } from '../../assets/imgs/layout/index';
 
 function HeaderLayout() {
   const { t } = useTranslation(['header', 'register']);
@@ -27,7 +27,6 @@ function HeaderLayout() {
             {t('search')}
           </Button>
         </Search>
-
         <AuthLayout />
       </Row>
     </Header>

@@ -1,3 +1,5 @@
 export const ENDPOINTS = {
-  REGISTER: 'v1/auth/register',
+  REGISTER: 'auth/register',
+  LOGIN: '/auth/login',
+  GETME: '/me',
 };

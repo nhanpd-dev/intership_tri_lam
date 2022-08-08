@@ -1,22 +1,25 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LoginScreen from '../modules/auth/login/login.screen';
-import RegisterScreen from '../modules/auth/register/register.screen';
-
-import DashboardScreen from '../modules/dashboard/dashboard.screen';
-import NotFoundScreen from '../modules/notFound/notFound.screen';
+import { useRoutes } from 'react-router-dom';
+import { useAuthStore } from '../hooks/useAuth';
+import publicRoute from './PublicNavigator';
+import privateRoute from './PrivateNavigator';
+import { getLocalStorage, STORAGE } from '../utils';
+import { useEffect } from 'react';
 
 function AppRoutes() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<DashboardScreen />} />
-        <Route path="/login" element={<LoginScreen />} />
-        <Route path="/register" element={<RegisterScreen />} />
-        <Route path="*" element={<NotFoundScreen />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  const { auth, getCurrentUser } = useAuthStore();
+  const privateRoutes = useRoutes(privateRoute);
+  const publicRoutes = useRoutes(publicRoute);
+
+  useEffect(() => {
+    const token = getLocalStorage(STORAGE.USER_TOKEN);
+    if (token) {
+      getCurrentUser();
+    }
+  }, [getCurrentUser]);
+
+  if (auth) return privateRoutes;
+  else if (!getLocalStorage(STORAGE.USER_TOKEN)) return publicRoutes;
+  return <>Loading...</>;
 }
 
 export default AppRoutes;

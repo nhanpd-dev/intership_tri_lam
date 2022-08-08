@@ -15,16 +15,16 @@ import {
 import { useTranslation } from 'react-i18next';
 import { replace } from 'lodash';
 
-import { useGlobalStore } from '../../../hooks/useGlobal';
+import { useAuthStore } from '../../../hooks/useAuth';
 import { schema } from './schema';
 import { Button, ContentRegister, Error, FormRegister, ScreenRegister, Wrapper } from './styled';
 import FieldRegister from './component/fieldRegister';
-import { LOGO_REGISTER } from '../../../assets/imgs';
+import { LOGO_REGISTER } from '../../../assets/imgs/layout/index';
 
 function RegisterScreen() {
   const { t } = useTranslation(['register', 'common']);
 
-  const { registerUser } = useGlobalStore();
+  const { registerUser } = useAuthStore();
 
   const navigate = useNavigate();
 
@@ -74,7 +74,7 @@ function RegisterScreen() {
               <FieldRegister t={t} nameField={'full_name'} register={register} Icon={UserOutlined} type={'text'} />
               <Error className='error'>
                 <div className='mr-error' />
-                <div className='title-error'>{errors.fullName ? t(errors.fullName?.message) : ''}</div>
+                <div className='title-error'>{errors.full_name ? t(errors.full_name?.message) : ''}</div>
               </Error>
 
               {/* Gender */}
@@ -95,7 +95,7 @@ function RegisterScreen() {
               <FieldRegister t={t} nameField={'phone_number'} register={register} Icon={PhoneOutlined} type={'text'} />
               <Error className='error'>
                 <div className='mr-error' />
-                <div className='title-error'>{errors.phoneNumber ? t(errors.phoneNumber?.message) : ''}</div>
+                <div className='title-error'>{errors.phone_number ? t(errors.phone_number?.message) : ''}</div>
               </Error>
 
               {/* Button Submit Register */}

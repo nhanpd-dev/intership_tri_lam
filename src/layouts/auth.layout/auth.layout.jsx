@@ -16,11 +16,12 @@ import { useTranslation } from 'react-i18next';
 
 import RowContent from '../../components/rowContent';
 import { AuthAndCart } from './styled';
+import { useAuthStore } from '../../hooks/useAuth';
 
 function AuthLayout() {
   const { t } = useTranslation(['header', 'register']);
 
-  const [isLogin, setIsLogin] = useState(false);
+  const { auth } = useAuthStore();
 
   return (
     <AuthAndCart className='auth_cart'>
@@ -28,7 +29,7 @@ function AuthLayout() {
         <Col>
           <UserOutlined className='icon_auth' />
         </Col>
-        {isLogin ? (
+        {auth ? (
           <>
             <Col className='register_login'>
               <Row>{t('account')}</Row>
@@ -63,7 +64,7 @@ function AuthLayout() {
           <Col className='register_login'>
             <Row>
               <Link className='is_login' to='/login'>
-                {t('sign_in')}
+                {t('login:sign_in')}
               </Link>
             </Row>
             <Row>
