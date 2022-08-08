@@ -16,11 +16,11 @@ const privateRoute = [
         path: '/profile',
         element: <Profile />,
       },
+      {
+        path: '*',
+        element: <NotFoundScreen />,
+      },
     ],
-  },
-  {
-    path: '*',
-    element: <NotFoundScreen />,
   },
 ];
 export default privateRoute;

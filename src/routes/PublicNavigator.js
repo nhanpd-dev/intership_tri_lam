@@ -7,6 +7,12 @@ const publicRoute = [
   {
     path: '/',
     element: <DashboardScreen />,
+    children: [
+      {
+        path: '*',
+        element: <NotFoundScreen />,
+      },
+    ],
   },
   {
     path: '/login',
@@ -15,10 +21,6 @@ const publicRoute = [
   {
     path: '/register',
     element: <RegisterScreen />,
-  },
-  {
-    path: '*',
-    element: <NotFoundScreen />,
   },
 ];
 export default publicRoute;
