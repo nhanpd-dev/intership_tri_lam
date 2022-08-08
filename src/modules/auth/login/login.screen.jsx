@@ -28,15 +28,15 @@ export default function LoginScreen() {
     loginUser(data, loginSuccess, loginFail);
   };
 
-  const loginSuccess = () => {
-    notification.success({
+  const loginSuccess = async () => {
+    await notification.success({
       message: 'Login Success',
     });
-    navigate('/');
+    await navigate('/');
   };
 
-  const loginFail = (error) => {
-    notification.error({
+  const loginFail = async (error) => {
+    await notification.error({
       message: error,
     });
   };

@@ -6,15 +6,15 @@ import RequiredAuth from './RequiredAuth';
 const privateRoute = [
   {
     path: '/',
-    element: <DashboardScreen />,
+    element: (
+      <RequiredAuth>
+        <DashboardScreen />
+      </RequiredAuth>
+    ),
     children: [
       {
         path: '/profile',
-        element: (
-          <RequiredAuth>
-            <Profile />
-          </RequiredAuth>
-        ),
+        element: <Profile />,
       },
     ],
   },

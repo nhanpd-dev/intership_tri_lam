@@ -8,63 +8,53 @@ export const initialState = {
   error: null,
 };
 
-function registerRequest(state) {
-  return {
-    ...state,
-  };
-}
-function registerSuccess(state) {
-  return updateObject(state);
-}
-function registerFail(state, error) {
-  return updateObject(state, {
-    error,
-  });
-}
+const registerRequest = (state) => ({
+  ...state,
+});
 
-function loginRequest(state) {
-  return {
-    ...state,
-    isLoading: true,
-  };
-}
-function loginSuccess(state, action) {
-  return {
-    ...state,
-    isLoading: false,
-    authenticated: true,
-    currentUser: action.payload,
-  };
-}
-function loginFail(state, action) {
-  return {
-    ...state,
-    authenticated: false,
-    error: action.payload,
-  };
-}
+const registerSuccess = (state) => {
+  updateObject(state);
+};
 
-function getCurrentUserRequest(state) {
-  return {
-    ...state,
-    isLoading: true,
-  };
-}
-function getCurrentUserSuccess(state, action) {
-  return {
-    ...state,
-    isLoading: false,
-    authenticated: true,
-    currentUser: action.payload,
-  };
-}
-function getCurrentUserFail(state, action) {
-  return {
-    ...state,
-    authenticated: false,
-    error: action.payload,
-  };
-}
+const registerFail = (state, error) => ({
+  error,
+});
+
+const loginRequest = (state) => ({
+  ...state,
+  isLoading: true,
+});
+
+const loginSuccess = (state, action) => ({
+  ...state,
+  isLoading: false,
+  authenticated: true,
+  currentUser: action.payload,
+});
+
+const loginFail = (state, action) => ({
+  ...state,
+  authenticated: false,
+  error: action.payload,
+});
+
+const getCurrentUserRequest = (state) => ({
+  ...state,
+  isLoading: true,
+});
+
+const getCurrentUserSuccess = (state, action) => ({
+  ...state,
+  isLoading: false,
+  authenticated: true,
+  currentUser: action.payload,
+});
+
+const getCurrentUserFail = (state, action) => ({
+  ...state,
+  authenticated: false,
+  error: action.payload,
+});
 
 export default createReducer(initialState, {
   [Types.REGISTER_REQUEST]: registerRequest,

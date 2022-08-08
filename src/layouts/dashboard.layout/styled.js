@@ -6,62 +6,16 @@ export const Dashboard = styled.div`
   width: 100%;
   margin-top: 20px;
 
-  .ant-carousel .slick-dots li.slick-active button {
-    background: #1980ff;
-    opacity: 1;
-  }
-
-  .ant-carousel .slick-dots li button {
-    background: #1980ff;
-  }
-
-  .ant-carousel .slick-dots-bottom {
-    bottom: 0;
-  }
-
-  .ant-carousel .slick-dots li.slick-active {
-    width: 40px;
-  }
-
-  .ant-carousel .slick-dots li button {
-    height: 10px;
-
-    &:hover {
-      background: #f53677;
-    }
-  }
-
-  .ant-carousel .slick-dots li {
-    width: 30px;
-  }
-
   .slide {
-    padding: 0 100px;
+    padding: 0 150px;
 
     .slide_serial {
       position: relative;
       display: flex;
-
-      .icon_next-slide,
-      .icon_prev-slide {
-        position: absolute;
-        font-size: 20px;
-        top: 40%;
-        z-index: 1;
-        cursor: pointer;
-      }
-
-      .icon_prev-slide {
-        left: 10px;
-      }
-
-      .icon_next-slide {
-        right: 10px;
-      }
     }
 
     .slide_item {
-      height: 160px;
+      padding: 15px 0;
       color: #fff;
       text-align: center;
       background: #fff;
@@ -81,7 +35,7 @@ export const Dashboard = styled.div`
           border: 1px solid ${COLORS.primary};
 
           &:hover {
-            border: 2px solid #f53677;
+            border: 2px solid ${COLORS.seconary};
           }
 
           .content_img-selection {
@@ -91,17 +45,17 @@ export const Dashboard = styled.div`
             object-fit: cover;
           }
         }
+      }
 
-        .content_title {
-          display: flex;
-          justify-content: center;
-          margin-top: 10px;
-          color: #000;
-          font-size: 15px;
+      .content_title {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+        color: #000;
+        font-size: 15px;
 
-          &:hover {
-            color: #f53677;
-          }
+        &:hover {
+          color: ${COLORS.seconary};
         }
       }
     }

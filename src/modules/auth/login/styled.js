@@ -8,14 +8,17 @@ export const Container = styled.div`
   height: 100vh;
   display: flex;
   font-size: 15px;
+
   @media (max-width: 768px) {
     font-size: ${FONTS_SIZE.size_12};
   }
 `;
+
 export const WrapperImg = styled.div`
   position: relative;
   width: 50%;
   height: 100%;
+
   &:before {
     content: '';
     position: absolute;
@@ -27,6 +30,7 @@ export const WrapperImg = styled.div`
     z-index: 1;
     mix-blend-mode: screen;
   }
+
   .img-banner {
     position: absolute;
     top: 0;
@@ -35,6 +39,7 @@ export const WrapperImg = styled.div`
     height: 100%;
     object-fit: cover;
   }
+
   @media (max-width: 768px) {
     position: absolute;
     top: 0;
@@ -43,12 +48,14 @@ export const WrapperImg = styled.div`
     height: 100%;
   }
 `;
+
 export const WrapperForm = styled.div`
   display: flex;
   width: 50%;
   height: 100%;
   justify-content: center;
   align-items: center;
+
   @media (max-width: 768px) {
     display: flex;
     width: 100%;
@@ -61,6 +68,7 @@ export const WrapperForm = styled.div`
 
 export const FormLogin = styled.div`
   width: 80%;
+
   .header-signin {
     color: ${COLORS.primary};
     font-weight: 600;
@@ -70,6 +78,7 @@ export const FormLogin = styled.div`
     display: inline-block;
     letter-spacing: 1px;
   }
+
   @media (max-width: 768px) {
     width: 100%;
     padding: 30px;
@@ -92,12 +101,15 @@ export const ButtonItem = styled.button`
   margin-bottom: 10px;
   cursor: pointer;
   box-shadow: 5px 5px 10px #888888;
+
   &:hover {
     background: #f53677;
   }
+
   @media (max-width: 768px) {
     height: 40px;
   }
+
   @media (max-width: 414px) {
     height: 40px;
   }

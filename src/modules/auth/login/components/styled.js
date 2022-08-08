@@ -9,18 +9,22 @@ export const LabelItem = styled.div`
   color: #607d8b;
   font-weight: 300;
   letter-spacing: 1px;
+
   .icon {
     margin-right: 3px;
   }
   .icon-required {
     color: red;
   }
+
   @media (max-width: 896px) {
     font-size: ${FONTS_SIZE.size_14};
   }
+
   @media (max-width: 768px) {
     font-size: ${FONTS_SIZE.size_12};
   }
+
   @media (max-width: 414px) {
     font-size: ${FONTS_SIZE.size_11};
   }
@@ -36,9 +40,11 @@ export const InputItem = styled.input`
   color: #607d8b;
   border-radius: 30px;
   outline-color: ${COLORS.primary};
+
   @media (max-width: 768px) {
     height: 40px;
   }
+
   @media (max-width: 414px) {
     height: 40px;
   }

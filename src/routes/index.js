@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useRoutes } from 'react-router-dom';
 import { useAuthStore } from '../hooks/useAuth';
 import publicRoute from './PublicNavigator';
@@ -10,17 +9,16 @@ function AppRoutes() {
   const { auth, getCurrentUser } = useAuthStore();
   const privateRoutes = useRoutes(privateRoute);
   const publicRoutes = useRoutes(publicRoute);
-  const token = getLocalStorage(STORAGE.USER_TOKEN);
+
   useEffect(() => {
+    const token = getLocalStorage(STORAGE.USER_TOKEN);
     if (token) {
       getCurrentUser();
     }
-  }, []);
+  }, [getCurrentUser]);
 
   if (auth) return privateRoutes;
-  else if (!token) {
-    return publicRoutes;
-  }
+  else if (!getLocalStorage(STORAGE.USER_TOKEN)) return publicRoutes;
   return <>Loading...</>;
 }
 

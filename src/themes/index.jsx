@@ -104,4 +104,34 @@ body {
     box-shadow: inset 0 1px 2px rgb(0 0 0 / 8%), 0 0 0 0.25rem rgb(108 93 211 / 25%);
   }
 }
+
+.ant-carousel {
+  .slick-dots {
+    li {
+      width: 30px;
+
+      button {
+        height: 10px;
+        background: #1980ff;
+
+        &:hover {
+          background: ${COLORS.seconary};
+        }
+      }
+    }
+
+    li.slick-active {
+      width: 40px;
+    }
+
+    li.slick-active button {
+      background: #1980ff;
+      opacity: 1;
+    }
+  }
+
+  .slick-dots-bottom {
+    bottom: 0;
+  }
+}
 `;

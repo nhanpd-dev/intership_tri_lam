@@ -1,65 +1,47 @@
 import * as Types from './constants';
 
-export function registerRequest(data, callback) {
-  return {
-    type: Types.REGISTER_REQUEST,
-    payload: data,
-    callback,
-  };
-}
+export const registerRequest = (data, callback) => ({
+  type: Types.REGISTER_REQUEST,
+  payload: data,
+  callback,
+});
 
-export function registerSuccess() {
-  return {
-    type: Types.REGISTER_SUCCCESS,
-  };
-}
+export const registerSuccess = () => ({
+  type: Types.REGISTER_SUCCCESS,
+});
 
-export function registerFail(error) {
-  return {
-    type: Types.REGISTER_FAIL,
-    payload: error,
-  };
-}
+export const registerFail = (error) => ({
+  type: Types.REGISTER_FAIL,
+  payload: error,
+});
 
-export function loginRequest(payload, callbackSuccess, callbackFail) {
-  return {
-    type: Types.LOGIN_REQUEST,
-    payload,
-    callbackSuccess,
-    callbackFail,
-  };
-}
+export const loginRequest = (payload, callbackSuccess, callbackFail) => ({
+  type: Types.LOGIN_REQUEST,
+  payload,
+  callbackSuccess,
+  callbackFail,
+});
 
-export function loginSuccess(payload) {
-  return {
-    type: Types.LOGIN_SUCCCESS,
-    payload: payload,
-  };
-}
+export const loginSuccess = (payload) => ({
+  type: Types.LOGIN_SUCCCESS,
+  payload: payload,
+});
 
-export function loginFail(error) {
-  return {
-    type: Types.LOGIN_FAIL,
-    payload: error,
-  };
-}
+export const loginFail = (error) => ({
+  type: Types.LOGIN_FAIL,
+  payload: error,
+});
 
-export function getCurrentUserRequest(payload) {
-  return {
-    type: Types.GET_CURRENT_USER_REQUEST,
-  };
-}
+export const getCurrentUserRequest = () => ({
+  type: Types.GET_CURRENT_USER_REQUEST,
+});
 
-export function getCurrentUserSuccess(payload) {
-  return {
-    type: Types.GET_CURRENT_USER_SUCCCESS,
-    payload: payload,
-  };
-}
+export const getCurrentUserSuccess = (payload) => ({
+  type: Types.GET_CURRENT_USER_SUCCCESS,
+  payload: payload,
+});
 
-export function getCurrentUserFail(error) {
-  return {
-    type: Types.GET_CURRENT_USER_FAIL,
-    payload: error,
-  };
-}
+export const getCurrentUserFail = (error) => ({
+  type: Types.GET_CURRENT_USER_FAIL,
+  payload: error,
+});
