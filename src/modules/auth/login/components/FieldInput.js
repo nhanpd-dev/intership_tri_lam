@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'antd';
+
 import { LabelItem, InputItem } from './styled';
 
 export default function FiledInput({ t, register, nameField, Icon }) {
@@ -13,7 +14,7 @@ export default function FiledInput({ t, register, nameField, Icon }) {
         </LabelItem>
       </Col>
       <Col span={17}>
-        <InputItem type='text' {...register(nameField)} placeholder={t(nameField)} />
+        <InputItem type='text' placeholder={t(nameField)} {...register(nameField)} />
       </Col>
     </Row>
   );
