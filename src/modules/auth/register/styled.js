@@ -37,7 +37,7 @@ export const Wrapper = styled.div`
       background: ;
       z-index: 1;
       mix-blend-mode: screen;
-      background: ${COLORS.background_seconary};
+      background: ${COLORS.background_secodary};
     }
 
     .logo_register-focus {

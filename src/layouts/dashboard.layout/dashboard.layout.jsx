@@ -14,7 +14,7 @@ import {
 import { useTranslation } from 'react-i18next';
 
 function DashboardLayout() {
-  const { t } = useTranslation(['']);
+  const { t } = useTranslation(['dashboard']);
 
   const onChange = (currentSlide) => {
     console.log(currentSlide);
@@ -22,25 +22,27 @@ function DashboardLayout() {
 
   return (
     <Dashboard>
-      <Carousel afterChange={onChange} className='slide'>
+      <Carousel autoplay afterChange={onChange} className='slide'>
         <Row className='slide_serial'>
           <Row className='slide_item'>
-            <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_THOAI} nameItem='Dien thoai' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_TU} nameItem='Dien tu' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_NHA_CUA} nameItem='Nha cua' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_THIT_RAU_CU} nameItem='Thit, Rau cu' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_THOI_TRANG} nameItem='Thoi trang' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_ME_VA_BE} nameItem='Me va Be' />
+            <ListItem t={t} linkTo='/' imgItem={IMG_ME_VA_BE} nameItem={'mother_and_baby'} />
+            <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_THOAI} nameItem={'smartphone'} />
+            <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_TU} nameItem={'electronic'} />
+            <ListItem t={t} linkTo='/' imgItem={IMG_NHA_CUA} nameItem={'house'} />
+            <ListItem t={t} linkTo='/' imgItem={IMG_THIT_RAU_CU} nameItem={'food'} />
+            <ListItem t={t} linkTo='/' imgItem={IMG_THOI_TRANG} nameItem={'fashion'} />
+            <ListItem t={t} linkTo='/' imgItem={IMG_NHA_CUA} nameItem={'house'} />
           </Row>
         </Row>
         <Row className='slide_serial'>
           <Row className='slide_item'>
-            <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_THOAI} nameItem='Dien thoai' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_TU} nameItem='Dien tu' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_NHA_CUA} nameItem='Nha cua' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_THIT_RAU_CU} nameItem='Thit, Rau cu' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_THOI_TRANG} nameItem='Thoi trang' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_ME_VA_BE} nameItem='Me va Be' />
+            <ListItem t={t} linkTo='/' imgItem={IMG_ME_VA_BE} nameItem={'mother_and_baby'} />
+            <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_THOAI} nameItem={'smartphone'} />
+            <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_TU} nameItem={'electronic'} />
+            <ListItem t={t} linkTo='/' imgItem={IMG_NHA_CUA} nameItem={'house'} />
+            <ListItem t={t} linkTo='/' imgItem={IMG_THIT_RAU_CU} nameItem={'food'} />
+            <ListItem t={t} linkTo='/' imgItem={IMG_NHA_CUA} nameItem={'house'} />
+            <ListItem t={t} linkTo='/' imgItem={IMG_THOI_TRANG} nameItem={'fashion'} />
           </Row>
         </Row>
       </Carousel>

@@ -19,7 +19,7 @@ import { AuthAndCart } from './styled';
 import { useAuthStore } from '../../hooks/useAuth';
 
 function AuthLayout() {
-  const { t } = useTranslation(['header', 'register']);
+  const { t } = useTranslation(['header', 'register', 'login']);
 
   const { auth } = useAuthStore();
 

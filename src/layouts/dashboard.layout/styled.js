@@ -7,7 +7,9 @@ export const Dashboard = styled.div`
   margin-top: 20px;
 
   .slide {
-    padding: 0 150px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
 
     .slide_serial {
       position: relative;
@@ -35,7 +37,7 @@ export const Dashboard = styled.div`
           border: 1px solid ${COLORS.primary};
 
           &:hover {
-            border: 2px solid ${COLORS.seconary};
+            border: 2px solid ${COLORS.secodary};
           }
 
           .content_img-selection {
@@ -55,7 +57,7 @@ export const Dashboard = styled.div`
         font-size: 15px;
 
         &:hover {
-          color: ${COLORS.seconary};
+          color: ${COLORS.secodary};
         }
       }
     }

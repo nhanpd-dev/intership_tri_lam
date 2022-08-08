@@ -106,6 +106,9 @@ body {
 }
 
 .ant-carousel {
+  display: flex;
+  justify-content: center;
+
   .slick-dots {
     li {
       width: 30px;
@@ -115,7 +118,7 @@ body {
         background: #1980ff;
 
         &:hover {
-          background: ${COLORS.seconary};
+          background: ${COLORS.secodary};
         }
       }
     }

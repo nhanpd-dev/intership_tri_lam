@@ -26,7 +26,7 @@ export const WrapperImg = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: ${COLORS.background_seconary};
+    background: ${COLORS.background_secodary};
     z-index: 1;
     mix-blend-mode: screen;
   }
