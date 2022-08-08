@@ -1,5 +1,9 @@
 {
   "name": "Name",
-  "login": "Login",
-  "home": "Home"
+  "home": "Home",
+  "sign_up": "Sign Up",
+  "sign_in": "Sign In",
+  "sign_out": "Sign Out",
+  "email": "Email",
+  "password": "Password"
 }

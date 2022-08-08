@@ -1,4 +1,9 @@
 {
   "name": "Tên",
-  "home": "Trang Chủ"
+  "home": "Trang Chủ",
+  "sign_up": "Đăng Ký",
+  "sign_in": "Đăng Nhập",
+  "sign_out": "Sign Out",
+  "email": "Email",
+  "password": "Mật khẩu"
 }
