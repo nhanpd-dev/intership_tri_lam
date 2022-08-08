@@ -37,7 +37,7 @@ export const Wrapper = styled.div`
       background: ;
       z-index: 1;
       mix-blend-mode: screen;
-      background: ${COLORS.background};
+      background: ${COLORS.background_seconary};
     }
 
     .logo_register-focus {
@@ -91,7 +91,7 @@ export const ContentRegister = styled.div`
     text-align: center;
     color: #607d8b;
     font-weight: 600;
-    font-size: 1.5em;
+    font-size: 24px;
     text-transform: uppercase;
     margin-right: 20px;
     border-bottom: 4px solid ${COLORS.primary};
@@ -103,7 +103,7 @@ export const ContentRegister = styled.div`
     text-align: center;
     color: #607d8b;
     font-weight: 600;
-    font-size: 1.5em;
+    font-size: 24px;
     text-transform: uppercase;
     margin-bottom: 20px;
     margin-right: 20px;

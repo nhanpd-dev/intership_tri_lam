@@ -13,7 +13,6 @@ export const Footer = styled.div`
   }
 
   .footer_col {
-    margin-right: 10px;
     padding: 20px 50px;
 
     .content_footer {

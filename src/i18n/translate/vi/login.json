@@ -1,0 +1,15 @@
+{
+  "email_is_required": "Email không được trống",
+  "email_invalid": "Chưa đúng định dạng email",
+  "email_must_50_char": "Email không được quá 50 kí tự",
+  "password_is_required": "Mật khẩu không được trống",
+  "password_must_least_8_char": "Mật khẩu không được ít hơn 8 kí tự",
+  "password_must_16_char": "Mật khẩu không được nhiều hơn 16 kí tự",
+  "email": "Thư điện tử",
+  "password": "Mật khẩu",
+  "sign_in": "ĐĂNG NHẬP",
+  "dont_have_account": "Chưa có tài khoản",
+  "sign_up": "Đăng Ký",
+  "login_success": "Đăng nhập thành công",
+  "login_fail": "Đăng nhập thất bại"
+}

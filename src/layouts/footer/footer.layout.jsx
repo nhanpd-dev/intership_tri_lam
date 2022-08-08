@@ -14,7 +14,7 @@ import {
   IMG_VISA,
   IMG_ZALOPAY,
   IMG_VNPAY,
-} from '../../assets/imgs/index';
+} from '../../assets/imgs/layout/index';
 
 function FooterLayout() {
   const { t } = useTranslation(['footer']);

@@ -1,7 +1,6 @@
 /* eslint-disable symbol-description */
 import axios from 'axios';
 import JSONBig from 'json-bigint';
-import { notification } from 'antd';
 import i18next from 'i18next';
 
 import { assign } from 'lodash';
@@ -17,6 +16,7 @@ class AxiosClient {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        Authorization: getLocalStorage(STORAGE.USER_TOKEN),
       },
       timeout: 30000,
     });
@@ -29,15 +29,9 @@ class AxiosClient {
       (configure) => configure,
       (error) => Promise.reject(error),
     );
-
     this.axiosClient.interceptors.response.use(
       (response) => {
         const { status, data } = response;
-        notification.success({
-          message: i18next.t('Success...!'),
-          description: i18next.t('Success...!'),
-          duration: 2,
-        });
         return {
           status,
           data,
@@ -49,15 +43,8 @@ class AxiosClient {
           const transformError = {
             type: data.error,
             status: data.code,
-            message: data.message,
+            message: data.data.message,
           };
-
-          notification.error({
-            message: i18next.t('Error...!'),
-            description: i18next.t('Error...!'),
-            duration: 2,
-          });
-
           throw transformError;
         } else {
           throw error;
