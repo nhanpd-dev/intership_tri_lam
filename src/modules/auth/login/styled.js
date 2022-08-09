@@ -82,7 +82,7 @@ export const FormLogin = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     padding: 30px;
-    background-color: ${COLORS.secondary};
+    background-color: ${COLORS.background_primary};
   }
 `;
 
@@ -103,7 +103,7 @@ export const ButtonItem = styled.button`
   box-shadow: 5px 5px 10px #888888;
 
   &:hover {
-    background: #f53677;
+    background: ${COLORS.secondary};
   }
 
   @media (max-width: 768px) {

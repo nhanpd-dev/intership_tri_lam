@@ -186,6 +186,6 @@ export const Button = styled.button`
   }
 
   &:hover {
-    background: #f53677;
+    background: ${COLORS.secondary};
   }
 `;

@@ -1,8 +1,9 @@
-import { Carousel, Row } from 'antd';
 import React from 'react';
+import { Carousel, Row } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 import { Dashboard } from './styled.js';
-import ListItem from './component.listItem.js';
+import ListItem from './SlideItem.js';
 import {
   IMG_DIEN_TU,
   IMG_NHA_CUA,
@@ -10,8 +11,7 @@ import {
   IMG_THIT_RAU_CU,
   IMG_THOI_TRANG,
   IMG_ME_VA_BE,
-} from '../../assets/imgs/dasboard/index';
-import { useTranslation } from 'react-i18next';
+} from '../../../assets/imgs/dasboard/index';
 
 function DashboardLayout() {
   const { t } = useTranslation(['']);

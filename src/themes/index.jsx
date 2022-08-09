@@ -115,7 +115,7 @@ body {
         background: #1980ff;
 
         &:hover {
-          background: ${COLORS.seconary};
+          background: ${COLORS.secondary};
         }
       }
     }

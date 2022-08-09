@@ -1,25 +1,30 @@
-import { useRoutes } from 'react-router-dom';
-import { useAuthStore } from '../hooks/useAuth';
-import publicRoute from './PublicNavigator';
-import privateRoute from './PrivateNavigator';
+import { useSelector } from 'react-redux';
+import { useMemo, useState } from 'react';
 import { getLocalStorage, STORAGE } from '../utils';
-import { useEffect } from 'react';
+import { makeSelectAuthenticated } from '../store/auth/selector';
+
+import PublicRouter from './PublicNavigator';
+import PrivateRouter from './PrivateNavigator';
+import ResolveNavigator from './ResolveNavigator';
 
 function AppRoutes() {
-  const { auth, getCurrentUser } = useAuthStore();
-  const privateRoutes = useRoutes(privateRoute);
-  const publicRoutes = useRoutes(publicRoute);
+  const [hasUser, setHasUser] = useState(useSelector(makeSelectAuthenticated()));
 
-  useEffect(() => {
-    const token = getLocalStorage(STORAGE.USER_TOKEN);
-    if (token) {
-      getCurrentUser();
+  const renderUI = useMemo(() => {
+    const isLogin = !!getLocalStorage(STORAGE.USER_TOKEN);
+
+    if (hasUser) {
+      return <PrivateRouter />;
     }
-  }, [getCurrentUser]);
 
-  if (auth) return privateRoutes;
-  else if (!getLocalStorage(STORAGE.USER_TOKEN)) return publicRoutes;
-  return <>Loading...</>;
+    if (isLogin) {
+      return <ResolveNavigator setHasUser={setHasUser} />;
+    }
+
+    return <PublicRouter />;
+  }, [hasUser]);
+
+  return <>{renderUI}</>;
 }
 
 export default AppRoutes;

@@ -1,10 +1,10 @@
-import { Col, Row } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 
 import { Footer } from './styled';
-import RowContent from '../../components/rowContent';
+import RowContent from '../../../components/rowContent';
 import {
   IMG_MOMO,
   IMG_ATM,
@@ -14,7 +14,7 @@ import {
   IMG_VISA,
   IMG_ZALOPAY,
   IMG_VNPAY,
-} from '../../assets/imgs/layout/index';
+} from '../../../assets/imgs/layout/index';
 
 function FooterLayout() {
   const { t } = useTranslation(['footer']);

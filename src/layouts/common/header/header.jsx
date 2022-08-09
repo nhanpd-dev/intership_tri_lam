@@ -1,11 +1,11 @@
-import { Button, Input, Row } from 'antd';
 import React from 'react';
+import { Button, Input, Row } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
 import { Header, Logo, Search } from './styled';
-import AuthLayout from '../auth.layout/auth.layout';
-import { IMG_FREESHIP, LOGO_TIKI } from '../../assets/imgs/layout/index';
+import AuthLayout from '../authCart/authCart';
+import { IMG_FREESHIP, LOGO_TIKI } from '../../../assets/imgs/layout/index';
 
 function HeaderLayout() {
   const { t } = useTranslation(['header', 'register']);

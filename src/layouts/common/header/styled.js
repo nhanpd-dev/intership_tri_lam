@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import COLORS from '../../themes/colors';
+import COLORS from '../../../themes/colors';
 
 export const Header = styled.div`
   .mt-20 {
@@ -64,7 +64,7 @@ export const Search = styled.div`
     border-radius: 0 16px 16px 0;
 
     &:hover {
-      background: #f53677;
+      background: ${COLORS.secondary};
     }
   }
 `;

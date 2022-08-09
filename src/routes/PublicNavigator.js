@@ -1,26 +1,9 @@
-import LoginScreen from '../modules/auth/login/login.screen';
-import RegisterScreen from '../modules/auth/register/register.screen';
-import DashboardScreen from '../modules/dashboard/dashboard.screen';
-import NotFoundScreen from '../modules/notFound/notFound.screen';
+import { useRoutes } from 'react-router-dom';
+import { publicRoute } from './Route';
 
-const publicRoute = [
-  {
-    path: '/',
-    element: <DashboardScreen />,
-    children: [
-      {
-        path: '*',
-        element: <NotFoundScreen />,
-      },
-    ],
-  },
-  {
-    path: '/login',
-    element: <LoginScreen />,
-  },
-  {
-    path: '/register',
-    element: <RegisterScreen />,
-  },
-];
-export default publicRoute;
+const PublicRouter = () => {
+  const publicRoutes = useRoutes(publicRoute);
+
+  return <>{publicRoutes}</>;
+};
+export default PublicRouter;
