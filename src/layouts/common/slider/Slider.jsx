@@ -1,5 +1,6 @@
-import { Carousel, Row } from 'antd';
 import React from 'react';
+import { Carousel, Row } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 import { Dashboard } from './styled.js';
 import ListItem from './SlideItem.js';
@@ -11,7 +12,6 @@ import {
   IMG_THOI_TRANG,
   IMG_ME_VA_BE,
 } from '../../../assets/imgs/dasboard/index';
-import { useTranslation } from 'react-i18next';
 
 function DashboardLayout() {
   const { t } = useTranslation(['']);

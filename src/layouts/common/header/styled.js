@@ -64,7 +64,7 @@ export const Search = styled.div`
     border-radius: 0 16px 16px 0;
 
     &:hover {
-      background: #f53677;
+      background: ${COLORS.secondary};
     }
   }
 `;
