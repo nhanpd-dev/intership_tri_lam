@@ -7,8 +7,10 @@ const rotate = keyframes`
 
 export const AuthAndCart = styled.div`
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   color: #ffffff;
+  margin-right: 35px;
 
   .auth {
     align-items: center;
@@ -85,19 +87,24 @@ export const AuthAndCart = styled.div`
       .cart_quantily {
         background-color: #fdd835;
         border-radius: 50%;
-        right: 15px;
-        top: -2px;
-        display: flex;
+        right: -11px;
+        font-weight: 700;
+        top: -19px;
         width: 21px;
+        color: #000;
+        display: flex;
         position: absolute;
         justify-content: center;
-        color: #242424;
-        font-weight: 700;
       }
 
       .title_cart {
         font-size: 11px;
+        position: absolute;
       }
     }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `;

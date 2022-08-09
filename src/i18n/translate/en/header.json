@@ -8,5 +8,8 @@
   "cart": "Cart",
   "sign_in": "Sign in",
   "sign_out": "Sign out",
-  "title_input_search_header": "Find the desired product, category or brand..."
+  "title_input_search_header": "Find the desired product, category or brand...",
+  "category": "Category",
+  "chat": "Chat",
+  "personal": "Personal"
 }

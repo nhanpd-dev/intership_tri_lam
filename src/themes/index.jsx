@@ -57,6 +57,10 @@ p {
   margin: 0;
 }
 
+a { 
+  color: #000;
+}
+
 body {
   font-family: 'Poppins', system-ui, -apple-system, 
   "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", 
