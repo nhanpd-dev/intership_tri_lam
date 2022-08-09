@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useSelector } from 'react-redux';
 import { useMemo, useState } from 'react';
 import { getLocalStorage, STORAGE } from '../utils';

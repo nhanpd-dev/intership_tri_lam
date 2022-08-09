@@ -27,7 +27,6 @@ export const useAuthStore = () => {
   };
 
   const loginUser = (data, callbackSuccess, callbackFail) => {
-    console.log('goi me');
     dispatch(loginRequest(data, callbackSuccess, callbackFail));
   };
 

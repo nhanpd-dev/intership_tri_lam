@@ -8,7 +8,6 @@ import { getLocalStorage, STORAGE } from '../utils';
 function ResolveNavigator({ setHasUser }) {
   const { getCurrentUser } = useAuthStore();
   const location = useLocation();
-
   useEffect(() => {
     const token = !!getLocalStorage(STORAGE.USER_TOKEN);
     if (token) {
@@ -16,7 +15,6 @@ function ResolveNavigator({ setHasUser }) {
       setHasUser(true);
     }
   }, [location]);
-
   return <>Loading....</>;
 }
 
