@@ -15,9 +15,12 @@ function AppRoutes() {
 
     if (hasUser) {
       return <PrivateRouter />;
-    } else if (isLogin) {
+    }
+
+    if (isLogin) {
       return <ResolveNavigator setHasUser={setHasUser} />;
     }
+
     return <PublicRouter />;
   }, [hasUser]);
 
