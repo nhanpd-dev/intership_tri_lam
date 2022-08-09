@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import { Header, Search } from './styled';
-import AuthLayout from '../authCart/authCart';
+import UserLayout from '../user/user';
 import Navbar from './component.navbar';
 import { IMG_FREESHIP, LOGO_TIKI } from '../../../assets/imgs/layout/index';
 
@@ -42,7 +42,7 @@ function HeaderLayout() {
 
             {/* AuthCart */}
             <Col md={7}>
-              <AuthLayout />
+              <UserLayout />
             </Col>
           </Row>
         </Col>

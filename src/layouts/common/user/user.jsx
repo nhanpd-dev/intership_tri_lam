@@ -8,7 +8,6 @@ import {
   CaretUpOutlined,
   LikeOutlined,
   LogoutOutlined,
-  ShoppingCartOutlined,
   ShoppingOutlined,
   UserOutlined,
 } from '@ant-design/icons';
@@ -16,9 +15,10 @@ import { useTranslation } from 'react-i18next';
 
 import RowContent from '../../../components/rowContent';
 import { AuthAndCart } from './styled';
+import CartLayout from '../cart/Cart';
 import { useAuthStore } from '../../../hooks/useAuth';
 
-function AuthLayout() {
+function UserLayout() {
   const { t } = useTranslation(['header', 'register']);
 
   const { auth } = useAuthStore();
@@ -74,18 +74,10 @@ function AuthLayout() {
             </Row>
           </Col>
         )}
+        <CartLayout />
       </Col>
-      <Link to='/' className='cart'>
-        <Col className='cart_items'>
-          <ShoppingCartOutlined />
-          <Col>
-            <div className='title_cart cart_quantily'>0</div>
-            <p className='title_cart mt-20'>{t('cart')}</p>
-          </Col>
-        </Col>
-      </Link>
     </AuthAndCart>
   );
 }
 
-export default AuthLayout;
+export default UserLayout;
