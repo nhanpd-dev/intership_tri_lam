@@ -14,9 +14,9 @@ import {
 } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
-import RowContent from '../../components/rowContent';
+import RowContent from '../../../components/rowContent';
 import { AuthAndCart } from './styled';
-import { useAuthStore } from '../../hooks/useAuth';
+import { useAuthStore } from '../../../hooks/useAuth';
 
 function AuthLayout() {
   const { t } = useTranslation(['header', 'register']);

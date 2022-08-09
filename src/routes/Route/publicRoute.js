@@ -1,13 +1,22 @@
 import LoginScreen from '../../modules/auth/login/login.screen';
 import RegisterScreen from '../../modules/auth/register/register.screen';
-import DashboardScreen from '../../modules/dashboard/dashboard.screen';
+import DashboardScreen from '../../layouts/dashboard.layout';
+import HomeModule from '../../modules/home/Home.module';
 import NotFoundScreen from '../../modules/notFound/notFound.screen';
+import ProductsModule from '../../modules/products/Product.module';
 
 const publicRoute = [
   {
-    path: '/',
     element: <DashboardScreen />,
     children: [
+      {
+        path: '/',
+        element: <HomeModule />,
+      },
+      {
+        path: '/products',
+        element: <ProductsModule />,
+      },
       {
         path: '*',
         element: <NotFoundScreen />,

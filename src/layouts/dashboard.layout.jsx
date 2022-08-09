@@ -1,9 +1,9 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import HeaderLayout from '../../layouts/header/header.layout';
-import DashboardLayout from '../../layouts/dashboard.layout/dashboard.layout';
-import FooterLayout from '../../layouts/footer/footer.layout';
+import HeaderLayout from './common/header/header';
+import Slider from './common/slider/Slider';
+import FooterLayout from './common/footer/footer';
 
 function DashboardScreen() {
   const location = useLocation();
@@ -11,7 +11,7 @@ function DashboardScreen() {
   return (
     <>
       <HeaderLayout />
-      {location.pathname === '/' && <DashboardLayout />}
+      {/* {location.pathname === '/' && <DashboardLayout />} */}
       <Outlet />
       <FooterLayout />
     </>

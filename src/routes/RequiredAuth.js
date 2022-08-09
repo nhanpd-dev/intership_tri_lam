@@ -7,6 +7,7 @@ const RequiredAuth = ({ children }) => {
   if (!auth) {
     return <Navigate to='/login' replace />;
   }
+
   return children;
 };
 

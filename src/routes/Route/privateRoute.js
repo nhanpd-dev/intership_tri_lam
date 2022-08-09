@@ -1,10 +1,8 @@
-import DashboardScreen from '../../modules/dashboard/dashboard.screen';
+import DashboardScreen from '../../layouts/dashboard.layout';
 import NotFoundScreen from '../../modules/notFound/notFound.screen';
 import Profile from '../../modules/profile/Profile';
-
 const privateRoute = [
   {
-    path: '/',
     element: <DashboardScreen />,
     children: [
       {
@@ -16,10 +14,6 @@ const privateRoute = [
         element: <NotFoundScreen />,
       },
     ],
-  },
-  {
-    path: '*',
-    element: <NotFoundScreen />,
   },
 ];
 

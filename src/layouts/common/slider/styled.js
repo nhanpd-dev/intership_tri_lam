@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import COLORS from '../../themes/colors';
+import COLORS from '../../../themes/colors';
 
 export const Dashboard = styled.div`
   width: 100%;

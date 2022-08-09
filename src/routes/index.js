@@ -11,6 +11,7 @@ function AppRoutes() {
   const [hasUser, setHasUser] = useState(useSelector(makeSelectAuthenticated()));
   const renderUI = useMemo(() => {
     const isLogin = !!getLocalStorage(STORAGE.USER_TOKEN);
+
     if (hasUser) {
       return <PrivateRouter />;
     } else if (isLogin) {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import COLORS from '../../themes/colors';
+import COLORS from '../../../themes/colors';
 
 export const Footer = styled.div`
   widht: 100%;
