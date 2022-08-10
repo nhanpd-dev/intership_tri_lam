@@ -14,11 +14,6 @@ export const Slider = styled.div`
     margin: -5px 5px -5px;
   }
 
-  .alice-carousel__prev-btn,
-  .alice-carousel__next-btn {
-    padding: 0px 5px;
-  }
-
   .slider {
     height: 100%;
     background: ${COLORS.background_primary};
