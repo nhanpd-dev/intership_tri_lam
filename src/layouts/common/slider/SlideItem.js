@@ -1,6 +1,6 @@
 import React from 'react';
-import { Col, Image, Row } from 'antd';
 import { Link } from 'react-router-dom';
+import { Col, Image, Row } from 'antd';
 
 function ListItem({ linkTo, imgItem, nameItem }) {
   return (

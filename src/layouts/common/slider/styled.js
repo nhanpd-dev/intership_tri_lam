@@ -11,7 +11,7 @@ export const Slider = styled.div`
   }
 
   .alice-carousel__dots {
-    margin: -5px 3px -7px;
+    margin: -5px 5px -5px;
   }
 
   .alice-carousel__prev-btn,

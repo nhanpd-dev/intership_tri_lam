@@ -1,5 +1,5 @@
-import { Col } from 'antd';
 import React from 'react';
+import { Col } from 'antd';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { useTranslation } from 'react-i18next';
