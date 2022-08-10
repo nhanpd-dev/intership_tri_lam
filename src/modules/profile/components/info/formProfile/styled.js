@@ -14,10 +14,10 @@ export const WrapperForm = styled.div`
     .flex-avatar {
       display: flex;
       justify-content: center;
+
       .avatar-view {
         width: 130px;
         height: 130px;
-        max-width: 100%;
         border-style: none;
         border-radius: 50%;
         object-fit: cover;

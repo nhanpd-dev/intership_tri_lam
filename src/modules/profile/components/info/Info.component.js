@@ -5,24 +5,25 @@ import FormProfile from './formProfile/FormProfile.component';
 import InfoAuth from './infoAuth/InfoAuth.component';
 import { WrapperInfo } from './styled';
 
-export default function Info() {
+export default function Info({ t }) {
   const { Title } = Typography;
+
   return (
     <WrapperInfo>
       <Row className='form-profile'>
         <Col md={15} sm={24} xs={24}>
           <Row>
             <Col span={24}>
-              <h3>Thông tin cá nhân</h3>
+              <Title level={5}>{t('personal_information')}</Title>
             </Col>
           </Row>
-          <FormProfile />
+          <FormProfile t={t} />
         </Col>
         <Col md={1} sm={0} xs={0}>
           <Divider type='vertical' className='divider' />
         </Col>
         <Col md={8} sm={24} xs={24}>
-          <InfoAuth />
+          <InfoAuth t={t} />
         </Col>
       </Row>
     </WrapperInfo>

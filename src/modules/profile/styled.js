@@ -4,7 +4,6 @@ import { FONTS_SIZE } from '../../themes/fonts';
 export const WrapperProfile = styled.div`
   margin-top: 20px;
   background: #f6f6fa;
-  font-size: 18px;
 
   @media (max-width: 1200px) {
     font-size: ${FONTS_SIZE.size_12};
@@ -17,7 +16,6 @@ export const WrapperProfile = styled.div`
   .avatar {
     width: 55px;
     height: 55px;
-    max-width: 100%;
     border-style: none;
     border-radius: 50%;
     object-fit: cover;
