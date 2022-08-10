@@ -29,7 +29,7 @@ export default function Profile() {
           <Row>
             <Title level={4}>{t('account_information')}</Title>
           </Row>
-          <Info t={t} />
+          <Info />
         </Col>
       </Row>
     </WrapperProfile>

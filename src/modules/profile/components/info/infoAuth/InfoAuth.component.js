@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Row, Col, Space, Button, Typography } from 'antd';
 
-export default function InfoAuth({ t }) {
+export default function InfoAuth() {
   const { Title, Text } = Typography;
+
+  const { t } = useTranslation(['profile', 'common']);
 
   return (
     <Space direction='vertical' size='large'>

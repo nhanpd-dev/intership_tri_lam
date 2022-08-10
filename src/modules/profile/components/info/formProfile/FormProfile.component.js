@@ -1,12 +1,15 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Row, Col, Space, DatePicker, Radio, Form, Button, Image, Input, Typography } from 'antd';
 
 import FiledInput from './fieldInput/FiledInput.component';
 import DefaultImg from '../../../../../assets/imgs/profile/defaultImg.png';
 import { WrapperForm } from './styled';
 
-export default function FormProfile({ t }) {
+export default function FormProfile() {
   const { Text } = Typography;
+
+  const { t } = useTranslation(['profile', 'common']);
 
   return (
     <WrapperForm>
