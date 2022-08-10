@@ -1,38 +1,68 @@
 import styled from 'styled-components';
 
 import COLORS from '../../../themes/colors';
+import MARGIN from '../../../themes/margin';
 
 export const Header = styled.div`
-  .mt-20 {
-    margin-top: 20px;
+  .mt-10 {
+    margin-top: ${MARGIN.margin_top_10};
   }
 
-  #header_layout {
-    width: 100%;
+  .layout_img-selector {
+    width: 50%;
+  }
+
+  .title_cart {
+    color: ${COLORS.background_primary};
+  }
+
+  .header_layout {
     height: 100px;
-    background-color: ${COLORS.primary};
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    background-color: ${COLORS.primary};
+
+    .header_layout-content {
+      align-items: center;
+
+      .header_layout-img {
+        .layout_img-selector {
+          width: 70px;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
   }
-`;
 
-export const Logo = styled.div`
+  .header_layout-nav {
+    height: 50px;
+    width: 100%;
+    background: ${COLORS.background_primary};
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border-top: 1px solid #d3d1d1;
+    align-items: center;
+    display: none;
 
-    .logo_tiki {
-      width: 60px;
-      height: 40px;
-      margin-bottom: 20px;
+    .layout_nav-icon,
+    .layout_nav-title {
+      justify-content: center;
+    }
 
-      .logo_tiki-img {
-        width: 100%;
-        height: 100%;
-      }
+    .layout_nav-icon {
+      font-size: 18px;
+    }
+  }
 
-      .logo_freeship-img {
-        width: 82px;
-        height: 12px;
-      }
+  @media (max-width: 768px) {
+    .header_layout-nav {
+      display: flex;
+    }
+
+    .layout_img-selector {
+      width: 80%;
     }
   }
 `;
