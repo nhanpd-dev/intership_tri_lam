@@ -45,6 +45,7 @@ export const Header = styled.div`
     border-top: 1px solid #d3d1d1;
     align-items: center;
     display: none;
+    z-index: 1;
 
     .layout_nav-icon,
     .layout_nav-title {

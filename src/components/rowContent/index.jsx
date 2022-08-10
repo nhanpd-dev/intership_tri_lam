@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 import { Content } from './styled';
 
-function RowContent({ t, linkTo, nameRow }) {
+function RowContent({ linkTo, nameRow }) {
   return (
     <Content>
       <Row>
         <Link to={linkTo} className='content_sub'>
-          {t(nameRow)}
+          {nameRow}
         </Link>
       </Row>
     </Content>
