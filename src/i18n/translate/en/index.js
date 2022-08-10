@@ -1,6 +1,7 @@
 import common from './common.json';
 import register from './register.json';
 import header from './header.json';
+import slider from './slider.json';
 import footer from './footer.json';
 import login from './login.json';
 
@@ -10,5 +11,6 @@ export default {
   register,
   login,
   header,
+  slider,
   footer,
 };

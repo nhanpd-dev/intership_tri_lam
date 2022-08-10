@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 
 function ListItem({ t, linkTo, imgItem, nameItem }) {
   return (
-    <Col className='slide_content'>
-      <Row className='slide_content-img'>
-        <Link to={linkTo}>
-          <img className='content_img-selection' src={imgItem} alt={t(nameItem)} />
-        </Link>
-      </Row>
-      <Link className='content_title' to={linkTo}>
-        <Row>{t(nameItem)}</Row>
+    <Col sm={4} xs={8}>
+      <Link to={linkTo} className='list_item-content item_content-img'>
+        <Row>
+          <img className='img_selector' src={imgItem} alt={t(nameItem)} />
+        </Row>
+      </Link>
+      <Link to='/' className='list_item-content item_content-title'>
+        {t(nameItem)}
       </Link>
     </Col>
   );

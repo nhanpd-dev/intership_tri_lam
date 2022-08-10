@@ -1,9 +1,11 @@
+import { Col, Row } from 'antd';
 import React from 'react';
-import { Carousel, Row } from 'antd';
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 import { useTranslation } from 'react-i18next';
 
-import { Dashboard } from './styled.js';
-import ListItem from './SlideItem.js';
+import { Slider } from './styled';
+import ListItem from './SlideItem';
 import {
   IMG_DIEN_TU,
   IMG_NHA_CUA,
@@ -13,39 +15,36 @@ import {
   IMG_ME_VA_BE,
 } from '../../../assets/imgs/dasboard/index';
 
-function DashboardLayout() {
-  const { t } = useTranslation(['']);
+function SliderLayout() {
+  const { t } = useTranslation(['slider']);
 
-  const onChange = (currentSlide) => {
-    console.log(currentSlide);
-  };
+  const items = [
+    // One row is 6 Item
+    <Row className='list_item'>
+      <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_THOAI} nameItem={'smartphone'} />
+      <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_TU} nameItem={'electronic'} />
+      <ListItem t={t} linkTo='/' imgItem={IMG_ME_VA_BE} nameItem={'mom_and_baby'} />
+      <ListItem t={t} linkTo='/' imgItem={IMG_NHA_CUA} nameItem={'house'} />
+      <ListItem t={t} linkTo='/' imgItem={IMG_THIT_RAU_CU} nameItem={'food'} />
+      <ListItem t={t} linkTo='/' imgItem={IMG_THOI_TRANG} nameItem={'fashion'} />
+    </Row>,
+    <Row className='list_item'>
+      <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_THOAI} nameItem={'smartphone'} />
+      <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_TU} nameItem={'electronic'} />
+      <ListItem t={t} linkTo='/' imgItem={IMG_ME_VA_BE} nameItem={'mom_and_baby'} />
+      <ListItem t={t} linkTo='/' imgItem={IMG_NHA_CUA} nameItem={'house'} />
+      <ListItem t={t} linkTo='/' imgItem={IMG_THIT_RAU_CU} nameItem={'food'} />
+      <ListItem t={t} linkTo='/' imgItem={IMG_THOI_TRANG} nameItem={'fashion'} />
+    </Row>,
+  ];
 
   return (
-    <Dashboard>
-      <Carousel afterChange={onChange} className='slide'>
-        <Row className='slide_serial'>
-          <Row className='slide_item'>
-            <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_THOAI} nameItem='Dien thoai' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_TU} nameItem='Dien tu' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_NHA_CUA} nameItem='Nha cua' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_THIT_RAU_CU} nameItem='Thit, Rau cu' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_THOI_TRANG} nameItem='Thoi trang' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_ME_VA_BE} nameItem='Me va Be' />
-          </Row>
-        </Row>
-        <Row className='slide_serial'>
-          <Row className='slide_item'>
-            <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_THOAI} nameItem='Dien thoai' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_TU} nameItem='Dien tu' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_NHA_CUA} nameItem='Nha cua' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_THIT_RAU_CU} nameItem='Thit, Rau cu' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_THOI_TRANG} nameItem='Thoi trang' />
-            <ListItem t={t} linkTo='/' imgItem={IMG_ME_VA_BE} nameItem='Me va Be' />
-          </Row>
-        </Row>
-      </Carousel>
-    </Dashboard>
+    <Slider>
+      <Col span={22} offset={1} className='slider'>
+        <AliceCarousel mouseTracking items={items} />
+      </Col>
+    </Slider>
   );
 }
 
-export default DashboardLayout;
+export default SliderLayout;
