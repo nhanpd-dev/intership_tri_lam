@@ -1,11 +1,12 @@
 import React from 'react';
-import { Row, Col, Divider } from 'antd';
+import { Row, Col, Divider, Typography } from 'antd';
 
 import FormProfile from './formProfile/FormProfile.component';
 import InfoAuth from './infoAuth/InfoAuth.component';
 import { WrapperInfo } from './styled';
 
 export default function Info() {
+  const { Title } = Typography;
   return (
     <WrapperInfo>
       <Row className='form-profile'>

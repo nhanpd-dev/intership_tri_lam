@@ -1,11 +1,13 @@
 import React from 'react';
-import { Row, Col, Image } from 'antd';
+import { Row, Col, Image, Typography } from 'antd';
 
 import Info from './components/info/Info.component';
 import DefaultImg from '../../assets/imgs/profile/defaultImg.png';
 import { WrapperProfile } from './styled';
 
 export default function Profile() {
+  const { Title } = Typography;
+
   return (
     <WrapperProfile>
       <Row>
@@ -15,14 +17,14 @@ export default function Profile() {
               <Image src={DefaultImg} alt='default img' className='avatar' />
             </Col>
             <Col span={24}>
-              <p>Tài khoản của</p>
-              <h4>Phan Hữu Minh Trí</h4>
+              <Title level={5}>Tài khoản của</Title>
+              <Title level={5}>Phan Hữu Minh Trí</Title>
             </Col>
           </Row>
         </Col>
         <Col span={16}>
           <Row>
-            <h2>Thông tin tài khoản</h2>
+            <Title level={4}>Thông tin tài khoản</Title>
           </Row>
           <Info />
         </Col>

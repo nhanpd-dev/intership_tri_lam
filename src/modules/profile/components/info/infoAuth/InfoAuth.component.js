@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col, Space, Button } from 'antd';
+
 export default function InfoAuth() {
   return (
     <Space direction='vertical' size='large'>

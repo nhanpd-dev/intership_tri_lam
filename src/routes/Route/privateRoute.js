@@ -1,5 +1,5 @@
 import DashboardScreen from '../../layouts/dashboard.layout';
-import Profile from '../../modules/profile/Profile';
+import Profile from '../../modules/profile/Profile.module';
 
 const privateRoute = [
   {
