@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Col, Input, Row } from 'antd';
+import { Button, Col, Image, Input, Row } from 'antd';
 import { AppstoreOutlined, CommentOutlined, HomeOutlined, SearchOutlined, UserOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -19,14 +19,14 @@ function HeaderLayout() {
           <Row className='header_layout-content'>
             {/* Logo */}
             <Col md={5} sm={4} xs={6}>
-              <Link to='/'>
-                <Row className='header_layout-img'>
-                  <img className='layout_img-selector' src={LOGO_TIKI} alt='Tiki' />
-                </Row>
-              </Link>
               <Row className='header_layout-img'>
-                <img className='layout_img-selector mt-10' src={IMG_FREESHIP} alt='Freeship' />
+                <Link to='#'>
+                  <Image preview={false} className='layout_img-selector' src={LOGO_TIKI} alt='Tiki' />
+                </Link>
               </Row>
+              <Link to='#'>
+                <Image preview={false} className='layout_img-selector' src={IMG_FREESHIP} alt='Tiki' />
+              </Link>
             </Col>
 
             {/* Search */}
@@ -53,16 +53,16 @@ function HeaderLayout() {
         <Col span={22} offset={1}>
           <Row>
             <Col span={6}>
-              <Navbar t={t} linkTo={'/'} icon={<HomeOutlined />} nameNav={'common:home'} />
+              <Navbar t={t} linkTo={'#'} icon={<HomeOutlined />} nameNav={'common:home'} />
             </Col>
             <Col span={6}>
-              <Navbar t={t} linkTo={'/'} icon={<AppstoreOutlined />} nameNav={'header:category'} />
+              <Navbar t={t} linkTo={'#'} icon={<AppstoreOutlined />} nameNav={'header:category'} />
             </Col>
             <Col span={6}>
-              <Navbar t={t} linkTo={'/'} icon={<CommentOutlined />} nameNav={'header:chat'} />
+              <Navbar t={t} linkTo={'#'} icon={<CommentOutlined />} nameNav={'header:chat'} />
             </Col>
             <Col span={6}>
-              <Navbar t={t} linkTo={'/'} icon={<UserOutlined />} nameNav={'header:personal'} />
+              <Navbar t={t} linkTo={'#'} icon={<UserOutlined />} nameNav={'header:personal'} />
             </Col>
           </Row>
         </Col>

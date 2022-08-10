@@ -18,7 +18,7 @@ import { AuthAndCart } from './styled';
 import CartLayout from '../cart/Cart';
 import { useAuthStore } from '../../../hooks/useAuth';
 
-function UserLayout() {
+function UserItem() {
   const { t } = useTranslation(['header', 'register']);
 
   const { auth } = useAuthStore();
@@ -38,19 +38,19 @@ function UserLayout() {
             <div className='user_infor'>
               <Row className='text_user-infor'>
                 <AuditOutlined className='icon_user-infor' />
-                <RowContent t={t} nameRow={'account_nformation'} linkTo='/' />
+                <RowContent t={t} nameRow={'account_nformation'} linkTo='#' />
               </Row>
               <Row className='text_user-infor'>
                 <AlertOutlined className='icon_user-infor' />
-                <RowContent t={t} nameRow={'my_notification'} linkTo='/' />
+                <RowContent t={t} nameRow={'my_notification'} linkTo='#' />
               </Row>
               <Row className='text_user-infor'>
                 <ShoppingOutlined className='icon_user-infor' />
-                <RowContent t={t} nameRow={'my_oder'} linkTo='/' />
+                <RowContent t={t} nameRow={'my_oder'} linkTo='#' />
               </Row>
               <Row className='text_user-infor'>
                 <LikeOutlined className='icon_user-infor' />
-                <RowContent t={t} nameRow={'review_products'} linkTo='/' />
+                <RowContent t={t} nameRow={'review_products'} linkTo='#' />
               </Row>
               <Row className='text_user-infor'>
                 <LogoutOutlined className='icon_user-infor' />
@@ -80,4 +80,4 @@ function UserLayout() {
   );
 }
 
-export default UserLayout;
+export default UserItem;

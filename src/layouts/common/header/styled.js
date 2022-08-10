@@ -7,8 +7,11 @@ export const Header = styled.div`
     margin-top: 10px;
   }
 
+  .layout_img-selector {
+    width: 50%;
+  }
+
   .header_layout {
-    width: 100%;
     height: 100px;
     display: flex;
     align-items: center;
@@ -29,10 +32,10 @@ export const Header = styled.div`
 
   .header_layout-nav {
     height: 50px;
+    width: 100%;
     background: ${COLORS.background_primary};
     position: fixed;
     bottom: 0;
-    left: 0;
     right: 0;
     border-top: 1px solid #d3d1d1;
     align-items: center;
@@ -51,6 +54,10 @@ export const Header = styled.div`
   @media (max-width: 768px) {
     .header_layout-nav {
       display: flex;
+    }
+
+    .layout_img-selector {
+      width: 80%;
     }
   }
 `;
