@@ -44,7 +44,7 @@ function FooterLayout() {
         <RowContent t={t} nameRow={'shipping_terms'} linkTo='/' />
       </Col>
 
-      <Col span={8} className='footer_col'>
+      <Col span={8} className='footer_col '>
         <h2 className='content_footer'>{t('payment_methods')}</h2>
         <img className='footer-img-pay' src={IMG_MOMO} alt='momo' />
         <img className='footer-img-pay' src={IMG_ATM} alt='atm' />

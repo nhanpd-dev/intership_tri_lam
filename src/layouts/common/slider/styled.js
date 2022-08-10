@@ -20,7 +20,8 @@ export const Slider = styled.div`
     background: ${COLORS.background_primary};
 
     .list_item {
-      margin-top: 10px;
+      max-width: 60%;
+      margin: 10px 0 0 40px;
 
       .list_item-content {
         display: flex;
@@ -44,11 +45,11 @@ export const Slider = styled.div`
             border: 2px solid #f53677;
           }
         }
-      }
 
-      .item_content-title {
-        &:hover {
-          color: ${COLORS.secondary};
+        .item_content-title {
+          &:hover {
+            color: ${COLORS.secondary};
+          }
         }
       }
     }
