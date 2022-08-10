@@ -1,4 +1,4 @@
-import { Col, Row } from 'antd';
+import { Col } from 'antd';
 import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
@@ -18,30 +18,31 @@ import {
 function SliderLayout() {
   const { t } = useTranslation(['slider']);
 
+  const responsive = {
+    0: { items: 2 },
+    568: { items: 4 },
+    1024: { items: 7 },
+  };
+
   const items = [
-    // One row is 6 Item
-    <Row className='list_item'>
-      <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_THOAI} nameItem={'smartphone'} />
-      <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_TU} nameItem={'electronic'} />
-      <ListItem t={t} linkTo='/' imgItem={IMG_ME_VA_BE} nameItem={'mom_and_baby'} />
-      <ListItem t={t} linkTo='/' imgItem={IMG_NHA_CUA} nameItem={'house'} />
-      <ListItem t={t} linkTo='/' imgItem={IMG_THIT_RAU_CU} nameItem={'food'} />
-      <ListItem t={t} linkTo='/' imgItem={IMG_THOI_TRANG} nameItem={'fashion'} />
-    </Row>,
-    <Row className='list_item'>
-      <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_THOAI} nameItem={'smartphone'} />
-      <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_TU} nameItem={'electronic'} />
-      <ListItem t={t} linkTo='/' imgItem={IMG_ME_VA_BE} nameItem={'mom_and_baby'} />
-      <ListItem t={t} linkTo='/' imgItem={IMG_NHA_CUA} nameItem={'house'} />
-      <ListItem t={t} linkTo='/' imgItem={IMG_THIT_RAU_CU} nameItem={'food'} />
-      <ListItem t={t} linkTo='/' imgItem={IMG_THOI_TRANG} nameItem={'fashion'} />
-    </Row>,
+    <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_THOAI} nameItem={'smartphone'} />,
+    <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_TU} nameItem={'electronic'} />,
+    <ListItem t={t} linkTo='/' imgItem={IMG_ME_VA_BE} nameItem={'mom_and_baby'} />,
+    <ListItem t={t} linkTo='/' imgItem={IMG_NHA_CUA} nameItem={'house'} />,
+    <ListItem t={t} linkTo='/' imgItem={IMG_THIT_RAU_CU} nameItem={'food'} />,
+    <ListItem t={t} linkTo='/' imgItem={IMG_THOI_TRANG} nameItem={'fashion'} />,
+    <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_THOAI} nameItem={'smartphone'} />,
+    <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_TU} nameItem={'electronic'} />,
+    <ListItem t={t} linkTo='/' imgItem={IMG_ME_VA_BE} nameItem={'mom_and_baby'} />,
+    <ListItem t={t} linkTo='/' imgItem={IMG_NHA_CUA} nameItem={'house'} />,
+    <ListItem t={t} linkTo='/' imgItem={IMG_THIT_RAU_CU} nameItem={'food'} />,
+    <ListItem t={t} linkTo='/' imgItem={IMG_THOI_TRANG} nameItem={'fashion'} />,
   ];
 
   return (
     <Slider>
       <Col span={22} offset={1} className='slider'>
-        <AliceCarousel mouseTracking items={items} />
+        <AliceCarousel mouseTracking items={items} paddingLeft={10} paddingRight={10} responsive={responsive} />
       </Col>
     </Slider>
   );
