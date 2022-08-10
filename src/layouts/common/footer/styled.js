@@ -48,6 +48,7 @@ export const Footer = styled.div`
 
   @media (max-width: 768px) {
     display: block;
+    padding-bottom: 50px;
 
     .footer_col {
       padding: 20px 50px;
