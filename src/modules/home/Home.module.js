@@ -1,7 +1,7 @@
 import React from 'react';
 
 const HomeModule = () => {
-  return <></>;
+  return <React.Fragment></React.Fragment>;
 };
 
 export default HomeModule;
