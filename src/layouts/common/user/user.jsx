@@ -30,7 +30,7 @@ function UserItem() {
           <UserOutlined className='icon_auth' />
         </Col>
         {auth ? (
-          <React.Fragment>
+          <>
             <Col className='register_login'>
               <Row>{t('account')}</Row>
               <Row>Le Quang Bao Lam</Row>
@@ -59,7 +59,7 @@ function UserItem() {
 
               <CaretUpOutlined className='icon_user-up' />
             </div>
-          </React.Fragment>
+          </>
         ) : (
           <Col className='register_login'>
             <Row>

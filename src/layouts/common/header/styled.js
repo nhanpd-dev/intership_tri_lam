@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 import COLORS from '../../../themes/colors';
+import MARGIN from '../../../themes/margin';
 
 export const Header = styled.div`
   .mt-10 {
-    margin-top: 10px;
+    margin-top: ${MARGIN.margin_top_10};
   }
 
   .layout_img-selector {
