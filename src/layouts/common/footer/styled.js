@@ -45,4 +45,18 @@ export const Footer = styled.div`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    display: block;
+
+    .footer_col {
+      padding: 20px 50px;
+      border-right: none;
+      max-width: 100%;
+    }
+
+    .border_right {
+      border-bottom: 1px solid #1890ff;
+    }
+  }
 `;
