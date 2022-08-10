@@ -6,6 +6,10 @@ export const Slider = styled.div`
   width: 100%;
   margin-top: 20px;
 
+  .ant-image {
+    height: 100%;
+  }
+
   .alice-carousel__dots {
     margin: -5px 3px -7px;
   }
@@ -20,7 +24,7 @@ export const Slider = styled.div`
     background: ${COLORS.background_primary};
 
     .list_item {
-      max-width: 60%;
+      max-width: 100%;
       margin: 10px 0 0 40px;
 
       .list_item-content {
@@ -45,11 +49,11 @@ export const Slider = styled.div`
             border: 2px solid #f53677;
           }
         }
+      }
 
-        .item_content-title {
-          &:hover {
-            color: ${COLORS.secondary};
-          }
+      .item_content-title {
+        &:hover {
+          color: #f53677;
         }
       }
     }

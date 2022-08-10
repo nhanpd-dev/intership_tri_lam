@@ -24,25 +24,42 @@ function SliderLayout() {
     1024: { items: 7 },
   };
 
-  const items = [
-    <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_THOAI} nameItem={'smartphone'} />,
-    <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_TU} nameItem={'electronic'} />,
-    <ListItem t={t} linkTo='/' imgItem={IMG_ME_VA_BE} nameItem={'mom_and_baby'} />,
-    <ListItem t={t} linkTo='/' imgItem={IMG_NHA_CUA} nameItem={'house'} />,
-    <ListItem t={t} linkTo='/' imgItem={IMG_THIT_RAU_CU} nameItem={'food'} />,
-    <ListItem t={t} linkTo='/' imgItem={IMG_THOI_TRANG} nameItem={'fashion'} />,
-    <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_THOAI} nameItem={'smartphone'} />,
-    <ListItem t={t} linkTo='/' imgItem={IMG_DIEN_TU} nameItem={'electronic'} />,
-    <ListItem t={t} linkTo='/' imgItem={IMG_ME_VA_BE} nameItem={'mom_and_baby'} />,
-    <ListItem t={t} linkTo='/' imgItem={IMG_NHA_CUA} nameItem={'house'} />,
-    <ListItem t={t} linkTo='/' imgItem={IMG_THIT_RAU_CU} nameItem={'food'} />,
-    <ListItem t={t} linkTo='/' imgItem={IMG_THOI_TRANG} nameItem={'fashion'} />,
+  const listItems = [
+    { linkTo: '#', imgItem: IMG_DIEN_THOAI, nameItem: t('smartphone') },
+    { linkTo: '#', imgItem: IMG_DIEN_TU, nameItem: t('electronic') },
+    { linkTo: '#', imgItem: IMG_ME_VA_BE, nameItem: t('mom_and_baby') },
+    { linkTo: '#', imgItem: IMG_NHA_CUA, nameItem: t('house') },
+    { linkTo: '#', imgItem: IMG_THIT_RAU_CU, nameItem: t('food') },
+    { linkTo: '#', imgItem: IMG_THOI_TRANG, nameItem: t('fashion') },
+    { linkTo: '#', imgItem: IMG_DIEN_THOAI, nameItem: t('smartphone') },
+    { linkTo: '#', imgItem: IMG_DIEN_TU, nameItem: t('electronic') },
+    { linkTo: '#', imgItem: IMG_ME_VA_BE, nameItem: t('mom_and_baby') },
+    { linkTo: '#', imgItem: IMG_NHA_CUA, nameItem: t('house') },
+    { linkTo: '#', imgItem: IMG_THIT_RAU_CU, nameItem: t('food') },
+    { linkTo: '#', imgItem: IMG_THOI_TRANG, nameItem: t('fashion') },
   ];
+
+  const renderListItems = () => {
+    const List = [];
+
+    listItems.forEach((item, index) =>
+      List.push(<ListItem key={index} linkTo={item.linkTo} imgItem={item.imgItem} nameItem={item.nameItem} />),
+    );
+
+    return List;
+  };
 
   return (
     <Slider>
       <Col span={22} offset={1} className='slider'>
-        <AliceCarousel mouseTracking items={items} paddingLeft={10} paddingRight={10} responsive={responsive} />
+        <AliceCarousel
+          disableButtonsControls
+          mouseTracking
+          items={renderListItems()}
+          paddingLeft={10}
+          paddingRight={10}
+          responsive={responsive}
+        />
       </Col>
     </Slider>
   );
