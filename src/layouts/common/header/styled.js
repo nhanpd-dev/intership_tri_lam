@@ -11,6 +11,10 @@ export const Header = styled.div`
     width: 50%;
   }
 
+  .title_cart {
+    color: ${COLORS.background_primary};
+  }
+
   .header_layout {
     height: 100px;
     display: flex;

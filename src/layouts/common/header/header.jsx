@@ -53,16 +53,16 @@ function HeaderLayout() {
         <Col span={22} offset={1}>
           <Row>
             <Col span={6}>
-              <Navbar t={t} linkTo={'#'} icon={<HomeOutlined />} nameNav={'common:home'} />
+              <Navbar t={t} linkTo={'#'} icon={<HomeOutlined />} title={'common:home'} />
             </Col>
             <Col span={6}>
-              <Navbar t={t} linkTo={'#'} icon={<AppstoreOutlined />} nameNav={'header:category'} />
+              <Navbar t={t} linkTo={'#'} icon={<AppstoreOutlined />} title={'header:category'} />
             </Col>
             <Col span={6}>
-              <Navbar t={t} linkTo={'#'} icon={<CommentOutlined />} nameNav={'header:chat'} />
+              <Navbar t={t} linkTo={'#'} icon={<CommentOutlined />} title={'header:chat'} />
             </Col>
             <Col span={6}>
-              <Navbar t={t} linkTo={'#'} icon={<UserOutlined />} nameNav={'header:personal'} />
+              <Navbar t={t} linkTo={'#'} icon={<UserOutlined />} title={'header:personal'} />
             </Col>
           </Row>
         </Col>

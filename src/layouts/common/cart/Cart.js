@@ -1,5 +1,5 @@
 import { ShoppingCartOutlined } from '@ant-design/icons';
-import { Col } from 'antd';
+import { Col, Typography } from 'antd';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -13,7 +13,7 @@ function CartLayout() {
         <ShoppingCartOutlined />
         <Col>
           <div className='title_cart cart_quantily'>0</div>
-          <p className='title_cart mt-20'>{t('cart')}</p>
+          <Typography className='title_cart'>{t('cart')}</Typography>
         </Col>
       </Col>
     </Link>
