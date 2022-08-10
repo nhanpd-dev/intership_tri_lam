@@ -3,6 +3,7 @@ import register from './register.json';
 import header from './header.json';
 import footer from './footer.json';
 import login from './login.json';
+import profile from './profile.json';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -11,4 +12,5 @@ export default {
   login,
   header,
   footer,
+  profile,
 };

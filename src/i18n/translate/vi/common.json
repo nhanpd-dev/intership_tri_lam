@@ -1,4 +1,11 @@
 {
   "name": "Tên",
-  "home": "Trang Chủ"
+  "home": "Trang Chủ",
+  "email": "Email",
+  "password": "Mật khẩu",
+  "gender": "Giới tính",
+  "male": "Nam",
+  "female": "Nữ",
+  "phone_number": "Số điện thoại",
+  "birth_date": "Ngày sinh"
 }
