@@ -8,5 +8,7 @@
   "male": "Male",
   "female": "Female",
   "phone_number": "Phone",
-  "birth_date": "Birth Date"
+  "birth_date": "Birth Date",
+  "sold": "Sold",
+  "currency": "$"
 }

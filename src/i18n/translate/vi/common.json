@@ -7,5 +7,7 @@
   "male": "Nam",
   "female": "Nữ",
   "phone_number": "Số điện thoại",
-  "birth_date": "Ngày sinh"
+  "birth_date": "Ngày sinh",
+  "sold": "Đã bán",
+  "currency": "đồng"
 }
