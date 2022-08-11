@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { FONTS_SIZE } from '../../../../../themes/fonts';
+import COLORS from '../../../../../themes/colors';
 
 export const WrapperForm = styled.div`
   .form {
@@ -24,13 +25,21 @@ export const WrapperForm = styled.div`
       }
     }
 
+    .icon {
+      margin-right: 2px;
+      color: ${COLORS.primary};
+    }
+
     .button-save {
       display: flex;
       justify-content: center;
     }
-
-    .space {
-      display: flex;
-    }
   }
+`;
+
+export const ValidationError = styled.div`
+  color: red;
+  width: 100%;
+  height: 25px;
+  margin-bottom: 5px;
 `;
