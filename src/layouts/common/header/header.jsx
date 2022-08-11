@@ -12,6 +12,27 @@ import { IMG_FREESHIP, LOGO_TIKI } from '../../../assets/imgs/layout/index';
 function HeaderLayout() {
   const { t } = useTranslation(['header', 'register', 'common']);
 
+  const navItems = [
+    { span: 6, linkTo: '#', icon: <HomeOutlined />, title: t('common:home') },
+    { span: 6, linkTo: '#', icon: <AppstoreOutlined />, title: t('header:category') },
+    { span: 6, linkTo: '#', icon: <CommentOutlined />, title: t('header:chat') },
+    { span: 6, linkTo: '#', icon: <UserOutlined />, title: t('header:personal') },
+  ];
+
+  const renderNavItems = () => {
+    const listNavItems = [];
+
+    navItems.forEach((item, index) =>
+      listNavItems.push(
+        <Col span={item.span}>
+          <Navbar key={index} linkTo={item.linkTo} icon={item.icon} title={item.title} />
+        </Col>,
+      ),
+    );
+
+    return listNavItems;
+  };
+
   return (
     <Header>
       <Row className='header_layout'>
@@ -51,20 +72,7 @@ function HeaderLayout() {
       {/* Nav */}
       <Row className='header_layout-nav'>
         <Col span={22} offset={1}>
-          <Row>
-            <Col span={6}>
-              <Navbar t={t} linkTo={'#'} icon={<HomeOutlined />} title={'common:home'} />
-            </Col>
-            <Col span={6}>
-              <Navbar t={t} linkTo={'#'} icon={<AppstoreOutlined />} title={'header:category'} />
-            </Col>
-            <Col span={6}>
-              <Navbar t={t} linkTo={'#'} icon={<CommentOutlined />} title={'header:chat'} />
-            </Col>
-            <Col span={6}>
-              <Navbar t={t} linkTo={'#'} icon={<UserOutlined />} title={'header:personal'} />
-            </Col>
-          </Row>
+          <Row>{renderNavItems()}</Row>
         </Col>
       </Row>
     </Header>
