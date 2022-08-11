@@ -14,3 +14,5 @@ export const FONTS_SIZE = {
   size_24: '24px',
   size_26: '26px',
 };
+
+export default FONTS_SIZE;

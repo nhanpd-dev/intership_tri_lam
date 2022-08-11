@@ -1,5 +1,17 @@
 {
   "my_cart": "Giỏ hàng của tôi",
-  "there_are_no_products_in_the_cart": "Không có sản phẩm nào trong giỏ hàng",
-  "continue_to_buy_products": "Tiếp tục mua sản phẩm"
+  "there_are_no_products_in_the_cart": "Không có gì trong giỏ hàng",
+  "continue_to_buy_products": "Tiếp tục mua sản phẩm",
+  "all_products": "Tất cả sản phẩm",
+  "unit_price": "Đơn giá",
+  "quantity": "Số lượng",
+  "into_money": "Thành tiền",
+  "buy_products": "Mua sản phẩm",
+  "delivered_to": "Giao tới",
+  "change": "Thay đổi",
+  "tiki_promotions": "Tiki Khuyến mãi",
+  "select_or_enter_another_promotion": "Chọn hoặc nhập mã khuyễn mãi khác",
+  "provisional": "Tạm tính",
+  "promotions": "Giảm giá",
+  "total_money": "Tổng tiền"
 }
