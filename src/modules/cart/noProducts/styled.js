@@ -20,8 +20,8 @@ export const NotProducts = styled.div`
       }
 
       .cart_content-button {
-        background-color: rgb(253, 216, 53);
-        color: rgb(74, 74, 74);
+        background-color: #fdd835;
+        color: #4a4a4a;
         font-weight: 500;
         padding: 0px 50px;
         display: inline-block;

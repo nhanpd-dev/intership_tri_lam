@@ -35,7 +35,7 @@ function HaveProducts() {
       <Col span={22} offset={1} className='cart'>
         <Row>
           <Col span={18}>
-            <Row className='name_field '>
+            <Row className='name_field'>
               <Col span={10}>
                 <Checkbox className='icon_check' />
                 {t('all_products')}
