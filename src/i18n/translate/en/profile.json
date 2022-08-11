@@ -7,5 +7,14 @@
   "setting_password": "Setting Password",
   "setting": "Setting",
   "other": "Other",
-  "save_change": "Save Change"
+  "save_change": "Save Change",
+  "email_is_required": "Email is a required field",
+  "email_invalid": "Email must be a valid email",
+  "email_must_50_char": "Email must be at most 50 characters",
+  "name_is_required": "Name is a required field",
+  "phone_must_be_number": "Phone must be a number",
+  "phone_is_required": "Phone is a required field",
+  "birthday_is_required": "Birth date is a required field",
+  "address_is_required": "Address is a required field",
+  "gender_is_required": "Gender is a required field"
 }

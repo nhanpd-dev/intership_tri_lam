@@ -6,6 +6,7 @@ export const WrapperInfo = styled.div`
     background: ${COLORS.background_primary};
     padding: 30px;
     border-radius: 8px;
+    margin-bottom: 20px;
 
     .divider {
       height: 100%;

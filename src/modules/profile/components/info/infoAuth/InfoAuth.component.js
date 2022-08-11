@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { LockOutlined } from '@ant-design/icons';
 import { Row, Col, Space, Button, Typography } from 'antd';
 
 export default function InfoAuth() {
@@ -11,7 +12,10 @@ export default function InfoAuth() {
     <Space direction='vertical' size='large'>
       <Row>
         <Col span={24}>
-          <Title level={5}>{t('security')}</Title>
+          <Title level={5}>
+            <LockOutlined />
+            {t('security')}
+          </Title>
         </Col>
       </Row>
 
@@ -19,8 +23,11 @@ export default function InfoAuth() {
         <Col md={17} sm={16} xs={16}>
           <Text>{t('setting_password')}</Text>
         </Col>
+
         <Col md={7} sm={8} xs={8}>
-          <Button size='small'>{t('setting')}</Button>
+          <Button size='medium' type='primary'>
+            {t('setting')}
+          </Button>
         </Col>
       </Row>
     </Space>

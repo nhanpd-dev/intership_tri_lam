@@ -14,22 +14,27 @@ export default function Profile() {
   return (
     <WrapperProfile>
       <Row>
-        <Col span={4} offset={2}>
-          <Row justify='center' align='middle'>
-            <Col span={24}>
-              <Image src={DefaultImg} preview={false} alt='default img' className='avatar' />
-            </Col>
-            <Col span={24}>
-              <Title level={5}>{t('account_for')}</Title>
-              <Text>Phan Hữu Minh Trí</Text>
-            </Col>
-          </Row>
-        </Col>
-        <Col span={16}>
+        <Col span={22} offset={1}>
           <Row>
-            <Title level={4}>{t('account_information')}</Title>
+            <Col md={4} sm={0} xs={0}>
+              <Row justify='center' align='middle'>
+                <Col span={24}>
+                  <Image src={DefaultImg} preview={false} alt='default img' className='avatar' />
+                </Col>
+                <Col span={24}>
+                  <Title level={5}>{t('account_for')}</Title>
+                  <Text>Phan Hữu Minh Trí</Text>
+                </Col>
+              </Row>
+            </Col>
+
+            <Col md={20} sm={24} xs={24}>
+              <Row>
+                <Title level={4}>{t('account_information')}</Title>
+              </Row>
+              <Info />
+            </Col>
           </Row>
-          <Info />
         </Col>
       </Row>
     </WrapperProfile>
