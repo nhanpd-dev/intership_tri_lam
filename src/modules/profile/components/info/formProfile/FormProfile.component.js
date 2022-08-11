@@ -110,7 +110,6 @@ export default function FormProfile() {
                 <Radio.Group className='radio-gender' {...field}>
                   <Radio value={t('common:male')}> {t('common:male')}</Radio>
                   <Radio value={t('common:female')}>{t('common:female')}</Radio>
-                  <Radio value={t('other')}>{t('other')}</Radio>
                 </Radio.Group>
               )}
             />
