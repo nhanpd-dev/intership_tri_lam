@@ -24,8 +24,8 @@ function HeaderLayout() {
 
     navItems.forEach((item, index) =>
       listNavItems.push(
-        <Col span={item.span}>
-          <Navbar key={index} linkTo={item.linkTo} icon={item.icon} title={item.title} />
+        <Col key={index} span={item.span}>
+          <Navbar linkTo={item.linkTo} icon={item.icon} title={item.title} />
         </Col>,
       ),
     );
