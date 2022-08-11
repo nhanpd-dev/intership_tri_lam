@@ -5,5 +5,13 @@
   "all_products": "All products",
   "unit_price": "Unit price",
   "quantity": "Quantity",
-  "into_money": "Into money"
+  "into_money": "Into money",
+  "buy_products": "Buy Products",
+  "delivered_to": "Delivered to",
+  "change": "Change",
+  "tiki_promotions": "Tiki Promotions",
+  "select_or_enter_another_promotion": "Select or enter another promotion",
+  "provisional": "Provisional",
+  "promotions": "Promotions",
+  "total_money": "Total money"
 }

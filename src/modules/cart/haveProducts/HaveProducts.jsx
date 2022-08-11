@@ -1,10 +1,13 @@
 import React from 'react';
-import { Checkbox, Col, Row } from 'antd';
+import { Button, Checkbox, Col, Row } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
-import { HadProducts } from './styled';
-import ListProducts from './component/ListProducts/ListProducts';
+import { HadProducts, Payment } from './styled';
+import ListProducts from './component/listProducts/ListProducts';
+import AddressShippingComp from './component/addressShipping/AddressShipping';
+import PromotionsComp from './component/promotions/Promotions';
+import ProvisionalCalculationComp from './component/provisionalCalculation/ProvisionalCalculation';
 import { IMG_IPAD, IMG_IPHONE, IMG_MACBOOK } from '../../../assets/imgs/Cart/index';
 
 function HaveProducts() {
@@ -34,8 +37,8 @@ function HaveProducts() {
     <HadProducts>
       <Col span={22} offset={1} className='cart'>
         <Row>
-          <Col span={18}>
-            <Row className='name_field'>
+          <Col span={17}>
+            <Row className='name_field navbar_cart'>
               <Col span={10}>
                 <Checkbox className='icon_check' />
                 {t('all_products')}
@@ -49,7 +52,19 @@ function HaveProducts() {
             </Row>
             {renderListProducts()}
           </Col>
-          <Col span={6}>ben phai</Col>
+
+          <Col span={7}>
+            <Payment>
+              <AddressShippingComp />
+              <PromotionsComp />
+              <ProvisionalCalculationComp />
+              <Row>
+                <Col span={24}>
+                  <Button type='primary'>{t('buy_products')}</Button>
+                </Col>
+              </Row>
+            </Payment>
+          </Col>
         </Row>
       </Col>
     </HadProducts>
