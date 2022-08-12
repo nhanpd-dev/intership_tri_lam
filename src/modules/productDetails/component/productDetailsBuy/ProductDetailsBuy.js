@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Row, Col, Select, Typography, Button, Image, Form, InputNumber } from 'antd';
@@ -5,7 +6,6 @@ import { useAuthStore } from '../../../../hooks/useAuth';
 import { SmileOutlined, EnvironmentOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import { ProductDetailsBuyWrap, Price, Promotion, FormBuy, Discount } from './styled';
 
-import { IMG_DIEN_THOAI, IMG_DIEN_TU } from '../../../../assets/imgs/dasboard/index';
 const { Title, Text, Link } = Typography;
 const { Option } = Select;
 
@@ -25,7 +25,7 @@ const formItemLayout = {
   },
 };
 
-const ProductDetailsBuy = () => {
+const ProductDetailsBuy = ({ thumbnail, listImg }) => {
   const [visible, setVisible] = useState(false);
   const { t } = useTranslation(['productDetails']);
   const onFinish = (values) => {
@@ -45,47 +45,48 @@ const ProductDetailsBuy = () => {
         <Col xs={24} sm={24} md={14} lg={14}>
           <div className='image-container'>
             <div className='main-image'>
-              <Image src={IMG_DIEN_THOAI} alt={t('Buy.image_product')} />
+              <Image src={thumbnail} alt={t('Buy.image_product')} />
             </div>
             <div className='rest-image'>
               <ul className='image-list'>
-                <li className='img-item'>
-                  <Image src={IMG_DIEN_TU} alt={t('Buy.image_product')} />
-                </li>
-                <li className='img-item'>
-                  <Image src={IMG_DIEN_TU} alt={t('Buy.image_product')} />
-                </li>
-                <li className='img-item'>
-                  <Image src={IMG_DIEN_TU} alt={t('Buy.image_product')} />
-                </li>
-                <li className='img-item'>
-                  <Image src={IMG_DIEN_TU} alt={t('Buy.image_product')} />
-                </li>
-                <li className='img-item'>
-                  <Image
-                    preview={{
-                      visible: false,
-                    }}
-                    src={IMG_DIEN_TU}
-                    onClick={() => setVisible(true)}
-                  />
-                  <div
-                    style={{
-                      display: 'none',
-                    }}
-                  >
-                    <Image.PreviewGroup
-                      preview={{
-                        visible,
-                        onVisibleChange: (vis) => setVisible(vis),
-                      }}
-                    >
-                      <Image src={IMG_DIEN_TU} alt={t('Buy.image_product')} />
-                      <Image src={IMG_DIEN_TU} alt={t('Buy.image_product')} />
-                      <Image src={IMG_DIEN_TU} alt={t('Buy.image_product')} />
-                    </Image.PreviewGroup>
-                  </div>
-                </li>
+                {
+                  listImg.map((img, index) => {
+                    return (
+                      <li key={index} className='img-item'>
+                        <Image src={img} alt={t('Buy.image_product')} />
+                      </li>
+                    );
+                  })
+                  // } else {
+                  //   return null;
+                  // <li className='img-item'>
+                  //   <Image
+                  //     preview={{
+                  //       visible: false,
+                  //     }}
+                  //     src={img7}
+                  //     onClick={() => setVisible(true)}
+                  //   />
+                  //   <div
+                  //     style={{
+                  //       display: 'none',
+                  //     }}
+                  //   >
+                  //     <Image.PreviewGroup
+                  //       preview={{
+                  //         visible,
+                  //         onVisibleChange: (vis) => setVisible(vis),
+                  //       }}
+                  //     >
+                  //       {listImg.map(img, (index) => {
+                  //         if (index > 7) {
+                  //           return <Image src={img} alt={t('Buy.image_product')} />;
+                  //         }
+                  //       })}
+                  //     </Image.PreviewGroup>
+                  //   </div>
+                  // </li>
+                }
               </ul>
             </div>
           </div>

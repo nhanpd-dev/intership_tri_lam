@@ -20,14 +20,14 @@ const ProductDetailsBuyWrap = styled.div`
     .rest-image {
       .image-list {
         display: flex;
+        justify-content: center;
         list-style-type: none;
         padding: 0;
         margin: 0;
 
         .img-item {
-          background-color: rgb(81, 209, 149);
           box-sizing: border-box;
-          width: 19%;
+          width: 10%;
           height: 100%;
           margin: 0 5px 0 5px;
           border-radius: 10px;

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import COLORS from '../../../../themes/colors';
 import { FONTS_SIZE } from '../../../../themes/fonts';
 const TitleWrap = styled.div`
   .category-text {
