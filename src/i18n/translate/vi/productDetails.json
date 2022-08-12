@@ -1,0 +1,30 @@
+{
+  "Title": {
+    "evaluate": "đánh giá",
+    "sold": "Đã bán",
+    "share": "Chia sẻ"
+  },
+  "Buy": {
+    "image_product": "ảnh sản phẩm",
+    "price": "Giá",
+    "promotion": "Khuyến mãi",
+    "promotion_period": "Giá và khuyến mãi dự kiến áp dụng đến",
+    "insert_code_SPPMWG": "Nhập mã SPPMWG giảm 10% tối đa 100.000đ khi thanh toán qua Ví ShopeePay",
+    "insert_code_MWG18": "Nhập mã MWG18 giảm 3% tối đa 100.000đ khi thanh toán quét QRcode qua App của ngân hàng",
+    "click_to_see_details": "click xem chi tiết",
+    "choose_a_delivery_address": " Chọn địa chỉ nhận hàng",
+    "please_choose_a_voucher": "Hãy chọn vocher",
+    "no_vouchers": "Không có vorcher",
+    "2_thousand_dong_discount": "Giảm giá 2 ngìn đồng",
+    "50_thousand_dong_discount": "Giảm giá 50 ngìn đồng",
+    "purchase": "Mua hàng",
+    "please_log_in": "Vui lòng đăng nhập",
+    "extra_offer": "ưu đãi thêm",
+    "expected_to_apply_to": "Dự kiến áp dụng đến",
+    "give_to_customers": "Tặng cho khách lần đầu mua hàng online tại web",
+    "buy_Fashion_Watches": "Mua Đồng hồ thời trang giảm 40% cho Đồng hồ dưới 3 triệu, giảm 30% cho Đồng hồ từ 3 triệu trở lên"
+  },
+  "Description": {
+    "describe": "Mô tả"
+  }
+}

@@ -6,6 +6,8 @@ import footer from './footer.json';
 import login from './login.json';
 import profile from './profile.json';
 import cart from './cart.json';
+import productDetails from './productDetails.json';
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   common,
@@ -16,4 +18,5 @@ export default {
   footer,
   profile,
   cart,
+  productDetails,
 };

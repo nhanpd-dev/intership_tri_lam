@@ -4,6 +4,7 @@ import DashboardScreen from '../../layouts/dashboard.layout';
 import HomeModule from '../../modules/home/Home.module';
 import NotFoundScreen from '../../modules/notFound/notFound.screen';
 import ProductsModule from '../../modules/products/Product.module';
+import ProductDetailsModule from '../../modules/productDetails/ProductDetails.module';
 
 const publicRoute = [
   {
@@ -16,6 +17,10 @@ const publicRoute = [
       {
         path: '/products',
         element: <ProductsModule />,
+      },
+      {
+        path: '/products-details',
+        element: <ProductDetailsModule />,
       },
       {
         path: '*',
