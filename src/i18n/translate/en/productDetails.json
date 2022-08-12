@@ -1,10 +1,10 @@
 {
-  "Title": {
+  "title": {
     "evaluate": "evaluate",
     "sold": "Sold",
     "share": "Share"
   },
-  "Buy": {
+  "buy": {
     "image_product": "image product",
     "price": "Price",
     "promotion": "Promotion",
@@ -25,7 +25,7 @@
     "purchase": "Purchase",
     "buy_Fashion_Watches": "Buy Fashion Watches 40% off for Watches under 3 million, 30% off for Watches of 3 million or more"
   },
-  "Description": {
+  "description": {
     "describe": "Describe"
   }
 }

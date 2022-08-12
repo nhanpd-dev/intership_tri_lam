@@ -1,10 +1,10 @@
 {
-  "Title": {
+  "title": {
     "evaluate": "đánh giá",
     "sold": "Đã bán",
     "share": "Chia sẻ"
   },
-  "Buy": {
+  "buy": {
     "image_product": "ảnh sản phẩm",
     "price": "Giá",
     "promotion": "Khuyến mãi",
@@ -24,7 +24,7 @@
     "give_to_customers": "Tặng cho khách lần đầu mua hàng online tại web",
     "buy_Fashion_Watches": "Mua Đồng hồ thời trang giảm 40% cho Đồng hồ dưới 3 triệu, giảm 30% cho Đồng hồ từ 3 triệu trở lên"
   },
-  "Description": {
+  "description": {
     "describe": "Mô tả"
   }
 }

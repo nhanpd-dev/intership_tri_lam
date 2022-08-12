@@ -1,8 +1,10 @@
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { Row, Col, Divider, Typography, Button } from 'antd';
 import { StarFilled } from '@ant-design/icons';
 import { TitleWrap, GroupStar } from './style';
-import React from 'react';
+
 const { Text } = Typography;
 
 const ProductDetailsTitle = ({ categoryId, nameProduct, numberOfSell }) => {
@@ -32,12 +34,12 @@ const ProductDetailsTitle = ({ categoryId, nameProduct, numberOfSell }) => {
 
           <div className='title-evaluate'>
             <Text className='title-evaluate-text'>
-              (128 {t('Title.evaluate')}) | {t('Title.sold')} {numberOfSell}
+              (128 {t('title.evaluate')}) | {t('title.sold')} {numberOfSell}
             </Text>
           </div>
 
           <Button type='primary' className='title-button'>
-            {t('Title.share')}
+            {t('title.share')}
           </Button>
         </Col>
 

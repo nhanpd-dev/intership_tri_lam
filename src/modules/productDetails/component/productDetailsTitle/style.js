@@ -1,10 +1,12 @@
 import styled from 'styled-components';
+
 import { FONTS_SIZE } from '../../../../themes/fonts';
+
 const TitleWrap = styled.div`
   .category-text {
     font-size: ${FONTS_SIZE.size_16};
     font-weight: 400;
-    color: #bcbcbc; //mau xam
+    color: #bcbcbc;
   }
 
   .title-cover {
@@ -45,7 +47,7 @@ const TitleWrap = styled.div`
 
 const GroupStar = styled.div`
   dispaly: block;
-  color: rgb(197, 137, 68); // mau sao chua set
+  color: rgb(197, 137, 68);
 
   @media (max-width: 739px) {
     margin-right: 15px;

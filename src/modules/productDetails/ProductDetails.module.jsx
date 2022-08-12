@@ -34,8 +34,15 @@ const ProductDetailsModule = () => {
         nameProduct={dataFake.name}
         numberOfSell={dataFake.numberOfSell}
       />
-      <ProductDetailsBuy thumbnail={dataFake.thumbnail} listImg={dataFake.images} />
-      <ProductDetailsDescription />
+      <ProductDetailsBuy
+        thumbnail={dataFake.thumbnail}
+        listImg={dataFake.images}
+        price={dataFake.price}
+        quantity={dataFake.quantity}
+        id={dataFake._id}
+        name={dataFake.name}
+      />
+      <ProductDetailsDescription description={dataFake.description} />
     </ProductDetailsWrapper>
   );
 };
