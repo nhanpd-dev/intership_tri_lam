@@ -26,6 +26,7 @@ const dataFake = {
   discount: 0,
   numberOfSell: 0,
 };
+
 const ProductDetailsModule = () => {
   return (
     <ProductDetailsWrapper>

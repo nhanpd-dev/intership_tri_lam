@@ -12,8 +12,6 @@ import { ProductDetailsBuyWrap, Price, Promotion, FormBuy } from './styled';
 const { Title, Text, Link } = Typography;
 const { Option } = Select;
 
-const { auth } = useAuthStore;
-
 const formItemLayout = {
   labelCol: {
     span: 6,
@@ -22,15 +20,16 @@ const formItemLayout = {
     span: 14,
   },
 };
-
-const getvouchers = (vouchers) => {
-  console.log('voucher', vouchers);
+let vouchers = null;
+const getvouchers = (vouchersData) => {
+  console.log(vouchersData);
+  vouchers = vouchersData.slice(-1);
 };
 
 const ProductDetailsBuy = ({ thumbnail, listImg, price, quantity, id, name }) => {
   const [visible, setVisible] = useState(false);
   const { t } = useTranslation(['productDetails']);
-
+  const { auth } = useAuthStore();
   const dataPromotion = [
     {
       content: `${t('buy.insert_code_SPPMWG')}`,
@@ -59,7 +58,7 @@ const ProductDetailsBuy = ({ thumbnail, listImg, price, quantity, id, name }) =>
       price,
       id,
       number: values,
-      vouchers: getvouchers,
+      vouchers,
     });
   };
 
