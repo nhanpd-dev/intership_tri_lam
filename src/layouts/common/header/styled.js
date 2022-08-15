@@ -16,9 +16,32 @@ export const Header = styled.div`
     color: ${COLORS.background_primary};
   }
 
+  .ant-input {
+    background-color: transparent;
+    box-shadow: none;
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    &:focus {
+      background-color: transparent;
+    }
+  }
+
+  input.ant-input.ant-input-lg {
+    padding-left: 3px;
+  }
+
+  .ant-input-search-button {
+    &:hover {
+      background-color: #f53677;
+      border: none;
+    }
+  }
+
   .header_layout {
     height: 100px;
-    display: flex;
     align-items: center;
     background-color: ${COLORS.primary};
 
@@ -28,7 +51,6 @@ export const Header = styled.div`
       .header_layout-img {
         .layout_img-selector {
           width: 70px;
-          height: 100%;
           object-fit: cover;
         }
       }
@@ -64,38 +86,6 @@ export const Header = styled.div`
 
     .layout_img-selector {
       width: 80%;
-    }
-  }
-`;
-
-export const Search = styled.div`
-  display: flex;
-  position: relative;
-
-  .search_input {
-    width: 620px;
-    height: 40px;
-    padding: 10px;
-    border: none;
-
-    &:focus,
-    &:hover {
-      box-shadow: 0 1px 2px #00000014, 0 0 0 0.15rem #e6d485f2;
-    }
-  }
-
-  .search_btn {
-    background-color: #0d5cb6;
-    width: 120px;
-    position: absolute;
-    height: 40px;
-    border: none;
-    right: 0px;
-    color: #ffffff;
-    border-radius: 0 16px 16px 0;
-
-    &:hover {
-      background: ${COLORS.secondary};
     }
   }
 `;

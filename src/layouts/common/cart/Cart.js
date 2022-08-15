@@ -8,7 +8,7 @@ function CartLayout() {
   const { t } = useTranslation(['header', 'register']);
 
   return (
-    <Link to='/' className='cart'>
+    <Link to='/cart' className='cart'>
       <Col className='cart_items'>
         <ShoppingCartOutlined />
         <Col>
