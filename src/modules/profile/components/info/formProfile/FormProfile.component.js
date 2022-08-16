@@ -52,7 +52,7 @@ export default function FormProfile() {
 
   return (
     <WrapperForm>
-      {currentUser && (
+      {currentUser ? (
         <Spin spinning={isLoading} delay={500}>
           <Form className='form' onFinish={handleSubmit(onSubmit)}>
             <Row justify='center' align='middle' gutter={24}>
@@ -178,7 +178,7 @@ export default function FormProfile() {
             </Row>
           </Form>
         </Spin>
-      )}
+      ) : null}
     </WrapperForm>
   );
 }

@@ -68,7 +68,7 @@ export const updateUserRequest = (payload, callbackSuccess, callbackFail) => ({
 });
 
 export const updateUserSuccess = (payload) => ({
-  type: Types.UPDATE_USER_SUCCCESS,
+  type: Types.UPDATE_USER_SUCCESS,
   payload: payload,
 });
 

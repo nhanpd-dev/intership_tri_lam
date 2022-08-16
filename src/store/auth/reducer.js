@@ -102,6 +102,6 @@ export default createReducer(initialState, {
   [Types.ORDER_FAIL]: orderFail,
 
   [Types.UPDATE_USER_REQUEST]: updateUserRequest,
-  [Types.UPDATE_USER_SUCCCESS]: updateUserSuccess,
+  [Types.UPDATE_USER_SUCCESS]: updateUserSuccess,
   [Types.UPDATE_USER_FAIL]: updateUserFail,
 });
