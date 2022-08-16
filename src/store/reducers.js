@@ -4,6 +4,7 @@
 
 import { combineReducers } from 'redux';
 import authStore from './auth/reducer';
+import productsStore from './products/reducer';
 
 //  export const history = createBrowserHistory()
 
@@ -14,6 +15,7 @@ import authStore from './auth/reducer';
 export default function createReducer(injectedReducers = {}) {
   const rootReducer = combineReducers({
     authStore,
+    productsStore,
     ...injectedReducers,
   });
 
