@@ -76,3 +76,8 @@ export const updateUserFail = (error) => ({
   type: Types.UPDATE_USER_FAIL,
   payload: error,
 });
+
+export const updateLoading = (payload) => ({
+  type: Types.UPDATE_LOADING,
+  payload,
+});

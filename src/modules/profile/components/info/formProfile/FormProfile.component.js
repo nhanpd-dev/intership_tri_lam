@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -9,9 +9,11 @@ import {
   CalendarOutlined,
   HeartOutlined,
   AuditOutlined,
+  EditOutlined,
 } from '@ant-design/icons';
 import { Row, Col, Radio, Form, Button, Image, Input, Typography, notification, Spin } from 'antd';
 
+import { upload } from '../../../../../config/firebase/firebase';
 import { useAuthStore } from '../../../../../hooks/useAuth';
 import { ProfileSchema } from '../../../schema/Schema';
 import FiledInput from './fieldInput/FiledInput.component';
@@ -23,7 +25,11 @@ export default function FormProfile() {
 
   const { t } = useTranslation(['profile', 'common']);
 
-  const { currentUser, isLoading, updateUser } = useAuthStore();
+  const { currentUser, isLoading, updateUser, updateAvatarLoading } = useAuthStore();
+
+  console.log('loading1', isLoading);
+
+  const inputRef = useRef(null);
 
   const {
     control,
@@ -50,6 +56,16 @@ export default function FormProfile() {
     });
   };
 
+  const handleChange = async (e) => {
+    await updateAvatarLoading(true);
+    await upload(e.target.files[0])
+      .then((res) => {
+        updateUser({ avatar: res }, updateSuccess, updateFail);
+      })
+      .catch()
+      .finally(() => updateAvatarLoading(false));
+  };
+
   return (
     <WrapperForm>
       {currentUser ? (
@@ -57,7 +73,23 @@ export default function FormProfile() {
           <Form className='form' onFinish={handleSubmit(onSubmit)}>
             <Row justify='center' align='middle' gutter={24}>
               <Col xl={6} sm={24} xs={24} className='flex-avatar'>
-                <Image src={DefaultImg} alt='default img' preview={false} className='avatar-view' />
+                <Image
+                  src={currentUser?.avatar ? currentUser.avatar : DefaultImg}
+                  alt='Avatar'
+                  className='avatar-view'
+                />
+                <EditOutlined
+                  onClick={() => {
+                    inputRef.current.click();
+                  }}
+                />
+                <input
+                  className='upload-file'
+                  ref={inputRef}
+                  type='file'
+                  onChange={handleChange}
+                  accept='image/gif, image/jpeg, image/png'
+                />
               </Col>
 
               <Col xl={18} sm={24} xs={24}>
