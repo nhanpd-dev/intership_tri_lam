@@ -20,17 +20,18 @@ export const Header = styled.div`
     background-color: transparent;
     box-shadow: none;
 
-    &:hover {
-      background-color: transparent;
-    }
-
+    &:hover,
     &:focus {
       background-color: transparent;
     }
   }
 
-  input.ant-input.ant-input-lg {
-    padding-left: 3px;
+  input {
+    .ant-input {
+      .ant-input-lg {
+        padding-left: 3px;
+      }
+    }
   }
 
   .ant-input-search-button {
