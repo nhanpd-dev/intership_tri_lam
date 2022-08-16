@@ -21,6 +21,14 @@ export const HadProducts = styled.div`
   .cart {
     .navbar_cart {
       margin-bottom: 10px;
+
+      @media only screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    .btn_buy {
+      justify-content: flex-end;
     }
 
     .name_field {
@@ -37,18 +45,24 @@ export const HadProducts = styled.div`
       .icon_delete {
         cursor: pointer;
       }
+    }
 
-      .list_products-content {
-        width: 100%;
-        align-items: center;
-        margin: 15px 0;
+    .list_products-content {
+      width: 100%;
+      align-items: center;
+      margin: 15px 0;
 
-        .red_color {
-          color: ${COLORS.red};
-        }
+      .red_color {
+        color: ${COLORS.red};
+      }
 
-        .selector_price {
-          font-weight: 500;
+      .selector_price {
+        font-weight: 500;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .unit_price {
+          display: none;
         }
       }
     }
@@ -67,5 +81,13 @@ export const Payment = styled.div`
       padding: 5px 15px;
       align-items: center;
     }
+
+    @media only screen and (max-width: 992px) {
+      margin-top: 10px;
+    }
+  }
+
+  @media only screen and (max-width: 992px) {
+    padding-left: 0px;
   }
 `;

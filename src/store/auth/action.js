@@ -7,7 +7,7 @@ export const registerRequest = (data, callback) => ({
 });
 
 export const registerSuccess = () => ({
-  type: Types.REGISTER_SUCCCESS,
+  type: Types.REGISTER_SUCCESS,
 });
 
 export const registerFail = (error) => ({
@@ -23,7 +23,7 @@ export const loginRequest = (payload, callbackSuccess, callbackFail) => ({
 });
 
 export const loginSuccess = (payload) => ({
-  type: Types.LOGIN_SUCCCESS,
+  type: Types.LOGIN_SUCCESS,
   payload: payload,
 });
 
@@ -37,11 +37,26 @@ export const getCurrentUserRequest = () => ({
 });
 
 export const getCurrentUserSuccess = (payload) => ({
-  type: Types.GET_CURRENT_USER_SUCCCESS,
+  type: Types.GET_CURRENT_USER_SUCCESS,
   payload: payload,
 });
 
 export const getCurrentUserFail = (error) => ({
   type: Types.GET_CURRENT_USER_FAIL,
+  payload: error,
+});
+
+export const orderRequest = (data, callback) => ({
+  type: Types.ORDER_REQUEST,
+  payload: data,
+  callback,
+});
+
+export const orderSuccess = () => ({
+  type: Types.ORDER_SUCCESS,
+});
+
+export const orderFail = (error) => ({
+  type: Types.ORDER_FAIL,
   payload: error,
 });

@@ -2,7 +2,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
 import * as Types from './constants';
-import { registerUser, loginUser, getCurrentUser } from '../../services/test';
+import { registerUser, loginUser, getCurrentUser, order } from '../../services/test';
 import {
   registerFail,
   registerSuccess,
@@ -10,6 +10,8 @@ import {
   loginFail,
   getCurrentUserFail,
   getCurrentUserSuccess,
+  orderSuccess,
+  orderFail,
 } from './action';
 import { setLocalStorage, STORAGE } from '../../utils';
 
@@ -51,8 +53,21 @@ export function* getCurrentUserSaga() {
   }
 }
 
+export function* orderSaga({ payload, callback }) {
+  try {
+    const response = yield call(order, payload);
+    if (response) {
+      yield put(orderSuccess());
+      callback();
+    }
+  } catch (error) {
+    yield put(orderFail(error.message));
+  }
+}
+
 export default function* globalSaga() {
   yield takeLatest(Types.REGISTER_REQUEST, registerSaga);
   yield takeLatest(Types.LOGIN_REQUEST, loginSaga);
   yield takeLatest(Types.GET_CURRENT_USER_REQUEST, getCurrentUserSaga);
+  yield takeLatest(Types.ORDER_REQUEST, orderSaga);
 }

@@ -16,4 +16,9 @@ async function getCurrentUser() {
   return axiosClient.get(ENDPOINTS.GETME);
 }
 
-export { registerUser, loginUser, getCurrentUser };
+async function order(data) {
+  const axiosClient = new AxiosClient();
+  return axiosClient.post(ENDPOINTS.ORDER, data);
+}
+
+export { registerUser, loginUser, getCurrentUser, order };
