@@ -21,27 +21,15 @@ export default function Profile() {
           <Row>
             <Col md={4} sm={0} xs={0}>
               <Row justify='center' align='middle'>
-                {isLoading ? (
-                  <Skeleton avatar paragraph={{ rows: 2 }}>
-                    <Col span={24}>
-                      <Image src={DefaultImg} preview={false} alt='default img' className='avatar' />
-                    </Col>
-                    <Col span={24}>
-                      <Title level={5}>{t('account_for')}</Title>
-                      <Text>{currentUser?.username}</Text>
-                    </Col>
-                  </Skeleton>
-                ) : (
-                  <>
-                    <Col span={24}>
-                      <Image src={DefaultImg} preview={false} alt='default img' className='avatar' />
-                    </Col>
-                    <Col span={24}>
-                      <Title level={5}>{t('account_for')}</Title>
-                      <Text>{currentUser?.username}</Text>
-                    </Col>
-                  </>
-                )}
+                <Skeleton avatar paragraph={{ rows: 2 }} loading={isLoading} active>
+                  <Col span={24}>
+                    <Image src={DefaultImg} preview={false} alt='default img' className='avatar' />
+                  </Col>
+                  <Col span={24}>
+                    <Title level={5}>{t('account_for')}</Title>
+                    <Text>{currentUser?.username}</Text>
+                  </Col>
+                </Skeleton>
               </Row>
             </Col>
 
