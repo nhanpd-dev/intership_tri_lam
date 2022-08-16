@@ -59,8 +59,9 @@ const Price = styled.div`
   }
 `;
 
-const Promotion = styled.ul`
+const Promotion = styled.div`
   list-style-type: none;
+  margin-top: 10px;
   padding: 0;
 
   .ant-list-bordered {

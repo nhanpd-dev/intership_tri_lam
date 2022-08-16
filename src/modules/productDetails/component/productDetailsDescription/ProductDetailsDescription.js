@@ -4,6 +4,7 @@ import DescriptionWrapper from './style';
 const { Title, Paragraph } = Typography;
 const ProductDetailsDescription = ({ description }) => {
   const { t } = useTranslation(['productDetails']);
+
   return (
     <DescriptionWrapper>
       <Row>

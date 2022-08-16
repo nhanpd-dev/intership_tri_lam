@@ -9,7 +9,7 @@ const dataFake = {
   description:
     'Cải tiến thiết kế độc đáo với xu hướng #layer từ những “đường cắt” chất liệu đan xen, lần đầu tiên có mặt tại gia đình Thợ Săn. Sở hữu công nghệ vượt trội chuẩn Hunter X, \' | - sẵn sàng cùng bạn khuấy động mùa hè sôi động:\n\nBộ đế LiteFlex và chất liệu IP "nhẹ như bay", chiều cao đế đạt tới 5cm, cùng độ đàn hồi tối ưu >40%​\n\nĐế lót kháng khuẩn với công nghệ 6 điểm massage lòng bàn chân êm ái cho cả ngày dài\n\nMũ quai vải dệt cải tiến tối đa co dãn và thoáng khí tối đa\n\nĐặc biệt, mũ quai nhiều lớp layers định hình và giữ form giày cực tốt cùng bạn “tung hoành" trên từng hành trình khám phá',
   price: 932000,
-  quantity: 200,
+  quantity: 10,
   trademarkId: null,
   categoryId: '62f4669ce45c50465d714939',
   thumbnail: 'https://salt.tikicdn.com/cache/400x400/ts/product/c9/b5/db/ec0116477e330664dfdb0e8e76811320.jpg.webp',
@@ -23,7 +23,7 @@ const dataFake = {
   createDate: '2022-08-11T02:19:42.445Z',
   updateDate: null,
   rate: 4,
-  discount: 0,
+  discount: 0.2,
   numberOfSell: 0,
 };
 
@@ -42,6 +42,7 @@ const ProductDetailsModule = () => {
         quantity={dataFake.quantity}
         id={dataFake._id}
         name={dataFake.name}
+        discount={dataFake.discount}
       />
       <ProductDetailsDescription description={dataFake.description} />
     </ProductDetailsWrapper>

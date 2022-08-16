@@ -5,5 +5,9 @@ const DiscountWrap = styled.div`
   border-radius: 5px;
   height: 30px;
   margin-bottom: 10px;
+
+  .discountWrap {
+    width: 100%;
+  }
 `;
 export default DiscountWrap;

@@ -47,7 +47,7 @@ const TitleWrap = styled.div`
 
 const GroupStar = styled.div`
   dispaly: block;
-  color: rgb(197, 137, 68);
+  color: #c58944;
 
   @media (max-width: 739px) {
     margin-right: 15px;
