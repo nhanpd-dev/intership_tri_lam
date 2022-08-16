@@ -68,6 +68,22 @@ const orderFail = (error) => ({
   error,
 });
 
+const updateUserRequest = (state) => ({
+  ...state,
+  isLoading: true,
+});
+
+const updateUserSuccess = (state, action) => ({
+  ...state,
+  isLoading: false,
+  currentUser: action.payload,
+});
+
+const updateUserFail = (state, action) => ({
+  ...state,
+  error: action.payload,
+});
+
 export default createReducer(initialState, {
   [Types.REGISTER_REQUEST]: registerRequest,
   [Types.REGISTER_SUCCESS]: registerSuccess,
@@ -84,4 +100,8 @@ export default createReducer(initialState, {
   [Types.ORDER_REQUEST]: orderRequest,
   [Types.ORDER_SUCCESS]: orderSuccess,
   [Types.ORDER_FAIL]: orderFail,
+
+  [Types.UPDATE_USER_REQUEST]: updateUserRequest,
+  [Types.UPDATE_USER_SUCCESS]: updateUserSuccess,
+  [Types.UPDATE_USER_FAIL]: updateUserFail,
 });

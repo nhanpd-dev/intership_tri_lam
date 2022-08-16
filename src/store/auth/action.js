@@ -58,5 +58,21 @@ export const orderSuccess = () => ({
 
 export const orderFail = (error) => ({
   type: Types.ORDER_FAIL,
+});
+
+export const updateUserRequest = (payload, callbackSuccess, callbackFail) => ({
+  type: Types.UPDATE_USER_REQUEST,
+  payload,
+  callbackSuccess,
+  callbackFail,
+});
+
+export const updateUserSuccess = (payload) => ({
+  type: Types.UPDATE_USER_SUCCESS,
+  payload: payload,
+});
+
+export const updateUserFail = (error) => ({
+  type: Types.UPDATE_USER_FAIL,
   payload: error,
 });

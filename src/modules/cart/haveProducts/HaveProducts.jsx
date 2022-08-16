@@ -5,7 +5,7 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
 import { HadProducts, Payment } from './styled';
-import ListProducts from './component/listProducts/ListProducts';
+import ListProducts from './component/ListProducts/ListProducts';
 import AddressShippingComp from './component/addressShipping/AddressShipping';
 import PromotionsComp from './component/promotions/Promotions';
 import ProvisionalCalculationComp from './component/provisionalCalculation/ProvisionalCalculation';

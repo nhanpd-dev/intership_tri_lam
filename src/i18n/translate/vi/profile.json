@@ -1,5 +1,5 @@
 {
-  "addrress": "Địa chỉ",
+  "address": "Địa chỉ",
   "account_for": "Tài khoản của",
   "account_information": "Thông tin tài khoản",
   "personal_information": "Thông tin cá nhân",
@@ -11,9 +11,17 @@
   "email_invalid": "Chưa đúng định dạng email",
   "email_must_50_char": "Email không được quá 50 kí tự",
   "name_is_required": "Tên không được trống",
+  "name_must_least_6_char": "Tên phải có nhiều hơn 6 kí tự",
+  "name_must_less_30_char": "Tên không được quá 30 kí tự",
   "phone_must_be_number": "Chưa đúng định dạng số điện thoại",
   "phone_is_required": "Số điện thoại không được trống",
+  "phone_must_least_9_char": "Số điện thoại phải có nhiều hơn 9 kí tự",
+  "phone_must_less_30_char": "Số điện thoại không được quá 30 kí tự",
   "birthday_is_required": "Ngày sinh không được trống",
   "address_is_required": "Địa chỉ không được trống",
-  "gender_is_required": "Giới tính không được trống"
+  "address_must_least_10_char": "Địa chỉ phải có nhiều hơn 10 kí tự",
+  "address_must_less_100_char": "Địa chỉ không được quá 100 kí tự",
+  "gender_is_required": "Giới tính không được trống",
+  "change_info_success": "Thay đổi thông tin thành công",
+  "change_info_fail": "Thay đổi thông tin thất bại"
 }

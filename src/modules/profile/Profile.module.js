@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Row, Col, Image, Typography } from 'antd';
+import { Row, Col, Image, Typography, Skeleton } from 'antd';
 
+import { useAuthStore } from '../../hooks/useAuth';
 import Info from './components/info/Info.component';
 import DefaultImg from '../../assets/imgs/profile/defaultImg.png';
 import { WrapperProfile } from './styled';
@@ -11,6 +12,8 @@ export default function Profile() {
 
   const { t } = useTranslation(['profile', 'common']);
 
+  const { currentUser, isLoading } = useAuthStore();
+
   return (
     <WrapperProfile>
       <Row>
@@ -18,13 +21,15 @@ export default function Profile() {
           <Row>
             <Col md={4} sm={0} xs={0}>
               <Row justify='center' align='middle'>
-                <Col span={24}>
-                  <Image src={DefaultImg} preview={false} alt='default img' className='avatar' />
-                </Col>
-                <Col span={24}>
-                  <Title level={5}>{t('account_for')}</Title>
-                  <Text>Phan Hữu Minh Trí</Text>
-                </Col>
+                <Skeleton avatar paragraph={{ rows: 2 }} loading={isLoading} active>
+                  <Col span={24}>
+                    <Image src={DefaultImg} preview={false} alt='default img' className='avatar' />
+                  </Col>
+                  <Col span={24}>
+                    <Title level={5}>{t('account_for')}</Title>
+                    <Text>{currentUser?.username}</Text>
+                  </Col>
+                </Skeleton>
               </Row>
             </Col>
 

@@ -21,4 +21,9 @@ async function order(data) {
   return axiosClient.post(ENDPOINTS.ORDER, data);
 }
 
-export { registerUser, loginUser, getCurrentUser, order };
+async function updateUser(data) {
+  const axiosClient = new AxiosClient();
+  return axiosClient.patch(ENDPOINTS.UPDATE_USER, data);
+}
+
+export { registerUser, loginUser, getCurrentUser, updateUser, order };
