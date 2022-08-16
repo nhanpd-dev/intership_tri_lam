@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useInjectReducer, useInjectSaga } from '../utils';
 import reducer from '../store/auth/reducer';
 import saga from '../store/auth/saga';
-import { registerRequest, loginRequest, getCurrentUserRequest, orderRequest } from '../store/auth/action';
+import { registerRequest, loginRequest, getCurrentUserRequest } from '../store/auth/action';
 import {
   makeSelectLoading,
   makeSelectError,
@@ -34,9 +34,5 @@ export const useAuthStore = () => {
     dispatch(getCurrentUserRequest());
   };
 
-  const order = (data, callback) => {
-    dispatch(orderRequest(data, callback));
-  };
-
-  return { registerUser, loginUser, getCurrentUser, order, isLoading, error, auth, currentUser };
+  return { registerUser, loginUser, getCurrentUser, isLoading, error, auth, currentUser };
 };

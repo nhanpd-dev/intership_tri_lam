@@ -4,9 +4,8 @@ import { Col, Row, Input, Typography } from 'antd';
 
 import { ValidationError } from '../styled';
 
-export default function FiledInput({ label, nameField, Controller, control, errors, Icon }) {
+export default function FiledInput({ label, nameField, Controller, control, errors, Icon, placeholder }) {
   const { t } = useTranslation(['profile', 'common']);
-
   const { Text } = Typography;
 
   return (
@@ -21,9 +20,15 @@ export default function FiledInput({ label, nameField, Controller, control, erro
       <Col xl={19} sm={24} xs={24}>
         <Controller
           name={nameField}
-          defaultValue=''
+          defaultValue={placeholder}
           control={control}
-          render={({ field }) => <Input size='large' type='text' {...field} />}
+          render={({ field }) =>
+            nameField === 'email' ? (
+              <Input size='large' type='text' disabled placeholder={placeholder} {...field} />
+            ) : (
+              <Input size='large' type='text' placeholder={placeholder} {...field} />
+            )
+          }
         />
       </Col>
 

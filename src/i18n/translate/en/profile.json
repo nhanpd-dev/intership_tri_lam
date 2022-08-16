@@ -9,11 +9,19 @@
   "save_change": "Save Change",
   "email_is_required": "Email is a required field",
   "email_invalid": "Email must be a valid email",
-  "email_must_50_char": "Email must be at most 50 characters",
+  "email_must_50_char": "Email must be less 50 characters",
   "name_is_required": "Name is a required field",
+  "name_must_least_6_char": "Name must be least 6 characters",
+  "name_must_less_30_char": "Name must be less 30 characters",
   "phone_must_be_number": "Phone must be a number",
   "phone_is_required": "Phone is a required field",
+  "phone_must_least_9_char": "Phone number must be least 9 characters",
+  "phone_must_less_30_char": "Phone number must be less 30 characters",
   "birthday_is_required": "Birth date is a required field",
   "address_is_required": "Address is a required field",
-  "gender_is_required": "Gender is a required field"
+  "address_must_least_10_char": "Address must be at least 10 characters",
+  "address_must_less_100_char": "Address must be at less 100 characters",
+  "gender_is_required": "Gender is a required field",
+  "change_info_success": "Change information success",
+  "change_info_fail": "Change information fail"
 }

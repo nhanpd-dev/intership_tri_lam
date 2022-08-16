@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Row, Col, Image, Typography } from 'antd';
 
+import { useAuthStore } from '../../hooks/useAuth';
 import Info from './components/info/Info.component';
 import DefaultImg from '../../assets/imgs/profile/defaultImg.png';
 import { WrapperProfile } from './styled';
@@ -10,6 +11,8 @@ export default function Profile() {
   const { Title, Text } = Typography;
 
   const { t } = useTranslation(['profile', 'common']);
+
+  const { currentUser } = useAuthStore();
 
   return (
     <WrapperProfile>
@@ -21,10 +24,14 @@ export default function Profile() {
                 <Col span={24}>
                   <Image src={DefaultImg} preview={false} alt='default img' className='avatar' />
                 </Col>
-                <Col span={24}>
-                  <Title level={5}>{t('account_for')}</Title>
-                  <Text>Phan Hữu Minh Trí</Text>
-                </Col>
+                {currentUser ? (
+                  <Col span={24}>
+                    <Title level={5}>{t('account_for')}</Title>
+                    <Text>{currentUser?.username}</Text>
+                  </Col>
+                ) : (
+                  <>Loading</>
+                )}
               </Row>
             </Col>
 
