@@ -10,7 +10,7 @@ import {
   HeartOutlined,
   AuditOutlined,
 } from '@ant-design/icons';
-import { Row, Col, Radio, Form, Button, Image, Input, Typography, notification, Skeleton } from 'antd';
+import { Row, Col, Radio, Form, Button, Image, Input, Typography, notification, Spin } from 'antd';
 
 import { useAuthStore } from '../../../../../hooks/useAuth';
 import { ProfileSchema } from '../../../schema/Schema';
@@ -53,7 +53,7 @@ export default function FormProfile() {
   return (
     <WrapperForm>
       {currentUser && (
-        <Skeleton avatar paragraph={{ rows: 6 }} loading={isLoading} active>
+        <Spin spinning={isLoading} delay={500}>
           <Form className='form' onFinish={handleSubmit(onSubmit)}>
             <Row justify='center' align='middle' gutter={24}>
               <Col xl={6} sm={24} xs={24} className='flex-avatar'>
@@ -177,7 +177,7 @@ export default function FormProfile() {
               </Col>
             </Row>
           </Form>
-        </Skeleton>
+        </Spin>
       )}
     </WrapperForm>
   );
