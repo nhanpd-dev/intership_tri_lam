@@ -70,18 +70,18 @@ const orderFail = (error) => ({
 
 export default createReducer(initialState, {
   [Types.REGISTER_REQUEST]: registerRequest,
-  [Types.REGISTER_SUCCCESS]: registerSuccess,
+  [Types.REGISTER_SUCCESS]: registerSuccess,
   [Types.REGISTER_FAIL]: registerFail,
 
   [Types.LOGIN_REQUEST]: loginRequest,
-  [Types.LOGIN_SUCCCESS]: loginSuccess,
+  [Types.LOGIN_SUCCESS]: loginSuccess,
   [Types.LOGIN_FAIL]: loginFail,
 
   [Types.GET_CURRENT_USER_REQUEST]: getCurrentUserRequest,
-  [Types.GET_CURRENT_USER_SUCCCESS]: getCurrentUserSuccess,
+  [Types.GET_CURRENT_USER_SUCCESS]: getCurrentUserSuccess,
   [Types.GET_CURRENT_USER_FAIL]: getCurrentUserFail,
 
   [Types.ORDER_REQUEST]: orderRequest,
-  [Types.ORDER_SUCCCESS]: orderSuccess,
+  [Types.ORDER_SUCCESS]: orderSuccess,
   [Types.ORDER_FAIL]: orderFail,
 });

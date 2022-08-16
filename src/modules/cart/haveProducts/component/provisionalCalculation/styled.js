@@ -13,6 +13,6 @@ export const ProvisionalCalculation = styled.div`
 
   .title_payment {
     font-weight: 300;
-    color: rgb(51, 51, 51);
+    color: #333333;
   }
 `;
