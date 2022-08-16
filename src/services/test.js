@@ -26,4 +26,10 @@ async function updateUser(data) {
   return axiosClient.patch(ENDPOINTS.UPDATE_USER, data);
 }
 
-export { registerUser, loginUser, getCurrentUser, updateUser, order };
+async function fetchProducts({ page, limit, search }) {
+  const axiosClient = new AxiosClient();
+
+  return axiosClient.get(`/products?page=${page}&limit=${limit}&search=${search}`);
+}
+
+export { registerUser, loginUser, getCurrentUser, updateUser, order, fetchProducts };

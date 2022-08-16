@@ -1,69 +1,55 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Image, Pagination } from 'antd';
-import { StarFilled } from '@ant-design/icons';
+import { Image, Pagination, Rate } from 'antd';
 
+import { useProductsListStore } from './useProductsList';
 import { Container, ProductItem, Products } from './styled';
-import { data } from './Products';
-
-const pageSize = 10;
 
 const ProductsModule = () => {
-  const [pagination, setPagination] = useState({
-    totalPage: data.length / pageSize,
-    current: 1,
-    minIndex: 0,
-  });
+  const { products, fetchProductsFunc, setParams, params } = useProductsListStore();
 
   const { t } = useTranslation(['common']);
 
-  const handlePaginationChange = (page) => {
-    setPagination({
-      ...pagination,
-      current: page,
-      minIndex: page * pageSize - pageSize,
-    });
+  const handlePaginationChange = async (page) => {
+    const newParams = { ...params, page };
+    await setParams(newParams);
+    await fetchProductsFunc(newParams);
   };
 
   return (
     <Container>
-      {data.length === 0 ? (
-        <div>Chưa có dữ liệu sản phẩm</div>
+      {!products.items.length ? (
+        <div>{t('no_data')}</div>
       ) : (
-        <>
-          <Products>
-            {data.slice(pagination.minIndex, pagination.minIndex + pageSize).map((product) => (
-              <ProductItem key={product.id}>
-                <div className='thumbnail'>
-                  <Image preview={false} className='thumbnail-img' src={product.avatar} alt='productImage' />
+        <Products>
+          {products.items.map((product) => (
+            <ProductItem key={product._id}>
+              <div className='thumbnail'>
+                <Image preview={false} className='thumbnail-img' src={product.thumbnail} alt='productImage' />
+              </div>
+              <div className='title'>{product.name}</div>
+              <div className='info'>
+                <div className='rating'>
+                  <Rate disabled defaultValue={product.rate} />
                 </div>
-                <div className='title'>{product.name}</div>
-                <div className='info'>
-                  <div className='rating'>
-                    <StarFilled />
-                    <StarFilled />
-                    <StarFilled />
-                    <StarFilled />
-                    <StarFilled />
-                  </div>
-                  <div className='sold'>
-                    {t('sold')} {product.sold}
-                  </div>
+                <div className='sold'>
+                  {t('sold')} {product.numberOfSell}
                 </div>
-                <div className='price'>
-                  {product.price} {t('currency')}
-                </div>
-              </ProductItem>
-            ))}
-          </Products>
-          <Pagination
-            pageSize={pageSize}
-            current={pagination.current}
-            onChange={handlePaginationChange}
-            total={data.length}
-          />
-        </>
+              </div>
+              <div className='price'>
+                {product.price} {t('currency')}
+              </div>
+            </ProductItem>
+          ))}
+        </Products>
       )}
+
+      <Pagination
+        onChange={handlePaginationChange}
+        total={products.total}
+        current={products.activePage}
+        pageSize={params.limit}
+      />
     </Container>
   );
 };

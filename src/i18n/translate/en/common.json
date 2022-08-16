@@ -10,5 +10,6 @@
   "phone_number": "Phone",
   "birth_date": "Birth Date",
   "sold": "Sold",
-  "currency": "$"
+  "currency": "$",
+  "no_data": "No data yet"
 }

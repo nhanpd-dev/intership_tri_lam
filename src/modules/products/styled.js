@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex: 100%;
   align-items: center;
   justify-content: center;
-  margin: 4px 0;
+  margin: 4px 4%;
   flex-direction: column;
   flex-wrap: wrap;
   background-color: #f5f5fa;
@@ -45,19 +45,25 @@ export const ProductItem = styled.div`
   }
 
   .thumbnail {
-    width: 100%;
-
     .ant-image {
-      width: 100%;
+      display: flex;
+      flex: 100%;
+
+      .ant-image-img {
+        object-fit: contain;
+      }
     }
   }
 
   .title {
-    font-size: 13px;
     margin: 0px 0px 4px;
-    line-height: 20px;
+    display: block;
     font-weight: 500;
-    white-space: nowrap;
+    display: -webkit-box;
+    max-width: 100%;
+    font-size: 14px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -72,16 +78,26 @@ export const ProductItem = styled.div`
 
     .rating {
       display: flex;
+      flex: 160%;
       padding-right: 6px;
       height: 100%;
-      gap: 4px;
-      color: #fdd836;
-      align-items: center;
       border-right: 1px solid #ccc;
 
       @media (max-width: 1023px) {
         border: none;
         width: 100%;
+      }
+
+      .ant-rate {
+        font-size: 16px;
+
+        .ant-rate-star {
+          cursor: pointer;
+        }
+
+        .ant-rate-star:not(:last-child) {
+          margin-right: 0;
+        }
       }
     }
 
