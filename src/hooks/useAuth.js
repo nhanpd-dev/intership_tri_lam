@@ -3,7 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useInjectReducer, useInjectSaga } from '../utils';
 import reducer from '../store/auth/reducer';
 import saga from '../store/auth/saga';
-import { registerRequest, loginRequest, getCurrentUserRequest, updateUserRequest } from '../store/auth/action';
+import {
+  registerRequest,
+  loginRequest,
+  getCurrentUserRequest,
+  updateUserRequest,
+  updateLoading,
+} from '../store/auth/action';
 import {
   makeSelectLoading,
   makeSelectError,
@@ -38,5 +44,19 @@ export const useAuthStore = () => {
     dispatch(updateUserRequest(data, callbackSuccess, callbackFail));
   };
 
-  return { registerUser, loginUser, getCurrentUser, isLoading, error, auth, currentUser, updateUser };
+  const updateAvatarLoading = (loading) => {
+    dispatch(updateLoading(loading));
+  };
+
+  return {
+    registerUser,
+    loginUser,
+    getCurrentUser,
+    isLoading,
+    error,
+    auth,
+    currentUser,
+    updateUser,
+    updateAvatarLoading,
+  };
 };

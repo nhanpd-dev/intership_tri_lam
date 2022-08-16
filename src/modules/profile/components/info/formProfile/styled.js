@@ -23,6 +23,9 @@ export const WrapperForm = styled.div`
         border-radius: 50%;
         object-fit: cover;
       }
+      .upload-file {
+        display: none;
+      }
     }
 
     .icon {

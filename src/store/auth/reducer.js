@@ -84,6 +84,11 @@ const updateUserFail = (state, action) => ({
   error: action.payload,
 });
 
+const updateAvatarLoading = (state, action) => ({
+  ...state,
+  isLoading: action.payload,
+});
+
 export default createReducer(initialState, {
   [Types.REGISTER_REQUEST]: registerRequest,
   [Types.REGISTER_SUCCESS]: registerSuccess,
@@ -104,4 +109,6 @@ export default createReducer(initialState, {
   [Types.UPDATE_USER_REQUEST]: updateUserRequest,
   [Types.UPDATE_USER_SUCCESS]: updateUserSuccess,
   [Types.UPDATE_USER_FAIL]: updateUserFail,
+
+  [Types.UPDATE_LOADING]: updateAvatarLoading,
 });

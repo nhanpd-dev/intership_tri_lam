@@ -23,7 +23,12 @@ export default function Profile() {
               <Row justify='center' align='middle'>
                 <Skeleton avatar paragraph={{ rows: 2 }} loading={isLoading} active>
                   <Col span={24}>
-                    <Image src={DefaultImg} preview={false} alt='default img' className='avatar' />
+                    <Image
+                      src={currentUser?.avatar ? currentUser.avatar : DefaultImg}
+                      preview={false}
+                      alt='Avatar'
+                      className='avatar'
+                    />
                   </Col>
                   <Col span={24}>
                     <Title level={5}>{t('account_for')}</Title>
