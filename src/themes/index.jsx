@@ -66,7 +66,7 @@ body {
   "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", 
   "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", 
   "Segoe UI Symbol", "Noto Color Emoji";
-  background-color: ${({ theme }) => theme.COLORS.white};
+  background-color: ${COLORS.background_third};
   min-height: 100vh;
   height: 100%;
   margin: 0;

@@ -1,16 +1,18 @@
 import React from 'react';
-import { Button, Col, Image, Input, Row } from 'antd';
-import { AppstoreOutlined, CommentOutlined, HomeOutlined, SearchOutlined, UserOutlined } from '@ant-design/icons';
+import { Col, Image, Input, Row } from 'antd';
+import { AppstoreOutlined, CommentOutlined, HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import { Header, Search } from './styled';
+import { Header } from './styled';
 import UserLayout from '../user/user';
 import Navbar from './component.navbar';
 import { IMG_FREESHIP, LOGO_TIKI } from '../../../assets/imgs/layout/index';
 
 function HeaderLayout() {
   const { t } = useTranslation(['header', 'register', 'common']);
+
+  const { Search } = Input;
 
   const navItems = [
     { span: 6, linkTo: '#', icon: <HomeOutlined />, title: t('common:home') },
@@ -41,7 +43,7 @@ function HeaderLayout() {
             {/* Logo */}
             <Col md={5} sm={4} xs={6}>
               <Row className='header_layout-img'>
-                <Link to='#'>
+                <Link to='/'>
                   <Image preview={false} className='layout_img-selector' src={LOGO_TIKI} alt='Tiki' />
                 </Link>
               </Row>
@@ -52,13 +54,7 @@ function HeaderLayout() {
 
             {/* Search */}
             <Col md={12} sm={20} xs={17}>
-              <Search className='search'>
-                <Input className='search_input' placeholder={t('title_input_search_header')} />
-                <Button className='search_btn'>
-                  <SearchOutlined />
-                  {t('search')}
-                </Button>
-              </Search>
+              <Search placeholder='input search text' allowClear enterButton='Search' size='large' />
             </Col>
 
             {/* AuthCart */}

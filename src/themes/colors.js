@@ -6,6 +6,7 @@ export const COLORS = {
 
   background_primary: '#ffffffe6',
   background_seconary: 'linear-gradient(225deg, #009fff, #ec2f4b)',
+  background_third: '#f6f6fa',
 };
 
 export default COLORS;

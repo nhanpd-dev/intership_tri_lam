@@ -7,7 +7,7 @@
   "password_must_16_char": "Password must be at most 16 characters",
   "email": "Email",
   "password": "Password",
-  "sign_in": "SIGN IN",
+  "sign_in": "Sign In",
   "dont_have_account": "Dont have account",
   "sign_up": "Sign Up",
   "login_success": "Login Success",

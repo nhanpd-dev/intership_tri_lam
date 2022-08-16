@@ -38,23 +38,23 @@ function UserItem() {
             <div className='user_infor'>
               <Row className='text_user-infor'>
                 <AuditOutlined className='icon_user-infor' />
-                <RowContent t={t} nameRow={'account_nformation'} linkTo='#' />
+                <RowContent nameRow={t('account_information')} linkTo='#' />
               </Row>
               <Row className='text_user-infor'>
                 <AlertOutlined className='icon_user-infor' />
-                <RowContent t={t} nameRow={'my_notification'} linkTo='#' />
+                <RowContent nameRow={t('my_notification')} linkTo='#' />
               </Row>
               <Row className='text_user-infor'>
                 <ShoppingOutlined className='icon_user-infor' />
-                <RowContent t={t} nameRow={'my_oder'} linkTo='#' />
+                <RowContent nameRow={t('my_oder')} linkTo='#' />
               </Row>
               <Row className='text_user-infor'>
                 <LikeOutlined className='icon_user-infor' />
-                <RowContent t={t} nameRow={'review_products'} linkTo='#' />
+                <RowContent nameRow={t('review_products')} linkTo='#' />
               </Row>
               <Row className='text_user-infor'>
                 <LogoutOutlined className='icon_user-infor' />
-                <RowContent t={t} nameRow={'sign_out'} linkTo='/login' />
+                <RowContent nameRow={t('sign_out')} linkTo='/login' />
               </Row>
 
               <CaretUpOutlined className='icon_user-up' />
@@ -74,8 +74,8 @@ function UserItem() {
             </Row>
           </Col>
         )}
-        <CartLayout />
       </Col>
+      <CartLayout />
     </AuthAndCart>
   );
 }
