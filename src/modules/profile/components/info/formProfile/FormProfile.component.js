@@ -27,6 +27,8 @@ export default function FormProfile() {
 
   const { currentUser, isLoading, updateUser, updateAvatarLoading } = useAuthStore();
 
+  console.log('loading1', isLoading);
+
   const inputRef = useRef(null);
 
   const {
@@ -54,12 +56,14 @@ export default function FormProfile() {
     });
   };
 
-  const handleChange = (e) => {
-    updateAvatarLoading(false);
-    upload(e.target.files[0]).then((res) => {
-      updateUser({ avatar: res }, updateSuccess, updateFail);
-    });
-    updateAvatarLoading(true);
+  const handleChange = async (e) => {
+    await updateAvatarLoading(true);
+    await upload(e.target.files[0])
+      .then((res) => {
+        updateUser({ avatar: res }, updateSuccess, updateFail);
+      })
+      .catch()
+      .finally(() => updateAvatarLoading(false));
   };
 
   return (
