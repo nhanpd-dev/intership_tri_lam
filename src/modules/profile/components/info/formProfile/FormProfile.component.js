@@ -24,7 +24,6 @@ export default function FormProfile() {
   const { t } = useTranslation(['profile', 'common']);
 
   const { currentUser, updateUser } = useAuthStore();
-  console.log('date');
 
   const {
     control,
