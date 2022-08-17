@@ -1,22 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Checkbox, Col, Image, InputNumber, Popconfirm, Row } from 'antd';
+import { Checkbox, Col, Image, InputNumber, Popconfirm, Row, Typography } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 
-function ListProducts({
-  img,
-  linkTo,
-  nameProducts,
-  price,
-  totalPrice,
-  setTotalPrice,
-  productId,
-  discount,
-  order,
-  setOrder,
-}) {
+function ListProducts({ img, linkTo, nameProducts, price, productId, discount, order, setOrder }) {
   const [intoMoney, setIntoMoney] = useState(price);
+
   const [quantity, setQuantity] = useState(1);
+
+  const { Text } = Typography;
 
   return (
     <Row className='list_products-content'>
@@ -24,13 +16,13 @@ function ListProducts({
         <Checkbox
           className='icon_check'
           onChange={(e) => {
-            if (e.target.checked) {
-              setTotalPrice((totalPrice = totalPrice + intoMoney));
-              setOrder([...order, { productId, price, discount, quantity }]);
+            let newOrders = [...order];
+            if (e.target.checked && !newOrders.includes(productId)) {
+              newOrders.push({ productId, price, quantity, discount });
             } else {
-              setTotalPrice((totalPrice = totalPrice - intoMoney));
-              setOrder([]);
+              newOrders = newOrders.filter((item) => item.productId !== productId);
             }
+            setOrder(newOrders);
           }}
         />
         <Image preview={false} src={img} alt='anh' />
@@ -38,6 +30,9 @@ function ListProducts({
       </Col>
       <Col md={4} className='selector_price unit_price'>
         {price}đ
+        <Row>
+          <Text type='danger'>-{discount * 100}%</Text>
+        </Row>
       </Col>
       <Col md={4} sm={4} xs={8}>
         <InputNumber

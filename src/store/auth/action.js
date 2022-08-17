@@ -60,6 +60,7 @@ export const orderSuccess = (payload) => ({
 
 export const orderFail = (error) => ({
   type: Types.ORDER_FAIL,
+  payload: error,
 });
 
 export const updateUserRequest = (payload, callbackSuccess, callbackFail) => ({

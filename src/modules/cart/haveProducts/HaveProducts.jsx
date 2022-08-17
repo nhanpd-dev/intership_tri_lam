@@ -10,6 +10,7 @@ import AddressShippingComp from './component/addressShipping/AddressShipping';
 import PromotionsComp from './component/promotions/promotions';
 import ProvisionalCalculationComp from './component/provisionalCalculation/ProvisionalCalculation';
 import { useAuthStore } from '../../../hooks/useAuth';
+import { useMemo } from 'react';
 
 function HaveProducts() {
   const { t } = useTranslation(['cart']);
@@ -20,6 +21,17 @@ function HaveProducts() {
 
   const { orderPost } = useAuthStore();
 
+  const total = useMemo(() => {
+    if (order.length) {
+      const x = order.reduce((acumulator, item) => {
+        return acumulator + item.price * item.quantity;
+      }, 0);
+
+      return x;
+    }
+    return 0;
+  }, [order]);
+
   const ListProductsInCart = [
     {
       productId: '62f6127b01901acef6c257f1',
@@ -29,6 +41,7 @@ function HaveProducts() {
       nameProducts: t('Combo 2 Thùng Bia Hà Nội'),
       price: 275000,
       quantity: 300,
+      isCheck: false,
     },
     {
       productId: '62f613f101901acef6c25806',
@@ -37,7 +50,8 @@ function HaveProducts() {
       linkTo: '#',
       nameProducts: t('Điện thoại Samsung Galaxy A13 (4GB/128GB)'),
       price: 5990000,
-      quantity: 300,
+      quantity: 0,
+      isCheck: false,
     },
   ];
 
@@ -58,6 +72,7 @@ function HaveProducts() {
             setTotalPrice={setTotalPrice}
             setOrder={setOrder}
             order={order}
+            isCheck={item.isCheck}
           />
         </Row>,
       );
@@ -74,7 +89,7 @@ function HaveProducts() {
 
   const postOrderFail = async () => {
     await notification.error({
-      message: 'Order Error',
+      message: 'Order Fail',
     });
   };
 
@@ -108,7 +123,7 @@ function HaveProducts() {
             <Payment>
               <AddressShippingComp />
               <PromotionsComp />
-              <ProvisionalCalculationComp totalPrice={totalPrice} setTotalPrice={setTotalPrice} />
+              <ProvisionalCalculationComp totalPrice={totalPrice} memoPrice={total} setTotalPrice={setTotalPrice} />
               <Row className='btn_buy'>
                 <Col lg={24}>
                   <Button type='primary' onClick={buyProducts}>

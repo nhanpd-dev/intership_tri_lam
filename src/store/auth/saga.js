@@ -60,12 +60,15 @@ export function* getCurrentUserSaga() {
 export function* orderSaga({ payload, callbackSuccess, callbackFail }) {
   try {
     const response = yield call(order, payload);
-    if (response) {
+    if (response.data.code === 200) {
       yield put(orderSuccess());
       callbackSuccess();
+    } else {
+      yield put(orderFail());
+      callbackFail();
     }
   } catch (error) {
-    yield put(orderFail(error.message));
+    yield put(orderFail(error));
     callbackFail();
   }
 }
