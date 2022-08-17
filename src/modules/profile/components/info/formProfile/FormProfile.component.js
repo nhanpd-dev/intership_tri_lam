@@ -27,8 +27,6 @@ export default function FormProfile() {
 
   const { currentUser, isLoading, updateUser, updateAvatarLoading } = useAuthStore();
 
-  console.log('loading1', isLoading);
-
   const inputRef = useRef(null);
 
   const {

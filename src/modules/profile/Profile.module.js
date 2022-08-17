@@ -1,17 +1,35 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Row, Col, Image, Typography, Skeleton } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import { Row, Col, Image, Typography, Skeleton, notification } from 'antd';
 
 import { useAuthStore } from '../../hooks/useAuth';
 import DefaultImg from '../../assets/imgs/profile/defaultImg.png';
 import { WrapperProfile } from './styled';
 
-export default function Profile({ Component }) {
+export default function Profile({ children }) {
   const { Title, Text } = Typography;
 
   const { t } = useTranslation(['profile', 'common']);
 
-  const { currentUser, isLoading } = useAuthStore();
+  const navigate = useNavigate();
+
+  const { currentUser, isLoading, isUpdatePasswordSuccess, isUpdatePasswordFail } = useAuthStore();
+
+  useEffect(() => {
+    if (isUpdatePasswordSuccess) {
+      notification.success({
+        message: t('change_pass_success'),
+      });
+      navigate('/account/profile');
+    }
+    if (isUpdatePasswordFail) {
+      notification.error({
+        message: t('change_pass_fail'),
+      });
+    }
+  }, [isUpdatePasswordSuccess, isUpdatePasswordFail]);
 
   return (
     <WrapperProfile>
@@ -41,7 +59,7 @@ export default function Profile({ Component }) {
               <Row>
                 <Title level={4}>{t('account_information')}</Title>
               </Row>
-              <Component />
+              {children}
             </Col>
           </Row>
         </Col>

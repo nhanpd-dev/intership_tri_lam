@@ -4,7 +4,7 @@ import { Row, Col, Typography, Input } from 'antd';
 
 import { ValidationError } from '../styled';
 
-export default function InputField({ label, nameField, Controller, control, errors, showPassword }) {
+export default function InputField({ label, nameField, Controller, control, errors, isHide }) {
   const { Text } = Typography;
 
   const { t } = useTranslation(['security', 'common']);
@@ -20,7 +20,7 @@ export default function InputField({ label, nameField, Controller, control, erro
           name={nameField}
           defaultValue=''
           control={control}
-          render={({ field }) => <Input size='large' type={showPassword ? 'text' : 'password'} {...field} />}
+          render={({ field }) => <Input size='large' type={isHide ? 'password' : 'text'} {...field} />}
         />
       </Col>
 

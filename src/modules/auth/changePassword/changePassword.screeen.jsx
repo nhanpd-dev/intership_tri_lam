@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useNavigate } from 'react-router-dom';
-import { Row, Col, Typography, Form, Button, Checkbox, Space, notification, Spin } from 'antd';
+import { Row, Col, Typography, Form, Button, Checkbox, Space, Spin } from 'antd';
 
 import { ChangePasswordSchema } from './schema';
 import { useAuthStore } from '../../../hooks/useAuth';
@@ -11,15 +10,13 @@ import InputField from './component/InputField';
 import { WrapperFormChangePass } from './styled';
 
 export default function ChangePassword() {
-  const { t } = useTranslation(['security', 'common']);
+  const { t } = useTranslation(['profile', 'common']);
 
   const { Title } = Typography;
 
-  const navigate = useNavigate();
-
   const { isLoading, updatePassword } = useAuthStore();
 
-  const [showPassword, setShowPassword] = useState(false);
+  const [isHide, setIsHide] = useState(true);
 
   const {
     control,
@@ -30,25 +27,12 @@ export default function ChangePassword() {
   });
 
   const onSubmit = (data) => {
-    updatePassword(data, updateSuccess, updateFail);
-  };
-
-  const updateSuccess = async () => {
-    await notification.success({
-      message: t('change_pass_success'),
-    });
-    navigate('/account/profile');
-  };
-
-  const updateFail = async () => {
-    await notification.error({
-      message: t('change_pass_fail'),
-    });
+    updatePassword(data);
   };
 
   return (
-    <WrapperFormChangePass>
-      <Spin spinning={isLoading}>
+    <Spin spinning={isLoading}>
+      <WrapperFormChangePass>
         <Form onFinish={handleSubmit(onSubmit)}>
           <Row className='form'>
             <Col span={24}>
@@ -62,7 +46,7 @@ export default function ChangePassword() {
                 errors={errors?.password}
                 nameField='password'
                 label={t('new_pass')}
-                showPassword={showPassword}
+                isHide={isHide}
               />
 
               <InputField
@@ -71,7 +55,7 @@ export default function ChangePassword() {
                 errors={errors?.confirm_password}
                 nameField='confirm_password'
                 label={t('enter_new_pass')}
-                showPassword={showPassword}
+                isHide={isHide}
               />
 
               <Space direction='vertical' size='middle' className='form__space'>
@@ -79,7 +63,7 @@ export default function ChangePassword() {
                   <Col xl={{ span: 16, offset: 8 }} sm={24} xs={24} className='form__checkbox'>
                     <Checkbox
                       onChange={(e) => {
-                        setShowPassword(Boolean(e.target.checked));
+                        setIsHide(Boolean(!e.target.checked));
                       }}
                     >
                       {t('show_password')}
@@ -98,7 +82,7 @@ export default function ChangePassword() {
             </Col>
           </Row>
         </Form>
-      </Spin>
-    </WrapperFormChangePass>
+      </WrapperFormChangePass>
+    </Spin>
   );
 }

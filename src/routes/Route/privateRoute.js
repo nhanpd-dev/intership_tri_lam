@@ -10,11 +10,19 @@ const privateRoute = [
     children: [
       {
         path: '/account/profile',
-        element: <Profile Component={Info} />,
+        element: (
+          <Profile>
+            <Info />
+          </Profile>
+        ),
       },
       {
         path: '/account/change-password',
-        element: <Profile Component={ChangePassword} />,
+        element: (
+          <Profile>
+            <ChangePassword />
+          </Profile>
+        ),
       },
       {
         path: '/cart',

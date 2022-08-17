@@ -18,4 +18,17 @@ const makeSelectAuthenticated = () => createSelector(selectAuthState, (state) =>
 
 const makeSelectCurrentUser = () => createSelector(selectAuthState, (state) => state.currentUser);
 
-export { selectAuthState, makeSelectLoading, makeSelectError, makeSelectAuthenticated, makeSelectCurrentUser };
+const makeSelectIsUpdatePasswordSuccess = () =>
+  createSelector(selectAuthState, (state) => state.isUpdatePasswordSuccess);
+
+const makeSelectIsUpdatePasswordFail = () => createSelector(selectAuthState, (state) => state.isUpdatePasswordFail);
+
+export {
+  selectAuthState,
+  makeSelectLoading,
+  makeSelectError,
+  makeSelectAuthenticated,
+  makeSelectCurrentUser,
+  makeSelectIsUpdatePasswordSuccess,
+  makeSelectIsUpdatePasswordFail,
+};

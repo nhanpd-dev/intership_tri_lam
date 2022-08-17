@@ -5,6 +5,10 @@ export const initialState = {
   authenticated: false,
   currentUser: null,
   isLoading: false,
+  isUpdatePasswordSuccess: false,
+  isUpdatePasswordFail: false,
+  isUpdateInfodSuccess: false,
+  isUpdateInfoFail: false,
   error: null,
 };
 
@@ -83,21 +87,19 @@ const updateUserFail = (state, action) => ({
   ...state,
   error: action.payload,
 });
+const updatePasswordRequest = (state) =>
+  updateObject(state, { isLoading: true, isUpdatePasswordSuccess: false, isUpdatePasswordFail: false });
 
-const updatePasswordRequest = (state) => ({
-  ...state,
-  isLoading: true,
-});
+const updatePasswordSuccess = (state) =>
+  updateObject(state, { isLoading: false, isUpdatePasswordSuccess: true, isUpdatePasswordFail: false });
 
-const updatePasswordSuccess = (state) => ({
-  ...state,
-  isLoading: false,
-});
-
-const updatePasswordFail = (state, action) => ({
-  ...state,
-  error: action.payload,
-});
+const updatePasswordFail = (state, action) =>
+  updateObject(state, {
+    isLoading: false,
+    isUpdatePasswordSuccess: false,
+    isUpdatePasswordFail: true,
+    error: action.error,
+  });
 
 const updateAvatarLoading = (state, action) => ({
   ...state,

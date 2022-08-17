@@ -28,13 +28,7 @@ export default function InfoAuth() {
         </Col>
 
         <Col md={7} sm={8} xs={8}>
-          <Button
-            size='medium'
-            type='primary'
-            onClick={() => {
-              navigate('/account/change-password');
-            }}
-          >
+          <Button size='medium' type='primary' onClick={() => navigate('/account/change-password')}>
             {t('setting')}
           </Button>
         </Col>
