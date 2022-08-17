@@ -1,0 +1,31 @@
+{
+  "title": {
+    "evaluate": "evaluate",
+    "sold": "Sold",
+    "share": "Share"
+  },
+  "buy": {
+    "image_product": "image product",
+    "price": "Price",
+    "promotion": "Promotion",
+    "promotion_period": "Prices and promotions are expected to apply until",
+    "insert_code_sppmwq": "Enter code SPPMWG 10% off up to 100,000 VND when paying via ShopeePay Wallet",
+    "insert_code_mwg18": "Enter code MWG18 for 3% discount up to 100,000 VND when paying by scanning QRcode via bank's App",
+    "choose_a_delivery_address": " Choose a delivery address",
+    "click_to_see_details": "click to see details",
+    "please_choose_a_voucher": "Please choose a voucher",
+    "no_vouchers": "No vouchers",
+    "please_log_in": "please log in",
+    "discount": "Discount",
+    "extra_offer": "extra offer",
+    "amount": "Amount",
+    "out_of_stock": "Out of stock",
+    "expected_to_apply_to": "Expected to apply to",
+    "give_to_customers": "Give away for the first time to buy online at the website",
+    "purchase": "Purchase",
+    "buy_fashion_watches": "Buy Fashion Watches 40% off for Watches under 3 million, 30% off for Watches of 3 million or more"
+  },
+  "description": {
+    "describe": "Describe"
+  }
+}

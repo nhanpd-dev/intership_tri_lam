@@ -8,7 +8,7 @@ const resources = {
   vi,
   en,
 };
-const INIT_LANGUAGE = getLocalStorage(STORAGE.LANGUAGE) || 'en';
+const INIT_LANGUAGE = getLocalStorage(STORAGE.LANGUAGE) || 'vi';
 
 i18next.use(initReactI18next).init({
   resources,
