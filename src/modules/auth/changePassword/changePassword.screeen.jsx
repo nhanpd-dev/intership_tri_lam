@@ -74,12 +74,12 @@ export default function ChangePassword() {
                 showPassword={showPassword}
               />
 
-              <Space direction='vertical' size='middle' style={{ display: 'flex' }}>
+              <Space direction='vertical' size='middle' className='form__space'>
                 <Row>
                   <Col xl={{ span: 16, offset: 8 }} sm={24} xs={24} className='form__checkbox'>
                     <Checkbox
                       onChange={(e) => {
-                        e.target.checked ? setShowPassword(true) : setShowPassword(false);
+                        setShowPassword(Boolean(e.target.checked));
                       }}
                     >
                       {t('show_password')}
