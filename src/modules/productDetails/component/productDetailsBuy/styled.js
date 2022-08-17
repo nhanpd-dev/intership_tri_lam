@@ -28,10 +28,9 @@ const ProductDetailsBuyWrap = styled.div`
 
         .img-item {
           box-sizing: border-box;
-
           height: 100%;
           padding: 0;
-          margin: 0 5px 0 5px;
+          margin: 0 5px;
           border-radius: 10px;
 
           .ant-image {
