@@ -1,16 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Button, Checkbox, Col, notification, Popconfirm, Row } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
+import { useAuthStore } from '../../../hooks/useAuth';
 import { HadProducts, Payment } from './styled';
 import ListProducts from './component/listProducts/ListProducts';
 import AddressShippingComp from './component/addressShipping/AddressShipping';
 import PromotionsComp from './component/promotions/promotions';
 import ProvisionalCalculationComp from './component/provisionalCalculation/ProvisionalCalculation';
-import { useAuthStore } from '../../../hooks/useAuth';
-import { useMemo } from 'react';
 
 function HaveProducts() {
   const { t } = useTranslation(['cart']);
@@ -23,11 +22,11 @@ function HaveProducts() {
 
   const total = useMemo(() => {
     if (order.length) {
-      const x = order.reduce((acumulator, item) => {
-        return acumulator + item.price * item.quantity;
+      const sumOfProducts = order.reduce((acumulator, item) => {
+        return acumulator + item.price * item.quantity - item.price * item.discount * item.quantity;
       }, 0);
 
-      return x;
+      return sumOfProducts;
     }
     return 0;
   }, [order]);
