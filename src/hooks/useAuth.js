@@ -9,6 +9,7 @@ import {
   getCurrentUserRequest,
   updateUserRequest,
   updateLoading,
+  updatePasswordRequest,
 } from '../store/auth/action';
 import {
   makeSelectLoading,
@@ -44,6 +45,10 @@ export const useAuthStore = () => {
     dispatch(updateUserRequest(data, callbackSuccess, callbackFail));
   };
 
+  const updatePassword = (data, callbackSuccess, callbackFail) => {
+    dispatch(updatePasswordRequest(data, callbackSuccess, callbackFail));
+  };
+
   const updateAvatarLoading = (loading) => {
     dispatch(updateLoading(loading));
   };
@@ -58,5 +63,6 @@ export const useAuthStore = () => {
     currentUser,
     updateUser,
     updateAvatarLoading,
+    updatePassword,
   };
 };

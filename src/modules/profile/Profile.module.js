@@ -3,11 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { Row, Col, Image, Typography, Skeleton } from 'antd';
 
 import { useAuthStore } from '../../hooks/useAuth';
-import Info from './components/info/Info.component';
 import DefaultImg from '../../assets/imgs/profile/defaultImg.png';
 import { WrapperProfile } from './styled';
 
-export default function Profile() {
+export default function Profile({ Component }) {
   const { Title, Text } = Typography;
 
   const { t } = useTranslation(['profile', 'common']);
@@ -42,7 +41,7 @@ export default function Profile() {
               <Row>
                 <Title level={4}>{t('account_information')}</Title>
               </Row>
-              <Info />
+              <Component />
             </Col>
           </Row>
         </Col>

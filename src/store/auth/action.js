@@ -77,6 +77,23 @@ export const updateUserFail = (error) => ({
   payload: error,
 });
 
+export const updatePasswordRequest = (payload, callbackSuccess, callbackFail) => ({
+  type: Types.UPDATE_PASSWORD_REQUEST,
+  payload,
+  callbackSuccess,
+  callbackFail,
+});
+
+export const updatePasswordSuccess = (payload) => ({
+  type: Types.UPDATE_PASSWORD_SUCCESS,
+  payload: payload,
+});
+
+export const updatePasswordFail = (error) => ({
+  type: Types.UPDATE_PASSWORD_FAIL,
+  payload: error,
+});
+
 export const updateLoading = (payload) => ({
   type: Types.UPDATE_LOADING,
   payload,

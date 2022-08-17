@@ -1,0 +1,14 @@
+{
+  "change_password": "Change Password",
+  "new_pass": "A new password",
+  "enter_new_pass": "Enter a new password",
+  "save_change": "Save Change",
+  "show_password": "Show Password",
+  "new_pass_is_required": "This field is required",
+  "enter_new_pass_is_required": "This field is required",
+  "new_pass_least_9_char": "New password must be least 9 characters",
+  "new_pass_less_30_char": "New password must be less 30 characters",
+  "pass_not_match": "Your password not match",
+  "change_pass_success": "Change password success",
+  "change_pass_fail": "Change password fail"
+}
