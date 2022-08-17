@@ -80,7 +80,7 @@ export default function ChangePassword() {
 
                   <Space direction='vertical' size='middle' style={{ display: 'flex' }}>
                     <Row justify='center'>
-                      <Col xl={{ span: 16, offset: 8 }} sm={24} xs={24} className='form--flex'>
+                      <Col xl={{ span: 16, offset: 8 }} sm={24} xs={24} className='form__checkbox'>
                         <Checkbox
                           onChange={(e) => {
                             e.target.checked ? setShowPassword(true) : setShowPassword(false);

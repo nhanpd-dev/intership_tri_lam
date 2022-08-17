@@ -16,7 +16,7 @@ export const WrapperFormChangePass = styled.div`
     padding: 30px;
     border-radius: 8px;
     margin-bottom: 20px;
-    .form--flex {
+    .form__checkbox {
       display: flex;
       justify-content: center;
     }
