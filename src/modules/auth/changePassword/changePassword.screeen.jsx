@@ -52,55 +52,49 @@ export default function ChangePassword() {
         <Form onFinish={handleSubmit(onSubmit)}>
           <Row className='form'>
             <Col span={24}>
-              <Row>
-                <Col span={24}>
-                  <Title level={5}>{t('change_password')}</Title>
-                </Col>
-              </Row>
+              <Title level={5}>{t('change_password')}</Title>
+            </Col>
 
-              <Row>
-                <Col span={12} offset={6}>
-                  <InputField
-                    Controller={Controller}
-                    control={control}
-                    errors={errors?.password}
-                    nameField='password'
-                    label={t('new_pass')}
-                    showPassword={showPassword}
-                  />
+            <Col span={12} offset={6}>
+              <InputField
+                Controller={Controller}
+                control={control}
+                errors={errors?.password}
+                nameField='password'
+                label={t('new_pass')}
+                showPassword={showPassword}
+              />
 
-                  <InputField
-                    Controller={Controller}
-                    control={control}
-                    errors={errors?.confirm_password}
-                    nameField='confirm_password'
-                    label={t('enter_new_pass')}
-                    showPassword={showPassword}
-                  />
+              <InputField
+                Controller={Controller}
+                control={control}
+                errors={errors?.confirm_password}
+                nameField='confirm_password'
+                label={t('enter_new_pass')}
+                showPassword={showPassword}
+              />
 
-                  <Space direction='vertical' size='middle' style={{ display: 'flex' }}>
-                    <Row justify='center'>
-                      <Col xl={{ span: 16, offset: 8 }} sm={24} xs={24} className='form__checkbox'>
-                        <Checkbox
-                          onChange={(e) => {
-                            e.target.checked ? setShowPassword(true) : setShowPassword(false);
-                          }}
-                        >
-                          {t('show_password')}
-                        </Checkbox>
-                      </Col>
-                    </Row>
+              <Space direction='vertical' size='middle' style={{ display: 'flex' }}>
+                <Row>
+                  <Col xl={{ span: 16, offset: 8 }} sm={24} xs={24} className='form__checkbox'>
+                    <Checkbox
+                      onChange={(e) => {
+                        e.target.checked ? setShowPassword(true) : setShowPassword(false);
+                      }}
+                    >
+                      {t('show_password')}
+                    </Checkbox>
+                  </Col>
+                </Row>
 
-                    <Row>
-                      <Col xl={{ span: 16, offset: 8 }} sm={24} xs={24} className='form--flex'>
-                        <Button type='primary' htmlType='submit'>
-                          {t('save_change')}
-                        </Button>
-                      </Col>
-                    </Row>
-                  </Space>
-                </Col>
-              </Row>
+                <Row>
+                  <Col xl={{ span: 16, offset: 8 }} sm={24} xs={24} className='form__button'>
+                    <Button type='primary' htmlType='submit'>
+                      {t('save_change')}
+                    </Button>
+                  </Col>
+                </Row>
+              </Space>
             </Col>
           </Row>
         </Form>

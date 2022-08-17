@@ -14,7 +14,11 @@ export default function FiledInput({ t, register, nameField, Icon }) {
         </LabelItem>
       </Col>
       <Col span={17}>
-        <InputItem type='text' placeholder={t(nameField)} {...register(nameField)} />
+        <InputItem
+          type={nameField === 'password' ? 'password' : 'text'}
+          placeholder={t(nameField)}
+          {...register(nameField)}
+        />
       </Col>
     </Row>
   );
