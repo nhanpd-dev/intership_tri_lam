@@ -28,6 +28,7 @@ const ProductDetailsBuyWrap = styled.div`
 
         .img-item {
           box-sizing: border-box;
+
           height: 100%;
           padding: 0;
           margin: 0 5px;
@@ -45,6 +46,7 @@ const ProductDetailsBuyWrap = styled.div`
 `;
 
 const Price = styled.div`
+  display: block;
   .price-text {
     display: block;
     margin-top: 10px;
@@ -55,6 +57,29 @@ const Price = styled.div`
     font-size: ${FONTS_SIZE.size_20};
     font-weight: bold;
     color: #d0021c;
+  }
+
+  .price-content-extend {
+    display: flex;
+    box-sizing: border-box;
+
+    .price-discount {
+      margin: 5px 10px;
+      font-size: ${FONTS_SIZE.size_18};
+    }
+
+    .price-percent {
+      display: block;
+      margin-top: -2px;
+      color: #d0021c;
+      border: #d0021c;
+      font-size: ${FONTS_SIZE.size_18};
+      font-weight: bold;
+
+      .ant-typography {
+        display: none;
+      }
+    }
   }
 `;
 

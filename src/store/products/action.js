@@ -14,3 +14,18 @@ export const fetchProductsFail = (error) => ({
   type: Types.FETCH_PRODUCTS_FAIL,
   payload: error,
 });
+
+export const getProductRequest = (payload) => ({
+  type: Types.GET_PRODUCT_REQUEST,
+  payload,
+});
+
+export const getProductSuccess = (payload) => ({
+  type: Types.GET_PRODUCT_SUCCESS,
+  payload,
+});
+
+export const getProductFail = (error) => ({
+  type: Types.GET_PRODUCT_FAIL,
+  payload: error,
+});

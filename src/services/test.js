@@ -28,8 +28,12 @@ async function updateUser(data) {
 
 async function fetchProducts({ page, limit, search }) {
   const axiosClient = new AxiosClient();
-
   return axiosClient.get(`/products?page=${page}&limit=${limit}&search=${search}`);
 }
 
-export { registerUser, loginUser, getCurrentUser, updateUser, order, fetchProducts };
+async function getProduct({ product_id }) {
+  const axiosClient = new AxiosClient();
+  return axiosClient.get(`${ENDPOINTS.PRODUCT}${product_id}`);
+}
+
+export { registerUser, loginUser, getCurrentUser, updateUser, order, fetchProducts, getProduct };

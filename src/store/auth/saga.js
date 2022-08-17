@@ -58,6 +58,7 @@ export function* getCurrentUserSaga() {
 export function* orderSaga({ payload, callback }) {
   try {
     const response = yield call(order, payload);
+
     if (response) {
       yield put(orderSuccess());
       callback();

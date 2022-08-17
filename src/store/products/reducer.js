@@ -10,6 +10,7 @@ export const initialState = {
     limit: 0,
     activePage: 1,
   },
+  product: null,
 };
 
 const fetchProductsRequest = (state) => ({
@@ -34,6 +35,28 @@ const fetchProductsFail = (state, action) => ({
   ...state,
   error: action.payload,
 });
+
+const getProductRequest = (state) => ({
+  ...state,
+  isLoading: true,
+});
+
+const getProductSuccess = (state, action) => {
+  console.log(action);
+  return {
+    ...state,
+    isLoading: false,
+    product: action,
+  };
+};
+
+const getProductFail = (state, action) => {
+  console.log(action);
+  return {
+    ...state,
+    isLoading: false,
+  };
+};
 
 export default createReducer(initialState, {
   [Types.FETCH_PRODUCTS_REQUEST]: fetchProductsRequest,

@@ -46,6 +46,14 @@ export const getCurrentUserFail = (error) => ({
   payload: error,
 });
 
+export const orderCart = (data) => {
+  console.log('data action', data);
+  return {
+    type: Types.ORDER_CART,
+    payload: data,
+  };
+};
+
 export const orderRequest = (data, callback) => ({
   type: Types.ORDER_REQUEST,
   payload: data,

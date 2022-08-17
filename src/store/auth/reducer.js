@@ -6,6 +6,7 @@ export const initialState = {
   currentUser: null,
   isLoading: false,
   error: null,
+  cart: [],
 };
 
 const registerRequest = (state) => ({
@@ -56,6 +57,13 @@ const getCurrentUserFail = (state, action) => ({
   error: action.payload,
 });
 
+const orderCart = (state, action) => {
+  console.log(action.payload);
+  return {
+    ...state,
+    cart: [...state.cart, action.payload],
+  };
+};
 const orderRequest = (state) => ({
   ...state,
 });
@@ -101,6 +109,8 @@ export default createReducer(initialState, {
   [Types.GET_CURRENT_USER_REQUEST]: getCurrentUserRequest,
   [Types.GET_CURRENT_USER_SUCCESS]: getCurrentUserSuccess,
   [Types.GET_CURRENT_USER_FAIL]: getCurrentUserFail,
+
+  [Types.ORDER_CART]: orderCart,
 
   [Types.ORDER_REQUEST]: orderRequest,
   [Types.ORDER_SUCCESS]: orderSuccess,

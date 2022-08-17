@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import ProductDetailsTitle from './component/productDetailsTitle/ProductDetailsTitle';
 import ProductDetailsBuy from './component/productDetailsBuy/ProductDetailsBuy';
 import ProductDetailsDescription from './component/productDetailsDescription/ProductDetailsDescription';
+import { useAuthStore } from '../../hooks/useAuth';
 import { ProductDetailsWrapper } from './styled';
 
 const dataFake = {
@@ -28,12 +30,19 @@ const dataFake = {
 };
 
 const ProductDetailsModule = () => {
+  const { cart } = useAuthStore();
+  console.log(cart);
+
+  // useEffect((
+
+  // ) => {},[])
   return (
     <ProductDetailsWrapper>
       <ProductDetailsTitle
         categoryId={dataFake.categoryId}
         nameProduct={dataFake.name}
         numberOfSell={dataFake.numberOfSell}
+        discount={dataFake.discount}
       />
       <ProductDetailsBuy
         thumbnail={dataFake.thumbnail}

@@ -9,12 +9,14 @@ import {
   getCurrentUserRequest,
   updateUserRequest,
   updateLoading,
+  orderCart,
 } from '../store/auth/action';
 import {
   makeSelectLoading,
   makeSelectError,
   makeSelectAuthenticated,
   makeSelectCurrentUser,
+  makeSelectCart,
 } from '../store/auth/selector';
 
 export const useAuthStore = () => {
@@ -27,6 +29,7 @@ export const useAuthStore = () => {
   const error = useSelector(makeSelectError());
   const auth = useSelector(makeSelectAuthenticated());
   const currentUser = useSelector(makeSelectCurrentUser());
+  const cart = useSelector(makeSelectCart());
 
   const registerUser = (data, callback) => {
     dispatch(registerRequest(data, callback));
@@ -48,6 +51,10 @@ export const useAuthStore = () => {
     dispatch(updateLoading(loading));
   };
 
+  const ordertoCart = (data) => {
+    dispatch(orderCart(data));
+  };
+
   return {
     registerUser,
     loginUser,
@@ -56,7 +63,9 @@ export const useAuthStore = () => {
     error,
     auth,
     currentUser,
+    cart,
     updateUser,
     updateAvatarLoading,
+    ordertoCart,
   };
 };
