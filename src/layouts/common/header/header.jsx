@@ -1,18 +1,23 @@
-import React from 'react';
-import { Col, Image, Input, Row } from 'antd';
-import { AppstoreOutlined, CommentOutlined, HomeOutlined, UserOutlined } from '@ant-design/icons';
+import React, { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { Col, Image, Input, Row, Button } from 'antd';
+import { AppstoreOutlined, CommentOutlined, HomeOutlined, UserOutlined, SearchOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
+import { useProductsListStore } from '../../../modules/products/useProductsList';
 import { Header } from './styled';
 import UserLayout from '../user/user';
 import Navbar from './component.navbar';
 import { IMG_FREESHIP, LOGO_TIKI } from '../../../assets/imgs/layout/index';
 
 function HeaderLayout() {
-  const { t } = useTranslation(['header', 'register', 'common']);
+  const { fetchProductsFunc, setParams, params, isLoading } = useProductsListStore();
 
-  const { Search } = Input;
+  const { watch, register } = useForm();
+  const searchData = watch('search');
+
+  const { t } = useTranslation(['header', 'register', 'common']);
 
   const navItems = [
     { span: 6, linkTo: '#', icon: <HomeOutlined />, title: t('common:home') },
@@ -35,6 +40,12 @@ function HeaderLayout() {
     return listNavItems;
   };
 
+  useEffect(() => {
+    const newParams = { ...params, search: searchData };
+    setParams(newParams);
+    fetchProductsFunc();
+  }, [searchData]);
+
   return (
     <Header>
       <Row className='header_layout'>
@@ -54,7 +65,20 @@ function HeaderLayout() {
 
             {/* Search */}
             <Col md={12} sm={20} xs={17}>
-              <Search placeholder='input search text' allowClear enterButton='Search' size='large' />
+              <input
+                className='ant-input'
+                placeholder={t('header:title_input_search_header')}
+                size='large'
+                {...register('search')}
+              />
+              <Button
+                icon={<SearchOutlined />}
+                onClick={() => {
+                  fetchProductsFunc(params);
+                }}
+              >
+                {t('header:search')}
+              </Button>
             </Col>
 
             {/* AuthCart */}
