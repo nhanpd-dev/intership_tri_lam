@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useNavigate } from 'react-router-dom';
 import { Row, Col, Typography, Form, Button, Checkbox, Space, notification, Spin } from 'antd';
 
 import { ChangePasswordSchema } from './schema';
@@ -13,6 +14,8 @@ export default function ChangePassword() {
   const { t } = useTranslation(['security', 'common']);
 
   const { Title } = Typography;
+
+  const navigate = useNavigate();
 
   const { isLoading, updatePassword } = useAuthStore();
 
@@ -34,6 +37,7 @@ export default function ChangePassword() {
     await notification.success({
       message: t('change_pass_success'),
     });
+    navigate('/account/profile');
   };
 
   const updateFail = async () => {
