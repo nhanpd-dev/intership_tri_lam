@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const NotProducts = styled.div`
+export const Wrapper = styled.div`
   .cart {
     height: 100%;
     background: #fff;

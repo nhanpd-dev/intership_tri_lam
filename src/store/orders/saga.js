@@ -2,13 +2,12 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
 import * as Types from './constants';
-import { order } from '../../services/test';
+import { order } from '../../services/cart.API';
 import { orderSuccess, orderFail } from './actions';
 
 export function* postOrdersSaga({ payload }) {
   const { data, postOrderSuccess, postOrderFail } = payload;
 
-  console.log('zo saga');
   try {
     const response = yield call(order, data);
     if (response.data.code === 200) {

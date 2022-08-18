@@ -3,10 +3,11 @@ import * as Types from './constants';
 
 export const initialState = {
   authenticated: false,
-  currentUser: null,
+  currentUser: {
+    name: 'No Name',
+  },
   isLoading: false,
   error: null,
-  orders: null,
 };
 
 const registerRequest = (state) => ({

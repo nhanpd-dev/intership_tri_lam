@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import COLORS from '../../../themes/colors';
 import FONTS_SIZE from '../../../themes/fonts';
 
-export const HadProducts = styled.div`
+export const Wrapper = styled.div`
   .fs-16 {
     font-size: ${FONTS_SIZE.size_16};
   }

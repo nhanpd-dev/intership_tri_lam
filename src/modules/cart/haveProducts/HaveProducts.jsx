@@ -6,11 +6,19 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
 import { useOrderStore } from '../../../hooks/useOrder';
+<<<<<<< HEAD
 import { HadProducts, Payment } from './styled';
 import ListProducts from './component/listProducts/ListProducts';
 import AddressShippingComp from './component/addressShipping/AddressShipping';
 import PromotionsComp from './component/promotions/promotions';
 import ProvisionalCalculationComp from './component/provisionalCalculation/ProvisionalCalculation';
+=======
+import { Wrapper, Payment } from './styled';
+import Product from './component/listProducts/listProducts';
+import AddressShippingComp from './component/addressShipping/addressShipping';
+import PromotionsComp from './component/promotions/promotions';
+import ProvisionalCalculationComp from './component/provisionalCalculation/provisionalCalculation';
+>>>>>>> 22fe59b (update/lam_Lqb/INTERSHIP_18_Update-Cart-part11)
 
 function HaveProducts() {
   const { t } = useTranslation(['cart']);
@@ -57,13 +65,11 @@ function HaveProducts() {
     const cloneOrders = orders?.filter((i) => i.isCheck);
 
     if (cloneOrders.length) {
-      const totalOrdersPrice = cloneOrders.reduce((acumulator, item) => {
+      return cloneOrders.reduce((acumulator, item) => {
         const priceOfProducts = item.price * item.quantity - item.price * item.discount * item.quantity;
 
         return acumulator + priceOfProducts;
       }, 0);
-
-      return totalOrdersPrice;
     }
 
     return 0;
@@ -85,11 +91,11 @@ function HaveProducts() {
     return 0;
   }, [orders]);
 
-  const renderListOrders = () => {
-    const List = orders.map((item, index) => {
+  const renderListOrders = () =>
+    orders.map((item, index) => {
       return (
         <Row key={index} className='name_field'>
-          <ListProducts
+          <Product
             productId={item.productId}
             discount={item.discount}
             img={item.img}
@@ -104,9 +110,6 @@ function HaveProducts() {
         </Row>
       );
     });
-
-    return List;
-  };
 
   const postOrderSuccess = () => {
     notification.success({
@@ -125,7 +128,7 @@ function HaveProducts() {
   };
 
   return (
-    <HadProducts>
+    <Wrapper>
       <Col span={22} offset={1} className='cart'>
         <Row>
           <Col lg={17} sm={24}>
@@ -162,7 +165,7 @@ function HaveProducts() {
           </Col>
         </Row>
       </Col>
-    </HadProducts>
+    </Wrapper>
   );
 }
 
