@@ -1,17 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Checkbox, Col, Image, InputNumber, Popconfirm, Row, Typography } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 
-function ListProducts({ img, linkTo, nameProducts, price, productId, discount, order, setOrder }) {
-  const [quantity, setQuantity] = useState(1);
-
+function ListProducts({ img, linkTo, nameProducts, price, productId, discount, orders, setOrders, quantity, isCheck }) {
   const { Text } = Typography;
 
-  const memoMoney = useMemo(() => {
-    return price * quantity - price * quantity * discount;
-  }, [quantity]);
+  const itemPrice = quantity * price - quantity * price * discount;
 
   return (
     <Row className='list_products-content'>
@@ -19,13 +15,15 @@ function ListProducts({ img, linkTo, nameProducts, price, productId, discount, o
         <Checkbox
           className='icon_check'
           onChange={(e) => {
-            let newOrders = [...order];
-            if (e.target.checked && !newOrders.includes(productId)) {
-              newOrders.push({ productId, price, quantity, discount });
-            } else {
-              newOrders = newOrders.filter((item) => item.productId !== productId);
+            let newOrders = [...orders];
+
+            const indexProduct = newOrders.findIndex((item) => item.productId === productId);
+
+            if (indexProduct >= 0) {
+              newOrders[indexProduct].isCheck = e.target.checked;
             }
-            setOrder(newOrders);
+
+            setOrders(newOrders);
           }}
         />
         <Image preview={false} src={img} alt='anh' />
@@ -41,14 +39,23 @@ function ListProducts({ img, linkTo, nameProducts, price, productId, discount, o
         <InputNumber
           min={1}
           max={10}
+          disabled={!isCheck}
           defaultValue={quantity}
           onChange={(value) => {
-            setQuantity(value);
+            let newOrders = [...orders];
+
+            const indexProduct = newOrders.findIndex((item) => item.productId === productId);
+
+            if (indexProduct >= 0) {
+              newOrders[indexProduct].quantity = value;
+            }
+
+            setOrders(newOrders);
           }}
         />
       </Col>
       <Col md={4} sm={5} xs={8} className='selector_price red_color'>
-        {memoMoney}đ
+        {itemPrice}đ
       </Col>
       <Col md={1} sm={1} xs={8}>
         <Popconfirm title='Do you want to delete?' okText='Yes' cancelText='No'>

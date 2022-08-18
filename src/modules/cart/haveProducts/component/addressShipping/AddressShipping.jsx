@@ -4,9 +4,12 @@ import { Col, Divider, Row, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 
 import { Address } from './styled';
+import { useAuthStore } from '../../../../../hooks/useAuth';
 
 function AddressShippingComp() {
   const { t } = useTranslation(['cart']);
+
+  const { currentUser } = useAuthStore();
 
   const { Text } = Typography;
 
@@ -24,17 +27,15 @@ function AddressShippingComp() {
       </Row>
       <Row className='content_selector'>
         <Col span={10}>
-          <Text strong>Le Quang Bao Lam</Text>
+          <Text strong>{currentUser?.username ? currentUser?.username : 'No name'}</Text>
         </Col>
         <Divider type='vertical' />
         <Col span={12}>
-          <Text strong>0934945011</Text>
+          <Text strong>{currentUser?.phoneNumber ? currentUser?.phoneNumber : '113'}</Text>
         </Col>
       </Row>
       <Row className='content_selector'>
-        <Text type='secondary'>
-          TDP 10, An Đô, số nhà 115 Kim Phụng., Phường Hương Chữ, Thị xã Hương Trà, Thừa Thiên Huế
-        </Text>
+        <Text type='secondary'>{currentUser?.address ? currentUser?.address : 'Thien Dang'}</Text>
       </Row>
     </Address>
   );

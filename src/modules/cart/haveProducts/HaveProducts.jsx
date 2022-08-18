@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useMemo } from 'react';
 import { Button, Checkbox, Col, notification, Popconfirm, Row } from 'antd';
@@ -14,24 +15,7 @@ import ProvisionalCalculationComp from './component/provisionalCalculation/Provi
 function HaveProducts() {
   const { t } = useTranslation(['cart']);
 
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  const [order, setOrder] = useState([]);
-
-  const { orderPost } = useAuthStore();
-
-  const total = useMemo(() => {
-    if (order.length) {
-      const sumOfProducts = order.reduce((acumulator, item) => {
-        return acumulator + item.price * item.quantity - item.price * item.discount * item.quantity;
-      }, 0);
-
-      return sumOfProducts;
-    }
-    return 0;
-  }, [order]);
-
-  const ListProductsInCart = [
+  const [orders, setOrders] = useState([
     {
       productId: '62f6127b01901acef6c257f1',
       discount: 0.3,
@@ -39,7 +23,7 @@ function HaveProducts() {
       linkTo: '#',
       nameProducts: t('Combo 2 Thùng Bia Hà Nội'),
       price: 275000,
-      quantity: 300,
+      quantity: 1,
       isCheck: false,
     },
     {
@@ -49,15 +33,60 @@ function HaveProducts() {
       linkTo: '#',
       nameProducts: t('Điện thoại Samsung Galaxy A13 (4GB/128GB)'),
       price: 5990000,
-      quantity: 0,
+      quantity: 1,
       isCheck: false,
     },
-  ];
+  ]);
 
-  const renderListProducts = () => {
+  const listOrdersCheckTrue = orders.filter((item) => item.isCheck === true);
+
+  const listOrdersPost = listOrdersCheckTrue.map((item) => {
+    return {
+      productId: item.productId,
+      quantity: item.quantity,
+      discount: item.discount,
+      price: item.price,
+    };
+  });
+
+  const { orderPost } = useAuthStore();
+
+  const total = useMemo(() => {
+    const cloneOrders = orders?.filter((i) => i.isCheck);
+
+    if (cloneOrders.length) {
+      const totalOrdersPrice = cloneOrders.reduce((acumulator, item) => {
+        const priceOfProducts = item.price * item.quantity - item.price * item.discount * item.quantity;
+
+        return acumulator + priceOfProducts;
+      }, 0);
+
+      return totalOrdersPrice;
+    }
+
+    return 0;
+  }, [orders]);
+
+  const provisional = useMemo(() => {
+    const cloneOrders = orders?.filter((i) => i.isCheck);
+
+    if (cloneOrders.length) {
+      const totalOrdersPrice = cloneOrders.reduce((acumulator, item) => {
+        const priceOfProducts = item.price * item.quantity;
+
+        return acumulator + priceOfProducts;
+      }, 0);
+
+      return totalOrdersPrice;
+    }
+
+    return 0;
+  }, [orders]);
+
+  const renderListOrders = () => {
     const List = [];
 
-    ListProductsInCart.forEach((item, index) => {
+    orders.forEach((item, index) => {
       return List.push(
         <Row key={index} className='name_field'>
           <ListProducts
@@ -67,11 +96,10 @@ function HaveProducts() {
             linkTo={item.linkTo}
             nameProducts={item.nameProducts}
             price={item.price}
-            totalPrice={totalPrice}
-            setTotalPrice={setTotalPrice}
-            setOrder={setOrder}
-            order={order}
+            setOrders={setOrders}
+            orders={orders}
             isCheck={item.isCheck}
+            quantity={item.quantity}
           />
         </Row>,
       );
@@ -93,7 +121,8 @@ function HaveProducts() {
   };
 
   const buyProducts = () => {
-    orderPost({ orders: order }, postOrderSuccess, postOrderFail);
+    // orderPost({ orders: listOrdersPost }, postOrderSuccess, postOrderFail);
+    console.log(listOrdersPost);
   };
 
   return (
@@ -115,14 +144,14 @@ function HaveProducts() {
                 </Popconfirm>
               </Col>
             </Row>
-            {renderListProducts()}
+            {renderListOrders()}
           </Col>
 
           <Col lg={7} sm={24}>
             <Payment>
               <AddressShippingComp />
               <PromotionsComp />
-              <ProvisionalCalculationComp totalPrice={totalPrice} memoPrice={total} setTotalPrice={setTotalPrice} />
+              <ProvisionalCalculationComp memoPrice={total} memoProvisional={provisional} />
               <Row className='btn_buy'>
                 <Col lg={24}>
                   <Button type='primary' onClick={buyProducts}>
