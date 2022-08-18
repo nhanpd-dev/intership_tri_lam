@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { ChangePasswordSchema } from './schema';
 import { useAuthStore } from '../../../hooks/useAuth';
 import InputField from './component/InputField';
-import { WrapperFormChangePass } from './styled';
+import { Wrapper } from './styled';
 
 export default function ChangePassword() {
   const { t } = useTranslation(['profile', 'common']);
@@ -53,7 +53,7 @@ export default function ChangePassword() {
 
   return (
     <Spin spinning={isLoading}>
-      <WrapperFormChangePass>
+      <Wrapper>
         <Form onFinish={handleSubmit(onSubmit)}>
           <Row className='form'>
             <Col span={24}>
@@ -103,7 +103,7 @@ export default function ChangePassword() {
             </Col>
           </Row>
         </Form>
-      </WrapperFormChangePass>
+      </Wrapper>
     </Spin>
   );
 }

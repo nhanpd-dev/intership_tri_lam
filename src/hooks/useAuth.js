@@ -18,8 +18,8 @@ import {
 } from '../store/auth/selector';
 
 export const useAuthStore = () => {
-  useInjectSaga({ key: 'globalStore', saga });
-  useInjectReducer({ key: 'globalStore', reducer });
+  useInjectSaga({ key: 'authStore', saga });
+  useInjectReducer({ key: 'authStore', reducer });
 
   const dispatch = useDispatch();
 

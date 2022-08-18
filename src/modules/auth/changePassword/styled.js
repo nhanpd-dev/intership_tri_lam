@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { FONTS_SIZE } from '../../../themes/fonts';
 import COLORS from '../../../themes/colors';
 
-export const WrapperFormChangePass = styled.div`
+export const Wrapper = styled.div`
   .form {
     background: ${COLORS.background_primary};
     padding: 30px;
