@@ -6,6 +6,7 @@ export const initialState = {
   currentUser: null,
   isLoading: false,
   error: null,
+  orders: null,
 };
 
 const registerRequest = (state) => ({
@@ -56,21 +57,6 @@ const getCurrentUserFail = (state, action) => ({
   error: action.payload,
 });
 
-const orderRequest = (state) => ({
-  ...state,
-  isLoading: true,
-});
-
-const orderSuccess = (state, action) => ({
-  ...state,
-  payload: action.payload,
-});
-
-const orderFail = (state, action) => ({
-  ...state,
-  error: action.payload,
-});
-
 const updateUserRequest = (state) => ({
   ...state,
   isLoading: true,
@@ -108,10 +94,6 @@ export default createReducer(initialState, {
   [Types.GET_CURRENT_USER_REQUEST]: getCurrentUserRequest,
   [Types.GET_CURRENT_USER_SUCCESS]: getCurrentUserSuccess,
   [Types.GET_CURRENT_USER_FAIL]: getCurrentUserFail,
-
-  [Types.ORDER_REQUEST]: orderRequest,
-  [Types.ORDER_SUCCESS]: orderSuccess,
-  [Types.ORDER_FAIL]: orderFail,
 
   [Types.UPDATE_USER_REQUEST]: updateUserRequest,
   [Types.UPDATE_USER_SUCCESS]: updateUserSuccess,

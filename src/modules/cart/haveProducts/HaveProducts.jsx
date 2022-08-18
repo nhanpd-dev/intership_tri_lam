@@ -5,7 +5,7 @@ import { Button, Checkbox, Col, notification, Popconfirm, Row } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
-import { useAuthStore } from '../../../hooks/useAuth';
+import { useOrderStore } from '../../../hooks/useOrder';
 import { HadProducts, Payment } from './styled';
 import ListProducts from './component/listProducts/ListProducts';
 import AddressShippingComp from './component/addressShipping/AddressShipping';
@@ -14,6 +14,8 @@ import ProvisionalCalculationComp from './component/provisionalCalculation/Provi
 
 function HaveProducts() {
   const { t } = useTranslation(['cart']);
+
+  const { orderPost } = useOrderStore();
 
   const [orders, setOrders] = useState([
     {
@@ -48,8 +50,6 @@ function HaveProducts() {
       price: item.price,
     };
   });
-
-  const { orderPost } = useAuthStore();
 
   const total = useMemo(() => {
     const cloneOrders = orders?.filter((i) => i.isCheck);
@@ -86,7 +86,7 @@ function HaveProducts() {
   const renderListOrders = () => {
     const List = [];
 
-    orders.forEach((item, index) => {
+    orders.map((item, index) => {
       return List.push(
         <Row key={index} className='name_field'>
           <ListProducts
@@ -108,20 +108,20 @@ function HaveProducts() {
     return List;
   };
 
-  const postOrderSuccess = async () => {
-    await notification.success({
+  const postOrderSuccess = () => {
+    notification.success({
       message: 'Order Success',
     });
   };
 
-  const postOrderFail = async () => {
-    await notification.error({
+  const postOrderFail = () => {
+    notification.error({
       message: 'Order Fail',
     });
   };
 
   const buyProducts = () => {
-    orderPost({ orders: listOrdersPost }, postOrderSuccess, postOrderFail);
+    orderPost({ data: { orders: listOrdersPost }, postOrderSuccess: postOrderSuccess, postOrderFail: postOrderFail });
   };
 
   return (

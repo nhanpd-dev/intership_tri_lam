@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import { useDispatch, useSelector } from 'react-redux';
+
 import { useInjectReducer, useInjectSaga } from '../utils';
 import reducer from '../store/auth/reducer';
 import saga from '../store/auth/saga';
@@ -9,7 +10,6 @@ import {
   getCurrentUserRequest,
   updateUserRequest,
   updateLoading,
-  orderRequest,
 } from '../store/auth/action';
 import {
   makeSelectLoading,
@@ -49,10 +49,6 @@ export const useAuthStore = () => {
     dispatch(updateLoading(loading));
   };
 
-  const orderPost = (data, callbackSuccess, callbackFail) => {
-    dispatch(orderRequest(data, callbackSuccess, callbackFail));
-  };
-
   return {
     registerUser,
     loginUser,
@@ -63,6 +59,5 @@ export const useAuthStore = () => {
     currentUser,
     updateUser,
     updateAvatarLoading,
-    orderPost,
   };
 };

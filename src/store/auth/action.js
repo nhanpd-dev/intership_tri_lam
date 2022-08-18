@@ -46,23 +46,6 @@ export const getCurrentUserFail = (error) => ({
   payload: error,
 });
 
-export const orderRequest = (data, callbackSuccess, callbackFail) => ({
-  type: Types.ORDER_REQUEST,
-  payload: data,
-  callbackSuccess,
-  callbackFail,
-});
-
-export const orderSuccess = (payload) => ({
-  type: Types.ORDER_SUCCESS,
-  payload: payload,
-});
-
-export const orderFail = (error) => ({
-  type: Types.ORDER_FAIL,
-  payload: error,
-});
-
 export const updateUserRequest = (payload, callbackSuccess, callbackFail) => ({
   type: Types.UPDATE_USER_REQUEST,
   payload,
