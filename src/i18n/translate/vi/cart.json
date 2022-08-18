@@ -13,5 +13,7 @@
   "select_or_enter_another_promotion": "Chọn hoặc nhập mã khuyễn mãi khác",
   "provisional": "Tạm tính",
   "promotions": "Giảm giá",
-  "total_money": "Tổng tiền"
+  "total_money": "Tổng tiền",
+  "orders_success": "Đặt hàng thành công",
+  "orders_fail": "Đặt hàng không thành công"
 }

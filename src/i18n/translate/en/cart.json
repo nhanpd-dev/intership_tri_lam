@@ -13,5 +13,7 @@
   "select_or_enter_another_promotion": "Select or enter another promotion",
   "provisional": "Provisional",
   "promotions": "Promotions",
-  "total_money": "Total money"
+  "total_money": "Total money",
+  "orders_success": "Orders Success",
+  "orders_fail": "Orders Success"
 }

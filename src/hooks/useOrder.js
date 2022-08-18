@@ -7,8 +7,8 @@ import { orderRequest } from '../store/orders/actions';
 import { useInjectReducer, useInjectSaga } from '../utils';
 
 export const useOrderStore = () => {
-  useInjectSaga({ key: 'globalStore', saga });
-  useInjectReducer({ key: 'globalStore', reducer });
+  useInjectSaga({ key: 'ordersStore', saga });
+  useInjectReducer({ key: 'ordersStore', reducer });
 
   const dispatch = useDispatch();
 

@@ -17,6 +17,8 @@ function HaveProducts() {
 
   const { orderPost } = useOrderStore();
 
+  const [check, setCheck] = useState(false);
+
   const [orders, setOrders] = useState([
     {
       productId: '62f6127b01901acef6c257f1',
@@ -26,7 +28,7 @@ function HaveProducts() {
       nameProducts: t('Combo 2 Thùng Bia Hà Nội'),
       price: 275000,
       quantity: 1,
-      isCheck: false,
+      isCheck: check,
     },
     {
       productId: '62f613f101901acef6c25806',
@@ -36,7 +38,7 @@ function HaveProducts() {
       nameProducts: t('Điện thoại Samsung Galaxy A13 (4GB/128GB)'),
       price: 5990000,
       quantity: 1,
-      isCheck: false,
+      isCheck: check,
     },
   ]);
 
@@ -84,10 +86,8 @@ function HaveProducts() {
   }, [orders]);
 
   const renderListOrders = () => {
-    const List = [];
-
-    orders.map((item, index) => {
-      return List.push(
+    const List = orders.map((item, index) => {
+      return (
         <Row key={index} className='name_field'>
           <ListProducts
             productId={item.productId}
@@ -101,7 +101,7 @@ function HaveProducts() {
             isCheck={item.isCheck}
             quantity={item.quantity}
           />
-        </Row>,
+        </Row>
       );
     });
 
