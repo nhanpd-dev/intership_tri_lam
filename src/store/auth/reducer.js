@@ -5,10 +5,6 @@ export const initialState = {
   authenticated: false,
   currentUser: null,
   isLoading: false,
-  isUpdatePasswordSuccess: false,
-  isUpdatePasswordFail: false,
-  isUpdateInfoSuccess: false,
-  isUpdateInfoFail: false,
   error: null,
 };
 
@@ -87,17 +83,13 @@ const updateUserFail = (state, action) => ({
   ...state,
   error: action.payload,
 });
-const updatePasswordRequest = (state) =>
-  updateObject(state, { isLoading: true, isUpdatePasswordSuccess: false, isUpdatePasswordFail: false });
+const updatePasswordRequest = (state) => updateObject(state, { isLoading: true });
 
-const updatePasswordSuccess = (state) =>
-  updateObject(state, { isLoading: false, isUpdatePasswordSuccess: true, isUpdatePasswordFail: false });
+const updatePasswordSuccess = (state) => updateObject(state, { isLoading: false });
 
 const updatePasswordFail = (state, action) =>
   updateObject(state, {
     isLoading: false,
-    isUpdatePasswordSuccess: false,
-    isUpdatePasswordFail: true,
     error: action.error,
   });
 

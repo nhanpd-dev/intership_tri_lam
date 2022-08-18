@@ -84,12 +84,15 @@ export function* updateUserSaga({ payload, callbackSuccess, callbackFail }) {
 }
 
 export function* updatePasswordSaga({ payload }) {
+  const { data, callbackSuccess, callbackFail } = payload;
+
   try {
-    yield call(updatePassword, payload);
+    yield call(updatePassword, data);
     yield put(updatePasswordSuccess());
+    callbackSuccess();
   } catch (error) {
     yield put(updatePasswordFail(error));
-    yield put(updatePasswordFail());
+    callbackFail();
   }
 }
 

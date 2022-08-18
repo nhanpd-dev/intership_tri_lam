@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Row, Col, Typography, Form, Button, Checkbox, Space, Spin } from 'antd';
+import { notification } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 import { ChangePasswordSchema } from './schema';
 import { useAuthStore } from '../../../hooks/useAuth';
@@ -11,6 +13,8 @@ import { WrapperFormChangePass } from './styled';
 
 export default function ChangePassword() {
   const { t } = useTranslation(['profile', 'common']);
+
+  const navigate = useNavigate();
 
   const { Title } = Typography;
 
@@ -26,8 +30,25 @@ export default function ChangePassword() {
     resolver: yupResolver(ChangePasswordSchema),
   });
 
+  const toastMessage = (type, message, urlRedirect = '') => {
+    notification[type]({ message: message });
+    if (urlRedirect) navigate(urlRedirect);
+  };
+
+  const callbackSuccess = () => {
+    toastMessage('success', t('change_pass_success'), '/account/profile');
+  };
+
+  const callbackFail = () => {
+    toastMessage('error', t('change_pass_fail'));
+  };
+
   const onSubmit = (data) => {
-    updatePassword(data);
+    updatePassword({
+      data,
+      callbackSuccess: callbackSuccess,
+      callbackFail: callbackFail,
+    });
   };
 
   return (

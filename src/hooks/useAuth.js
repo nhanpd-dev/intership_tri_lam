@@ -49,8 +49,8 @@ export const useAuthStore = () => {
     dispatch(updateUserRequest(data, callbackSuccess, callbackFail));
   };
 
-  const updatePassword = (data) => {
-    dispatch(updatePasswordRequest(data));
+  const updatePassword = (payload) => {
+    dispatch(updatePasswordRequest(payload));
   };
 
   const updateAvatarLoading = (loading) => {
