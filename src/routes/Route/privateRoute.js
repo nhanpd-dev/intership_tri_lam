@@ -1,5 +1,5 @@
 import DashboardScreen from '../../layouts/dashboard.layout';
-import Cart from '../../modules/cart/Cart.module';
+import Cart from '../../modules/cart/cart.screen';
 import Profile from '../../modules/profile/Profile.screen';
 import ChangePassword from '../../modules/auth/changePassword/changePassword.screeen';
 import Info from '../../modules/profile/components/info/Info.component';

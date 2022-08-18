@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import { useDispatch, useSelector } from 'react-redux';
+
 import { useInjectReducer, useInjectSaga } from '../utils';
 import reducer from '../store/auth/reducer';
 import saga from '../store/auth/saga';

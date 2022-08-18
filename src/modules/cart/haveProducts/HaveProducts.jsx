@@ -1,26 +1,25 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Button, Checkbox, Col, notification, Popconfirm, Row } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
-import { HadProducts, Payment } from './styled';
-import ListProducts from './component/listProducts/ListProducts';
-import AddressShippingComp from './component/addressShipping/AddressShipping';
+import { useOrderStore } from '../../../hooks/useOrder';
+import { Wrapper, Payment } from './styled';
+import Product from './component/listProducts/listProducts';
+import AddressShippingComp from './component/addressShipping/addressShipping';
 import PromotionsComp from './component/promotions/promotions';
-import ProvisionalCalculationComp from './component/provisionalCalculation/ProvisionalCalculation';
-import { useAuthStore } from '../../../hooks/useAuth';
+import ProvisionalCalculationComp from './component/provisionalCalculation/provisionalCalculation';
 
 function HaveProducts() {
   const { t } = useTranslation(['cart']);
 
-  const [totalPrice, setTotalPrice] = useState(0);
+  const { orderPost } = useOrderStore();
 
-  const [order, setOrder] = useState([]);
+  const [check, setCheck] = useState(false);
 
-  const { orderPost } = useAuthStore();
-
-  const ListProductsInCart = [
+  const [orders, setOrders] = useState([
     {
       productId: '62f6127b01901acef6c257f1',
       discount: 0.3,
@@ -28,7 +27,8 @@ function HaveProducts() {
       linkTo: '#',
       nameProducts: t('Combo 2 Thùng Bia Hà Nội'),
       price: 275000,
-      quantity: 300,
+      quantity: 1,
+      isCheck: check,
     },
     {
       productId: '62f613f101901acef6c25806',
@@ -37,53 +37,90 @@ function HaveProducts() {
       linkTo: '#',
       nameProducts: t('Điện thoại Samsung Galaxy A13 (4GB/128GB)'),
       price: 5990000,
-      quantity: 300,
+      quantity: 1,
+      isCheck: check,
     },
-  ];
+  ]);
 
-  const renderListProducts = () => {
-    const List = [];
+  const listOrdersCheckTrue = orders.filter((item) => item.isCheck === true);
 
-    ListProductsInCart.forEach((item, index) => {
-      return List.push(
+  const listOrdersPost = listOrdersCheckTrue.map((item) => {
+    return {
+      productId: item.productId,
+      quantity: item.quantity,
+      discount: item.discount,
+      price: item.price,
+    };
+  });
+
+  const total = useMemo(() => {
+    const cloneOrders = orders?.filter((i) => i.isCheck);
+
+    if (cloneOrders.length) {
+      return cloneOrders.reduce((acumulator, item) => {
+        const priceOfProducts = item.price * item.quantity - item.price * item.discount * item.quantity;
+
+        return acumulator + priceOfProducts;
+      }, 0);
+    }
+
+    return 0;
+  }, [orders]);
+
+  const provisional = useMemo(() => {
+    const cloneOrders = orders?.filter((i) => i.isCheck);
+
+    if (cloneOrders.length) {
+      const totalOrdersPrice = cloneOrders.reduce((acumulator, item) => {
+        const priceOfProducts = item.price * item.quantity;
+
+        return acumulator + priceOfProducts;
+      }, 0);
+
+      return totalOrdersPrice;
+    }
+
+    return 0;
+  }, [orders]);
+
+  const renderListOrders = () =>
+    orders.map((item, index) => {
+      return (
         <Row key={index} className='name_field'>
-          <ListProducts
+          <Product
             productId={item.productId}
             discount={item.discount}
             img={item.img}
             linkTo={item.linkTo}
             nameProducts={item.nameProducts}
             price={item.price}
-            totalPrice={totalPrice}
-            setTotalPrice={setTotalPrice}
-            setOrder={setOrder}
-            order={order}
+            setOrders={setOrders}
+            orders={orders}
+            isCheck={item.isCheck}
+            quantity={item.quantity}
           />
-        </Row>,
+        </Row>
       );
     });
 
-    return List;
-  };
-
-  const postOrderSuccess = async () => {
-    await notification.success({
-      message: 'Order Success',
+  const postOrderSuccess = () => {
+    notification.success({
+      message: t('orders_success'),
     });
   };
 
-  const postOrderFail = async () => {
-    await notification.error({
-      message: 'Order Error',
+  const postOrderFail = () => {
+    notification.error({
+      message: t('orders_fail'),
     });
   };
 
   const buyProducts = () => {
-    orderPost({ orders: order }, postOrderSuccess, postOrderFail);
+    orderPost({ data: { orders: listOrdersPost }, postOrderSuccess: postOrderSuccess, postOrderFail: postOrderFail });
   };
 
   return (
-    <HadProducts>
+    <Wrapper>
       <Col span={22} offset={1} className='cart'>
         <Row>
           <Col lg={17} sm={24}>
@@ -101,14 +138,14 @@ function HaveProducts() {
                 </Popconfirm>
               </Col>
             </Row>
-            {renderListProducts()}
+            {renderListOrders()}
           </Col>
 
           <Col lg={7} sm={24}>
             <Payment>
               <AddressShippingComp />
               <PromotionsComp />
-              <ProvisionalCalculationComp totalPrice={totalPrice} setTotalPrice={setTotalPrice} />
+              <ProvisionalCalculationComp price={total} provisional={provisional} />
               <Row className='btn_buy'>
                 <Col lg={24}>
                   <Button type='primary' onClick={buyProducts}>
@@ -120,7 +157,7 @@ function HaveProducts() {
           </Col>
         </Row>
       </Col>
-    </HadProducts>
+    </Wrapper>
   );
 }
 

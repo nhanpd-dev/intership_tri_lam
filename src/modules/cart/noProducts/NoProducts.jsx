@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import { Button, Col, Image, Row, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 
-import { NotProducts } from './styled';
+import { Wrapper } from './styled';
 import { IMG_CART } from '../../../assets/imgs/Cart/index';
 
-function NoProducts() {
+function EmptyProducts() {
   const { t } = useTranslation(['cart']);
 
   const { Paragraph } = Typography;
 
   return (
-    <NotProducts>
+    <Wrapper>
       <Col span={22} offset={1} className='cart'>
         <Row className='cart_content'>
           <Image className='cart_content-img' preview={false} src={IMG_CART} alt='hhee' />
@@ -26,8 +26,8 @@ function NoProducts() {
           </Link>
         </Row>
       </Col>
-    </NotProducts>
+    </Wrapper>
   );
 }
 
-export default NoProducts;
+export default EmptyProducts;

@@ -2,7 +2,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
 import * as Types from './constants';
-import { registerUser, loginUser, getCurrentUser, order, updateUser, updatePassword } from '../../services/test';
+import { registerUser, loginUser, getCurrentUser, updateUser, updatePassword } from '../../services/test';
 import {
   registerFail,
   registerSuccess,
@@ -10,8 +10,6 @@ import {
   loginFail,
   getCurrentUserFail,
   getCurrentUserSuccess,
-  orderSuccess,
-  orderFail,
   updateUserSuccess,
   updateUserFail,
   updatePasswordSuccess,
@@ -57,19 +55,6 @@ export function* getCurrentUserSaga() {
   }
 }
 
-export function* orderSaga({ payload, callbackSuccess, callbackFail }) {
-  try {
-    const response = yield call(order, payload);
-    if (response) {
-      yield put(orderSuccess());
-      callbackSuccess();
-    }
-  } catch (error) {
-    yield put(orderFail(error.message));
-    callbackFail();
-  }
-}
-
 export function* updateUserSaga({ payload, callbackSuccess, callbackFail }) {
   try {
     const response = yield call(updateUser, payload);
@@ -101,7 +86,6 @@ export default function* globalSaga() {
   yield takeLatest(Types.REGISTER_REQUEST, registerSaga);
   yield takeLatest(Types.LOGIN_REQUEST, loginSaga);
   yield takeLatest(Types.GET_CURRENT_USER_REQUEST, getCurrentUserSaga);
-  yield takeLatest(Types.ORDER_REQUEST, orderSaga);
   yield takeLatest(Types.UPDATE_USER_REQUEST, updateUserSaga);
   yield takeLatest(Types.UPDATE_PASSWORD_REQUEST, updatePasswordSaga);
 }
