@@ -8,7 +8,6 @@ import {
   loginRequest,
   getCurrentUserRequest,
   updateUserRequest,
-  updateLoading,
   updatePasswordRequest,
 } from '../store/auth/action';
 import {
@@ -49,10 +48,6 @@ export const useAuthStore = () => {
     dispatch(updatePasswordRequest(payload));
   };
 
-  const updateAvatarLoading = (loading) => {
-    dispatch(updateLoading(loading));
-  };
-
   return {
     registerUser,
     loginUser,
@@ -62,7 +57,6 @@ export const useAuthStore = () => {
     auth,
     currentUser,
     updateUser,
-    updateAvatarLoading,
     updatePassword,
   };
 };

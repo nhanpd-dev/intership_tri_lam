@@ -90,8 +90,3 @@ export const updatePasswordFail = (error) => ({
   type: Types.UPDATE_PASSWORD_FAIL,
   error,
 });
-
-export const updateLoading = (payload) => ({
-  type: Types.UPDATE_LOADING,
-  payload,
-});

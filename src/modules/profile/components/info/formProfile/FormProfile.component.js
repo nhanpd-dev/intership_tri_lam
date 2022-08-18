@@ -19,14 +19,13 @@ import { ProfileSchema } from '../../../schema/Schema';
 import FiledInput from './fieldInput/FiledInput.component';
 import DefaultImg from '../../../../../assets/imgs/profile/defaultImg.png';
 import { WrapperForm, ValidationError } from './styled';
-import { set } from 'lodash';
 
 export default function FormProfile() {
   const { Text } = Typography;
 
   const { t } = useTranslation(['profile', 'common']);
 
-  const { currentUser, isLoading, updateUser, updateAvatarLoading } = useAuthStore();
+  const { currentUser, isLoading, updateUser } = useAuthStore();
 
   const inputRef = useRef(null);
 
