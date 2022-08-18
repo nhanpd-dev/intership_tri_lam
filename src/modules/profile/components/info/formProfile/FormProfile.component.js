@@ -132,7 +132,7 @@ export default function FormProfile() {
               <Col xl={21} sm={24} xs={24}>
                 <Controller
                   name='birthdate'
-                  defaultValue={currentUser?.birthdate.split('T')[0]}
+                  defaultValue={currentUser?.birthdate?.split('T')[0]}
                   control={control}
                   render={({ field }) => <Input size='large' type='date' value='2022-08-30T00:00:00.000Z' {...field} />}
                 />
