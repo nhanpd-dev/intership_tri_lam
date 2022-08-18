@@ -46,7 +46,7 @@ const TitleWrap = styled.div`
 `;
 
 const GroupStar = styled.div`
-  dispaly: block;
+  display: block;
   color: #c58944;
 
   @media (max-width: 739px) {

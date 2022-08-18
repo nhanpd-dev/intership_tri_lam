@@ -1,122 +1,46 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useMemo } from 'react';
-import { Button, Checkbox, Col, notification, Popconfirm, Row } from 'antd';
+import React, { useState } from 'react';
+import { Button, Checkbox, Col, Popconfirm, Row } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
-import { useOrderStore } from '../../../hooks/useOrder';
-import { Wrapper, Payment } from './styled';
-import Product from './component/listProducts/listProducts';
+import { Wrapper, Payment, Wrapperment } from './styled';
+import ListProducts from './component/listProducts/listProducts';
 import AddressShippingComp from './component/addressShipping/addressShipping';
 import PromotionsComp from './component/promotions/promotions';
 import ProvisionalCalculationComp from './component/provisionalCalculation/provisionalCalculation';
+import { IMG_IPAD, IMG_IPHONE, IMG_MACBOOK } from '../../../assets/imgs/Cart/index';
 
 function HaveProducts() {
   const { t } = useTranslation(['cart']);
 
-  const { orderPost } = useOrderStore();
+  const [totalPrice, setTotalPrice] = useState(0);
 
-  const [check, setCheck] = useState(false);
+  const ListProductsInCart = [
+    { img: IMG_MACBOOK, linkTo: '#', nameProducts: t('MacBook Pro 16 inch 2021'), price: 59580000 },
+    { img: IMG_IPAD, linkTo: '#', nameProducts: t('MacBook Pro 16 inch 2021'), price: 22380000 },
+    { img: IMG_IPHONE, linkTo: '#', nameProducts: t('MacBook Pro 16 inch 2021'), price: 21758000 },
+  ];
 
-  const [orders, setOrders] = useState([
-    {
-      productId: '62f6127b01901acef6c257f1',
-      discount: 0.3,
-      img: 'https://salt.tikicdn.com/cache/100x100/ts/product/19/8a/e1/d937df8639ad937d4d01d46760d46072.png.webp',
-      linkTo: '#',
-      nameProducts: t('Combo 2 Thùng Bia Hà Nội'),
-      price: 275000,
-      quantity: 1,
-      isCheck: check,
-    },
-    {
-      productId: '62f613f101901acef6c25806',
-      discount: 0.1,
-      img: 'https://salt.tikicdn.com/cache/100x100/ts/product/eb/1e/9b/fa34fb7e0ae4da3e1ec9c3d4c4add39b.jpg.webp',
-      linkTo: '#',
-      nameProducts: t('Điện thoại Samsung Galaxy A13 (4GB/128GB)'),
-      price: 5990000,
-      quantity: 1,
-      isCheck: check,
-    },
-  ]);
+  const renderListProducts = () => {
+    const List = [];
 
-  const listOrdersCheckTrue = orders.filter((item) => item.isCheck === true);
-
-  const listOrdersPost = listOrdersCheckTrue.map((item) => {
-    return {
-      productId: item.productId,
-      quantity: item.quantity,
-      discount: item.discount,
-      price: item.price,
-    };
-  });
-
-  const total = useMemo(() => {
-    const cloneOrders = orders?.filter((i) => i.isCheck);
-
-    if (cloneOrders.length) {
-      return cloneOrders.reduce((acumulator, item) => {
-        const priceOfProducts = item.price * item.quantity - item.price * item.discount * item.quantity;
-
-        return acumulator + priceOfProducts;
-      }, 0);
-    }
-
-    return 0;
-  }, [orders]);
-
-  const provisional = useMemo(() => {
-    const cloneOrders = orders?.filter((i) => i.isCheck);
-
-    if (cloneOrders.length) {
-      const totalOrdersPrice = cloneOrders.reduce((acumulator, item) => {
-        const priceOfProducts = item.price * item.quantity;
-
-        return acumulator + priceOfProducts;
-      }, 0);
-
-      return totalOrdersPrice;
-    }
-
-    return 0;
-  }, [orders]);
-
-  const renderListOrders = () =>
-    orders.map((item, index) => {
-      return (
+    ListProductsInCart.forEach((item, index) => {
+      return List.push(
         <Row key={index} className='name_field'>
-          <Product
-            productId={item.productId}
-            discount={item.discount}
+          <ListProducts
             img={item.img}
             linkTo={item.linkTo}
             nameProducts={item.nameProducts}
             price={item.price}
-            setOrders={setOrders}
-            orders={orders}
-            isCheck={item.isCheck}
-            quantity={item.quantity}
+            totalPrice={totalPrice}
+            setTotalPrice={setTotalPrice}
           />
-        </Row>
+        </Row>,
       );
     });
 
-  const postOrderSuccess = () => {
-    notification.success({
-      message: t('orders_success'),
-    });
-  };
-
-  const postOrderFail = () => {
-    notification.error({
-      message: t('orders_fail'),
-    });
-  };
-
-  const buyProducts = () => {
-    orderPost({ data: { orders: listOrdersPost }, postOrderSuccess: postOrderSuccess, postOrderFail: postOrderFail });
+    return List;
   };
 
   return (
@@ -138,19 +62,17 @@ function HaveProducts() {
                 </Popconfirm>
               </Col>
             </Row>
-            {renderListOrders()}
+            {renderListProducts()}
           </Col>
 
           <Col lg={7} sm={24}>
             <Payment>
               <AddressShippingComp />
               <PromotionsComp />
-              <ProvisionalCalculationComp price={total} provisional={provisional} />
+              <ProvisionalCalculationComp totalPrice={totalPrice} setTotalPrice={setTotalPrice} />
               <Row className='btn_buy'>
                 <Col lg={24}>
-                  <Button type='primary' onClick={buyProducts}>
-                    {t('buy_products')}
-                  </Button>
+                  <Button type='primary'>{t('buy_products')}</Button>
                 </Col>
               </Row>
             </Payment>

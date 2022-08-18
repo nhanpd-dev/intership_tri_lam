@@ -10,4 +10,8 @@ const ORDERS = {
   ORDER: '/order',
 };
 
-export { ENDPOINTS, ORDERS };
+const PRODUCT = {
+  GET_PRODUCT: '/product?productId=',
+};
+
+export { ENDPOINTS, ORDERS, PRODUCT };

@@ -1,7 +1,11 @@
 import { useTranslation } from 'react-i18next';
+
 import { Row, Col, Divider, Typography } from 'antd';
+
 import DescriptionWrapper from './style';
+
 const { Title, Paragraph } = Typography;
+
 const ProductDetailsDescription = ({ description }) => {
   const { t } = useTranslation(['productDetails']);
 

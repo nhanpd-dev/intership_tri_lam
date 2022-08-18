@@ -1,5 +1,5 @@
 import AxiosClient from './API';
-import { ENDPOINTS } from './constants';
+import { ENDPOINTS, PRODUCT } from './constants';
 
 async function registerUser(data) {
   const axiosClient = new AxiosClient();
@@ -32,4 +32,9 @@ async function fetchProducts({ page, limit, search }) {
   return axiosClient.get(`/products?page=${page}&limit=${limit}&search=${search}`);
 }
 
-export { registerUser, loginUser, getCurrentUser, updateUser, fetchProducts, updatePassword };
+async function getProduct(data) {
+  const axiosClient = new AxiosClient();
+  return axiosClient.get(`${PRODUCT.GET_PRODUCT}${data}`);
+}
+
+export { registerUser, loginUser, getCurrentUser, updateUser, fetchProducts, updatePassword, getProduct };
