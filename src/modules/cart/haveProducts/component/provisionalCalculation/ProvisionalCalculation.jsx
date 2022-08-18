@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ProvisionalCalculation } from './styled';
 
-function ProvisionalCalculationComp({ memoPrice, memoProvisional }) {
+function ProvisionalCalculationComp({ price, provisional }) {
   const { t } = useTranslation(['cart']);
 
   return (
@@ -13,13 +13,13 @@ function ProvisionalCalculationComp({ memoPrice, memoProvisional }) {
         <Col span={14} className='title_payment'>
           {t('provisional')}
         </Col>
-        <Col span={10}>{memoProvisional}đ</Col>
+        <Col span={10}>{provisional}đ</Col>
       </Row>
       <Row className='content_selector'>
         <Col span={14} className='title_payment'>
           {t('promotions')}
         </Col>
-        <Col span={10}>{memoPrice}đ</Col>
+        <Col span={10}>{price}đ</Col>
       </Row>
       <Divider />
       <Row className='content_selector'>
@@ -27,7 +27,7 @@ function ProvisionalCalculationComp({ memoPrice, memoProvisional }) {
           {t('total_money')}
         </Col>
         <Col span={10} className='red-color'>
-          {memoPrice}đ
+          {price}đ
         </Col>
       </Row>
     </ProvisionalCalculation>

@@ -110,13 +110,13 @@ function HaveProducts() {
 
   const postOrderSuccess = () => {
     notification.success({
-      message: 'Order Success',
+      message: t('orders_success'),
     });
   };
 
   const postOrderFail = () => {
     notification.error({
-      message: 'Order Fail',
+      message: t('orders_fail'),
     });
   };
 
@@ -150,7 +150,7 @@ function HaveProducts() {
             <Payment>
               <AddressShippingComp />
               <PromotionsComp />
-              <ProvisionalCalculationComp memoPrice={total} memoProvisional={provisional} />
+              <ProvisionalCalculationComp price={total} provisional={provisional} />
               <Row className='btn_buy'>
                 <Col lg={24}>
                   <Button type='primary' onClick={buyProducts}>

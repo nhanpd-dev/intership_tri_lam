@@ -4,6 +4,7 @@ import * as Types from './constants';
 export const initialState = {
   error: null,
   orders: null,
+  isLoading: false,
 };
 
 const orderRequest = (state) => ({
@@ -13,11 +14,13 @@ const orderRequest = (state) => ({
 
 const orderSuccess = (state, action) => ({
   ...state,
+  isLoading: false,
   orders: action.payload,
 });
 
 const orderFail = (state, action) => ({
   ...state,
+  isLoading: false,
   error: action.payload,
 });
 
