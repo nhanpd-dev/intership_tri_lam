@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm, Controller } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   UserOutlined,
@@ -25,6 +26,8 @@ export default function FormProfile() {
 
   const { t } = useTranslation(['profile', 'common']);
 
+  const navigate = useNavigate();
+
   const { currentUser, isLoading, updateUser } = useAuthStore();
 
   const inputRef = useRef(null);
@@ -39,28 +42,30 @@ export default function FormProfile() {
     resolver: yupResolver(ProfileSchema),
   });
 
+  const toastMessage = (type, message, urlRedirect = '') => {
+    notification[type]({ message: message });
+    if (urlRedirect) navigate(urlRedirect);
+  };
+
+  const updateInfoSuccess = () => {
+    toastMessage('success', t('change_info_success'));
+  };
+
+  const updateInfoFail = () => {
+    toastMessage('error', t('change_info_fail'));
+  };
+
   const onSubmit = (data) => {
     delete data.email;
-    updateUser(data, updateSuccess, updateFail);
-  };
-
-  const updateSuccess = async () => {
-    await notification.success({
-      message: t('change_info_success'),
-    });
-  };
-
-  const updateFail = async () => {
-    await notification.error({
-      message: t('change_info_fail'),
-    });
+    updateUser({ data, callbackSuccess: updateInfoSuccess, callbackFail: updateInfoFail });
   };
 
   const handleChange = async (e) => {
     setIsUpload(true);
     await upload(e.target.files[0])
       .then((res) => {
-        updateUser({ avatar: res }, updateSuccess, updateFail);
+        const data = { avatar: res };
+        updateUser({ data, callbackSuccess: updateInfoSuccess, callbackFail: updateInfoFail });
       })
       .catch()
       .finally(() => setIsUpload(false));

@@ -36,31 +36,29 @@ export const getCurrentUserRequest = () => ({
   type: Types.GET_CURRENT_USER_REQUEST,
 });
 
-export const getCurrentUserSuccess = (payload) => ({
+export const getCurrentUserSuccess = (currentUser) => ({
   type: Types.GET_CURRENT_USER_SUCCESS,
-  payload: payload,
+  currentUser,
 });
 
 export const getCurrentUserFail = (error) => ({
   type: Types.GET_CURRENT_USER_FAIL,
-  payload: error,
+  error,
 });
 
-export const updateUserRequest = (payload, callbackSuccess, callbackFail) => ({
+export const updateUserRequest = (payload) => ({
   type: Types.UPDATE_USER_REQUEST,
   payload,
-  callbackSuccess,
-  callbackFail,
 });
 
-export const updateUserSuccess = (payload) => ({
+export const updateUserSuccess = (user) => ({
   type: Types.UPDATE_USER_SUCCESS,
-  payload: payload,
+  user,
 });
 
 export const updateUserFail = (error) => ({
   type: Types.UPDATE_USER_FAIL,
-  payload: error,
+  error,
 });
 
 export const updatePasswordRequest = (payload) => ({

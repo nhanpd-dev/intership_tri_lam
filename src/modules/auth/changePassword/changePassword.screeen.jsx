@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Row, Col, Typography, Form, Button, Checkbox, Space, Spin } from 'antd';
-import { notification } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { Row, Col, Typography, Form, Button, Checkbox, Space, Spin, notification } from 'antd';
 
 import { ChangePasswordSchema } from './schema';
 import { useAuthStore } from '../../../hooks/useAuth';
@@ -35,19 +34,19 @@ export default function ChangePassword() {
     if (urlRedirect) navigate(urlRedirect);
   };
 
-  const callbackSuccess = () => {
+  const updatePasswordSuccess = () => {
     toastMessage('success', t('change_pass_success'), '/account/profile');
   };
 
-  const callbackFail = () => {
+  const updatePasswordFail = () => {
     toastMessage('error', t('change_pass_fail'));
   };
 
   const onSubmit = (data) => {
     updatePassword({
       data,
-      callbackSuccess: callbackSuccess,
-      callbackFail: callbackFail,
+      callbackSuccess: updatePasswordSuccess,
+      callbackFail: updatePasswordFail,
     });
   };
 

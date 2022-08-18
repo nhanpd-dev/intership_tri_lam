@@ -35,8 +35,8 @@ export const useAuthStore = () => {
     dispatch(getCurrentUserRequest());
   };
 
-  const updateUser = (data, callbackSuccess, callbackFail) => {
-    dispatch(updateUserRequest(data, callbackSuccess, callbackFail));
+  const updateUser = (payload) => {
+    dispatch(updateUserRequest(payload));
   };
 
   return {
