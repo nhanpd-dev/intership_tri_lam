@@ -121,8 +121,7 @@ function HaveProducts() {
   };
 
   const buyProducts = () => {
-    // orderPost({ orders: listOrdersPost }, postOrderSuccess, postOrderFail);
-    console.log(listOrdersPost);
+    orderPost({ orders: listOrdersPost }, postOrderSuccess, postOrderFail);
   };
 
   return (
