@@ -6,19 +6,11 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
 import { useOrderStore } from '../../../hooks/useOrder';
-<<<<<<< HEAD
-import { HadProducts, Payment } from './styled';
-import ListProducts from './component/listProducts/ListProducts';
+import { Wrapper, Payment } from './styled';
+import Product from './component/listProducts/ListProducts';
 import AddressShippingComp from './component/addressShipping/AddressShipping';
 import PromotionsComp from './component/promotions/promotions';
 import ProvisionalCalculationComp from './component/provisionalCalculation/ProvisionalCalculation';
-=======
-import { Wrapper, Payment } from './styled';
-import Product from './component/listProducts/listProducts';
-import AddressShippingComp from './component/addressShipping/addressShipping';
-import PromotionsComp from './component/promotions/promotions';
-import ProvisionalCalculationComp from './component/provisionalCalculation/provisionalCalculation';
->>>>>>> 22fe59b (update/lam_Lqb/INTERSHIP_18_Update-Cart-part11)
 
 function HaveProducts() {
   const { t } = useTranslation(['cart']);

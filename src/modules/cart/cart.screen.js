@@ -2,10 +2,9 @@
 import { Col, Row, Typography } from 'antd';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
-import HaveProducts from './haveProducts/haveProducts';
-import NoProducts from './noProducts/noProducts';
+import HaveProducts from './haveProducts/HaveProducts';
+import NoProducts from './noProducts/NoProducts';
 import { Wrapper } from './styled';
 
 function Cart() {

@@ -2,11 +2,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
 import * as Types from './constants';
-<<<<<<< HEAD
-import { registerUser, loginUser, getCurrentUser, order, updateUser, updatePassword } from '../../services/test';
-=======
-import { registerUser, loginUser, getCurrentUser, updateUser } from '../../services/test';
->>>>>>> 471a539 (update/lam_Lqb/INTERSHIP_18_Update-Cart-part8)
+import { registerUser, loginUser, getCurrentUser, updateUser, updatePassword } from '../../services/test';
 import {
   registerFail,
   registerSuccess,
