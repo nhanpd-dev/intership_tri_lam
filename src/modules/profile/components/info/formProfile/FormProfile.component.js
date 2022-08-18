@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -19,6 +19,7 @@ import { ProfileSchema } from '../../../schema/Schema';
 import FiledInput from './fieldInput/FiledInput.component';
 import DefaultImg from '../../../../../assets/imgs/profile/defaultImg.png';
 import { WrapperForm, ValidationError } from './styled';
+import { set } from 'lodash';
 
 export default function FormProfile() {
   const { Text } = Typography;
@@ -28,6 +29,8 @@ export default function FormProfile() {
   const { currentUser, isLoading, updateUser, updateAvatarLoading } = useAuthStore();
 
   const inputRef = useRef(null);
+
+  const [isUpload, setIsUpload] = useState(false);
 
   const {
     control,
@@ -55,19 +58,20 @@ export default function FormProfile() {
   };
 
   const handleChange = async (e) => {
-    await updateAvatarLoading(true);
+    setIsUpload(true);
     await upload(e.target.files[0])
       .then((res) => {
         updateUser({ avatar: res }, updateSuccess, updateFail);
       })
       .catch()
-      .finally(() => updateAvatarLoading(false));
+      .finally(() => setIsUpload(false));
+    setIsUpload(false);
   };
 
   return (
     <WrapperForm>
       {currentUser ? (
-        <Spin spinning={isLoading} delay={500}>
+        <Spin spinning={isLoading || isUpload} delay={500}>
           <Form className='form' onFinish={handleSubmit(onSubmit)}>
             <Row justify='center' align='middle' gutter={24}>
               <Col xl={6} sm={24} xs={24} className='flex-avatar'>
