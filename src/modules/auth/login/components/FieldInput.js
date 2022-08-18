@@ -3,7 +3,7 @@ import { Col, Row } from 'antd';
 
 import { LabelItem, InputItem } from './styled';
 
-export default function FiledInput({ t, register, nameField, Icon }) {
+export default function FiledInput({ t, register, nameField, Icon, type }) {
   return (
     <Row type='flex' align='middle'>
       <Col span={7}>
@@ -14,7 +14,7 @@ export default function FiledInput({ t, register, nameField, Icon }) {
         </LabelItem>
       </Col>
       <Col span={17}>
-        <InputItem type='text' placeholder={t(nameField)} {...register(nameField)} />
+        <InputItem type={type} placeholder={t(nameField)} {...register(nameField)} />
       </Col>
     </Row>
   );

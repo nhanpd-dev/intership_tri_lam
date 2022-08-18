@@ -5,7 +5,7 @@
   "personal_information": "Thông tin cá nhân",
   "security": "Bảo mật",
   "setting_password": "Cài đặt mật khẩu",
-  "setting": "Cài dặt",
+  "setting": "Cài đặt",
   "save_change": "Lưu thay đổi",
   "email_is_required": "Email không được trống",
   "email_invalid": "Chưa đúng định dạng email",
@@ -23,5 +23,16 @@
   "address_must_less_100_char": "Địa chỉ không được quá 100 kí tự",
   "gender_is_required": "Giới tính không được trống",
   "change_info_success": "Thay đổi thông tin thành công",
-  "change_info_fail": "Thay đổi thông tin thất bại"
+  "change_info_fail": "Thay đổi thông tin thất bại",
+  "change_password": "Thiết lập mật khẩu",
+  "new_pass": "Nhập mật khẩu mới",
+  "enter_new_pass": "Nhập lại mật khẩu mới",
+  "show_password": "Hiện mật khẩu",
+  "new_pass_is_required": "Trường này là bắt buộc",
+  "enter_new_pass_is_required": "Trường này là bắt buộc",
+  "new_pass_least_9_char": "Mật khẩu phải nhiều hơn 9 kí tự",
+  "new_pass_less_30_char": "Mật khẩu không được quá 30 kí tự",
+  "pass_not_match": "Mật khẩu chưa khớp",
+  "change_pass_success": "Thay đổi mật khẩu thành công",
+  "change_pass_fail": "Thay đổi mật khẩu thất bại"
 }

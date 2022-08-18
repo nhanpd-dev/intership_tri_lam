@@ -8,7 +8,7 @@ import {
   loginRequest,
   getCurrentUserRequest,
   updateUserRequest,
-  updateLoading,
+  updatePasswordRequest,
 } from '../store/auth/action';
 import {
   makeSelectLoading,
@@ -18,8 +18,8 @@ import {
 } from '../store/auth/selector';
 
 export const useAuthStore = () => {
-  useInjectSaga({ key: 'globalStore', saga });
-  useInjectReducer({ key: 'globalStore', reducer });
+  useInjectSaga({ key: 'authStore', saga });
+  useInjectReducer({ key: 'authStore', reducer });
 
   const dispatch = useDispatch();
 
@@ -44,8 +44,8 @@ export const useAuthStore = () => {
     dispatch(updateUserRequest(data, callbackSuccess, callbackFail));
   };
 
-  const updateAvatarLoading = (loading) => {
-    dispatch(updateLoading(loading));
+  const updatePassword = (payload) => {
+    dispatch(updatePasswordRequest(payload));
   };
 
   return {
@@ -57,6 +57,6 @@ export const useAuthStore = () => {
     auth,
     currentUser,
     updateUser,
-    updateAvatarLoading,
+    updatePassword,
   };
 };

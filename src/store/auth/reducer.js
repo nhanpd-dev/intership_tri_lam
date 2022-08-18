@@ -83,11 +83,15 @@ const updateUserFail = (state, action) => ({
   ...state,
   error: action.payload,
 });
+const updatePasswordRequest = (state) => updateObject(state, { isLoading: true });
 
-const updateAvatarLoading = (state, action) => ({
-  ...state,
-  isLoading: action.payload,
-});
+const updatePasswordSuccess = (state) => updateObject(state, { isLoading: false });
+
+const updatePasswordFail = (state, action) =>
+  updateObject(state, {
+    isLoading: false,
+    error: action.error,
+  });
 
 export default createReducer(initialState, {
   [Types.REGISTER_REQUEST]: registerRequest,
@@ -110,5 +114,7 @@ export default createReducer(initialState, {
   [Types.UPDATE_USER_SUCCESS]: updateUserSuccess,
   [Types.UPDATE_USER_FAIL]: updateUserFail,
 
-  [Types.UPDATE_LOADING]: updateAvatarLoading,
+  [Types.UPDATE_PASSWORD_REQUEST]: updatePasswordRequest,
+  [Types.UPDATE_PASSWORD_SUCCESS]: updatePasswordSuccess,
+  [Types.UPDATE_PASSWORD_FAIL]: updatePasswordFail,
 });

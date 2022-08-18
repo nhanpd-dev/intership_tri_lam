@@ -4,4 +4,5 @@ export const ENDPOINTS = {
   GETME: '/me',
   ORDER: '/oder',
   UPDATE_USER: '/users/change-information',
+  UPDATE_USER_PASSWORD: '/users/change-password',
 };

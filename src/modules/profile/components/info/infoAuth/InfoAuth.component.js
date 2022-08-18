@@ -1,10 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { LockOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 import { Row, Col, Space, Button, Typography } from 'antd';
 
 export default function InfoAuth() {
   const { Title, Text } = Typography;
+
+  const navigate = useNavigate();
 
   const { t } = useTranslation(['profile', 'common']);
 
@@ -25,7 +28,7 @@ export default function InfoAuth() {
         </Col>
 
         <Col md={7} sm={8} xs={8}>
-          <Button size='medium' type='primary'>
+          <Button size='medium' type='primary' onClick={() => navigate('/account/change-password')}>
             {t('setting')}
           </Button>
         </Col>

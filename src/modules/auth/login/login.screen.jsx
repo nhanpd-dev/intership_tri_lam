@@ -56,13 +56,13 @@ export default function LoginScreen() {
               </Col>
             </Row>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <FiledInput t={t} register={register} nameField={'email'} Icon={MailOutlined} />
+              <FiledInput t={t} register={register} nameField={'email'} Icon={MailOutlined} type='text' />
               <Row>
                 <Col span={17} offset={7}>
                   <ValidationError>{errors.email && t(errors.email?.message)}</ValidationError>
                 </Col>
               </Row>
-              <FiledInput t={t} register={register} nameField={'password'} Icon={LockOutlined} />
+              <FiledInput t={t} register={register} nameField={'password'} Icon={LockOutlined} type='password' />
 
               <Row>
                 <Col span={17} offset={7}>

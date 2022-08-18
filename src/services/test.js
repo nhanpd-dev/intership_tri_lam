@@ -26,10 +26,15 @@ async function updateUser(data) {
   return axiosClient.patch(ENDPOINTS.UPDATE_USER, data);
 }
 
+async function updatePassword(data) {
+  const axiosClient = new AxiosClient();
+  return axiosClient.patch(ENDPOINTS.UPDATE_USER_PASSWORD, data);
+}
+
 async function fetchProducts({ page, limit, search }) {
   const axiosClient = new AxiosClient();
 
   return axiosClient.get(`/products?page=${page}&limit=${limit}&search=${search}`);
 }
 
-export { registerUser, loginUser, getCurrentUser, updateUser, order, fetchProducts };
+export { registerUser, loginUser, getCurrentUser, updateUser, order, fetchProducts, updatePassword };

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -25,11 +25,11 @@ export default function FormProfile() {
 
   const { t } = useTranslation(['profile', 'common']);
 
-  const { currentUser, isLoading, updateUser, updateAvatarLoading } = useAuthStore();
-
-  console.log('loading1', isLoading);
+  const { currentUser, isLoading, updateUser } = useAuthStore();
 
   const inputRef = useRef(null);
+
+  const [isUpload, setIsUpload] = useState(false);
 
   const {
     control,
@@ -57,19 +57,20 @@ export default function FormProfile() {
   };
 
   const handleChange = async (e) => {
-    await updateAvatarLoading(true);
+    setIsUpload(true);
     await upload(e.target.files[0])
       .then((res) => {
         updateUser({ avatar: res }, updateSuccess, updateFail);
       })
       .catch()
-      .finally(() => updateAvatarLoading(false));
+      .finally(() => setIsUpload(false));
+    setIsUpload(false);
   };
 
   return (
     <WrapperForm>
       {currentUser ? (
-        <Spin spinning={isLoading} delay={500}>
+        <Spin spinning={isLoading || isUpload} delay={500}>
           <Form className='form' onFinish={handleSubmit(onSubmit)}>
             <Row justify='center' align='middle' gutter={24}>
               <Col xl={6} sm={24} xs={24} className='flex-avatar'>
@@ -134,7 +135,7 @@ export default function FormProfile() {
               <Col xl={21} sm={24} xs={24}>
                 <Controller
                   name='birthdate'
-                  defaultValue={currentUser?.birthdate.split('T')[0]}
+                  defaultValue={currentUser?.birthdate?.split('T')[0]}
                   control={control}
                   render={({ field }) => <Input size='large' type='date' value='2022-08-30T00:00:00.000Z' {...field} />}
                 />
