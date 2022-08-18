@@ -7,10 +7,10 @@ import { useTranslation } from 'react-i18next';
 
 import { useOrderStore } from '../../../hooks/useOrder';
 import { Wrapper, Payment } from './styled';
-import Product from './component/listProducts/ListProducts';
-import AddressShippingComp from './component/addressShipping/AddressShipping';
+import Product from './component/listProducts/listProducts';
+import AddressShippingComp from './component/addressShipping/addressShipping';
 import PromotionsComp from './component/promotions/promotions';
-import ProvisionalCalculationComp from './component/provisionalCalculation/ProvisionalCalculation';
+import ProvisionalCalculationComp from './component/provisionalCalculation/provisionalCalculation';
 
 function HaveProducts() {
   const { t } = useTranslation(['cart']);
