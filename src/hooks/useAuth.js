@@ -16,8 +16,6 @@ import {
   makeSelectError,
   makeSelectAuthenticated,
   makeSelectCurrentUser,
-  makeSelectIsUpdatePasswordSuccess,
-  makeSelectIsUpdatePasswordFail,
 } from '../store/auth/selector';
 
 export const useAuthStore = () => {
@@ -30,8 +28,6 @@ export const useAuthStore = () => {
   const error = useSelector(makeSelectError());
   const auth = useSelector(makeSelectAuthenticated());
   const currentUser = useSelector(makeSelectCurrentUser());
-  const isUpdatePasswordSuccess = useSelector(makeSelectIsUpdatePasswordSuccess());
-  const isUpdatePasswordFail = useSelector(makeSelectIsUpdatePasswordFail());
 
   const registerUser = (data, callback) => {
     dispatch(registerRequest(data, callback));
@@ -65,8 +61,6 @@ export const useAuthStore = () => {
     error,
     auth,
     currentUser,
-    isUpdatePasswordSuccess,
-    isUpdatePasswordFail,
     updateUser,
     updateAvatarLoading,
     updatePassword,
