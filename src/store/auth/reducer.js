@@ -7,7 +7,7 @@ export const initialState = {
   isLoading: false,
   isUpdatePasswordSuccess: false,
   isUpdatePasswordFail: false,
-  isUpdateInfodSuccess: false,
+  isUpdateInfoSuccess: false,
   isUpdateInfoFail: false,
   error: null,
 };

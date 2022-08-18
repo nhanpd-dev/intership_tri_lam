@@ -4,14 +4,6 @@ import COLORS from '../../../themes/colors';
 
 export const WrapperFormChangePass = styled.div`
   .form {
-    @media (max-width: 1200px) {
-      font-size: ${FONTS_SIZE.size_12};
-    }
-
-    @media (max-width: 610px) {
-      font-size: ${FONTS_SIZE.size_11};
-    }
-
     background: ${COLORS.background_primary};
     padding: 30px;
     border-radius: 8px;
@@ -25,6 +17,14 @@ export const WrapperFormChangePass = styled.div`
         display: flex;
         justify-content: center;
       }
+    }
+
+    @media (max-width: 1200px) {
+      font-size: ${FONTS_SIZE.size_12};
+    }
+
+    @media (max-width: 610px) {
+      font-size: ${FONTS_SIZE.size_11};
     }
   }
 `;
