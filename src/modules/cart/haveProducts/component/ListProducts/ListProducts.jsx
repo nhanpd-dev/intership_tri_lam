@@ -3,13 +3,20 @@ import { Link } from 'react-router-dom';
 import { Checkbox, Col, Image, InputNumber, Popconfirm, Row } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 
-function ListProducts({ img, linkTo, nameProducts, price, totalPrice, setTotalPrice }) {
+function ListProducts({
+  img,
+  linkTo,
+  nameProducts,
+  price,
+  totalPrice,
+  setTotalPrice,
+  productId,
+  discount,
+  order,
+  setOrder,
+}) {
   const [intoMoney, setIntoMoney] = useState(price);
-
-  const changeQuantity = (value) => {
-    const sum = value * price;
-    setIntoMoney(sum);
-  };
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <Row className='list_products-content'>
@@ -18,9 +25,11 @@ function ListProducts({ img, linkTo, nameProducts, price, totalPrice, setTotalPr
           className='icon_check'
           onChange={(e) => {
             if (e.target.checked) {
-              setTotalPrice(totalPrice + intoMoney);
+              setTotalPrice((totalPrice = totalPrice + intoMoney));
+              setOrder([...order, { productId, price, discount, quantity }]);
             } else {
-              setTotalPrice(totalPrice - intoMoney);
+              setTotalPrice((totalPrice = totalPrice - intoMoney));
+              setOrder([]);
             }
           }}
         />
@@ -28,13 +37,21 @@ function ListProducts({ img, linkTo, nameProducts, price, totalPrice, setTotalPr
         <Link to={linkTo}>{nameProducts}</Link>
       </Col>
       <Col md={4} className='selector_price unit_price'>
-        {price}
+        {price}đ
       </Col>
       <Col md={4} sm={4} xs={8}>
-        <InputNumber min={1} max={10} defaultValue={1} onChange={changeQuantity} />
+        <InputNumber
+          min={1}
+          max={10}
+          defaultValue={quantity}
+          onChange={(value) => {
+            setIntoMoney(value * price);
+            setQuantity(value);
+          }}
+        />
       </Col>
       <Col md={4} sm={5} xs={8} className='selector_price red_color'>
-        {intoMoney}
+        {intoMoney}đ
       </Col>
       <Col md={1} sm={1} xs={8}>
         <Popconfirm title='Do you want to delete?' okText='Yes' cancelText='No'>

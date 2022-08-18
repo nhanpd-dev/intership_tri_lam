@@ -57,15 +57,16 @@ export function* getCurrentUserSaga() {
   }
 }
 
-export function* orderSaga({ payload, callback }) {
+export function* orderSaga({ payload, callbackSuccess, callbackFail }) {
   try {
     const response = yield call(order, payload);
     if (response) {
       yield put(orderSuccess());
-      callback();
+      callbackSuccess();
     }
   } catch (error) {
     yield put(orderFail(error.message));
+    callbackFail();
   }
 }
 

@@ -58,14 +58,17 @@ const getCurrentUserFail = (state, action) => ({
 
 const orderRequest = (state) => ({
   ...state,
+  isLoading: true,
 });
 
-const orderSuccess = (state) => {
-  updateObject(state);
-};
+const orderSuccess = (state, action) => ({
+  ...state,
+  payload: action.payload,
+});
 
-const orderFail = (error) => ({
-  error,
+const orderFail = (state, action) => ({
+  ...state,
+  error: action.payload,
 });
 
 const updateUserRequest = (state) => ({

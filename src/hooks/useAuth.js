@@ -3,13 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useInjectReducer, useInjectSaga } from '../utils';
 import reducer from '../store/auth/reducer';
 import saga from '../store/auth/saga';
-import {
-  registerRequest,
-  loginRequest,
-  getCurrentUserRequest,
-  updateUserRequest,
-  updatePasswordRequest,
-} from '../store/auth/action';
+import { registerRequest, loginRequest, getCurrentUserRequest, updateUserRequest } from '../store/auth/action';
 import {
   makeSelectLoading,
   makeSelectError,
@@ -44,10 +38,6 @@ export const useAuthStore = () => {
     dispatch(updateUserRequest(data, callbackSuccess, callbackFail));
   };
 
-  const updatePassword = (payload) => {
-    dispatch(updatePasswordRequest(payload));
-  };
-
   return {
     registerUser,
     loginUser,
@@ -57,6 +47,5 @@ export const useAuthStore = () => {
     auth,
     currentUser,
     updateUser,
-    updatePassword,
   };
 };
