@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Col, Image, Input, Row, Button } from 'antd';
-import { AppstoreOutlined, CommentOutlined, HomeOutlined, UserOutlined, SearchOutlined } from '@ant-design/icons';
+import { Col, Image, Row, Button } from 'antd';
+import { CommentOutlined, HomeOutlined, UserOutlined, SearchOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ import Navbar from './component.navbar';
 import { IMG_FREESHIP, LOGO_TIKI } from '../../../assets/imgs/layout/index';
 
 function HeaderLayout() {
-  const { fetchProductsFunc, setParams, params, isLoading } = useProductsListStore();
+  const { fetchProductsFunc, setParams, params } = useProductsListStore();
 
   const { watch, register } = useForm();
   const searchData = watch('search');
@@ -20,10 +20,10 @@ function HeaderLayout() {
   const { t } = useTranslation(['header', 'register', 'common']);
 
   const navItems = [
-    { span: 6, linkTo: '#', icon: <HomeOutlined />, title: t('common:home') },
-    { span: 6, linkTo: '#', icon: <AppstoreOutlined />, title: t('header:category') },
+    { span: 6, linkTo: '/', icon: <HomeOutlined />, title: t('common:home') },
+    { span: 6, linkTo: '/cart', icon: <ShoppingCartOutlined />, title: t('header:cart') },
     { span: 6, linkTo: '#', icon: <CommentOutlined />, title: t('header:chat') },
-    { span: 6, linkTo: '#', icon: <UserOutlined />, title: t('header:personal') },
+    { span: 6, linkTo: 'account/profile', icon: <UserOutlined />, title: t('header:account') },
   ];
 
   const renderNavItems = () => {

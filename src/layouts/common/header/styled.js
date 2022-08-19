@@ -19,11 +19,11 @@ export const Header = styled.div`
   .ant-input {
     background-color: #fff;
     box-shadow: none;
-    max-width: 76%;
 
     &:hover,
     &:focus {
-      background-color: #fff;
+      background-color: ${COLORS.white};
+      padding-left: 3px;
     }
   }
 
@@ -54,6 +54,31 @@ export const Header = styled.div`
         .layout_img-selector {
           width: 70px;
           object-fit: cover;
+        }
+      }
+
+      .search {
+        .login_signUp {
+          display: none;
+          justify-content: flex-end;
+          margin-top: 10px;
+
+          .signUp_selector,
+          .login_selector {
+            color: ${COLORS.white};
+          }
+
+          .login_selector {
+            margin-right: 10px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .login_signUp {
+            display: flex;
+          }
+
+          margin-top: 25px;
         }
       }
     }
