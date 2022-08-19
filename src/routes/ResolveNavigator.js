@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { useAuthStore } from '../hooks/useAuth';
 import { getLocalStorage, STORAGE } from '../utils';
 
-function ResolveNavigator({ setHasUser }) {
+function ResolveNavigator() {
   const { getCurrentUser } = useAuthStore();
 
   const location = useLocation();
@@ -15,7 +15,6 @@ function ResolveNavigator({ setHasUser }) {
 
     if (token) {
       getCurrentUser();
-      setHasUser(true);
     }
   }, [location]);
 
