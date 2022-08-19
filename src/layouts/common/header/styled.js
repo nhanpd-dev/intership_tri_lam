@@ -19,7 +19,6 @@ export const Header = styled.div`
   .ant-input {
     background-color: #fff;
     box-shadow: none;
-    max-width: 76%;
 
     &:hover,
     &:focus {
@@ -54,6 +53,34 @@ export const Header = styled.div`
         .layout_img-selector {
           width: 70px;
           object-fit: cover;
+        }
+      }
+
+      .search {
+        .login_signUp {
+          justify-content: flex-end;
+          display: none;
+          width: 100%;
+          margin-top: 10px;
+          color: ${COLORS.white};
+          align-items: center;
+
+          .signUp_selector,
+          .login_selector {
+            color: ${COLORS.white};
+          }
+
+          .login_selector {
+            margin: 0 10px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          margin-top: 25px;
+
+          .login_signUp {
+            display: flex;
+          }
         }
       }
     }

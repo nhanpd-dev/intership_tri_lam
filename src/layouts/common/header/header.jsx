@@ -1,9 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Col, Image, Row, Button } from 'antd';
-import { CommentOutlined, HomeOutlined, UserOutlined, SearchOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import {
+  AppstoreOutlined,
+  CommentOutlined,
+  HomeOutlined,
+  UserOutlined,
+  SearchOutlined,
+  LoginOutlined,
+} from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import { useProductsListStore } from '../../../modules/products/useProductsList';
 import { Header } from './styled';
@@ -20,10 +28,10 @@ function HeaderLayout() {
   const { t } = useTranslation(['header', 'register', 'common']);
 
   const navItems = [
-    { span: 6, linkTo: '/', icon: <HomeOutlined />, title: t('common:home') },
-    { span: 6, linkTo: '/cart', icon: <ShoppingCartOutlined />, title: t('header:cart') },
+    { span: 6, linkTo: '#', icon: <HomeOutlined />, title: t('common:home') },
+    { span: 6, linkTo: '#', icon: <AppstoreOutlined />, title: t('header:category') },
     { span: 6, linkTo: '#', icon: <CommentOutlined />, title: t('header:chat') },
-    { span: 6, linkTo: 'account/profile', icon: <UserOutlined />, title: t('header:account') },
+    { span: 6, linkTo: '#', icon: <UserOutlined />, title: t('header:personal') },
   ];
 
   const renderNavItems = () => {
@@ -51,7 +59,6 @@ function HeaderLayout() {
       <Row className='header_layout'>
         <Col span={22} offset={1}>
           <Row className='header_layout-content'>
-            {/* Logo */}
             <Col md={5} sm={4} xs={6}>
               <Row className='header_layout-img'>
                 <Link to='/'>
@@ -63,26 +70,38 @@ function HeaderLayout() {
               </Link>
             </Col>
 
-            {/* Search */}
-
             <Col md={12} sm={20} xs={17}>
-              <input
-                className='ant-input'
-                placeholder={t('header:title_input_search_header')}
-                size='large'
-                {...register('search')}
-              />
-              <Button
-                icon={<SearchOutlined />}
-                onClick={() => {
-                  fetchProductsFunc(params);
-                }}
-              >
-                {t('header:search')}
-              </Button>
+              <Row className='search'>
+                <Col md={20} sm={22} xs={22}>
+                  <input
+                    className='ant-input'
+                    placeholder={t('header:title_input_search_header')}
+                    size='large'
+                    {...register('search')}
+                  />
+                </Col>
+                <Col md={2} sm={2} xs={2}>
+                  <Button
+                    icon={<SearchOutlined />}
+                    onClick={() => {
+                      fetchProductsFunc(params);
+                    }}
+                  >
+                    {t('header:search')}
+                  </Button>
+                </Col>
+                <Row className='login_signUp'>
+                  <LoginOutlined />
+                  <Link className='login_selector' to='/login'>
+                    {t('register:login_now')}
+                  </Link>
+                  <Link className='signUp_selector' to='/signUp'>
+                    {t('register:sign_up')}
+                  </Link>
+                </Row>
+              </Row>
             </Col>
 
-            {/* AuthCart */}
             <Col md={7}>
               <UserLayout />
             </Col>
@@ -90,7 +109,6 @@ function HeaderLayout() {
         </Col>
       </Row>
 
-      {/* Nav */}
       <Row className='header_layout-nav'>
         <Col span={22} offset={1}>
           <Row>{renderNavItems()}</Row>
