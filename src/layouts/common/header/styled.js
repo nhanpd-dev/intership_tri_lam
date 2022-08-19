@@ -19,11 +19,19 @@ export const Header = styled.div`
   .ant-input {
     background-color: #fff;
     box-shadow: none;
+<<<<<<< HEAD
 
     &:hover,
     &:focus {
       background-color: ${COLORS.white};
       padding-left: 3px;
+=======
+    max-width: 76%;
+
+    &:hover,
+    &:focus {
+      background-color: #fff;
+>>>>>>> 3dcd424 (fix conflict)
     }
   }
 
@@ -54,33 +62,6 @@ export const Header = styled.div`
         .layout_img-selector {
           width: 70px;
           object-fit: cover;
-        }
-      }
-
-      .search {
-        .login_signUp {
-          justify-content: flex-end;
-          display: none;
-          margin-top: 10px;
-          color: ${COLORS.white};
-          align-items: center;
-
-          .signUp_selector,
-          .login_selector {
-            color: ${COLORS.white};
-          }
-
-          .login_selector {
-            margin: 0 10px;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .login_signUp {
-            display: flex;
-          }
-
-          margin-top: 25px;
         }
       }
     }

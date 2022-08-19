@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Col, Image, Row, Button } from 'antd';
 import { CommentOutlined, HomeOutlined, UserOutlined, SearchOutlined, ShoppingCartOutlined } from '@ant-design/icons';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
 import { useProductsListStore } from '../../../modules/products/useProductsList';
 import { Header } from './styled';
@@ -64,6 +64,7 @@ function HeaderLayout() {
             </Col>
 
             {/* Search */}
+
             <Col md={12} sm={20} xs={17}>
               <input
                 className='ant-input'
