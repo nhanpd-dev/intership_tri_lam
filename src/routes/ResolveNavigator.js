@@ -15,7 +15,6 @@ function ResolveNavigator({ setHasUser }) {
 
     if (token) {
       getCurrentUser();
-      setHasUser(true);
     }
   }, [location]);
 
