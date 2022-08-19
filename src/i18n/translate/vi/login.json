@@ -11,5 +11,7 @@
   "dont_have_account": "Chưa có tài khoản",
   "sign_up": "Đăng Ký",
   "login_success": "Đăng nhập thành công",
-  "login_fail": "Đăng nhập thất bại"
+  "login_fail": "Đăng nhập thất bại",
+  "C400_3": "Tài khoản không tồn tại",
+  "C400_4": "Mật khẩu sai"
 }

@@ -3,9 +3,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
-import { notification } from 'antd';
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
-import { Col, Row } from 'antd';
+import { Col, Row, notification } from 'antd';
 
 import { SigninSchema } from './schema';
 import { useAuthStore } from '../../../hooks/useAuth';
@@ -15,8 +14,11 @@ import { Container, WrapperImg, WrapperForm, FormLogin, ButtonItem, ValidationEr
 
 export default function LoginScreen() {
   const { loginUser } = useAuthStore();
+
   const navigate = useNavigate();
+
   const { t } = useTranslation(['login']);
+
   const {
     register,
     handleSubmit,
@@ -25,20 +27,24 @@ export default function LoginScreen() {
     resolver: yupResolver(SigninSchema),
   });
 
+  const toastMessage = (type, message, urlRedirect = '') => {
+    notification[type]({ message: message });
+    if (urlRedirect) navigate(urlRedirect);
+  };
+
+  const loginSuccess = () => {
+    toastMessage('success', t('login_success'), '/');
+  };
+
+  const loginFail = (message) => {
+    toastMessage('error', t(message));
+  };
+
   const onSubmit = (data) => {
-    loginUser(data, loginSuccess, loginFail);
-  };
-
-  const loginSuccess = async () => {
-    await notification.success({
-      message: 'Login Success',
-    });
-    await navigate('/');
-  };
-
-  const loginFail = async (error) => {
-    await notification.error({
-      message: error,
+    loginUser({
+      data,
+      callbackSuccess: loginSuccess,
+      callbackFail: loginFail,
     });
   };
 

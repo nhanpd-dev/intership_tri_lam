@@ -33,8 +33,8 @@ export const useAuthStore = () => {
     dispatch(registerRequest(data, callback));
   };
 
-  const loginUser = (data, callbackSuccess, callbackFail) => {
-    dispatch(loginRequest(data, callbackSuccess, callbackFail));
+  const loginUser = (payload) => {
+    dispatch(loginRequest(payload));
   };
 
   const getCurrentUser = () => {

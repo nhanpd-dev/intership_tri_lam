@@ -2,7 +2,7 @@
 import { call, delay, put, takeLatest } from 'redux-saga/effects';
 
 import * as Types from './constants';
-import { fetchProducts } from '../../services/test';
+import { fetchProducts } from '../../services/cart.API';
 import { fetchProductsSuccess, fetchProductsFail } from './action';
 
 export function* fetchProductsSaga({ payload }) {

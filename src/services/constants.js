@@ -1,4 +1,4 @@
-const ENDPOINTS = {
+const USER = {
   REGISTER: 'auth/register',
   LOGIN: '/auth/login',
   GETME: '/me',
@@ -10,4 +10,4 @@ const ORDERS = {
   ORDER: '/order',
 };
 
-export { ENDPOINTS, ORDERS };
+export { USER, ORDERS };

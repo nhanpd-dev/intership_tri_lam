@@ -15,21 +15,19 @@ export const registerFail = (error) => ({
   payload: error,
 });
 
-export const loginRequest = (payload, callbackSuccess, callbackFail) => ({
+export const loginRequest = (payload) => ({
   type: Types.LOGIN_REQUEST,
   payload,
-  callbackSuccess,
-  callbackFail,
 });
 
-export const loginSuccess = (payload) => ({
+export const loginSuccess = (user) => ({
   type: Types.LOGIN_SUCCESS,
-  payload: payload,
+  user,
 });
 
 export const loginFail = (error) => ({
   type: Types.LOGIN_FAIL,
-  payload: error,
+  error,
 });
 
 export const getCurrentUserRequest = () => ({

@@ -43,6 +43,7 @@ class AxiosClient {
           const transformError = {
             type: data.error,
             status: data.code,
+            key: data.data.key,
             message: data.data.message,
           };
           throw transformError;
