@@ -31,6 +31,7 @@ export function* registerSaga({ payload, callback }) {
 
 export function* loginSaga({ payload }) {
   const { data, callbackSuccess, callbackFail } = payload;
+
   try {
     const response = yield call(loginUser, data);
 
@@ -49,6 +50,7 @@ export function* loginSaga({ payload }) {
 export function* getCurrentUserSaga() {
   try {
     const response = yield call(getCurrentUser);
+
     yield put(getCurrentUserSuccess(response.data.data));
   } catch (error) {
     yield put(getCurrentUserFail(error));
