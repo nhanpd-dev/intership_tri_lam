@@ -1,19 +1,18 @@
-import { useSelector } from 'react-redux';
 import { useMemo } from 'react';
+import { useAuthStore } from '../hooks/useAuth';
 import { getLocalStorage, STORAGE } from '../utils';
-import { makeSelectAuthenticated } from '../store/auth/selector';
 
 import PublicRouter from './PublicNavigator';
 import PrivateRouter from './PrivateNavigator';
 import ResolveNavigator from './ResolveNavigator';
 
 function AppRoutes() {
-  const authenticated = useSelector(makeSelectAuthenticated());
+  const { auth } = useAuthStore();
 
   const renderUI = useMemo(() => {
     const isLogin = !!getLocalStorage(STORAGE.USER_TOKEN);
 
-    if (authenticated) {
+    if (auth) {
       return <PrivateRouter />;
     }
 
@@ -22,7 +21,7 @@ function AppRoutes() {
     }
 
     return <PublicRouter />;
-  }, [authenticated]);
+  }, [auth]);
 
   return <>{renderUI}</>;
 }
