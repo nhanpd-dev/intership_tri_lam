@@ -21,7 +21,7 @@ import { useAuthStore } from '../../../hooks/useAuth';
 function UserItem() {
   const { t } = useTranslation(['header', 'register']);
 
-  const { auth } = useAuthStore();
+  const { auth, currentUser } = useAuthStore();
 
   return (
     <AuthAndCart className='auth_cart'>
@@ -33,12 +33,12 @@ function UserItem() {
           <>
             <Col className='register_login'>
               <Row>{t('account')}</Row>
-              <Row>Le Quang Bao Lam</Row>
+              <Row>{currentUser.userName ? currentUser.userName : t('header:empty_name')}</Row>
             </Col>
             <div className='user_infor'>
               <Row className='text_user-infor'>
                 <AuditOutlined className='icon_user-infor' />
-                <RowContent nameRow={t('account_information')} linkTo='#' />
+                <RowContent nameRow={t('account_information')} linkTo='/account/profile' />
               </Row>
               <Row className='text_user-infor'>
                 <AlertOutlined className='icon_user-infor' />
