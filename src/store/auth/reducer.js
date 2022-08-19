@@ -3,9 +3,7 @@ import * as Types from './constants';
 
 export const initialState = {
   authenticated: false,
-  currentUser: {
-    name: 'No Name',
-  },
+  currentUser: null,
   isLoading: false,
   error: null,
 };
@@ -40,39 +38,19 @@ const loginFail = (state, action) => ({
   error: action.payload,
 });
 
-const getCurrentUserRequest = (state) => ({
-  ...state,
-  isLoading: true,
-});
+const getCurrentUserRequest = (state) => updateObject(state, { isLoading: true });
 
-const getCurrentUserSuccess = (state, action) => ({
-  ...state,
-  isLoading: false,
-  authenticated: true,
-  currentUser: action.payload,
-});
+const getCurrentUserSuccess = (state, action) =>
+  updateObject(state, { isLoading: false, authenticated: true, currentUser: action.currentUser });
 
-const getCurrentUserFail = (state, action) => ({
-  ...state,
-  authenticated: false,
-  error: action.payload,
-});
+const getCurrentUserFail = (state, action) => updateObject(state, { authenticated: false, error: action.error });
 
-const updateUserRequest = (state) => ({
-  ...state,
-  isLoading: true,
-});
+const updateUserRequest = (state) => updateObject(state, { isLoading: true });
 
-const updateUserSuccess = (state, action) => ({
-  ...state,
-  isLoading: false,
-  currentUser: action.payload,
-});
+const updateUserSuccess = (state, action) => updateObject(state, { isLoading: false, currentUser: action.user });
 
-const updateUserFail = (state, action) => ({
-  ...state,
-  error: action.payload,
-});
+const updateUserFail = (state, action) => updateObject(state, { error: action.error });
+
 const updatePasswordRequest = (state) => updateObject(state, { isLoading: true });
 
 const updatePasswordSuccess = (state) => updateObject(state, { isLoading: false });

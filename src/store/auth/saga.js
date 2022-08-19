@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 
 import * as Types from './constants';
 import { registerUser, loginUser, getCurrentUser, updateUser, updatePassword } from '../../services/test';
@@ -47,22 +47,21 @@ export function* loginSaga({ payload, callbackSuccess, callbackFail }) {
 export function* getCurrentUserSaga() {
   try {
     const response = yield call(getCurrentUser);
-    if (response) {
-      yield put(getCurrentUserSuccess(response.data.data));
-    }
+    yield put(getCurrentUserSuccess(response.data.data));
   } catch (error) {
     yield put(getCurrentUserFail(error));
   }
 }
 
-export function* updateUserSaga({ payload, callbackSuccess, callbackFail }) {
+export function* updateUserSaga({ payload }) {
+  const { data, callbackSuccess, callbackFail } = payload;
+
   try {
-    const response = yield call(updateUser, payload);
-    if (response) {
-      const currentUser = yield call(getCurrentUser);
-      yield put(updateUserSuccess(currentUser.data.data));
-      callbackSuccess();
-    }
+    yield call(updateUser, data);
+    const currentUser = yield call(getCurrentUser);
+
+    yield put(updateUserSuccess(currentUser.data.data));
+    callbackSuccess();
   } catch (error) {
     yield put(updateUserFail(error));
     callbackFail();
@@ -82,10 +81,10 @@ export function* updatePasswordSaga({ payload }) {
   }
 }
 
-export default function* globalSaga() {
-  yield takeLatest(Types.REGISTER_REQUEST, registerSaga);
-  yield takeLatest(Types.LOGIN_REQUEST, loginSaga);
-  yield takeLatest(Types.GET_CURRENT_USER_REQUEST, getCurrentUserSaga);
-  yield takeLatest(Types.UPDATE_USER_REQUEST, updateUserSaga);
-  yield takeLatest(Types.UPDATE_PASSWORD_REQUEST, updatePasswordSaga);
+export default function* authSaga() {
+  yield takeEvery(Types.REGISTER_REQUEST, registerSaga);
+  yield takeEvery(Types.LOGIN_REQUEST, loginSaga);
+  yield takeEvery(Types.GET_CURRENT_USER_REQUEST, getCurrentUserSaga);
+  yield takeEvery(Types.UPDATE_USER_REQUEST, updateUserSaga);
+  yield takeEvery(Types.UPDATE_PASSWORD_REQUEST, updatePasswordSaga);
 }
