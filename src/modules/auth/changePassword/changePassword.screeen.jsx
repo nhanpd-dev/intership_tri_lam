@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Row, Col, Typography, Form, Button, Checkbox, Space, Spin, notification } from 'antd';
+import { Row, Col, Typography, Form, Button, Checkbox, Space, Spin } from 'antd';
 
+import toast from '../../../utils/toast';
 import { ChangePasswordSchema } from './schema';
 import { useAuthStore } from '../../../hooks/useAuth';
 import InputField from './component/InputField';
@@ -29,17 +30,12 @@ export default function ChangePassword() {
     resolver: yupResolver(ChangePasswordSchema),
   });
 
-  const toastMessage = (type, message, urlRedirect = '') => {
-    notification[type]({ message: message });
-    if (urlRedirect) navigate(urlRedirect);
-  };
-
   const updatePasswordSuccess = () => {
-    toastMessage('success', t('change_pass_success'), '/account/profile');
+    toast('success', t('change_pass_success'), '/account/profile', navigate);
   };
 
   const updatePasswordFail = () => {
-    toastMessage('error', t('change_pass_fail'));
+    toast('error', t('change_pass_fail'));
   };
 
   const onSubmit = (data) => {

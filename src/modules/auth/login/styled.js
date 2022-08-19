@@ -31,6 +31,10 @@ export const WrapperImg = styled.div`
     mix-blend-mode: screen;
   }
 
+  .ant-image {
+    position: initial;
+  }
+
   .banner {
     position: absolute;
     top: 0;

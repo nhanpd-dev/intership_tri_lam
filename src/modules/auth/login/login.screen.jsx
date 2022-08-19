@@ -4,8 +4,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
-import { Col, Row, notification, Spin, Form, Button } from 'antd';
+import { Col, Row, Spin, Form, Button, Image, Typography } from 'antd';
 
+import toast from '../../../utils/toast';
 import { SigninSchema } from './schema';
 import { useAuthStore } from '../../../hooks/useAuth';
 import InputField from './components/InputField';
@@ -13,6 +14,8 @@ import Banner from '../../../assets/imgs/login/shoppingcart.png';
 import { Container, WrapperImg, WrapperForm, FormLogin } from './styled';
 
 export default function LoginScreen() {
+  const { Title, Text } = Typography;
+
   const { loginUser, isLoading } = useAuthStore();
 
   const navigate = useNavigate();
@@ -27,17 +30,12 @@ export default function LoginScreen() {
     resolver: yupResolver(SigninSchema),
   });
 
-  const toastMessage = (type, message, urlRedirect = '') => {
-    notification[type]({ message: message });
-    if (urlRedirect) navigate(urlRedirect);
-  };
-
   const loginSuccess = () => {
-    toastMessage('success', t('login_success'), '/');
+    toast('success', t('login_success'), '/', navigate);
   };
 
   const loginFail = (message) => {
-    toastMessage('error', t(message));
+    toast('error', t(message));
   };
 
   const onSubmit = (data) => {
@@ -52,13 +50,15 @@ export default function LoginScreen() {
     <Spin spinning={isLoading}>
       <Container>
         <WrapperImg>
-          <img src={Banner} alt='banner' className='banner' />
+          <Image preview={false} src={Banner} alt='banner' className='banner' />
         </WrapperImg>
         <WrapperForm>
           <FormLogin>
             <Row>
               <Col span={24}>
-                <h2 className='form__header'>{t('sign_in')}</h2>
+                <Title level={3} className='form__header'>
+                  {t('sign_in')}
+                </Title>
               </Col>
             </Row>
             <Form onFinish={handleSubmit(onSubmit)}>
@@ -88,12 +88,12 @@ export default function LoginScreen() {
               </Row>
               <Row>
                 <Col xl={{ span: 17, offset: 7 }} sm={24} xs={24}>
-                  <p className='form__link'>
+                  <Text className='form__link'>
                     {t('dont_have_account')}?{' '}
                     <Link to='/register' className='form__link'>
                       {t('sign_up')}
                     </Link>
-                  </p>
+                  </Text>
                 </Col>
               </Row>
             </Form>
