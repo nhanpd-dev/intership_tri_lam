@@ -3,6 +3,8 @@
   "login_now": "Đăng nhập ngay",
   "email": "Thư điện tử",
   "password": "Mật khẩu",
+  "confirm_password": "Nhập lại mật khẩu",
+  "password_not_match": "Mật khẩu không khớp",
   "full_name": "Họ tên",
   "gender": "Giới tính",
   "male": "Nam",
