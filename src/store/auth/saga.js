@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 
 import * as Types from './constants';
 import { registerUser, loginUser, getCurrentUser, updateUser, updatePassword } from '../../services/test';
@@ -81,7 +81,7 @@ export function* updatePasswordSaga({ payload }) {
   }
 }
 
-export default function* globalSaga() {
+export default function* authSaga() {
   yield takeEvery(Types.REGISTER_REQUEST, registerSaga);
   yield takeEvery(Types.LOGIN_REQUEST, loginSaga);
   yield takeEvery(Types.GET_CURRENT_USER_REQUEST, getCurrentUserSaga);
