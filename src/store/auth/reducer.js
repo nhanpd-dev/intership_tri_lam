@@ -10,17 +10,11 @@ export const initialState = {
   error: null,
 };
 
-const registerRequest = (state) => ({
-  ...state,
-});
+const registerRequest = (state) => updateObject(state, { isLoading: true });
 
-const registerSuccess = (state) => {
-  updateObject(state);
-};
+const registerSuccess = (state) => updateObject(state, { isLoading: false });
 
-const registerFail = (error) => ({
-  error,
-});
+const registerFail = (state, action) => updateObject(state, { isLoading: false, error: action.error });
 
 const loginRequest = (state) => ({
   ...state,
