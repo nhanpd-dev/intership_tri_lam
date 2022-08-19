@@ -59,9 +59,11 @@ export const Header = styled.div`
 
       .search {
         .login_signUp {
-          display: none;
           justify-content: flex-end;
+          display: none;
           margin-top: 10px;
+          color: ${COLORS.white};
+          align-items: center;
 
           .signUp_selector,
           .login_selector {
@@ -69,7 +71,7 @@ export const Header = styled.div`
           }
 
           .login_selector {
-            margin-right: 10px;
+            margin: 0 10px;
           }
         }
 
