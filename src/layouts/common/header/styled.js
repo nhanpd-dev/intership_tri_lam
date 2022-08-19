@@ -19,19 +19,11 @@ export const Header = styled.div`
   .ant-input {
     background-color: #fff;
     box-shadow: none;
-<<<<<<< HEAD
-
-    &:hover,
-    &:focus {
-      background-color: ${COLORS.white};
-      padding-left: 3px;
-=======
     max-width: 76%;
 
     &:hover,
     &:focus {
       background-color: #fff;
->>>>>>> 3dcd424 (fix conflict)
     }
   }
 
