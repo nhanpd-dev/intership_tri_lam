@@ -8,8 +8,8 @@ import { fetchProductsRequest } from '../../store/products/action';
 import { makeSelectLoading, makeSelectError, makeSelectProducts } from '../../store/products/selector';
 
 export const useProductsListStore = () => {
-  useInjectSaga({ key: 'globalStore', saga });
-  useInjectReducer({ key: 'globalStore', reducer });
+  useInjectSaga({ key: 'productsListStore', saga });
+  useInjectReducer({ key: 'productsListStore', reducer });
 
   const dispatch = useDispatch();
 
@@ -33,6 +33,10 @@ export const useProductsListStore = () => {
   useEffect(() => {
     fetchProductsFunc(params);
   }, []);
+
+  useEffect(() => {
+    fetchProductsFunc(params);
+  }, [params]);
 
   return { isLoading, error, products, fetchProductsFunc, setParams, params };
 };

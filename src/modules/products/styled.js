@@ -57,7 +57,6 @@ export const ProductItem = styled.div`
 
   .title {
     margin: 0px 0px 4px;
-    display: block;
     font-weight: 500;
     display: -webkit-box;
     max-width: 100%;
@@ -77,10 +76,8 @@ export const ProductItem = styled.div`
     }
 
     .rating {
-      display: flex;
-      flex: 160%;
+      width: 100%;
       padding-right: 6px;
-      height: 100%;
       border-right: 1px solid #ccc;
 
       @media (max-width: 1023px) {
@@ -103,7 +100,6 @@ export const ProductItem = styled.div`
 
     .sold {
       width: 50%;
-      height: 100%;
       color: #787878;
       line-height: normal;
       font-size: 11px;

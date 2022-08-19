@@ -1,11 +1,12 @@
 /* eslint-disable no-console */
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, delay, put, takeLatest } from 'redux-saga/effects';
 
 import * as Types from './constants';
 import { fetchProducts } from '../../services/test';
 import { fetchProductsSuccess, fetchProductsFail } from './action';
 
 export function* fetchProductsSaga({ payload }) {
+  yield delay(650);
   try {
     const response = yield call(fetchProducts, payload);
 

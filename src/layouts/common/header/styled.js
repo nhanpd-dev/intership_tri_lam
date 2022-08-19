@@ -17,12 +17,13 @@ export const Header = styled.div`
   }
 
   .ant-input {
-    background-color: transparent;
+    background-color: #fff;
     box-shadow: none;
+    max-width: 76%;
 
     &:hover,
     &:focus {
-      background-color: transparent;
+      background-color: #fff;
     }
   }
 
@@ -77,6 +78,25 @@ export const Header = styled.div`
 
     .layout_nav-icon {
       font-size: 18px;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .ant-btn {
+      > .anticon {
+        + {
+          span {
+            display: none;
+          }
+        }
+      }
+      > span {
+        + {
+          .anticon {
+            display: none;
+          }
+        }
+      }
     }
   }
 
