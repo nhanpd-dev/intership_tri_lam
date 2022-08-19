@@ -5,7 +5,7 @@
   "password_is_required": "Mật khẩu không được trống",
   "password_must_least_8_char": "Mật khẩu không được ít hơn 8 kí tự",
   "password_must_16_char": "Mật khẩu không được nhiều hơn 16 kí tự",
-  "email": "Thư điện tử",
+  "email": "Email",
   "password": "Mật khẩu",
   "sign_in": "ĐĂNG NHẬP",
   "dont_have_account": "Chưa có tài khoản",

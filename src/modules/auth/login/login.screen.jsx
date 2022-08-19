@@ -83,7 +83,7 @@ export default function LoginScreen() {
               <Row>
                 <Col span={17} offset={7}>
                   <p>
-                    {t('dont_have_account')}?<Link to='/register'>{t('sign_up')}</Link>
+                    {t('dont_have_account')}? <Link to='/register'>{t('sign_up')}</Link>
                   </p>
                 </Col>
               </Row>
