@@ -7,7 +7,7 @@ import { ValidationError } from '../styled';
 export default function InputField({ label, nameField, Controller, control, errors, isHide }) {
   const { Text } = Typography;
 
-  const { t } = useTranslation(['security', 'common']);
+  const { t } = useTranslation(['profile', 'common']);
 
   return (
     <Row justify='center' align='middle'>

@@ -31,7 +31,7 @@ export const WrapperImg = styled.div`
     mix-blend-mode: screen;
   }
 
-  .img-banner {
+  .banner {
     position: absolute;
     top: 0;
     left: 0;
@@ -69,7 +69,7 @@ export const WrapperForm = styled.div`
 export const FormLogin = styled.div`
   width: 80%;
 
-  .header-signin {
+  .form__header {
     color: ${COLORS.primary};
     font-weight: 600;
     text-transform: uppercase;
@@ -79,45 +79,24 @@ export const FormLogin = styled.div`
     letter-spacing: 1px;
   }
 
+  .form__link,
+  .form__button {
+    @media (max-width: 896px) {
+      font-size: ${FONTS_SIZE.size_14};
+    }
+
+    @media (max-width: 768px) {
+      font-size: ${FONTS_SIZE.size_12};
+    }
+
+    @media (max-width: 414px) {
+      font-size: ${FONTS_SIZE.size_11};
+    }
+  }
+
   @media (max-width: 768px) {
     width: 100%;
     padding: 30px;
     background-color: ${COLORS.background_primary};
   }
-`;
-
-export const ButtonItem = styled.button`
-  width: 100%;
-  height: 50px;
-  padding: 6px 20px;
-  font-size: 16px;
-  letter-spacing: 1px;
-  border-radius: 30px;
-  outline-color: ${COLORS.primary};
-  background-color: ${COLORS.primary};
-  color: #fff;
-  border: none;
-  font-weight: 500;
-  margin-bottom: 10px;
-  cursor: pointer;
-  box-shadow: 5px 5px 10px #888888;
-
-  &:hover {
-    background: ${COLORS.secondary};
-  }
-
-  @media (max-width: 768px) {
-    height: 40px;
-  }
-
-  @media (max-width: 414px) {
-    height: 40px;
-  }
-`;
-
-export const ValidationError = styled.div`
-  color: red;
-  width: 100%;
-  height: 25px;
-  margin-bottom: 10px;
 `;

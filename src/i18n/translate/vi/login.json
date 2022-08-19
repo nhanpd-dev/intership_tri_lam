@@ -7,7 +7,7 @@
   "password_must_16_char": "Mật khẩu không được nhiều hơn 16 kí tự",
   "email": "Email",
   "password": "Mật khẩu",
-  "sign_in": "ĐĂNG NHẬP",
+  "sign_in": "Đăng nhập",
   "dont_have_account": "Chưa có tài khoản",
   "sign_up": "Đăng Ký",
   "login_success": "Đăng nhập thành công",
