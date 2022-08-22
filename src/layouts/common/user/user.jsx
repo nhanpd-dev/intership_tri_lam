@@ -46,7 +46,7 @@ function UserItem() {
               </Row>
               <Row className='text_user-infor'>
                 <ShoppingOutlined className='icon_user-infor' />
-                <RowContent nameRow={t('my_oder')} linkTo='#' />
+                <RowContent nameRow={t('my_oder')} linkTo='/orders' />
               </Row>
               <Row className='text_user-infor'>
                 <LikeOutlined className='icon_user-infor' />
