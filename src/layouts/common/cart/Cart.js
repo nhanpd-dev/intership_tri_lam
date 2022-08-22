@@ -16,7 +16,7 @@ function CartLayout() {
       <Col className='cart_items'>
         <ShoppingCartOutlined />
         <Col>
-          <Typography className='title_cart cart_quantily'>0</Typography>
+          <Typography className='title_cart cart_quantily'>{quantityCart}</Typography>
         </Col>
       </Col>
     </Link>

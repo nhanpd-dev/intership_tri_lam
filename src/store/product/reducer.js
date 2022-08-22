@@ -2,7 +2,7 @@ import { createReducer } from '../../utils/redux';
 
 import * as Types from './constants';
 
-import { setLocalStorage, removeLocalStorage, getLocalStorage } from '../../utils';
+import { setLocalStorage, removeLocalStorage } from '../../utils';
 
 export const initialState = {
   isLoading: false,
@@ -10,6 +10,7 @@ export const initialState = {
   product: {},
   cart: [],
   quantity: 0,
+  active: false,
 };
 
 const getProductRequest = (state) => ({
@@ -39,13 +40,14 @@ const orderCart = (state, action) => {
 
   let isCartLocal = action.isCartLocal;
 
-  if (isCartLocal === 1) {
+  if (isCartLocal === 1 && state.active === false) {
     cartLocal = action.payload;
 
     return {
       ...state,
       cart: [...state.cart, ...cartLocal],
       quantity: [...state.cart, ...cartLocal].length,
+      active: true,
     };
   } else {
     if (indexExist !== -1) {
@@ -64,6 +66,7 @@ const orderCart = (state, action) => {
         ...state,
         cart: newCart,
         quantity: state.quantity + 1,
+        active: true,
       };
     } else {
       newCart = [...state.cart, action.payload];
@@ -75,6 +78,7 @@ const orderCart = (state, action) => {
         ...state,
         cart: newCart,
         quantity: state.quantity + 1,
+        active: true,
       };
     }
   }

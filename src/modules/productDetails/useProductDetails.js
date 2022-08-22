@@ -14,6 +14,7 @@ import {
   makeSelectProduct,
   makeSelectCart,
   makeSelectQuantityCart,
+  makeSelectActive,
 } from '../../store/product/selector';
 
 export const useProductStore = () => {
@@ -32,6 +33,8 @@ export const useProductStore = () => {
 
   const quantityCart = useSelector(makeSelectQuantityCart());
 
+  const isActive = useSelector(makeSelectActive());
+
   const getProductFunc = async (payload) => {
     await dispatch(getProductRequest(payload));
   };
@@ -40,5 +43,5 @@ export const useProductStore = () => {
     dispatch(orderCart(data, isCartLocal));
   };
 
-  return { isLoading, error, product, cart, quantityCart, getProductFunc, ordertoCart };
+  return { isLoading, isActive, error, product, cart, quantityCart, getProductFunc, ordertoCart };
 };

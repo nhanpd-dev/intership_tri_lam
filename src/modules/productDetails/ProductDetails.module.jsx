@@ -17,7 +17,7 @@ import { getLocalStorage } from '../../utils';
 import { ProductDetailsWrapper } from './styled';
 
 const ProductDetailsModule = () => {
-  const { isLoading, product, getProductFunc, ordertoCart } = useProductStore();
+  const { isLoading, product, getProductFunc, ordertoCart, isActive } = useProductStore();
 
   const { id } = useParams();
 
@@ -28,7 +28,7 @@ const ProductDetailsModule = () => {
   const dataProduct = product?.data ? product?.data : {};
 
   useEffect(() => {
-    if (!!getLocalStorage('CART')) {
+    if (!!getLocalStorage('CART') & (isActive === false)) {
       const cartLocal = [...JSON.parse(getLocalStorage('CART'))];
 
       ordertoCart(cartLocal, 1);
