@@ -47,26 +47,23 @@ const ProductDetailsBuyWrap = styled.div`
 const Price = styled.div`
   .price-text {
     display: block;
+    font-size: ${FONTS_SIZE.size_22};
     margin-top: 10px;
   }
 
   .price-content-extend {
     display: flex;
     box-sizing: border-box;
+    font-weight: bold;
+    font-size: ${FONTS_SIZE.size_18};
 
     .price-discount {
       margin: 5px 10px;
-      font-weight: bold;
-      font-size: ${FONTS_SIZE.size_18};
     }
 
     .price-percent {
-      margin-top:-10px;
-
-      font-weight: bold;
-      font-size: ${FONTS_SIZE.size_18};
+      margin-top: -10px;
     }
-
 
   .price-content {
     display: block;

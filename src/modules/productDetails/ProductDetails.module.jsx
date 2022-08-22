@@ -1,23 +1,16 @@
 import { useEffect } from 'react';
-
 import { useParams } from 'react-router-dom';
-
 import { Spin } from 'antd';
 
 import ProductDetailsTitle from './component/productDetailsTitle/ProductDetailsTitle';
-
 import ProductDetailsBuy from './component/productDetailsBuy/ProductDetailsBuy';
-
 import ProductDetailsDescription from './component/productDetailsDescription/ProductDetailsDescription';
-
 import { useProductStore } from './useProductDetails';
-
 import { getLocalStorage } from '../../utils';
-
 import { ProductDetailsWrapper } from './styled';
 
 const ProductDetailsModule = () => {
-  const { isLoading, product, getProductFunc, ordertoCart, isActive } = useProductStore();
+  const { isLoading, product, getProductFunc, orderToCart, isActive } = useProductStore();
 
   const { id } = useParams();
 
@@ -25,13 +18,13 @@ const ProductDetailsModule = () => {
     getProductFunc(id);
   }, [id]);
 
-  const dataProduct = product?.data ? product?.data : {};
+  const dataProduct = !!product?.data ? product?.data : {};
 
   useEffect(() => {
     if (!!getLocalStorage('CART') & (isActive === false)) {
       const cartLocal = [...JSON.parse(getLocalStorage('CART'))];
 
-      ordertoCart(cartLocal, 1);
+      orderToCart(cartLocal, true);
     }
   }, []);
 

@@ -1,16 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-
 import { useTranslation } from 'react-i18next';
-
 import { Row, Col, Typography, Button, Image, Form, InputNumber, List } from 'antd';
-
 import { EnvironmentOutlined } from '@ant-design/icons';
 
 import { useAuthStore } from '../../../../hooks/useAuth';
-
 import { useProductStore } from '../../useProductDetails';
-
 import { ProductDetailsBuyWrap, Price, Promotion, FormBuy } from './styled';
 
 const { Title, Text, Link } = Typography;
@@ -29,7 +24,7 @@ const ProductDetailsBuy = ({ thumbnail, listImg, price, quantity, id, name, disc
 
   const { auth } = useAuthStore();
 
-  const { ordertoCart } = useProductStore();
+  const { orderToCart } = useProductStore();
 
   const dataPromotion = [
     {
@@ -68,7 +63,7 @@ const ProductDetailsBuy = ({ thumbnail, listImg, price, quantity, id, name, disc
       price,
     };
 
-    await ordertoCart(data);
+    await orderToCart(data);
   };
 
   return (

@@ -1,15 +1,13 @@
+import { setLocalStorage, getLocalStorage } from '../../utils';
 import { createReducer } from '../../utils/redux';
-
 import * as Types from './constants';
-
-import { setLocalStorage, removeLocalStorage } from '../../utils';
 
 export const initialState = {
   isLoading: false,
   error: null,
   product: {},
-  cart: [],
-  quantity: 0,
+  cart: !!getLocalStorage('CART') ? JSON.parse(getLocalStorage('CART')) : [],
+  quantity: !!getLocalStorage('CART') ? JSON.parse(getLocalStorage('CART')).length : 0,
   active: false,
 };
 
@@ -34,54 +32,28 @@ const getProductFail = (state, action) => ({
 const orderCart = (state, action) => {
   const indexExist = state.cart.findIndex((product) => product.productId === action.payload.productId);
 
-  let newCart = [];
+  const cloneCart = [...state.cart];
 
-  let cartLocal = [];
-
-  let isCartLocal = action.isCartLocal;
-
-  if (isCartLocal === 1 && state.active === false) {
-    cartLocal = action.payload;
-
+  if (action.isCartLocal) {
     return {
       ...state,
-      cart: [...state.cart, ...cartLocal],
-      quantity: [...state.cart, ...cartLocal].length,
       active: true,
     };
-  } else {
-    if (indexExist !== -1) {
-      state.cart[indexExist].quantity += action.payload.quantity;
-      let cartOther =
-        state.cart.filter((_, index) => {
-          return index !== indexExist;
-        }) || [];
-
-      newCart = [state.cart[indexExist], ...cartOther];
-
-      removeLocalStorage('CART');
-      setLocalStorage('CART', JSON.stringify(newCart));
-
-      return {
-        ...state,
-        cart: newCart,
-        quantity: state.quantity + 1,
-        active: true,
-      };
-    } else {
-      newCart = [...state.cart, action.payload];
-
-      removeLocalStorage('CART');
-      setLocalStorage('CART', JSON.stringify(newCart));
-
-      return {
-        ...state,
-        cart: newCart,
-        quantity: state.quantity + 1,
-        active: true,
-      };
-    }
   }
+  if (indexExist !== -1) {
+    cloneCart[indexExist].quantity += action.payload.quantity;
+  } else {
+    cloneCart.push(action.payload);
+  }
+
+  setLocalStorage('CART', JSON.stringify(cloneCart));
+
+  return {
+    ...state,
+    active: true,
+    quantity: state.quantity + 1,
+    cart: cloneCart,
+  };
 };
 
 export default createReducer(initialState, {
