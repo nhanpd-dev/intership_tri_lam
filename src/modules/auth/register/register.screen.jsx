@@ -10,7 +10,6 @@ import {
   CalendarOutlined,
   PhoneOutlined,
   LoginOutlined,
-  HomeOutlined,
 } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { replace } from 'lodash';
@@ -19,7 +18,8 @@ import { useAuthStore } from '../../../hooks/useAuth';
 import { schema } from './schema';
 import { Button, ContentRegister, Error, FormRegister, ScreenRegister, Wrapper } from './styled';
 import FieldRegister from './component/fieldRegister';
-import { LOGO_REGISTER } from '../../../assets/imgs/layout/index';
+import { LOGO_REGISTER, LOGO_TIKI } from '../../../assets/imgs/layout/index';
+import { Image } from 'antd';
 
 function RegisterScreen() {
   const { t } = useTranslation(['register', 'common']);
@@ -48,14 +48,14 @@ function RegisterScreen() {
         </div>
         <FormRegister>
           <ContentRegister>
+            <Link to='/'>
+              <Image className='back-home' src={LOGO_TIKI} alt='Tiki' preview={false} />
+            </Link>
             <h2 className='text_header-register'>
               <LoginOutlined className='mr-icon' />
               {t('sign_up')}
             </h2>
-            <Link to='/' className='back-home'>
-              <HomeOutlined className='mr-icon' />
-              {t('common:home')}
-            </Link>
+
             <form onSubmit={handleSubmit(onSubmit)}>
               {/* Email */}
               <FieldRegister t={t} nameField={'email'} register={register} Icon={MailOutlined} type={'text'} />
@@ -70,6 +70,19 @@ function RegisterScreen() {
                 <div className='mr-error' />
                 <div className='title-error'>{errors.password ? t(errors.password?.message) : ''}</div>
               </Error>
+
+              <FieldRegister
+                t={t}
+                nameField={'confirm_password'}
+                register={register}
+                Icon={LockOutlined}
+                type={'text'}
+              />
+              <Error className='error'>
+                <div className='mr-error' />
+                <div className='title-error'>{errors.confirm_password ? t(errors.confirm_password?.message) : ''}</div>
+              </Error>
+
               {/* Full Name */}
               <FieldRegister t={t} nameField={'full_name'} register={register} Icon={UserOutlined} type={'text'} />
               <Error className='error'>

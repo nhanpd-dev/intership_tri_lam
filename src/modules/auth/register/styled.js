@@ -93,27 +93,23 @@ export const ContentRegister = styled.div`
     font-weight: 600;
     font-size: 24px;
     text-transform: uppercase;
-    margin-right: 20px;
+    margin: 0 20px;
     border-bottom: 4px solid ${COLORS.primary};
     display: inline-block;
     letter-spacing: 1px;
   }
 
   .back-home {
-    text-align: center;
-    color: #607d8b;
-    font-weight: 600;
-    font-size: 24px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    border-bottom: 4px solid #97cdff;
-    display: inline-block;
-    letter-spacing: 1px;
-
+    width: 63px;
+    height: 43px;
+    background-color: ${COLORS.primary};
+    object-fit: contain;
+    padding: 3px 0;
+    border-radius: 5px;
+    margin-right: 15px;
+  
     &:hover {
-      border-bottom: 4px solid ${COLORS.primary};
-      color:  ${COLORS.primary};
+      background-color: ${COLORS.secondary}
     }
   }
 
@@ -164,6 +160,10 @@ export const Error = styled.div`
     .mr-error {
       width: 28px;
       height: 20px;
+    }
+
+    .title-error {
+      margin-left: 100px;
     }
   }
 `;

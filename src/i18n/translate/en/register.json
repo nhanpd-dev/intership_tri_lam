@@ -3,6 +3,8 @@
   "sign_in_now": "Login now",
   "email": "Email",
   "password": "Password",
+  "confirm_password": "Confirm Password",
+  "password_not_match": "Password not match",
   "full_name": "Full Name",
   "gender": "Gender",
   "male": "Male",
