@@ -4,13 +4,13 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import HaveProducts from './haveProducts/haveProducts';
-import NoProducts from './noProducts/noProducts';
+import NoProducts from '../components/noProducts/noProducts';
 import { Wrapper } from './styled';
 
 function Cart() {
   const { t } = useTranslation(['cart']);
 
-  const [cart, setCart] = useState(true);
+  const [cart, setCart] = useState(false);
 
   const { Title } = Typography;
 
@@ -21,7 +21,12 @@ function Cart() {
           <Title level={3}>{t('my_cart')}</Title>
         </Row>
       </Col>
-      {cart ? <HaveProducts /> : <NoProducts />}
+
+      {cart ? (
+        <HaveProducts />
+      ) : (
+        <NoProducts titleContent={t('there_are_no_products_in_the_cart')} titleButton={t('continue_to_buy_products')} />
+      )}
     </Wrapper>
   );
 }
