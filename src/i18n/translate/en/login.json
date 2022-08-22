@@ -8,8 +8,10 @@
   "email": "Email",
   "password": "Password",
   "sign_in": "Sign In",
-  "dont_have_account": "Dont have account",
+  "dont_have_account": "Don't have account",
   "sign_up": "Sign Up",
   "login_success": "Login Success",
-  "login_fail": "Login Fail"
+  "login_fail": "Login Fail",
+  "C400_3": "User not exist",
+  "C400_4": "Password not match"
 }

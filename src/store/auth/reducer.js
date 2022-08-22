@@ -14,23 +14,13 @@ const registerSuccess = (state) => updateObject(state, { isLoading: false });
 
 const registerFail = (state, action) => updateObject(state, { isLoading: false, error: action.error });
 
-const loginRequest = (state) => ({
-  ...state,
-  isLoading: true,
-});
+const loginRequest = (state) => updateObject(state, { isLoading: true });
 
-const loginSuccess = (state, action) => ({
-  ...state,
-  isLoading: false,
-  authenticated: true,
-  currentUser: action.payload,
-});
+const loginSuccess = (state, action) =>
+  updateObject(state, { isLoading: false, authenticated: true, currentUser: action.user });
 
-const loginFail = (state, action) => ({
-  ...state,
-  authenticated: false,
-  error: action.payload,
-});
+const loginFail = (state, action) =>
+  updateObject(state, { isLoading: false, authenticated: false, error: action.error });
 
 const getCurrentUserRequest = (state) => updateObject(state, { isLoading: true });
 
@@ -43,7 +33,7 @@ const updateUserRequest = (state) => updateObject(state, { isLoading: true });
 
 const updateUserSuccess = (state, action) => updateObject(state, { isLoading: false, currentUser: action.user });
 
-const updateUserFail = (state, action) => updateObject(state, { error: action.error });
+const updateUserFail = (state, action) => updateObject(state, { isLoading: false, error: action.error });
 
 const updatePasswordRequest = (state) => updateObject(state, { isLoading: true });
 

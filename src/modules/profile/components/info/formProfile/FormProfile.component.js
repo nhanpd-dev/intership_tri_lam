@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm, Controller } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   UserOutlined,
@@ -12,8 +11,9 @@ import {
   AuditOutlined,
   EditOutlined,
 } from '@ant-design/icons';
-import { Row, Col, Radio, Form, Button, Image, Input, Typography, notification, Spin } from 'antd';
+import { Row, Col, Radio, Form, Button, Image, Input, Typography, Spin } from 'antd';
 
+import toastHook from '../../../../../hooks/toastHook';
 import { upload } from '../../../../../config/firebase/firebase';
 import { useAuthStore } from '../../../../../hooks/useAuth';
 import { ProfileSchema } from '../../../schema/Schema';
@@ -26,7 +26,7 @@ export default function FormProfile() {
 
   const { t } = useTranslation(['profile', 'common']);
 
-  const navigate = useNavigate();
+  const { toastOn } = toastHook();
 
   const { currentUser, isLoading, updateUser } = useAuthStore();
 
@@ -42,17 +42,12 @@ export default function FormProfile() {
     resolver: yupResolver(ProfileSchema),
   });
 
-  const toastMessage = (type, message, urlRedirect = '') => {
-    notification[type]({ message: message });
-    if (urlRedirect) navigate(urlRedirect);
-  };
-
   const updateInfoSuccess = () => {
-    toastMessage('success', t('change_info_success'));
+    toastOn('success', t('change_info_success'));
   };
 
   const updateInfoFail = () => {
-    toastMessage('error', t('change_info_fail'));
+    toastOn('error', t('change_info_fail'));
   };
 
   const onSubmit = (data) => {

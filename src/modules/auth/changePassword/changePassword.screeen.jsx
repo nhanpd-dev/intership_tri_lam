@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Row, Col, Typography, Form, Button, Checkbox, Space, Spin, notification } from 'antd';
+import { Row, Col, Typography, Form, Button, Checkbox, Space, Spin } from 'antd';
 
+import toastHook from '../../../hooks/toastHook';
 import { ChangePasswordSchema } from './schema';
 import { useAuthStore } from '../../../hooks/useAuth';
 import InputField from './component/InputField';
@@ -13,7 +13,7 @@ import { Wrapper } from './styled';
 export default function ChangePassword() {
   const { t } = useTranslation(['profile', 'common']);
 
-  const navigate = useNavigate();
+  const { toastOn } = toastHook();
 
   const { Title } = Typography;
 
@@ -29,17 +29,12 @@ export default function ChangePassword() {
     resolver: yupResolver(ChangePasswordSchema),
   });
 
-  const toastMessage = (type, message, urlRedirect = '') => {
-    notification[type]({ message: message });
-    if (urlRedirect) navigate(urlRedirect);
-  };
-
   const updatePasswordSuccess = () => {
-    toastMessage('success', t('change_pass_success'), '/account/profile');
+    toastOn('success', t('change_pass_success'), '/account/profile');
   };
 
   const updatePasswordFail = () => {
-    toastMessage('error', t('change_pass_fail'));
+    toastOn('error', t('change_pass_fail'));
   };
 
   const onSubmit = (data) => {

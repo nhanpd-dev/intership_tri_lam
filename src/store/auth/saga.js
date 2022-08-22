@@ -2,7 +2,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
 import * as Types from './constants';
-import { registerUser, loginUser, getCurrentUser, updateUser, updatePassword } from '../../services/test';
+import { registerUser, loginUser, getCurrentUser, updateUser, updatePassword } from '../../services/auth.API';
 import {
   registerFail,
   registerSuccess,
@@ -29,9 +29,12 @@ export function* registerSaga({ payload, callback }) {
   }
 }
 
-export function* loginSaga({ payload, callbackSuccess, callbackFail }) {
+export function* loginSaga({ payload }) {
+  const { data, callbackSuccess, callbackFail } = payload;
+
   try {
-    const response = yield call(loginUser, payload);
+    const response = yield call(loginUser, data);
+
     if (response) {
       setLocalStorage(STORAGE.USER_TOKEN, response.data.data.token);
       const currentUser = yield call(getCurrentUser);
@@ -40,13 +43,14 @@ export function* loginSaga({ payload, callbackSuccess, callbackFail }) {
     }
   } catch (error) {
     yield put(loginFail(error.message));
-    callbackFail(error.message);
+    callbackFail(error.key);
   }
 }
 
 export function* getCurrentUserSaga() {
   try {
     const response = yield call(getCurrentUser);
+
     yield put(getCurrentUserSuccess(response.data.data));
   } catch (error) {
     yield put(getCurrentUserFail(error));
@@ -59,7 +63,6 @@ export function* updateUserSaga({ payload }) {
   try {
     yield call(updateUser, data);
     const currentUser = yield call(getCurrentUser);
-
     yield put(updateUserSuccess(currentUser.data.data));
     callbackSuccess();
   } catch (error) {

@@ -1,90 +1,105 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
-import { notification } from 'antd';
+import { Link } from 'react-router-dom';
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
-import { Col, Row } from 'antd';
+import { Col, Row, Spin, Form, Button, Image, Typography } from 'antd';
 
+import toastHook from '../../../hooks/toastHook';
 import { SigninSchema } from './schema';
 import { useAuthStore } from '../../../hooks/useAuth';
-import FiledInput from './components/FieldInput';
+import InputField from './components/InputField';
 import Banner from '../../../assets/imgs/login/shoppingcart.png';
-import { Container, WrapperImg, WrapperForm, FormLogin, ButtonItem, ValidationError } from './styled';
+import { Container, WrapperImg, WrapperForm, FormLogin } from './styled';
 
 export default function LoginScreen() {
-  const { loginUser } = useAuthStore();
-  const navigate = useNavigate();
+  const { Title, Text } = Typography;
+
+  const { loginUser, isLoading } = useAuthStore();
+
+  const { toastOn } = toastHook();
+
   const { t } = useTranslation(['login']);
+
   const {
-    register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(SigninSchema),
   });
 
+  const loginSuccess = () => {
+    toastOn('success', t('login_success'), '/');
+  };
+
+  const loginFail = (message) => {
+    toastOn('error', t(message));
+  };
+
   const onSubmit = (data) => {
-    loginUser(data, loginSuccess, loginFail);
-  };
-
-  const loginSuccess = async () => {
-    await notification.success({
-      message: 'Login Success',
-    });
-    await navigate('/');
-  };
-
-  const loginFail = async (error) => {
-    await notification.error({
-      message: error,
+    loginUser({
+      data,
+      callbackSuccess: loginSuccess,
+      callbackFail: loginFail,
     });
   };
 
   return (
-    <>
+    <Spin spinning={isLoading}>
       <Container>
         <WrapperImg>
-          <img src={Banner} alt='banner' className='img-banner' />
+          <Image preview={false} src={Banner} alt='banner' className='banner' />
         </WrapperImg>
         <WrapperForm>
           <FormLogin>
             <Row>
               <Col span={24}>
-                <h2 className='header-signin'>{t('sign_in')}</h2>
+                <Title level={3} className='form__header'>
+                  {t('sign_in')}
+                </Title>
               </Col>
             </Row>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <FiledInput t={t} register={register} nameField={'email'} Icon={MailOutlined} type='text' />
+            <Form onFinish={handleSubmit(onSubmit)}>
+              <InputField
+                Controller={Controller}
+                control={control}
+                errors={errors?.email}
+                nameField='email'
+                label={t('email')}
+                Icon={MailOutlined}
+              />
+              <InputField
+                Controller={Controller}
+                control={control}
+                errors={errors?.password}
+                nameField='password'
+                label={t('password')}
+                isHide={true}
+                Icon={LockOutlined}
+              />
               <Row>
-                <Col span={17} offset={7}>
-                  <ValidationError>{errors.email && t(errors.email?.message)}</ValidationError>
+                <Col xl={{ span: 17, offset: 7 }} sm={24} xs={24}>
+                  <Button htmlType='submit' type='primary' className='form__button'>
+                    {t('sign_in')}
+                  </Button>
                 </Col>
               </Row>
-              <FiledInput t={t} register={register} nameField={'password'} Icon={LockOutlined} type='password' />
-
               <Row>
-                <Col span={17} offset={7}>
-                  <ValidationError>{errors.password && t(errors.password?.message)}</ValidationError>
+                <Col xl={{ span: 17, offset: 7 }} sm={24} xs={24}>
+                  <Text className='form__link'>
+                    {t('dont_have_account')}?{' '}
+                    <Link to='/register' className='form__link'>
+                      {t('sign_up')}
+                    </Link>
+                  </Text>
                 </Col>
               </Row>
-              <Row>
-                <Col span={17} offset={7}>
-                  <ButtonItem className='button-signin'>{t('sign_in')}</ButtonItem>
-                </Col>
-              </Row>
-              <Row>
-                <Col span={17} offset={7}>
-                  <p>
-                    {t('dont_have_account')}?<Link to='/register'>{t('sign_up')}</Link>
-                  </p>
-                </Col>
-              </Row>
-            </form>
+            </Form>
           </FormLogin>
         </WrapperForm>
       </Container>
-    </>
+    </Spin>
   );
 }
