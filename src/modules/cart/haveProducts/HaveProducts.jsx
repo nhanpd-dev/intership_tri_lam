@@ -19,7 +19,7 @@ function HaveProducts() {
 
   const [check, setCheck] = useState(false);
 
-  const [orders, setOrders] = useState([
+  const [cart, setCart] = useState([
     {
       productId: '62f6127b01901acef6c257f1',
       discount: 0.3,
@@ -42,7 +42,7 @@ function HaveProducts() {
     },
   ]);
 
-  const listOrdersCheckTrue = orders.filter((item) => item.isCheck === true);
+  const listOrdersCheckTrue = cart.filter((item) => item.isCheck === true);
 
   const listOrdersPost = listOrdersCheckTrue.map((item) => {
     return {
@@ -54,7 +54,7 @@ function HaveProducts() {
   });
 
   const total = useMemo(() => {
-    const cloneOrders = orders?.filter((i) => i.isCheck);
+    const cloneOrders = cart?.filter((i) => i.isCheck);
 
     if (cloneOrders.length) {
       return cloneOrders.reduce((acumulator, item) => {
@@ -65,10 +65,10 @@ function HaveProducts() {
     }
 
     return 0;
-  }, [orders]);
+  }, [cart]);
 
   const provisional = useMemo(() => {
-    const cloneOrders = orders?.filter((i) => i.isCheck);
+    const cloneOrders = cart?.filter((i) => i.isCheck);
 
     if (cloneOrders.length) {
       const totalOrdersPrice = cloneOrders.reduce((acumulator, item) => {
@@ -81,10 +81,10 @@ function HaveProducts() {
     }
 
     return 0;
-  }, [orders]);
+  }, [cart]);
 
   const renderListOrders = () =>
-    orders.map((item, index) => {
+    cart.map((item, index) => {
       return (
         <Row key={index} className='name_field'>
           <Product
@@ -94,8 +94,8 @@ function HaveProducts() {
             linkTo={item.linkTo}
             nameProducts={item.nameProducts}
             price={item.price}
-            setOrders={setOrders}
-            orders={orders}
+            setCart={setCart}
+            cart={cart}
             isCheck={item.isCheck}
             quantity={item.quantity}
           />

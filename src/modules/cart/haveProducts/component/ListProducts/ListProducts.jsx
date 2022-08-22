@@ -5,7 +5,7 @@ import { Checkbox, Col, Image, InputNumber, Popconfirm, Row, Typography } from '
 import { DeleteOutlined } from '@ant-design/icons';
 import { useMemo } from 'react';
 
-function ListProducts({ img, linkTo, nameProducts, price, productId, discount, orders, setOrders, quantity, isCheck }) {
+function ListProducts({ img, linkTo, nameProducts, price, productId, discount, cart, setCart, quantity, isCheck }) {
   const { Text } = Typography;
 
   const itemPrice = useMemo(() => {
@@ -14,27 +14,27 @@ function ListProducts({ img, linkTo, nameProducts, price, productId, discount, o
   }, [quantity]);
 
   const changeCheck = (e) => {
-    const newOrders = [...orders];
+    const newCart = [...cart];
 
-    const indexProduct = newOrders.findIndex((item) => item.productId === productId);
+    const indexProduct = newCart.findIndex((item) => item.productId === productId);
 
     if (indexProduct >= 0) {
-      newOrders[indexProduct].isCheck = e.target.checked;
+      newCart[indexProduct].isCheck = e.target.checked;
     }
 
-    setOrders(newOrders);
+    setCart(newCart);
   };
 
   const changeQuantity = (value) => {
-    const newOrders = [...orders];
+    const newCart = [...cart];
 
-    const indexProduct = newOrders.findIndex((item) => item.productId === productId);
+    const indexProduct = newCart.findIndex((item) => item.productId === productId);
 
     if (indexProduct >= 0) {
-      newOrders[indexProduct].quantity = value;
+      newCart[indexProduct].quantity = value;
     }
 
-    setOrders(newOrders);
+    setCart(newCart);
   };
 
   return (

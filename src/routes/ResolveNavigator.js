@@ -3,10 +3,12 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { useAuthStore } from '../hooks/useAuth';
+import { useOrderStore } from '../hooks/useOrder';
 import { getLocalStorage, STORAGE } from '../utils';
 
 function ResolveNavigator() {
   const { getCurrentUser } = useAuthStore();
+  const { getOrders } = useOrderStore();
 
   const location = useLocation();
 
@@ -15,6 +17,7 @@ function ResolveNavigator() {
 
     if (token) {
       getCurrentUser();
+      getOrders();
     }
   }, [location]);
 

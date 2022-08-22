@@ -1,10 +1,11 @@
 /* eslint-disable no-restricted-globals */
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import reducer from '../store/orders/reducer';
 import saga from '../store/orders/saga';
-import { orderRequest } from '../store/orders/actions';
+import { getOrdersRequest, orderRequest } from '../store/orders/actions';
 import { useInjectReducer, useInjectSaga } from '../utils';
+import { makeSelectOrders } from '../store/orders/selector';
 
 export const useOrderStore = () => {
   useInjectSaga({ key: 'ordersStore', saga });
@@ -12,11 +13,19 @@ export const useOrderStore = () => {
 
   const dispatch = useDispatch();
 
+  const orders = useSelector(makeSelectOrders());
+
+  const getOrders = () => {
+    dispatch(getOrdersRequest());
+  };
+
   const orderPost = (payload) => {
     dispatch(orderRequest(payload));
   };
 
   return {
+    orders,
+    getOrders,
     orderPost,
   };
 };

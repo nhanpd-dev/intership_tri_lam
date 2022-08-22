@@ -8,6 +8,7 @@ const ENDPOINTS = {
 
 const ORDERS = {
   ORDER: '/order',
+  GET_ORDERS: '/orders',
 };
 
 export { ENDPOINTS, ORDERS };
