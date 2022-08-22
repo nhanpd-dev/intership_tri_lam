@@ -1,6 +1,9 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
+
 import * as Types from './constants';
-import { getProduct } from '../../services/test';
+
+import { getProduct } from '../../services/product.API';
+
 import { getProductSuccess, getProductFail } from './action';
 
 export function* getProductSaga(payload) {

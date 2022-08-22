@@ -49,13 +49,24 @@ const Price = styled.div`
     display: block;
     margin-top: 10px;
   }
+
   .price-content-extend {
     display: flex;
     box-sizing: border-box;
+
     .price-discount {
       margin: 5px 10px;
+      font-weight: bold;
       font-size: ${FONTS_SIZE.size_18};
     }
+
+    .price-percent {
+      margin-top:-10px;
+
+      font-weight: bold;
+      font-size: ${FONTS_SIZE.size_18};
+    }
+
 
   .price-content {
     display: block;

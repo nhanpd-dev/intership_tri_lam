@@ -1,10 +1,14 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+
 import { useTranslation } from 'react-i18next';
+
 import { Row, Col, Typography, Button, Image, Form, InputNumber, List } from 'antd';
+
 import { EnvironmentOutlined } from '@ant-design/icons';
 
 import { useAuthStore } from '../../../../hooks/useAuth';
+
 import { useProductStore } from '../../useProductDetails';
 
 import { ProductDetailsBuyWrap, Price, Promotion, FormBuy } from './styled';
@@ -97,9 +101,14 @@ const ProductDetailsBuy = ({ thumbnail, listImg, price, quantity, id, name, disc
                 {discount ? (
                   <div className='price-content-extend'>
                     <Text delete className='price-content'>
-                      {price} Đ
+                      {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)}
                     </Text>
-                    <Text className='price-discount'>{price - price * discount} Đ</Text>
+
+                    <Text className='price-discount'>
+                      {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(
+                        price - price * discount,
+                      )}
+                    </Text>
                     <Text code className='price-percent'>{`${discount * 100}%`}</Text>
                   </div>
                 ) : (
@@ -136,7 +145,6 @@ const ProductDetailsBuy = ({ thumbnail, listImg, price, quantity, id, name, disc
                   <Text>{t('buy.choose_a_delivery_address')}</Text>
                 </Link>
               </div>
-              <Text>{t('buy.please_choose_a_voucher')}</Text>
               <FormBuy>
                 <Form
                   name='validate_other'

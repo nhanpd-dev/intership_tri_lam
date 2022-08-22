@@ -15,9 +15,10 @@ export const getProductFail = (error) => ({
   payload: error,
 });
 
-export const orderCart = (data) => {
+export const orderCart = (data, isCartLocal) => {
   return {
     type: Types.ORDER_CART,
     payload: data,
+    isCartLocal,
   };
 };

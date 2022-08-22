@@ -11,7 +11,7 @@ const ORDERS = {
 };
 
 const PRODUCT = {
-  GET_PRODUCT: '/product?productId=',
+  GET_PRODUCT: '/product',
 };
 
 export { ENDPOINTS, ORDERS, PRODUCT };

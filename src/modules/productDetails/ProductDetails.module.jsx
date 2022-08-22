@@ -1,22 +1,39 @@
 import { useEffect } from 'react';
+
 import { useParams } from 'react-router-dom';
+
 import { Spin } from 'antd';
+
 import ProductDetailsTitle from './component/productDetailsTitle/ProductDetailsTitle';
+
 import ProductDetailsBuy from './component/productDetailsBuy/ProductDetailsBuy';
+
 import ProductDetailsDescription from './component/productDetailsDescription/ProductDetailsDescription';
+
 import { useProductStore } from './useProductDetails';
+
+import { getLocalStorage } from '../../utils';
+
 import { ProductDetailsWrapper } from './styled';
 
 const ProductDetailsModule = () => {
-  const { isLoading, product, getProductFunc } = useProductStore();
+  const { isLoading, product, getProductFunc, ordertoCart } = useProductStore();
 
-  let { id } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     getProductFunc(id);
-  }, [id, product.quantity]);
+  }, [id]);
 
   const dataProduct = product?.data ? product?.data : {};
+
+  useEffect(() => {
+    if (!!getLocalStorage('CART')) {
+      const cartLocal = [...JSON.parse(getLocalStorage('CART'))];
+
+      ordertoCart(cartLocal, 1);
+    }
+  }, []);
 
   return (
     <Spin spinning={isLoading} size='large'>

@@ -1,8 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
+
 import { useInjectReducer, useInjectSaga } from '../../utils';
+
 import reducer from '../../store/product/reducer';
+
 import saga from '../../store/product/saga';
+
 import { getProductRequest, orderCart } from '../../store/product/action';
+
 import {
   makeSelectLoading,
   makeSelectError,
@@ -31,8 +36,8 @@ export const useProductStore = () => {
     await dispatch(getProductRequest(payload));
   };
 
-  const ordertoCart = (data) => {
-    dispatch(orderCart(data));
+  const ordertoCart = (data, isCartLocal = 0) => {
+    dispatch(orderCart(data, isCartLocal));
   };
 
   return { isLoading, error, product, cart, quantityCart, getProductFunc, ordertoCart };

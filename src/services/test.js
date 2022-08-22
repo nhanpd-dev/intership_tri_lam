@@ -32,9 +32,4 @@ async function fetchProducts({ page, limit, search }) {
   return axiosClient.get(`/products?page=${page}&limit=${limit}&search=${search}`);
 }
 
-async function getProduct(data) {
-  const axiosClient = new AxiosClient();
-  return axiosClient.get(`${PRODUCT.GET_PRODUCT}${data}`);
-}
-
-export { registerUser, loginUser, getCurrentUser, updateUser, fetchProducts, updatePassword, getProduct };
+export { registerUser, loginUser, getCurrentUser, updateUser, fetchProducts, updatePassword };
