@@ -13,10 +13,10 @@ const ProductsModule = () => {
 
   const navigate = useNavigate();
 
-  const handlePaginationChange = async (page) => {
+  const handlePaginationChange = (page) => {
     const newParams = { ...params, page };
-    await setParams(newParams);
-    await fetchProductsFunc(newParams);
+    setParams(newParams);
+    fetchProductsFunc(newParams);
   };
 
   const handleProductClick = (id) => {
@@ -45,7 +45,18 @@ const ProductsModule = () => {
                   </div>
                 </div>
                 <div className='price'>
-                  {product.price} {t('currency')}
+                  {product.discount ? (
+                    <div className='discount'>
+                      <span className='discount-price'>
+                        {product.price - product.price * product.discount} {t('currency')}
+                      </span>
+                      <span className='discount-label'>-{product.discount * 100} %</span>
+                    </div>
+                  ) : (
+                    <div className='no-discount'>
+                      {product.price} {t('currency')}
+                    </div>
+                  )}
                 </div>
               </ProductItem>
             ))}
