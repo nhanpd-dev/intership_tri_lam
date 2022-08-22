@@ -2,11 +2,11 @@ import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
 import { Col, Row, Spin, Form, Button, Image, Typography } from 'antd';
 
-import toast from '../../../utils/toast';
+import toastHook from '../../../hooks/toastHook';
 import { SigninSchema } from './schema';
 import { useAuthStore } from '../../../hooks/useAuth';
 import InputField from './components/InputField';
@@ -18,7 +18,7 @@ export default function LoginScreen() {
 
   const { loginUser, isLoading } = useAuthStore();
 
-  const navigate = useNavigate();
+  const { toastOn } = toastHook();
 
   const { t } = useTranslation(['login']);
 
@@ -31,11 +31,11 @@ export default function LoginScreen() {
   });
 
   const loginSuccess = () => {
-    toast('success', t('login_success'), '/', navigate);
+    toastOn('success', t('login_success'), '/');
   };
 
   const loginFail = (message) => {
-    toast('error', t(message));
+    toastOn('error', t(message));
   };
 
   const onSubmit = (data) => {

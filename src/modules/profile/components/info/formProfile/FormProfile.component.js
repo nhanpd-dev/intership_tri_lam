@@ -11,9 +11,9 @@ import {
   AuditOutlined,
   EditOutlined,
 } from '@ant-design/icons';
-import { Row, Col, Radio, Form, Button, Image, Input, Typography, notification, Spin } from 'antd';
+import { Row, Col, Radio, Form, Button, Image, Input, Typography, Spin } from 'antd';
 
-import toast from '../../../../../utils/toast';
+import toastHook from '../../../../../hooks/toastHook';
 import { upload } from '../../../../../config/firebase/firebase';
 import { useAuthStore } from '../../../../../hooks/useAuth';
 import { ProfileSchema } from '../../../schema/Schema';
@@ -25,6 +25,8 @@ export default function FormProfile() {
   const { Text } = Typography;
 
   const { t } = useTranslation(['profile', 'common']);
+
+  const { toastOn } = toastHook();
 
   const { currentUser, isLoading, updateUser } = useAuthStore();
 
@@ -41,11 +43,11 @@ export default function FormProfile() {
   });
 
   const updateInfoSuccess = () => {
-    toast('success', t('change_info_success'));
+    toastOn('success', t('change_info_success'));
   };
 
   const updateInfoFail = () => {
-    toast('error', t('change_info_fail'));
+    toastOn('error', t('change_info_fail'));
   };
 
   const onSubmit = (data) => {
