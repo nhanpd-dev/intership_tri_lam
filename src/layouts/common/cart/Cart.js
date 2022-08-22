@@ -4,15 +4,19 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
+import { useProductStore } from '../../../modules/productDetails/useProductDetail';
+
 function CartLayout() {
   const { t } = useTranslation(['header', 'register']);
+
+  const { quantityCart } = useProductStore();
 
   return (
     <Link to='/cart' className='cart'>
       <Col className='cart_items'>
         <ShoppingCartOutlined />
         <Col>
-          <Typography className='title_cart cart_quantily'>0</Typography>
+          <Typography className='title_cart cart_quantily'>{quantityCart}</Typography>
         </Col>
       </Col>
     </Link>

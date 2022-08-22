@@ -2,18 +2,21 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Row, Col, Divider, Typography, Button } from 'antd';
 import { StarFilled } from '@ant-design/icons';
+
 import { TitleWrap, GroupStar } from './style';
 
 const { Text } = Typography;
 
-const ProductDetailsTitle = ({ categoryId, nameProduct, numberOfSell }) => {
+const ProductDetailsTitle = ({ categoryId, nameProduct, numberOfSell, id }) => {
   const { t } = useTranslation(['productDetails']);
 
   return (
     <TitleWrap>
       <Row>
         <Col xs={24} sm={24} md={16} lg={16}>
-          <Text className='category-text'>{categoryId}</Text>
+          <Text className='category-text'>
+            {categoryId} / {id}
+          </Text>
         </Col>
       </Row>
 

@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Row, Col, Typography, Button, Image, Form, InputNumber, List } from 'antd';
 import { EnvironmentOutlined } from '@ant-design/icons';
-import Discount from '../productDiscount/Discount';
+
 import { useAuthStore } from '../../../../hooks/useAuth';
+import { useProductStore } from '../../useProductDetail';
 import { ProductDetailsBuyWrap, Price, Promotion, FormBuy } from './styled';
 
 const { Title, Text, Link } = Typography;
@@ -18,18 +19,12 @@ const formItemLayout = {
   },
 };
 
-let vouchers = null;
-
-const getvouchers = (vouchersData) => {
-  vouchers = vouchersData.slice(-1);
-};
-
 const ProductDetailsBuy = ({ thumbnail, listImg, price, quantity, id, name, discount }) => {
-  const [visible, setVisible] = useState(false);
-
   const { t } = useTranslation(['productDetails']);
 
   const { auth } = useAuthStore();
+
+  const { orderToCart } = useProductStore();
 
   const dataPromotion = [
     {
@@ -58,13 +53,17 @@ const ProductDetailsBuy = ({ thumbnail, listImg, price, quantity, id, name, disc
     },
   ];
 
-  const onFinish = (values) => {
-    console.log('don gia ', {
+  const onFinish = async (values) => {
+    const data = {
+      name,
+      listImg,
       productId: id,
       quantity: values.number,
-      discount: vouchers,
+      discount,
       price,
-    });
+    };
+
+    await orderToCart(data);
   };
 
   return (
@@ -94,7 +93,22 @@ const ProductDetailsBuy = ({ thumbnail, listImg, price, quantity, id, name, disc
             <Col xs={24} sm={24} md={24} lg={24}>
               <Price>
                 <Text className='price-text'>{t('buy.price')}:</Text>
-                <Text className='price-content'>{price}Đ</Text>
+                {discount ? (
+                  <div className='price-content-extend'>
+                    <Text delete className='price-content'>
+                      {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)}
+                    </Text>
+
+                    <Text className='price-discount'>
+                      {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(
+                        price - price * discount,
+                      )}
+                    </Text>
+                    <Text code className='price-percent'>{`${discount * 100}%`}</Text>
+                  </div>
+                ) : (
+                  <Text className='price-content'>{price} Đ</Text>
+                )}
               </Price>
             </Col>
           </Row>
@@ -126,8 +140,6 @@ const ProductDetailsBuy = ({ thumbnail, listImg, price, quantity, id, name, disc
                   <Text>{t('buy.choose_a_delivery_address')}</Text>
                 </Link>
               </div>
-              <Text>{t('buy.please_choose_a_voucher')}</Text>
-              <Discount getvouchers={getvouchers} discount={discount} price={price} />
               <FormBuy>
                 <Form
                   name='validate_other'
@@ -145,8 +157,7 @@ const ProductDetailsBuy = ({ thumbnail, listImg, price, quantity, id, name, disc
                   <Button type='primary' htmlType='submit' className='button-buy' disabled={!auth || !quantity}>
                     {t('buy.purchase')}
                   </Button>
-                  {!auth && <Text className='text-not-login'>{t('buy.please_log_in')}</Text>}
-                  {auth && quantity === 0 && <Text className='text-not-login'>{t('buy.out_of_stock')}</Text>}
+                  {!quantity && <Text className='text-not-login'>{t('buy.out_of_stock')}</Text>}
                 </Form>
               </FormBuy>
               <Promotion>
