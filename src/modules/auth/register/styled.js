@@ -93,7 +93,7 @@ export const ContentRegister = styled.div`
     font-weight: 600;
     font-size: 24px;
     text-transform: uppercase;
-    margin-right: 20px;
+    margin: 0 20px;
     border-bottom: 4px solid ${COLORS.primary};
     display: inline-block;
     letter-spacing: 1px;
