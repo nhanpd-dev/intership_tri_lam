@@ -31,7 +31,7 @@ const privateRoute = [
         element: <Cart />,
       },
       {
-        path: '/products',
+        path: '/',
         element: <ProductsModule />,
       },
       {

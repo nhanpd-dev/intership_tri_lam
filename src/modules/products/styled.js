@@ -113,8 +113,26 @@ export const ProductItem = styled.div`
   }
 
   .price {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 14px;
     font-weight: 500;
+
+    .discount {
+      display: flex;
+      flex-wrap: wrap;
+
+      .discount-price {
+        color: #ff4c57;
+      }
+
+      .discount-label {
+        color: #ff4c57;
+        border: 1px solid #ff4c57;
+        background-color: #fff1f2;
+        border-radius: 2px;
+        font-weight: 400;
+        margin-left: 4px;
+        font-size: 12px;
+      }
+    }
   }
 `;
