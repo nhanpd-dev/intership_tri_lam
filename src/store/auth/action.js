@@ -1,18 +1,18 @@
 import * as Types from './constants';
 
-export const registerRequest = (data, callback) => ({
+export const registerRequest = (payload) => ({
   type: Types.REGISTER_TYPE.REGISTER_REQUEST,
-  payload: data,
-  callback,
+  payload,
 });
 
-export const registerSuccess = () => ({
+export const registerSuccess = (user) => ({
   type: Types.REGISTER_TYPE.REGISTER_SUCCESS,
+  user,
 });
 
 export const registerFail = (error) => ({
   type: Types.REGISTER_TYPE.REGISTER_FAILURE,
-  payload: error,
+  error,
 });
 
 export const loginRequest = (payload) => ({
@@ -72,3 +72,9 @@ export const updatePasswordFail = (error) => ({
   type: Types.UPDATE_PASSWORD_TYPE.UPDATE_PASSWORD_FAILURE,
   error,
 });
+
+export const logOutRequest = () => ({ type: Types.LOGOUT_TYPES.LOGOUT_USER_REQUEST });
+
+export const logOutSuccess = () => ({ type: Types.LOGOUT_TYPES.LOGOUT_USER_SUCCESS });
+
+export const logOutFailure = (error) => ({ type: Types.LOGOUT_TYPES.LOGOUT_USER_FAILURE, error });

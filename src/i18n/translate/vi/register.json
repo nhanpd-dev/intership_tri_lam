@@ -18,5 +18,7 @@
   "password_max_length": "Mật khẩu không quá 16 ký tự",
   "full_name_min_length": "Họ tên ít nhất 6 ký tự",
   "full_name_max_length": "Họ tên không quá 30 ký tự",
-  "phone_number_required": "Số điện thoại phải đúng 11 số"
+  "phone_number_required": "Số điện thoại phải đúng 11 số",
+  "C400_2": "Email đã tồn tại",
+  "register_success": "Đăng ký thành công"
 }

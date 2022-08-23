@@ -10,6 +10,7 @@ import {
   getCurrentUserRequest,
   updateUserRequest,
   updatePasswordRequest,
+  logOutRequest,
 } from '../store/auth/action';
 import {
   makeSelectLoading,
@@ -29,8 +30,8 @@ export const useAuthStore = () => {
   const auth = useSelector(makeSelectAuthenticated());
   const currentUser = useSelector(makeSelectCurrentUser());
 
-  const registerUser = (data, callback) => {
-    dispatch(registerRequest(data, callback));
+  const registerUser = (payload) => {
+    dispatch(registerRequest(payload));
   };
 
   const loginUser = (payload) => {
@@ -49,6 +50,10 @@ export const useAuthStore = () => {
     dispatch(updatePasswordRequest(payload));
   };
 
+  const logOutUser = () => {
+    dispatch(logOutRequest());
+  };
+
   return {
     registerUser,
     loginUser,
@@ -59,5 +64,6 @@ export const useAuthStore = () => {
     currentUser,
     updateUser,
     updatePassword,
+    logOutUser,
   };
 };
