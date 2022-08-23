@@ -1,17 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Col, Image, Row, Button } from 'antd';
 import {
-  AppstoreOutlined,
   CommentOutlined,
   HomeOutlined,
   UserOutlined,
   SearchOutlined,
   LoginOutlined,
+  ShoppingCartOutlined,
 } from '@ant-design/icons';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
 import { useProductsListStore } from '../../../modules/products/useProductsList';
 import { Header } from './styled';
@@ -28,10 +28,10 @@ function HeaderLayout() {
   const { t } = useTranslation(['header', 'register', 'common']);
 
   const navItems = [
-    { span: 6, linkTo: '#', icon: <HomeOutlined />, title: t('common:home') },
-    { span: 6, linkTo: '#', icon: <AppstoreOutlined />, title: t('header:category') },
+    { span: 6, linkTo: '/', icon: <HomeOutlined />, title: t('common:home') },
+    { span: 6, linkTo: '/cart', icon: <ShoppingCartOutlined />, title: t('header:cart') },
     { span: 6, linkTo: '#', icon: <CommentOutlined />, title: t('header:chat') },
-    { span: 6, linkTo: '#', icon: <UserOutlined />, title: t('header:personal') },
+    { span: 6, linkTo: '/account/profile', icon: <UserOutlined />, title: t('header:personal') },
   ];
 
   const renderNavItems = () => {

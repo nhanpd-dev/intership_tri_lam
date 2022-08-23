@@ -11,6 +11,6 @@ export const orderSuccess = (payload) => ({
 });
 
 export const orderFail = (error) => ({
-  type: Types.ORDER_FAIL,
+  type: Types.ORDER_FAILURE,
   payload: error,
 });

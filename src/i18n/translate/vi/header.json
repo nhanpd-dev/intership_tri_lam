@@ -1,14 +1,15 @@
 {
-  "account": "Account",
-  "account_information": "Account information",
-  "my_notification": "My notification",
-  "my_oder": "My oder",
-  "review_products": "Review products",
-  "search": "Search",
-  "cart": "Cart",
-  "sign_in": "Sign in",
-  "sign_out": "Sign out",
-  "title_input_search_header": "Find the desired product, category or brand...",
-  "chat": "Chat",
-  "empty_name": "..."
+  "account": "Tài khoản",
+  "account_information": "Thông tin tài khoản",
+  "my_notification": "Thông báo của tôi",
+  "my_oder": "Đơn hàng của tôi",
+  "review_products": "Đánh giá sản phẩm",
+  "search": "Tìm kiếm",
+  "cart": "Giỏ hàng",
+  "sign_in": "Đăng nhập",
+  "sign_out": "Đăng xuất",
+  "title_input_search_header": "Tìm sản phẩm, danh mục hoặc thương hiệu mong muốn ...",
+  "chat": "Nhắn tin",
+  "empty_name": "...",
+  "personal": "Cá nhân"
 }
