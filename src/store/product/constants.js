@@ -5,3 +5,5 @@ export const GET_PRODUCT_SUCCESS = 'GET_PRODUCT_SUCCESS';
 export const GET_PRODUCT_FAIL = 'GET_PRODUCT_FAIL';
 
 export const ORDER_CART = 'ORDER_CART';
+
+export const UPDATE_CART = 'UPDATE_CART';

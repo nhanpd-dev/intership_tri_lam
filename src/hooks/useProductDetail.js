@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { useInjectReducer, useInjectSaga } from '../../utils';
-import reducer from '../../store/product/reducer';
-import saga from '../../store/product/saga';
-import { getProductRequest, orderCart } from '../../store/product/action';
+import { useInjectReducer, useInjectSaga } from '../utils';
+import reducer from '../store/product/reducer';
+import saga from '../store/product/saga';
+import { getProductRequest, orderCart, updateCart } from '../store/product/action';
 import {
   makeSelectLoading,
   makeSelectError,
@@ -11,7 +11,7 @@ import {
   makeSelectCart,
   makeSelectQuantityCart,
   makeSelectActive,
-} from '../../store/product/selector';
+} from '../store/product/selector';
 
 export const useProductStore = () => {
   useInjectSaga({ key: 'productStore', saga });
@@ -39,5 +39,9 @@ export const useProductStore = () => {
     dispatch(orderCart(data, isCartLocal));
   };
 
-  return { isLoading, isActive, error, product, cart, quantityCart, getProductFunc, orderToCart };
+  const updateToCart = (data) => {
+    dispatch(updateCart(data));
+  };
+
+  return { isLoading, isActive, error, product, cart, quantityCart, getProductFunc, orderToCart, updateToCart };
 };

@@ -4,7 +4,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import { useProductStore } from '../../../modules/productDetails/useProductDetail';
+import { useProductStore } from '../../../hooks/useProductDetail';
 
 function CartLayout() {
   const { t } = useTranslation(['header', 'register']);

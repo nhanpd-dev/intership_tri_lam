@@ -56,9 +56,18 @@ const orderCart = (state, action) => {
   };
 };
 
+const updateCart = (state, action) => {
+  setLocalStorage('CART', JSON.stringify(action.payload));
+  return {
+    ...state,
+    cart: action.payload,
+  };
+};
+
 export default createReducer(initialState, {
   [Types.GET_PRODUCT_REQUEST]: getProductRequest,
   [Types.GET_PRODUCT_SUCCESS]: getProductSuccess,
   [Types.GET_PRODUCT_FAIL]: getProductFail,
   [Types.ORDER_CART]: orderCart,
+  [Types.UPDATE_CART]: updateCart,
 });

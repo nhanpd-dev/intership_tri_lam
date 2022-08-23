@@ -5,7 +5,7 @@ import { Row, Col, Typography, Button, Image, Form, InputNumber, List } from 'an
 import { EnvironmentOutlined } from '@ant-design/icons';
 
 import { useAuthStore } from '../../../../hooks/useAuth';
-import { useProductStore } from '../../useProductDetail';
+import { useProductStore } from '../../../../hooks/useProductDetail';
 import { ProductDetailsBuyWrap, Price, Promotion, FormBuy } from './styled';
 
 const { Title, Text, Link } = Typography;

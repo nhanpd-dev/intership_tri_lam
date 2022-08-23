@@ -1,4 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
+
 import { getProductSuccess, getProductFail } from './action';
 import * as Types from './constants';
 import { getProduct } from '../../services/product.API';
@@ -14,6 +15,6 @@ export function* getProductSaga(payload) {
   }
 }
 
-export default function* globalSaga() {
+export default function* productSaga() {
   yield takeLatest(Types.GET_PRODUCT_REQUEST, getProductSaga);
 }

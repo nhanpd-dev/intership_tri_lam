@@ -10,7 +10,7 @@ import { Wrapper } from './styled';
 function Cart() {
   const { t } = useTranslation(['cart']);
 
-  const [cart, setCart] = useState(true);
+  const [cart, setCart] = useState(false);
 
   const { Title } = Typography;
 

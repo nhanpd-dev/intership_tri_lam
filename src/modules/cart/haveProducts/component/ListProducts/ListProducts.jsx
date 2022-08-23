@@ -5,8 +5,12 @@ import { Checkbox, Col, Image, InputNumber, Popconfirm, Row, Typography } from '
 import { DeleteOutlined } from '@ant-design/icons';
 import { useMemo } from 'react';
 
+import { useProductStore } from '../../../../../hooks/useProductDetail';
+
 function ListProducts({ img, linkTo, nameProducts, price, productId, discount, orders, setOrders, quantity, isCheck }) {
   const { Text } = Typography;
+
+  const { updateToCart } = useProductStore();
 
   const itemPrice = useMemo(() => {
     const total = quantity * price - quantity * price * discount;
@@ -33,6 +37,8 @@ function ListProducts({ img, linkTo, nameProducts, price, productId, discount, o
     if (indexProduct >= 0) {
       newOrders[indexProduct].quantity = value;
     }
+
+    updateToCart(newOrders);
 
     setOrders(newOrders);
   };
