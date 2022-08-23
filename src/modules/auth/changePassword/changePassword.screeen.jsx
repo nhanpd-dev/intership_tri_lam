@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Row, Col, Typography, Form, Button, Checkbox, Space, Spin } from 'antd';
 
 import toastHook from '../../../hooks/toastHook';
 import { ChangePasswordSchema } from './schema';
 import { useAuthStore } from '../../../hooks/useAuth';
-import InputField from './component/InputField';
+import FormInput from '../../../components/form/input';
 import { Wrapper } from './styled';
 
 export default function ChangePassword() {
@@ -55,22 +55,22 @@ export default function ChangePassword() {
             </Col>
 
             <Col span={12} offset={6}>
-              <InputField
-                Controller={Controller}
+              <FormInput
+                label={t('new_pass')}
+                name='password'
                 control={control}
                 errors={errors?.password}
-                nameField='password'
-                label={t('new_pass')}
-                isHide={isHide}
+                type={isHide ? 'password' : 'text'}
+                t={t}
               />
 
-              <InputField
-                Controller={Controller}
+              <FormInput
+                label={t('enter_new_pass')}
+                name='confirm_password'
                 control={control}
                 errors={errors?.confirm_password}
-                nameField='confirm_password'
-                label={t('enter_new_pass')}
-                isHide={isHide}
+                type={isHide ? 'password' : 'text'}
+                t={t}
               />
 
               <Space direction='vertical' size='middle' className='form__space'>

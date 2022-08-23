@@ -28,10 +28,3 @@ export const Wrapper = styled.div`
     }
   }
 `;
-
-export const ValidationError = styled.div`
-  color: red;
-  width: 100%;
-  height: 25px;
-  margin-bottom: 5px;
-`;

@@ -85,9 +85,9 @@ export function* updatePasswordSaga({ payload }) {
 }
 
 export default function* authSaga() {
-  yield takeEvery(Types.REGISTER_REQUEST, registerSaga);
-  yield takeEvery(Types.LOGIN_REQUEST, loginSaga);
-  yield takeEvery(Types.GET_CURRENT_USER_REQUEST, getCurrentUserSaga);
-  yield takeEvery(Types.UPDATE_USER_REQUEST, updateUserSaga);
-  yield takeEvery(Types.UPDATE_PASSWORD_REQUEST, updatePasswordSaga);
+  yield takeEvery(Types.REGISTER_TYPE.REGISTER_REQUEST, registerSaga);
+  yield takeEvery(Types.LOGIN_TYPE.LOGIN_REQUEST, loginSaga);
+  yield takeEvery(Types.GET_USER_TYPE.GET_CURRENT_USER_REQUEST, getCurrentUserSaga);
+  yield takeEvery(Types.UPDATE_USER_TYPE.UPDATE_USER_REQUEST, updateUserSaga);
+  yield takeEvery(Types.UPDATE_PASSWORD_TYPE.UPDATE_PASSWORD_REQUEST, updatePasswordSaga);
 }

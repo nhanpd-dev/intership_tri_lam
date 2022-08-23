@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -9,7 +9,7 @@ import { Col, Row, Spin, Form, Button, Image, Typography } from 'antd';
 import toastHook from '../../../hooks/toastHook';
 import { SigninSchema } from './schema';
 import { useAuthStore } from '../../../hooks/useAuth';
-import InputField from './components/InputField';
+import FormInput from '../../../components/form/input';
 import Banner from '../../../assets/imgs/login/shoppingcart.png';
 import { Container, WrapperImg, WrapperForm, FormLogin } from './styled';
 
@@ -62,21 +62,22 @@ export default function LoginScreen() {
               </Col>
             </Row>
             <Form onFinish={handleSubmit(onSubmit)}>
-              <InputField
-                Controller={Controller}
+              <FormInput
+                label={t('email')}
+                name='email'
                 control={control}
                 errors={errors?.email}
-                nameField='email'
-                label={t('email')}
+                type='text'
+                t={t}
                 Icon={MailOutlined}
               />
-              <InputField
-                Controller={Controller}
+              <FormInput
+                label={t('password')}
+                name='password'
                 control={control}
                 errors={errors?.password}
-                nameField='password'
-                label={t('password')}
-                isHide={true}
+                type='password'
+                t={t}
                 Icon={LockOutlined}
               />
               <Row>
