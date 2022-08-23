@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Row, Col, Typography, Button, Image, Form, InputNumber, List } from 'antd';
 import { EnvironmentOutlined } from '@ant-design/icons';
@@ -55,12 +55,14 @@ const ProductDetailsBuy = ({ thumbnail, listImg, price, quantity, id, name, disc
 
   const onFinish = async (values) => {
     const data = {
-      name,
-      listImg,
+      nameProducts: name,
+      img: listImg[0],
       productId: id,
       quantity: values.number,
       discount,
       price,
+      linkTo: '#',
+      isCheck: false,
     };
 
     await orderToCart(data);

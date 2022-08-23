@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage } from '../../utils';
+import { setLocalStorage, getLocalStorage, removeLocalStorage } from '../../utils';
 import { createReducer } from '../../utils/redux';
 import * as Types from './constants';
 
@@ -16,13 +16,11 @@ const getProductRequest = (state) => ({
   isLoading: true,
 });
 
-const getProductSuccess = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    product: action.payload,
-  };
-};
+const getProductSuccess = (state, action) => ({
+  ...state,
+  isLoading: false,
+  product: action.payload,
+});
 
 const getProductFail = (state, action) => ({
   ...state,
@@ -58,9 +56,19 @@ const orderCart = (state, action) => {
 
 const updateCart = (state, action) => {
   setLocalStorage('CART', JSON.stringify(action.payload));
+
   return {
     ...state,
     cart: action.payload,
+    quantity: action.payload,
+  };
+};
+
+const deleteCart = (state) => {
+  removeLocalStorage('CART');
+
+  return {
+    ...initialState,
   };
 };
 
@@ -70,4 +78,5 @@ export default createReducer(initialState, {
   [Types.GET_PRODUCT_FAIL]: getProductFail,
   [Types.ORDER_CART]: orderCart,
   [Types.UPDATE_CART]: updateCart,
+  [Types.DELETE_CART]: deleteCart,
 });

@@ -10,7 +10,7 @@ import { useProductStore } from '../../../../../hooks/useProductDetail';
 function ListProducts({ img, linkTo, nameProducts, price, productId, discount, orders, setOrders, quantity, isCheck }) {
   const { Text } = Typography;
 
-  const { updateToCart } = useProductStore();
+  const { updateToCart, deleteToCart } = useProductStore();
 
   const itemPrice = useMemo(() => {
     const total = quantity * price - quantity * price * discount;
@@ -43,6 +43,15 @@ function ListProducts({ img, linkTo, nameProducts, price, productId, discount, o
     setOrders(newOrders);
   };
 
+  const confirmDelete = (e) => {
+    const newOrders = orders.filter((product) => product.productId !== productId);
+    if (orders.length > 1) {
+      updateToCart(newOrders);
+    } else deleteToCart();
+
+    setOrders(newOrders);
+  };
+
   return (
     <Row className='list_products-content'>
       <Col md={11} sm={14} xs={24}>
@@ -63,7 +72,7 @@ function ListProducts({ img, linkTo, nameProducts, price, productId, discount, o
         {itemPrice}đ
       </Col>
       <Col md={1} sm={1} xs={8}>
-        <Popconfirm title='Do you want to delete?' okText='Yes' cancelText='No'>
+        <Popconfirm title='Do you want to delete?' okText='Yes' cancelText='No' onConfirm={confirmDelete}>
           <DeleteOutlined className='icon_delete' />
         </Popconfirm>
       </Col>

@@ -9,14 +9,14 @@ import { useProductStore } from '../../../hooks/useProductDetail';
 function CartLayout() {
   const { t } = useTranslation(['header', 'register']);
 
-  const { quantityCart } = useProductStore();
+  const { cart } = useProductStore();
 
   return (
     <Link to='/cart' className='cart'>
       <Col className='cart_items'>
         <ShoppingCartOutlined />
         <Col>
-          <Typography className='title_cart cart_quantily'>{quantityCart}</Typography>
+          <Typography className='title_cart cart_quantily'>{!!cart.length ? cart.length : 0}</Typography>
         </Col>
       </Col>
     </Link>

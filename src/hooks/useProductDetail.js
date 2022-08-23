@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useInjectReducer, useInjectSaga } from '../utils';
 import reducer from '../store/product/reducer';
 import saga from '../store/product/saga';
-import { getProductRequest, orderCart, updateCart } from '../store/product/action';
+import { getProductRequest, orderCart, updateCart, deleteCart } from '../store/product/action';
 import {
   makeSelectLoading,
   makeSelectError,
@@ -35,13 +35,28 @@ export const useProductStore = () => {
     await dispatch(getProductRequest(payload));
   };
 
-  const orderToCart = (data, isCartLocal = false) => {
-    dispatch(orderCart(data, isCartLocal));
+  const orderToCart = (data) => {
+    dispatch(orderCart(data));
   };
 
   const updateToCart = (data) => {
     dispatch(updateCart(data));
   };
 
-  return { isLoading, isActive, error, product, cart, quantityCart, getProductFunc, orderToCart, updateToCart };
+  const deleteToCart = () => {
+    dispatch(deleteCart());
+  };
+
+  return {
+    isLoading,
+    isActive,
+    error,
+    product,
+    cart,
+    quantityCart,
+    getProductFunc,
+    orderToCart,
+    updateToCart,
+    deleteToCart,
+  };
 };

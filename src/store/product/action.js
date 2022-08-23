@@ -25,3 +25,7 @@ export const updateCart = (data) => ({
   type: Types.UPDATE_CART,
   payload: data,
 });
+
+export const deleteCart = () => ({
+  type: Types.DELETE_CART,
+});
