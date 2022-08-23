@@ -27,5 +27,5 @@ const orderFail = (state, action) => ({
 export default createReducer(initialState, {
   [Types.ORDER_REQUEST]: orderRequest,
   [Types.ORDER_SUCCESS]: orderSuccess,
-  [Types.ORDER_FAIL]: orderFail,
+  [Types.ORDER_FAILURE]: orderFail,
 });
