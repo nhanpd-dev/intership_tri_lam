@@ -9,10 +9,6 @@ export const WrapperProfile = styled.div`
     font-size: ${FONTS_SIZE.size_12};
   }
 
-  @media (max-width: 576px) {
-    font-size: ${FONTS_SIZE.size_8};
-  }
-
   .avatar {
     width: 55px;
     height: 55px;

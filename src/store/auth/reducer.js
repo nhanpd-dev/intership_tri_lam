@@ -3,7 +3,11 @@ import * as Types from './constants';
 
 export const initialState = {
   authenticated: false,
-  currentUser: null,
+  currentUser: {
+    username: 'Tri',
+    gender: 1,
+    address: 'asdasdasdadasd',
+  },
   isLoading: false,
   error: null,
 };
@@ -46,23 +50,23 @@ const updatePasswordFail = (state, action) =>
   });
 
 export default createReducer(initialState, {
-  [Types.REGISTER_REQUEST]: registerRequest,
-  [Types.REGISTER_SUCCESS]: registerSuccess,
-  [Types.REGISTER_FAIL]: registerFail,
+  [Types.REGISTER_TYPE.REGISTER_REQUEST]: registerRequest,
+  [Types.REGISTER_TYPE.REGISTER_SUCCESS]: registerSuccess,
+  [Types.REGISTER_TYPE.REGISTER_FAILURE]: registerFail,
 
-  [Types.LOGIN_REQUEST]: loginRequest,
-  [Types.LOGIN_SUCCESS]: loginSuccess,
-  [Types.LOGIN_FAIL]: loginFail,
+  [Types.LOGIN_TYPE.LOGIN_REQUEST]: loginRequest,
+  [Types.LOGIN_TYPE.LOGIN_SUCCESS]: loginSuccess,
+  [Types.LOGIN_TYPE.LOGIN_FAILURE]: loginFail,
 
-  [Types.GET_CURRENT_USER_REQUEST]: getCurrentUserRequest,
-  [Types.GET_CURRENT_USER_SUCCESS]: getCurrentUserSuccess,
-  [Types.GET_CURRENT_USER_FAIL]: getCurrentUserFail,
+  [Types.GET_USER_TYPE.GET_CURRENT_USER_REQUEST]: getCurrentUserRequest,
+  [Types.GET_USER_TYPE.GET_CURRENT_USER_SUCCESS]: getCurrentUserSuccess,
+  [Types.GET_USER_TYPE.GET_CURRENT_USER_FAILURE]: getCurrentUserFail,
 
-  [Types.UPDATE_USER_REQUEST]: updateUserRequest,
-  [Types.UPDATE_USER_SUCCESS]: updateUserSuccess,
-  [Types.UPDATE_USER_FAIL]: updateUserFail,
+  [Types.UPDATE_USER_TYPE.UPDATE_USER_REQUEST]: updateUserRequest,
+  [Types.UPDATE_USER_TYPE.UPDATE_USER_SUCCESS]: updateUserSuccess,
+  [Types.UPDATE_USER_TYPE.UPDATE_USER_FAILURE]: updateUserFail,
 
-  [Types.UPDATE_PASSWORD_REQUEST]: updatePasswordRequest,
-  [Types.UPDATE_PASSWORD_SUCCESS]: updatePasswordSuccess,
-  [Types.UPDATE_PASSWORD_FAIL]: updatePasswordFail,
+  [Types.UPDATE_PASSWORD_TYPE.UPDATE_PASSWORD_REQUEST]: updatePasswordRequest,
+  [Types.UPDATE_PASSWORD_TYPE.UPDATE_PASSWORD_SUCCESS]: updatePasswordSuccess,
+  [Types.UPDATE_PASSWORD_TYPE.UPDATE_PASSWORD_FAILURE]: updatePasswordFail,
 });

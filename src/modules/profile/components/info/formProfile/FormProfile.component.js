@@ -17,7 +17,7 @@ import toastHook from '../../../../../hooks/toastHook';
 import { upload } from '../../../../../config/firebase/firebase';
 import { useAuthStore } from '../../../../../hooks/useAuth';
 import { ProfileSchema } from '../../../schema/Schema';
-import FiledInput from './fieldInput/FiledInput.component';
+import FormInput from '../../../../../components/form/input';
 import DefaultImg from '../../../../../assets/imgs/profile/defaultImg.png';
 import { WrapperForm, ValidationError } from './styled';
 
@@ -94,32 +94,33 @@ export default function FormProfile() {
               </Col>
 
               <Col xl={18} sm={24} xs={24}>
-                <FiledInput
+                <FormInput
                   label={t('common:name')}
-                  nameField='username'
-                  Controller={Controller}
+                  name='username'
+                  defaultValue={currentUser?.username}
                   control={control}
                   errors={errors.username}
+                  t={t}
                   Icon={UserOutlined}
-                  placeholder={currentUser?.username}
                 />
-                <FiledInput
+                <FormInput
                   label={t('common:email')}
-                  nameField='email'
-                  Controller={Controller}
+                  name='email'
+                  defaultValue={currentUser?.email}
                   control={control}
                   errors={errors.email}
+                  t={t}
                   Icon={MailOutlined}
-                  placeholder={currentUser?.email}
+                  disabled={true}
                 />
-                <FiledInput
+                <FormInput
                   label={t('common:phone_number')}
-                  nameField='phoneNumber'
-                  Controller={Controller}
+                  name='phoneNumber'
+                  defaultValue={currentUser?.phoneNumber}
                   control={control}
                   errors={errors.phoneNumber}
+                  t={t}
                   Icon={PhoneOutlined}
-                  placeholder={currentUser?.phoneNumber}
                 />
               </Col>
             </Row>

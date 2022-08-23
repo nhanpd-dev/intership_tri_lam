@@ -1,28 +1,32 @@
 /* eslint-disable react/prop-types */
-import { Form } from 'antd'
-import styled from 'styled-components'
+import styled from 'styled-components';
+import FONTS_SIZE from '../../../themes/fonts';
 
-export const WrapperFormItem = styled(Form.Item)`
-  height: max-content;
-  width: 100%;
-  margin-bottom: 10px;
-
-  .ant-input {
-    min-height: 38px;
-    border-radius: 4px;
+export const Wrapper = styled.div`
+  .label {
+    margin-bottom: 5px;
   }
 
-  .ant-form-item-label {
-    font-size: 14px;
-    overflow: unset;
-    white-space: unset;
-    .ant-form-item-no-colon {
-      height: 100%;
-    }
+  .icon {
+    margin-right: 3px;
   }
-`
 
-export const WrapperLabel = styled.div`
+  @media (max-width: 896px) {
+    font-size: ${FONTS_SIZE.size_14};
+  }
+
+  @media (max-width: 768px) {
+    font-size: ${FONTS_SIZE.size_12};
+  }
+
+  @media (max-width: 414px) {
+    font-size: ${FONTS_SIZE.size_11};
+  }
+`;
+
+export const WrapperError = styled.div`
+  color: red;
   width: 100%;
-  font-size: 13px;
-`
+  height: 25px;
+  margin-bottom: 5px;
+`;

@@ -1,12 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Spin } from 'antd';
 
 import { useAuthStore } from '../hooks/useAuth';
 import { getLocalStorage, STORAGE } from '../utils';
 
 function ResolveNavigator() {
-  const { getCurrentUser } = useAuthStore();
+  const { getCurrentUser, isLoading } = useAuthStore();
 
   const location = useLocation();
 
@@ -18,7 +19,7 @@ function ResolveNavigator() {
     }
   }, [location]);
 
-  return <>Loading....</>;
+  return <Spin size='large' spinning={isLoading} tip='Loading...' />;
 }
 
 export default ResolveNavigator;
