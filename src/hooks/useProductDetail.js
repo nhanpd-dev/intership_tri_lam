@@ -31,12 +31,12 @@ export const useProductStore = () => {
 
   const isActive = useSelector(makeSelectActive());
 
-  const getProductFunc = async (payload) => {
-    await dispatch(getProductRequest(payload));
+  const getProductFunc = (payload) => {
+    dispatch(getProductRequest(payload));
   };
 
-  const orderToCart = (data) => {
-    dispatch(orderCart(data));
+  const orderToCart = (data, isCartLocal) => {
+    dispatch(orderCart(data, isCartLocal));
   };
 
   const updateToCart = (data) => {

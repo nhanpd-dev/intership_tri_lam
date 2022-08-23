@@ -106,7 +106,6 @@ function HaveProducts() {
 
     setOrders([]);
   };
-
   return (
     <Wrapper>
       <Col span={22} offset={1} className='cart'>
