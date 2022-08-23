@@ -3,15 +3,8 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Col, Image, Row, Button } from 'antd';
-import {
-  CommentOutlined,
-  HomeOutlined,
-  UserOutlined,
-  SearchOutlined,
-  LoginOutlined,
-  ShoppingCartOutlined,
-} from '@ant-design/icons';
+import { Col, Image, Row } from 'antd';
+import { CommentOutlined, HomeOutlined, UserOutlined, LoginOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 
 import { useProductsListStore } from '../../../modules/products/useProductsList';
 import { Header } from './styled';
@@ -57,61 +50,47 @@ function HeaderLayout() {
   return (
     <Header>
       <Row className='header_layout'>
-        <Col span={22} offset={1}>
-          <Row className='header_layout-content'>
-            <Col md={5} sm={4} xs={6}>
-              <Row className='header_layout-img'>
-                <Link to='/'>
-                  <Image preview={false} className='layout_img-selector' src={LOGO_TIKI} alt='Tiki' />
-                </Link>
-              </Row>
-              <Link to='#'>
-                <Image preview={false} className='layout_img-selector' src={IMG_FREESHIP} alt='Tiki' />
+        <Col span={22} offset={1} className='header_layout-content'>
+          <Col md={5} sm={4} xs={6}>
+            <Col span={24}>
+              <Link to='/'>
+                <Image preview={false} className='layout_img-selector' src={LOGO_TIKI} alt='Tiki' />
               </Link>
             </Col>
+            <Link to='#'>
+              <Image preview={false} className='layout_img-selector' src={IMG_FREESHIP} alt='Tiki' />
+            </Link>
+          </Col>
 
-            <Col md={12} sm={20} xs={17}>
-              <Row className='search'>
-                <Col md={20} sm={22} xs={22}>
-                  <input
-                    className='ant-input'
-                    placeholder={t('header:title_input_search_header')}
-                    size='large'
-                    {...register('search')}
-                  />
-                </Col>
-                <Col md={2} sm={2} xs={2}>
-                  <Button
-                    icon={<SearchOutlined />}
-                    onClick={() => {
-                      fetchProductsFunc(params);
-                    }}
-                  >
-                    {t('header:search')}
-                  </Button>
-                </Col>
-                <Row className='login_signUp'>
-                  <LoginOutlined />
-                  <Link className='login_selector' to='/login'>
-                    {t('register:login_now')}
-                  </Link>
-                  <Link className='signUp_selector' to='/signUp'>
-                    {t('register:sign_up')}
-                  </Link>
-                </Row>
-              </Row>
+          <Col md={12} sm={20} xs={17}>
+            <Col md={22} sm={22} xs={22}>
+              <input
+                className='ant-input'
+                placeholder={t('header:title_input_search_header')}
+                size='large'
+                {...register('search')}
+              />
             </Col>
+            <Col className='login_signUp'>
+              <LoginOutlined />
+              <Link className='login_selector' to='/login'>
+                {t('register:login_now')}
+              </Link>
+              <Link className='signUp_selector' to='/signUp'>
+                {t('register:sign_up')}
+              </Link>
+            </Col>
+          </Col>
 
-            <Col md={7}>
-              <UserLayout />
-            </Col>
-          </Row>
+          <Col md={7}>
+            <UserLayout />
+          </Col>
         </Col>
       </Row>
 
       <Row className='header_layout-nav'>
         <Col span={22} offset={1}>
-          <Row>{renderNavItems()}</Row>
+          {renderNavItems()}
         </Col>
       </Row>
     </Header>
