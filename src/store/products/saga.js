@@ -18,6 +18,6 @@ export function* fetchProductsSaga({ payload }) {
   }
 }
 
-export default function* globalSaga() {
+export default function* productsSaga() {
   yield takeLatest(Types.FETCH_PRODUCTS_REQUEST, fetchProductsSaga);
 }

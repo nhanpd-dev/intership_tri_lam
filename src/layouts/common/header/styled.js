@@ -47,40 +47,37 @@ export const Header = styled.div`
     background-color: ${COLORS.primary};
 
     .header_layout-content {
+      display: flex;
       align-items: center;
 
-      .header_layout-img {
-        .layout_img-selector {
-          width: 70px;
-          object-fit: cover;
+      .layout_img-selector {
+        width: 70px;
+        object-fit: cover;
+      }
+
+      .login_signUp {
+        display: none;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+        color: ${COLORS.white};
+
+        .signUp_selector,
+        .login_selector {
+          color: ${COLORS.white};
+        }
+
+        .login_selector {
+          margin: 0 10px;
         }
       }
 
-      .search {
+      @media (max-width: 768px) {
+        margin-top: 25px;
+
         .login_signUp {
-          display: none;
-          justify-content: flex-end;
-          align-items: center;
-          width: 100%;
-          margin-top: 10px;
-          color: ${COLORS.white};
-
-          .signUp_selector,
-          .login_selector {
-            color: ${COLORS.white};
-          }
-
-          .login_selector {
-            margin: 0 10px;
-          }
-        }
-
-        @media (max-width: 768px) {
-          margin-top: 25px;
-
-          .login_signUp {
-            display: flex;
-          }
+          display: flex;
         }
       }
     }
