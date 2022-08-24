@@ -6,6 +6,7 @@ import { EnvironmentOutlined } from '@ant-design/icons';
 
 import { useAuthStore } from '../../../../hooks/useAuth';
 import { useProductStore } from '../../../../hooks/useProductDetail';
+import toastHook from '../../../../hooks/toastHook';
 import { ProductDetailsBuyWrap, Price, Promotion, FormBuy } from './styled';
 
 const { Title, Text, Link } = Typography;
@@ -20,7 +21,9 @@ const formItemLayout = {
 };
 
 const ProductDetailsBuy = ({ thumbnail, listImg, price, quantity, id, name, discount }) => {
-  const { t } = useTranslation(['productDetails']);
+  const { t } = useTranslation(['productDetails', 'cart']);
+
+  const { toastOn } = toastHook();
 
   const { auth } = useAuthStore();
 
@@ -53,7 +56,7 @@ const ProductDetailsBuy = ({ thumbnail, listImg, price, quantity, id, name, disc
     },
   ];
 
-  const onFinish = async (values) => {
+  const onFinish = (values) => {
     const data = {
       nameProducts: name,
       img: listImg[0],
@@ -65,7 +68,8 @@ const ProductDetailsBuy = ({ thumbnail, listImg, price, quantity, id, name, disc
       isCheck: false,
     };
 
-    await orderToCart(data);
+    orderToCart(data);
+    toastOn('success', `${t('added_to_cart')}`, '/');
   };
 
   return (

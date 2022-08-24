@@ -51,6 +51,13 @@ const Price = styled.div`
     margin-top: 10px;
   }
 
+  .price-content {
+    display: block;
+    font-size: ${FONTS_SIZE.size_20};
+    font-weight: bold;
+    color: #d0021c;
+  }
+
   .price-content-extend {
     display: flex;
     box-sizing: border-box;
