@@ -11,5 +11,6 @@
   "birth_date": "Birth Date",
   "sold": "Sold",
   "currency": "$",
-  "no_data": "No data yet"
+  "no_data": "No data yet",
+  "loading": "Loading..."
 }
