@@ -90,7 +90,7 @@ function HeaderLayout() {
 
       <Row className='header_layout-nav'>
         <Col span={22} offset={1}>
-          {renderNavItems()}
+          <Row> {renderNavItems()}</Row>
         </Col>
       </Row>
     </Header>

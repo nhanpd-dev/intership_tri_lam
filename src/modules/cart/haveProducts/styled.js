@@ -15,7 +15,10 @@ export const Wrapper = styled.div`
     text-align: center;
     border-radius: 4px;
     border: none;
-    cursor: pointer;
+
+    &:disabled {
+      background-color: #e0c5c5;
+    }
   }
 
   .cart {
@@ -51,6 +54,23 @@ export const Wrapper = styled.div`
       width: 100%;
       align-items: center;
       margin: 15px 0;
+
+      .info_product {
+        display: flex;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .img_product {
+          height: 70px;
+          width: 70px;
+          margin-right: 10px;
+        }
+
+        .name_product {
+          padding: 0 5px;
+        }
+      }
 
       .red_color {
         color: ${COLORS.red};
