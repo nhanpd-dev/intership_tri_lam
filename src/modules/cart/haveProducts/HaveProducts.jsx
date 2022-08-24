@@ -5,8 +5,8 @@ import { Button, Checkbox, Col, notification, Popconfirm, Row } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
-import Product from './component/listProducts/listProducts';
-import AddressShippingComp from './component/addressShipping/addressShipping';
+import Product from './component/listProducts/ListProducts';
+import AddressShippingComp from './component/addressShipping/AddressShipping';
 import PromotionsComp from './component/promotions/promotions';
 import ProvisionalCalculationComp from './component/provisionalCalculation/provisionalCalculation';
 import { useProductStore } from '../../../hooks/useProductDetail';

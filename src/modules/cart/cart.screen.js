@@ -3,7 +3,7 @@ import { Col, Row, Typography } from 'antd';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import HaveProducts from './haveProducts/haveProducts';
+import HaveProducts from './haveProducts/HaveProducts';
 import NoProducts from '../components/noProducts/noProducts';
 import { useProductStore } from '../../hooks/useProductDetail';
 import { Wrapper } from './styled';
