@@ -11,7 +11,7 @@ import { Wrapper } from './styled';
 function Cart() {
   const { t } = useTranslation(['cart']);
 
-  const { cart: postInCart } = useProductStore();
+  const { cart: postInCart, quantityCart } = useProductStore();
 
   const [cart, setCart] = useState(postInCart);
 
@@ -25,7 +25,7 @@ function Cart() {
         </Row>
       </Col>
 
-      {cart.length ? (
+      {quantityCart ? (
         <HaveProducts />
       ) : (
         <NoProducts titleContent={t('there_are_no_products_in_the_cart')} titleButton={t('continue_to_buy_products')} />

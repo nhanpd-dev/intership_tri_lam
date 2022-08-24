@@ -13,8 +13,6 @@ const makeSelectCart = () => createSelector(selectProductState, (state) => state
 
 const makeSelectQuantityCart = () => createSelector(selectProductState, (state) => state.quantity);
 
-const makeSelectActive = () => createSelector(selectProductState, (state) => state.active);
-
 export {
   selectProductState,
   makeSelectLoading,
@@ -22,5 +20,4 @@ export {
   makeSelectProduct,
   makeSelectCart,
   makeSelectQuantityCart,
-  makeSelectActive,
 };

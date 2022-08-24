@@ -69,7 +69,7 @@ const ProductDetailsBuy = ({ thumbnail, listImg, price, quantity, id, name, disc
     };
 
     orderToCart(data);
-    toastOn('success', `${t('added_to_cart')}`, '/');
+    toastOn('success', t('cart:added_to_cart'));
   };
 
   return (

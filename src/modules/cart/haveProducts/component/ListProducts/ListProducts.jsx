@@ -10,10 +10,11 @@ import { useProductStore } from '../../../../../hooks/useProductDetail';
 function ListProducts({ img, linkTo, nameProducts, price, productId, discount, orders, setOrders, quantity, isCheck }) {
   const { Text } = Typography;
 
-  const { updateToCart, deleteToCart } = useProductStore();
+  const { deleteToCart } = useProductStore();
 
   const itemPrice = useMemo(() => {
     const total = quantity * price - quantity * price * discount;
+
     return total;
   }, [quantity]);
 
@@ -38,18 +39,17 @@ function ListProducts({ img, linkTo, nameProducts, price, productId, discount, o
       newOrders[indexProduct].quantity = value;
     }
 
-    updateToCart(newOrders);
-
     setOrders(newOrders);
   };
 
-  const confirmDelete = (e) => {
-    const newOrders = orders.filter((product) => product.productId !== productId);
-    if (orders.length > 1) {
-      updateToCart(newOrders);
-    } else deleteToCart();
+  const confirmDelete = () => {
+    const findProductDelete = orders.find((product) => product.productId === productId);
 
-    setOrders(newOrders);
+    deleteToCart(findProductDelete);
+
+    const remainingOrder = orders.filter((product) => product.productId !== productId);
+
+    setOrders(remainingOrder);
   };
 
   return (
