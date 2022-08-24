@@ -15,5 +15,6 @@
   "promotions": "Giảm giá",
   "total_money": "Tổng tiền",
   "orders_success": "Đặt hàng thành công",
-  "orders_fail": "Đặt hàng không thành công"
+  "orders_fail": "Đặt hàng không thành công",
+  "added_to_cart": "Đã thêm vào giỏ hàng"
 }

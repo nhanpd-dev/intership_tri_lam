@@ -5,8 +5,12 @@ import { Checkbox, Col, Image, InputNumber, Popconfirm, Row, Typography } from '
 import { DeleteOutlined } from '@ant-design/icons';
 import { useMemo } from 'react';
 
+import { useProductStore } from '../../../../../hooks/useProductDetail';
+
 function ListProducts({ img, linkTo, nameProducts, price, productId, discount, orders, setOrders, quantity, isCheck }) {
   const { Text } = Typography;
+
+  const { updateToCart, deleteToCart } = useProductStore();
 
   const itemPrice = useMemo(() => {
     const total = quantity * price - quantity * price * discount;
@@ -34,6 +38,17 @@ function ListProducts({ img, linkTo, nameProducts, price, productId, discount, o
       newOrders[indexProduct].quantity = value;
     }
 
+    updateToCart(newOrders);
+
+    setOrders(newOrders);
+  };
+
+  const confirmDelete = (e) => {
+    const newOrders = orders.filter((product) => product.productId !== productId);
+    if (orders.length > 1) {
+      updateToCart(newOrders);
+    } else deleteToCart();
+
     setOrders(newOrders);
   };
 
@@ -57,7 +72,7 @@ function ListProducts({ img, linkTo, nameProducts, price, productId, discount, o
         {itemPrice}đ
       </Col>
       <Col md={1} sm={1} xs={8}>
-        <Popconfirm title='Do you want to delete?' okText='Yes' cancelText='No'>
+        <Popconfirm title='Do you want to delete?' okText='Yes' cancelText='No' onConfirm={confirmDelete}>
           <DeleteOutlined className='icon_delete' />
         </Popconfirm>
       </Col>

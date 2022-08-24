@@ -5,12 +5,15 @@ import { useTranslation } from 'react-i18next';
 
 import HaveProducts from './haveProducts/haveProducts';
 import NoProducts from '../components/noProducts/noProducts';
+import { useProductStore } from '../../hooks/useProductDetail';
 import { Wrapper } from './styled';
 
 function Cart() {
   const { t } = useTranslation(['cart']);
 
-  const [cart, setCart] = useState(false);
+  const { cart: postInCart } = useProductStore();
+
+  const [cart, setCart] = useState(postInCart);
 
   const { Title } = Typography;
 
@@ -22,7 +25,7 @@ function Cart() {
         </Row>
       </Col>
 
-      {cart ? (
+      {cart.length ? (
         <HaveProducts />
       ) : (
         <NoProducts titleContent={t('there_are_no_products_in_the_cart')} titleButton={t('continue_to_buy_products')} />

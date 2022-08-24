@@ -15,5 +15,6 @@
   "promotions": "Promotions",
   "total_money": "Total money",
   "orders_success": "Orders Success",
-  "orders_fail": "Orders Success"
+  "orders_fail": "Orders Success",
+  "added_to_cart": "Added to cart"
 }

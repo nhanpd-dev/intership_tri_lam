@@ -5,42 +5,24 @@ import { Button, Checkbox, Col, notification, Popconfirm, Row } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
-import { useOrderStore } from '../../../hooks/useOrder';
-import { Wrapper, Payment } from './styled';
 import Product from './component/listProducts/listProducts';
 import AddressShippingComp from './component/addressShipping/addressShipping';
 import PromotionsComp from './component/promotions/promotions';
 import ProvisionalCalculationComp from './component/provisionalCalculation/provisionalCalculation';
+import { useProductStore } from '../../../hooks/useProductDetail';
+import { useOrderStore } from '../../../hooks/useOrder';
+import { Wrapper, Payment } from './styled';
 
 function HaveProducts() {
   const { t } = useTranslation(['cart']);
 
   const { orderPost } = useOrderStore();
 
+  const { cart, deleteToCart } = useProductStore();
+
   const [check, setCheck] = useState(false);
 
-  const [orders, setOrders] = useState([
-    {
-      productId: '62f6127b01901acef6c257f1',
-      discount: 0.3,
-      img: 'https://salt.tikicdn.com/cache/100x100/ts/product/19/8a/e1/d937df8639ad937d4d01d46760d46072.png.webp',
-      linkTo: '#',
-      nameProducts: t('Combo 2 Thùng Bia Hà Nội'),
-      price: 275000,
-      quantity: 1,
-      isCheck: check,
-    },
-    {
-      productId: '62f613f101901acef6c25806',
-      discount: 0.1,
-      img: 'https://salt.tikicdn.com/cache/100x100/ts/product/eb/1e/9b/fa34fb7e0ae4da3e1ec9c3d4c4add39b.jpg.webp',
-      linkTo: '#',
-      nameProducts: t('Điện thoại Samsung Galaxy A13 (4GB/128GB)'),
-      price: 5990000,
-      quantity: 1,
-      isCheck: check,
-    },
-  ]);
+  const [orders, setOrders] = useState(cart);
 
   const listOrdersCheckTrue = orders.filter((item) => item.isCheck === true);
 
@@ -119,6 +101,11 @@ function HaveProducts() {
     orderPost({ data: { orders: listOrdersPost }, postOrderSuccess: postOrderSuccess, postOrderFail: postOrderFail });
   };
 
+  const confirmDelete = (e) => {
+    deleteToCart();
+
+    setOrders([]);
+  };
   return (
     <Wrapper>
       <Col span={22} offset={1} className='cart'>
@@ -133,7 +120,7 @@ function HaveProducts() {
               <Col md={4}>{t('quantity')}</Col>
               <Col md={4}>{t('into_money')}</Col>
               <Col md={1}>
-                <Popconfirm title='Do you want to delete all?' okText='Yes' cancelText='No'>
+                <Popconfirm title='Do you want to delete all?' okText='Yes' cancelText='No' onConfirm={confirmDelete}>
                   <DeleteOutlined className='icon_delete' />
                 </Popconfirm>
               </Col>
