@@ -18,13 +18,9 @@ function HaveProducts() {
 
   const { orderPost } = useOrderStore();
 
-  const { cart, deleteToCart } = useProductStore();
+  const { cart, deleteToCart, updateToCart } = useProductStore();
 
-  const [check, setCheck] = useState(false);
-
-  const [orders, setOrders] = useState(cart);
-
-  const listOrdersCheckTrue = orders.filter((item) => item.isCheck === true);
+  const listOrdersCheckTrue = cart.filter((item) => item.isCheck === true);
 
   const listOrdersPost = listOrdersCheckTrue.map((item) => {
     return {
@@ -36,7 +32,7 @@ function HaveProducts() {
   });
 
   const total = useMemo(() => {
-    const cloneOrders = orders?.filter((i) => i.isCheck);
+    const cloneOrders = cart?.filter((i) => i.isCheck);
 
     if (cloneOrders.length) {
       return cloneOrders.reduce((acumulator, item) => {
@@ -47,10 +43,10 @@ function HaveProducts() {
     }
 
     return 0;
-  }, [orders]);
+  }, [cart]);
 
   const provisional = useMemo(() => {
-    const cloneOrders = orders?.filter((i) => i.isCheck);
+    const cloneOrders = cart?.filter((i) => i.isCheck);
 
     if (cloneOrders.length) {
       const totalOrdersPrice = cloneOrders.reduce((acumulator, item) => {
@@ -63,10 +59,10 @@ function HaveProducts() {
     }
 
     return 0;
-  }, [orders]);
+  }, [cart]);
 
   const renderListOrders = () =>
-    orders.map((item, index) => {
+    cart.map((item, index) => {
       return (
         <Row key={index} className='name_field'>
           <Product
@@ -76,8 +72,7 @@ function HaveProducts() {
             linkTo={item.linkTo}
             nameProducts={item.nameProducts}
             price={item.price}
-            setOrders={setOrders}
-            orders={orders}
+            orders={cart}
             isCheck={item.isCheck}
             quantity={item.quantity}
           />
@@ -104,8 +99,24 @@ function HaveProducts() {
   const confirmDelete = (e) => {
     deleteToCart();
 
-    setOrders([]);
+    updateToCart([]);
   };
+
+  const disabled = useMemo(() => {
+    const findChecked = cart.filter((item) => item.isCheck === true);
+
+    if (findChecked.length > 0) {
+      const findQuantityEmpty = findChecked.filter((item) => item.quantity === 0);
+
+      if (findQuantityEmpty.length > 0) {
+        return true;
+      }
+
+      return false;
+    }
+    return true;
+  });
+
   return (
     <Wrapper>
       <Col span={22} offset={1} className='cart'>
@@ -135,7 +146,7 @@ function HaveProducts() {
               <ProvisionalCalculationComp price={total} provisional={provisional} />
               <Row className='btn_buy'>
                 <Col lg={24}>
-                  <Button type='primary' onClick={buyProducts}>
+                  <Button type='primary' onClick={buyProducts} disabled={disabled}>
                     {t('buy_products')}
                   </Button>
                 </Col>
