@@ -74,13 +74,30 @@ export const FormLogin = styled.div`
   width: 80%;
 
   .form__header {
-    color: ${COLORS.primary};
     font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 20px;
     border-bottom: 4px solid ${COLORS.primary};
     display: inline-block;
     letter-spacing: 1px;
+    font-size: 24px;
+    margin-left: 20px;
+    text-align: center;
+    color: #607d8b;
+  }
+
+  .form__logo {
+    width: 63px;
+    height: 43px;
+    background-color: ${COLORS.primary};
+    object-fit: contain;
+    padding: 3px 0;
+    border-radius: 5px;
+    margin-right: 15px;
+
+    &:hover {
+      background-color: ${COLORS.secondary};
+    }
   }
 
   .form__link,

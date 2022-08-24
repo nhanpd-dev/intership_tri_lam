@@ -5,26 +5,39 @@ import { Controller } from 'react-hook-form';
 
 import { Wrapper, WrapperError } from './styled';
 
-const FormInput = ({ label, name, defaultValue = '', disabled = false, control, errors, type, t, Icon }) => {
+const FormInput = ({
+  label,
+  name,
+  defaultValue = '',
+  disabled = false,
+  control,
+  errors,
+  type = 'text',
+  t,
+  Icon,
+  span = 18,
+}) => {
   const { Text } = Typography;
 
   return (
     <Wrapper>
       <Row justify='center' align='middle'>
-        <Col xl={7} sm={24} xs={24} className='label'>
+        <Col xl={24 - span} sm={24} xs={24} className='label'>
           {Icon && <Icon className='icon' />}
           <Text>{label}:</Text>
         </Col>
-        <Col xl={17} sm={24} xs={24}>
+        <Col xl={span} sm={24} xs={24}>
           <Controller
             name={name}
             defaultValue={defaultValue}
             control={control}
-            render={({ field }) => <Input size='large' disabled={disabled} type={type} {...field} />}
+            render={({ field }) => (
+              <Input size='large' disabled={disabled} type={type} placeholder={label} {...field} />
+            )}
           />
         </Col>
 
-        <Col xl={{ span: 17, offset: 7 }} sm={24} xs={24}>
+        <Col xl={{ span: span, offset: 24 - span }} sm={24} xs={24}>
           <WrapperError>{errors && t(errors.message)}</WrapperError>
         </Col>
       </Row>

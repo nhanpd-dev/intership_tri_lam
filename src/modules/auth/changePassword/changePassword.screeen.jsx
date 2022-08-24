@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Row, Col, Typography, Form, Button, Checkbox, Space, Spin } from 'antd';
+import { Row, Col, Typography, Form, Checkbox, Space, Spin } from 'antd';
 
+import { PrimaryButton } from '../../../components/button';
 import toastHook from '../../../hooks/toastHook';
 import { ChangePasswordSchema } from './schema';
 import { useAuthStore } from '../../../hooks/useAuth';
@@ -54,7 +55,7 @@ export default function ChangePassword() {
               <Title level={5}>{t('change_password')}</Title>
             </Col>
 
-            <Col span={12} offset={6}>
+            <Col span={16} offset={4}>
               <FormInput
                 label={t('new_pass')}
                 name='password'
@@ -75,22 +76,16 @@ export default function ChangePassword() {
 
               <Space direction='vertical' size='middle' className='form__space'>
                 <Row>
-                  <Col xl={{ span: 16, offset: 8 }} sm={24} xs={24} className='form__checkbox'>
-                    <Checkbox
-                      onChange={(e) => {
-                        setIsHide(Boolean(!e.target.checked));
-                      }}
-                    >
+                  <Col xl={{ span: 18, offset: 6 }} sm={24} xs={24}>
+                    <Checkbox onChange={(e) => setIsHide(Boolean(!e.target.checked))} className='form__checkbox '>
                       {t('show_password')}
                     </Checkbox>
                   </Col>
                 </Row>
 
                 <Row>
-                  <Col xl={{ span: 16, offset: 8 }} sm={24} xs={24} className='form__button'>
-                    <Button type='primary' htmlType='submit'>
-                      {t('save_change')}
-                    </Button>
+                  <Col xl={{ span: 18, offset: 6 }} sm={24} xs={24} className='form__button'>
+                    <PrimaryButton title={t('save_change')} type='primary' htmlType='submit' />
                   </Col>
                 </Row>
               </Space>

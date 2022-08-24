@@ -8,17 +8,35 @@ import { Text } from '../text';
 const Wrapper = styled(Button)`
   background-color: ${({ backgroundcolor, theme, disabled }) =>
     disabled ? theme.grey : theme.COLORS[backgroundcolor]} !important;
-  padding: 8px;
-  width: ${({ width }) => `${width}px` || 'max-content'};
-  border-radius: 4px;
+
   border: ${({ theme, border }) => (border ? `1px solid ${theme[border]}` : 'none')};
   cursor: pointer;
-  transition: opacity 0.2s;
-  margin: 0;
+  margin-bottom: 10px;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   outline: none;
+  height: 40px;
+  border-radius: 1rem !important;
+
+  .gVSCoE {
+    @media (max-width: 896px) {
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+
+    @media (max-width: 414px) {
+      font-size: 11px;
+    }
+  }
+
+  &:hover {
+    background: ${({ theme }) => theme.COLORS.secondary} !important;
+  }
 
   &:active {
     opacity: 0.7;
@@ -46,14 +64,7 @@ const PrimaryButton = ({
   color = 'white',
   ...rest
 }) => (
-  <Wrapper
-    width={320}
-    border={border}
-    backgroundcolor={backgroundcolor}
-    disabled={disabled}
-    onClick={onClick}
-    {...rest}
-  >
+  <Wrapper border={border} backgroundcolor={backgroundcolor} disabled={disabled} onClick={onClick} {...rest}>
     {title ? (
       <Text fontSize={fontSize} fontWeight={fontWeight} color={color}>
         {title}

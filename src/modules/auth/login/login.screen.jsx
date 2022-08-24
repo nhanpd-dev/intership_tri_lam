@@ -4,13 +4,15 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
-import { Col, Row, Spin, Form, Button, Image, Typography } from 'antd';
+import { Col, Row, Spin, Form, Image, Typography } from 'antd';
 
+import { PrimaryButton } from '../../../components/button';
 import toastHook from '../../../hooks/toastHook';
 import { SigninSchema } from './schema';
 import { useAuthStore } from '../../../hooks/useAuth';
 import FormInput from '../../../components/form/input';
 import Banner from '../../../assets/imgs/login/shoppingcart.png';
+import { LOGO_TIKI } from '../../../assets/imgs/layout';
 import { Container, WrapperImg, WrapperForm, FormLogin } from './styled';
 
 export default function LoginScreen() {
@@ -50,12 +52,15 @@ export default function LoginScreen() {
     <Spin spinning={isLoading}>
       <Container>
         <WrapperImg>
-          <Image preview={false} src={Banner} alt='banner' className='banner' />
+          <Image preview={false} src={Banner} alt='Banner' className='banner' />
         </WrapperImg>
         <WrapperForm>
           <FormLogin>
             <Row>
               <Col span={24}>
+                <Link to='/'>
+                  <Image className='form__logo' src={LOGO_TIKI} alt='Tiki' preview={false} />
+                </Link>
                 <Title level={3} className='form__header'>
                   {t('sign_in')}
                 </Title>
@@ -81,14 +86,12 @@ export default function LoginScreen() {
                 Icon={LockOutlined}
               />
               <Row>
-                <Col xl={{ span: 17, offset: 7 }} sm={24} xs={24}>
-                  <Button htmlType='submit' type='primary' className='form__button'>
-                    {t('sign_in')}
-                  </Button>
+                <Col xl={{ span: 18, offset: 6 }} sm={24} xs={24}>
+                  <PrimaryButton title={t('sign_in')} htmlType='submit' type='primary' />
                 </Col>
               </Row>
               <Row>
-                <Col xl={{ span: 17, offset: 7 }} sm={24} xs={24}>
+                <Col xl={{ span: 18, offset: 6 }} sm={24} xs={24}>
                   <Text className='form__link'>
                     {t('dont_have_account')}?{' '}
                     <Link to='/register' className='form__link'>

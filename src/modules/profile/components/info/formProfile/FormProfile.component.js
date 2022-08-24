@@ -11,8 +11,9 @@ import {
   AuditOutlined,
   EditOutlined,
 } from '@ant-design/icons';
-import { Row, Col, Radio, Form, Button, Image, Input, Typography, Spin } from 'antd';
+import { Row, Col, Radio, Form, Image, Typography, Spin } from 'antd';
 
+import { PrimaryButton } from '../../../../../components/button';
 import toastHook from '../../../../../hooks/toastHook';
 import { upload } from '../../../../../config/firebase/firebase';
 import { useAuthStore } from '../../../../../hooks/useAuth';
@@ -125,38 +126,26 @@ export default function FormProfile() {
               </Col>
             </Row>
 
+            <FormInput
+              label={t('common:birth_date')}
+              name='birthdate'
+              defaultValue={currentUser?.birthdate?.split('T')[0]}
+              control={control}
+              errors={errors?.birthdate}
+              t={t}
+              Icon={CalendarOutlined}
+              span={20}
+              type='date'
+            />
+
             <Row justify='center' align='middle'>
-              <Col xl={3} sm={24} xs={24}>
-                <Text>
-                  <CalendarOutlined className='icon' />
-                  {t('common:birth_date')}
+              <Col xl={4} sm={24} xs={24}>
+                <Text className='form__label'>
+                  <HeartOutlined className='icon' /> {t('common:gender')}:
                 </Text>
               </Col>
 
-              <Col xl={21} sm={24} xs={24}>
-                <Controller
-                  name='birthdate'
-                  defaultValue={currentUser?.birthdate?.split('T')[0]}
-                  control={control}
-                  render={({ field }) => <Input size='large' type='date' value='2022-08-30T00:00:00.000Z' {...field} />}
-                />
-              </Col>
-            </Row>
-
-            <Row>
-              <Col xl={{ span: 21, offset: 3 }} sm={24} xs={24}>
-                <ValidationError>{errors.birthdate && t(errors.birthdate?.message)}</ValidationError>
-              </Col>
-            </Row>
-
-            <Row justify='center' align='middle'>
-              <Col xl={3} sm={24} xs={24}>
-                <Text>
-                  <HeartOutlined className='icon' /> {t('common:gender')}
-                </Text>
-              </Col>
-
-              <Col xl={21} sm={24} xs={24}>
+              <Col xl={20} sm={24} xs={24}>
                 <Controller
                   name='gender'
                   defaultValue={currentUser?.gender === 1 ? '1' : '0'}
@@ -172,42 +161,25 @@ export default function FormProfile() {
             </Row>
 
             <Row>
-              <Col xl={{ span: 21, offset: 3 }} sm={24} xs={24}>
+              <Col xl={{ span: 20, offset: 4 }} sm={24} xs={24}>
                 <ValidationError>{errors.gender && t(errors.gender?.message)}</ValidationError>
               </Col>
             </Row>
 
-            <Row justify='center' align='middle'>
-              <Col xl={3} sm={24} xs={24}>
-                <Text>
-                  <AuditOutlined className='icon' />
-                  {t('address')}
-                </Text>
-              </Col>
-
-              <Col xl={21} sm={24} xs={24}>
-                <Controller
-                  name='address'
-                  defaultValue={currentUser?.address}
-                  control={control}
-                  render={({ field }) => (
-                    <Input size='large' type='text' placeholder={currentUser?.address} {...field} />
-                  )}
-                />
-              </Col>
-            </Row>
-
-            <Row>
-              <Col xl={{ span: 21, offset: 3 }} sm={24} xs={24}>
-                <ValidationError>{errors.address && t(errors.address?.message)}</ValidationError>
-              </Col>
-            </Row>
+            <FormInput
+              label={t('address')}
+              name='address'
+              defaultValue={currentUser?.address}
+              control={control}
+              errors={errors?.address}
+              t={t}
+              Icon={AuditOutlined}
+              span={20}
+            />
 
             <Row>
               <Col span={24} className='button-save'>
-                <Button type='primary' htmlType='submit'>
-                  {t('save_change')}
-                </Button>
+                <PrimaryButton title={t('save_change')} type='primary' htmlType='submit' />
               </Col>
             </Row>
           </Form>

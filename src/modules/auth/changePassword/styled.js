@@ -16,15 +16,19 @@ export const Wrapper = styled.div`
       .form__button {
         display: flex;
         justify-content: center;
+
+        @media (max-width: 896px) {
+          font-size: ${FONTS_SIZE.size_14};
+        }
+
+        @media (max-width: 768px) {
+          font-size: ${FONTS_SIZE.size_12};
+        }
+
+        @media (max-width: 414px) {
+          font-size: ${FONTS_SIZE.size_11};
+        }
       }
-    }
-
-    @media (max-width: 1200px) {
-      font-size: ${FONTS_SIZE.size_12};
-    }
-
-    @media (max-width: 610px) {
-      font-size: ${FONTS_SIZE.size_11};
     }
   }
 `;
