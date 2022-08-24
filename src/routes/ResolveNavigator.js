@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Spin } from 'antd';
 
+import { LoadingScreen } from '../layouts/common/loading/loading';
 import { useAuthStore } from '../hooks/useAuth';
 import { getLocalStorage, STORAGE } from '../utils';
 
@@ -19,7 +19,9 @@ function ResolveNavigator() {
     }
   }, [location]);
 
-  return <Spin size='large' spinning={isLoading} tip='Loading...' />;
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 }
 
 export default ResolveNavigator;

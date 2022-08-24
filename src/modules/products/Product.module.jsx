@@ -1,8 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Image, Pagination, Rate, Spin } from 'antd';
+import { Image, Pagination, Rate, Spin, Empty } from 'antd';
 
+import { loadingIcon } from '../../components/loadingIcon/index';
 import { useProductsListStore } from './useProductsList';
 import { Container, ProductItem, Products } from './styled';
 
@@ -26,9 +27,9 @@ const ProductsModule = () => {
   return (
     <Container>
       {!products.items?.length ? (
-        <div>{t('no_data')}</div>
+        <Empty description={t('no_data')} />
       ) : (
-        <Spin spinning={isLoading} size='large'>
+        <Spin spinning={isLoading} size='large' indicator={loadingIcon}>
           <Products>
             {products.items.map((product) => (
               <ProductItem key={product._id} onClick={() => handleProductClick(product._id)}>

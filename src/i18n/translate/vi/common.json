@@ -10,5 +10,6 @@
   "birth_date": "Ngày sinh",
   "sold": "Đã bán",
   "currency": "đồng",
-  "no_data": "Chưa có dữ liệu"
+  "no_data": "Chưa có dữ liệu",
+  "loading": "Đang tải..."
 }
