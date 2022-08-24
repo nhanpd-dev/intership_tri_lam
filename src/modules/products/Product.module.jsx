@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Image, Pagination, Rate, Spin, Empty } from 'antd';
+import { Image, Pagination, Rate, Spin } from 'antd';
 
 import { useProductsListStore } from './useProductsList';
 import { Container, ProductItem, Products } from './styled';
@@ -25,8 +25,8 @@ const ProductsModule = () => {
 
   return (
     <Container>
-      {!products.items.length ? (
-        <Empty description={t('no_data')} />
+      {!products.items?.length ? (
+        <div>{t('no_data')}</div>
       ) : (
         <Spin spinning={isLoading} size='large'>
           <Products>

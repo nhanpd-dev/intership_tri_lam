@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Col, Row } from 'antd';
 import {
@@ -17,11 +17,18 @@ import RowContent from '../../../components/rowContent';
 import { AuthAndCart } from './styled';
 import CartLayout from '../cart/Cart';
 import { useAuthStore } from '../../../hooks/useAuth';
+import toastHook from '../../../hooks/toastHook';
 
 function UserItem() {
   const { t } = useTranslation(['header', 'register']);
 
-  const { auth, currentUser } = useAuthStore();
+  const { auth, currentUser, logOutUser } = useAuthStore();
+
+  const { toastOn } = toastHook();
+
+  const clickLogout = () => {
+    logOutUser();
+  };
 
   return (
     <AuthAndCart className='auth_cart'>
@@ -54,7 +61,7 @@ function UserItem() {
               </Row>
               <Row className='text_user-infor'>
                 <LogoutOutlined className='icon_user-infor' />
-                <RowContent nameRow={t('sign_out')} linkTo='/login' />
+                <RowContent nameRow={t('sign_out')} linkTo='/login' redirectFunction={clickLogout} />
               </Row>
 
               <CaretUpOutlined className='icon_user-up' />

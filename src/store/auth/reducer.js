@@ -14,7 +14,7 @@ export const initialState = {
 
 const registerRequest = (state) => updateObject(state, { isLoading: true });
 
-const registerSuccess = (state) => updateObject(state, { isLoading: false });
+const registerSuccess = (state, action) => updateObject(state, { isLoading: false, currentUser: action.user });
 
 const registerFail = (state, action) => updateObject(state, { isLoading: false, error: action.error });
 
@@ -49,6 +49,12 @@ const updatePasswordFail = (state, action) =>
     error: action.error,
   });
 
+const logOutRequest = (state) => updateObject(state, { isLoading: true });
+
+const logOutSuccess = (state) => updateObject(state, { isLoading: false, authenticated: false });
+
+const logOutFailure = (state, action) => updateObject(state, { isLoading: false, error: action.error });
+
 export default createReducer(initialState, {
   [Types.REGISTER_TYPE.REGISTER_REQUEST]: registerRequest,
   [Types.REGISTER_TYPE.REGISTER_SUCCESS]: registerSuccess,
@@ -69,4 +75,8 @@ export default createReducer(initialState, {
   [Types.UPDATE_PASSWORD_TYPE.UPDATE_PASSWORD_REQUEST]: updatePasswordRequest,
   [Types.UPDATE_PASSWORD_TYPE.UPDATE_PASSWORD_SUCCESS]: updatePasswordSuccess,
   [Types.UPDATE_PASSWORD_TYPE.UPDATE_PASSWORD_FAILURE]: updatePasswordFail,
+
+  [Types.LOGOUT_TYPES.LOGOUT_USER_REQUEST]: logOutRequest,
+  [Types.LOGOUT_TYPES.LOGOUT_USER_SUCCESS]: logOutSuccess,
+  [Types.LOGOUT_TYPES.LOGOUT_USER_FAILURE]: logOutFailure,
 });

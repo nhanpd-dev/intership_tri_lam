@@ -14,18 +14,27 @@ import {
   updateUserFail,
   updatePasswordSuccess,
   updatePasswordFail,
+  logOutSuccess,
+  logOutFailure,
 } from './action';
 import { setLocalStorage, STORAGE } from '../../utils';
 
-export function* registerSaga({ payload, callback }) {
+export function* registerSaga({ payload }) {
+  const { data, callbackSuccess, callbackFail } = payload;
+
   try {
-    const response = yield call(registerUser, payload);
-    if (response) {
+    const response = yield call(registerUser, data);
+
+    if (response.data.code === 200) {
       yield put(registerSuccess());
-      callback();
+      callbackSuccess();
+    } else {
+      yield put(registerFail());
+      callbackFail(response.data.data.key);
     }
   } catch (error) {
     yield put(registerFail(error.message));
+    callbackFail(error.key);
   }
 }
 
@@ -84,10 +93,21 @@ export function* updatePasswordSaga({ payload }) {
   }
 }
 
+export function* logoutSaga() {
+  try {
+    yield put(logOutSuccess());
+    localStorage.removeItem('USER_TOKEN');
+  } catch (error) {
+    console.log(error);
+    yield put(logOutFailure(error));
+  }
+}
+
 export default function* authSaga() {
   yield takeEvery(Types.REGISTER_TYPE.REGISTER_REQUEST, registerSaga);
   yield takeEvery(Types.LOGIN_TYPE.LOGIN_REQUEST, loginSaga);
   yield takeEvery(Types.GET_USER_TYPE.GET_CURRENT_USER_REQUEST, getCurrentUserSaga);
   yield takeEvery(Types.UPDATE_USER_TYPE.UPDATE_USER_REQUEST, updateUserSaga);
   yield takeEvery(Types.UPDATE_PASSWORD_TYPE.UPDATE_PASSWORD_REQUEST, updatePasswordSaga);
+  yield takeEvery(Types.LOGOUT_TYPES.LOGOUT_USER_REQUEST, logoutSaga);
 }

@@ -18,5 +18,7 @@
   "password_max_length": "Password no more than 16 characters",
   "full_name_min_length": "Full name must be at least 6 characters",
   "full_name_max_length": "Full name no more than 30 characters",
-  "phone_number_required": "Phone number must be 11 digits"
+  "phone_number_required": "Phone number must be 11 digits",
+  "C400_2": "Email is already taken",
+  "register_success": "Register success"
 }

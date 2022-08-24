@@ -83,6 +83,52 @@ export const FormRegister = styled.div`
     z-index: 1;
   }
 `;
+export const WrapperImg = styled.div`
+  position: relative;
+  width: 50%;
+  height: 100%;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: ${COLORS.background_seconary};
+    z-index: 1;
+    mix-blend-mode: screen;
+  }
+
+  .ant-image {
+    position: initial;
+    height: 100%;
+  }
+
+  .ant-image-img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    object-fit: cover;
+}
+
+  .banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {s
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+`;
 
 export const ContentRegister = styled.div`
   width: 80%;
