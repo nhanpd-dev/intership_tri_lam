@@ -1,17 +1,8 @@
 import styled from 'styled-components';
 import { FONTS_SIZE } from '../../../../../themes/fonts';
-import COLORS from '../../../../../themes/colors';
 
 export const WrapperForm = styled.div`
   .form {
-    @media (max-width: 1200px) {
-      font-size: ${FONTS_SIZE.size_12};
-    }
-
-    @media (max-width: 610px) {
-      font-size: ${FONTS_SIZE.size_11};
-    }
-
     .flex-avatar {
       display: flex;
       justify-content: center;
@@ -28,9 +19,34 @@ export const WrapperForm = styled.div`
       }
     }
 
-    .icon {
-      margin-right: 2px;
-      color: ${COLORS.primary};
+    .ant-btn {
+      border-radius: 16px;
+    }
+
+    .form__label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #607d8b;
+
+      .icon {
+        margin-right: 10px;
+      }
+
+      .ant-typography {
+        color: #607d8b;
+      }
+
+      @media (max-width: 896px) {
+        font-size: ${FONTS_SIZE.size_14};
+      }
+
+      @media (max-width: 768px) {
+        font-size: ${FONTS_SIZE.size_12};
+      }
+
+      @media (max-width: 414px) {
+        font-size: ${FONTS_SIZE.size_11};
+      }
     }
 
     .button-save {

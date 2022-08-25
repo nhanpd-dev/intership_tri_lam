@@ -7,18 +7,24 @@ import { Text } from '../text';
 
 const Wrapper = styled(Button)`
   background-color: ${({ backgroundcolor, theme, disabled }) =>
-    disabled ? theme.grey : theme.COLORS[backgroundcolor]} !important;
-  padding: 8px;
-  width: ${({ width }) => `${width}px` || 'max-content'};
-  border-radius: 4px;
+    disabled ? theme.grey : theme.COLORS[backgroundcolor]};
   border: ${({ theme, border }) => (border ? `1px solid ${theme[border]}` : 'none')};
   cursor: pointer;
-  transition: opacity 0.2s;
-  margin: 0;
+  margin-bottom: 10px;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   outline: none;
+  height: 40px;
+
+  .ant-btn {
+    border-radius: 16px;
+  }
+
+  &:hover {
+    background: ${({ theme }) => theme.COLORS.secondary};
+  }
 
   &:active {
     opacity: 0.7;
@@ -35,6 +41,7 @@ const Wrapper = styled(Button)`
     opacity: 0.5;
   }
 `;
+
 const PrimaryButton = ({
   title,
   onClick,
@@ -46,14 +53,7 @@ const PrimaryButton = ({
   color = 'white',
   ...rest
 }) => (
-  <Wrapper
-    width={320}
-    border={border}
-    backgroundcolor={backgroundcolor}
-    disabled={disabled}
-    onClick={onClick}
-    {...rest}
-  >
+  <Wrapper border={border} backgroundcolor={backgroundcolor} disabled={disabled} onClick={onClick} {...rest}>
     {title ? (
       <Text fontSize={fontSize} fontWeight={fontWeight} color={color}>
         {title}
