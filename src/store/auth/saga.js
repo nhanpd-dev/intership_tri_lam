@@ -98,7 +98,6 @@ export function* logoutSaga() {
     yield put(logOutSuccess());
     localStorage.removeItem('USER_TOKEN');
   } catch (error) {
-    console.log(error);
     yield put(logOutFailure(error));
   }
 }

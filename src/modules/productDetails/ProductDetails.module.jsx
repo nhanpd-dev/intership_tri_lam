@@ -4,7 +4,6 @@ import ProductDetailsTitle from './component/productDetailsTitle/ProductDetailsT
 import ProductDetailsBuy from './component/productDetailsBuy/ProductDetailsBuy';
 import ProductDetailsDescription from './component/productDetailsDescription/ProductDetailsDescription';
 import { useProductStore } from '../../hooks/useProductDetail';
-import { useGetLocalCart } from './hooks/useGetLocalCart';
 import { useGetProduct } from './hooks/useGetProduct';
 import { ProductDetailsWrapper } from './styled';
 
@@ -12,8 +11,6 @@ const ProductDetailsModule = () => {
   const { isLoading } = useProductStore();
 
   const dataProduct = useGetProduct();
-
-  useGetLocalCart();
 
   return (
     <Spin spinning={isLoading} size='large'>

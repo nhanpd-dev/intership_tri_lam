@@ -8,9 +8,7 @@ export const initialState = {
   product: {},
   cart: !!getLocalStorage('CART') ? JSON.parse(getLocalStorage('CART')) : [],
   quantity: !!getLocalStorage('CART') ? JSON.parse(getLocalStorage('CART')).length : 0,
-  active: false,
 };
-
 const getProductRequest = (state) => ({
   ...state,
   isLoading: true,
@@ -32,12 +30,6 @@ const orderCart = (state, action) => {
 
   const cloneCart = [...state.cart];
 
-  if (action.isCartLocal) {
-    return {
-      ...state,
-      active: true,
-    };
-  }
   if (indexExist !== -1) {
     cloneCart[indexExist].quantity += action.payload.quantity;
   } else {
@@ -49,27 +41,29 @@ const orderCart = (state, action) => {
   return {
     ...state,
     active: true,
-    quantity: state.quantity + 1,
+    quantity: indexExist !== -1 ? state.quantity : state.quantity + 1,
     cart: cloneCart,
   };
 };
 
-const updateCart = (state, action) => {
-  setLocalStorage('CART', JSON.stringify(action.payload));
+const deleteCart = (state, action) => {
+  if (action.payload) {
+    const newCart = state.cart.filter((item) => item.productId !== action.payload.productId);
 
-  return {
-    ...state,
-    cart: action.payload,
-    quantity: action.payload,
-  };
-};
+    setLocalStorage('CART', JSON.stringify(newCart));
+    return {
+      ...state,
+      cart: newCart,
+      quantity: newCart.length,
+    };
+  } else {
+    removeLocalStorage('CART');
 
-const deleteCart = (state) => {
-  removeLocalStorage('CART');
-
-  return {
-    ...initialState,
-  };
+    return {
+      ...initialState,
+      quantity: 0,
+    };
+  }
 };
 
 export default createReducer(initialState, {
@@ -77,6 +71,5 @@ export default createReducer(initialState, {
   [Types.GET_PRODUCT_SUCCESS]: getProductSuccess,
   [Types.GET_PRODUCT_FAIL]: getProductFail,
   [Types.ORDER_CART]: orderCart,
-  [Types.UPDATE_CART]: updateCart,
   [Types.DELETE_CART]: deleteCart,
 });
