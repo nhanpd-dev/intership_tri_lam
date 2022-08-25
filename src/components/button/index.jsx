@@ -7,8 +7,7 @@ import { Text } from '../text';
 
 const Wrapper = styled(Button)`
   background-color: ${({ backgroundcolor, theme, disabled }) =>
-    disabled ? theme.grey : theme.COLORS[backgroundcolor]} !important;
-
+    disabled ? theme.grey : theme.COLORS[backgroundcolor]};
   border: ${({ theme, border }) => (border ? `1px solid ${theme[border]}` : 'none')};
   cursor: pointer;
   margin-bottom: 10px;
@@ -18,10 +17,13 @@ const Wrapper = styled(Button)`
   align-items: center;
   outline: none;
   height: 40px;
-  border-radius: 1rem;
+
+  .ant-btn {
+    border-radius: 16px;
+  }
 
   &:hover {
-    background: ${({ theme }) => theme.COLORS.secondary} !important;
+    background: ${({ theme }) => theme.COLORS.secondary};
   }
 
   &:active {

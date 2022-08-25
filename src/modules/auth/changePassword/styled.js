@@ -13,9 +13,13 @@ export const Wrapper = styled.div`
       display: flex;
 
       .form__checkbox,
-      .form__button {
+      .form__btn {
         display: flex;
         justify-content: center;
+
+        .ant-btn {
+          border-radius: 16px;
+        }
 
         @media (max-width: 896px) {
           font-size: ${FONTS_SIZE.size_14};

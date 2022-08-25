@@ -19,6 +19,10 @@ export const WrapperForm = styled.div`
       }
     }
 
+    .ant-btn {
+      border-radius: 16px;
+    }
+
     .form__label {
       font-size: 14px;
       margin-bottom: 5px;

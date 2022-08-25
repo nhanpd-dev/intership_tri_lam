@@ -60,18 +60,16 @@ export default function ChangePassword() {
                 label={t('new_pass')}
                 name='password'
                 control={control}
-                errors={errors?.password}
+                errors={t(errors?.password?.message)}
                 type={isHide ? 'password' : 'text'}
-                t={t}
               />
 
               <FormInput
                 label={t('enter_new_pass')}
                 name='confirm_password'
                 control={control}
-                errors={errors?.confirm_password}
+                errors={t(errors?.confirm_password?.message)}
                 type={isHide ? 'password' : 'text'}
-                t={t}
               />
 
               <Space direction='vertical' size='middle' className='form__space'>
@@ -84,8 +82,8 @@ export default function ChangePassword() {
                 </Row>
 
                 <Row>
-                  <Col xl={{ span: 18, offset: 6 }} sm={24} xs={24} className='form__button'>
-                    <PrimaryButton title={t('save_change')} type='primary' htmlType='submit' />
+                  <Col xl={{ span: 18, offset: 6 }} sm={24} xs={24} className='form__btn'>
+                    <PrimaryButton title={t('save_change')} htmlType='submit' />
                   </Col>
                 </Row>
               </Space>

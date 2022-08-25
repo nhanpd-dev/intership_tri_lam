@@ -71,23 +71,21 @@ export default function LoginScreen() {
                 label={t('email')}
                 name='email'
                 control={control}
-                errors={errors?.email}
+                errors={t(errors?.email?.message)}
                 type='text'
-                t={t}
                 Icon={MailOutlined}
               />
               <FormInput
                 label={t('password')}
                 name='password'
                 control={control}
-                errors={errors?.password}
+                errors={t(errors?.password?.message)}
                 type='password'
-                t={t}
                 Icon={LockOutlined}
               />
               <Row>
-                <Col xl={{ span: 18, offset: 6 }} sm={24} xs={24}>
-                  <PrimaryButton title={t('sign_in')} htmlType='submit' type='primary' />
+                <Col xl={{ span: 18, offset: 6 }} sm={24} xs={24} className='form__btn'>
+                  <PrimaryButton title={t('sign_in')} htmlType='submit' />
                 </Col>
               </Row>
               <Row>

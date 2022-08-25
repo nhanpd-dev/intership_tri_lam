@@ -100,8 +100,7 @@ export default function FormProfile() {
                   name='username'
                   defaultValue={currentUser?.username}
                   control={control}
-                  errors={errors.username}
-                  t={t}
+                  errors={t(errors?.username?.message)}
                   Icon={UserOutlined}
                 />
                 <FormInput
@@ -109,8 +108,7 @@ export default function FormProfile() {
                   name='email'
                   defaultValue={currentUser?.email}
                   control={control}
-                  errors={errors.email}
-                  t={t}
+                  errors={t(errors?.email?.message)}
                   Icon={MailOutlined}
                   disabled={true}
                 />
@@ -119,8 +117,7 @@ export default function FormProfile() {
                   name='phoneNumber'
                   defaultValue={currentUser?.phoneNumber}
                   control={control}
-                  errors={errors.phoneNumber}
-                  t={t}
+                  errors={t(errors?.phoneNumber?.message)}
                   Icon={PhoneOutlined}
                 />
               </Col>
@@ -129,10 +126,9 @@ export default function FormProfile() {
             <FormInput
               label={t('common:birth_date')}
               name='birthdate'
-              defaultValue={currentUser?.birthdate?.split('T')[0]}
+              defaultValue={currentUser?.birthdate}
               control={control}
-              errors={errors?.birthdate}
-              t={t}
+              errors={t(errors?.birthdate?.message)}
               Icon={CalendarOutlined}
               span={20}
               type='date'
@@ -171,15 +167,14 @@ export default function FormProfile() {
               name='address'
               defaultValue={currentUser?.address}
               control={control}
-              errors={errors?.address}
-              t={t}
+              errors={t(errors?.address?.message)}
               Icon={AuditOutlined}
               span={20}
             />
 
             <Row>
               <Col span={24} className='button-save'>
-                <PrimaryButton title={t('save_change')} type='primary' htmlType='submit' />
+                <PrimaryButton title={t('save_change')} htmlType='submit' />
               </Col>
             </Row>
           </Form>

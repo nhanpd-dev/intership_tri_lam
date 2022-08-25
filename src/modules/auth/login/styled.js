@@ -101,7 +101,11 @@ export const FormLogin = styled.div`
   }
 
   .form__link,
-  .form__button {
+  .form__btn {
+    .ant-btn {
+      border-radius: 16px;
+    }
+
     @media (max-width: 896px) {
       font-size: ${FONTS_SIZE.size_14};
     }
