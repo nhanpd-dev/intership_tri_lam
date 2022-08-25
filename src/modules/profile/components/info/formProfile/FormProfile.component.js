@@ -144,7 +144,7 @@ export default function FormProfile() {
               <Col xl={20} sm={24} xs={24}>
                 <Controller
                   name='gender'
-                  defaultValue={currentUser?.gender === 1 ? '1' : '0'}
+                  defaultValue={currentUser?.gender.toString()}
                   control={control}
                   render={({ field }) => (
                     <Radio.Group className='radio-gender' {...field}>
