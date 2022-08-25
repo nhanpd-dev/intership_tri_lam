@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import FONTS_SIZE from '../../../themes/fonts';
 import COLORS from '../../../themes/colors';
+
 export const Wrapper = styled.div`
   font-size: 14px;
 
