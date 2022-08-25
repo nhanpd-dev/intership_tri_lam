@@ -18,21 +18,7 @@ const Wrapper = styled(Button)`
   align-items: center;
   outline: none;
   height: 40px;
-  border-radius: 1rem !important;
-
-  .gVSCoE {
-    @media (max-width: 896px) {
-      font-size: 14px;
-    }
-
-    @media (max-width: 768px) {
-      font-size: 12px;
-    }
-
-    @media (max-width: 414px) {
-      font-size: 11px;
-    }
-  }
+  border-radius: 1rem;
 
   &:hover {
     background: ${({ theme }) => theme.COLORS.secondary} !important;
@@ -53,6 +39,7 @@ const Wrapper = styled(Button)`
     opacity: 0.5;
   }
 `;
+
 const PrimaryButton = ({
   title,
   onClick,
