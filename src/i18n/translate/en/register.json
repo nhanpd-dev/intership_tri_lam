@@ -20,5 +20,6 @@
   "full_name_max_length": "Full name no more than 30 characters",
   "phone_number_required": "Phone number must be 11 digits",
   "C400_2": "Email is already taken",
-  "register_success": "Register success"
+  "register_success": "Register success",
+  "sign_out": "Sign Out"
 }

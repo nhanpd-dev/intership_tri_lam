@@ -6,7 +6,7 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
 import Product from './component/listProducts/ListProducts';
-import AddressShippingComp from './component/addressShipping/addressShipping';
+import AddressShippingComp from './component/addressShipping/AddressShipping';
 import PromotionsComp from './component/promotions/promotions';
 import ProvisionalCalculationComp from './component/provisionalCalculation/provisionalCalculation';
 import { useProductStore } from '../../../hooks/useProductDetail';
@@ -18,13 +18,9 @@ function HaveProducts() {
 
   const { orderPost } = useOrderStore();
 
-  const { cart, deleteToCart } = useProductStore();
+  const { cart, deleteToCart, changeToCart } = useProductStore();
 
-  const [check, setCheck] = useState(false);
-
-  const [orders, setOrders] = useState(cart);
-
-  const listOrdersCheckTrue = orders.filter((item) => item.isCheck === true);
+  const listOrdersCheckTrue = cart.filter((item) => item.isCheck === true && item.quantity !== 0);
 
   const listOrdersPost = listOrdersCheckTrue.map((item) => {
     return {
@@ -36,7 +32,7 @@ function HaveProducts() {
   });
 
   const total = useMemo(() => {
-    const cloneOrders = orders?.filter((i) => i.isCheck);
+    const cloneOrders = cart?.filter((i) => i.isCheck);
 
     if (cloneOrders.length) {
       return cloneOrders.reduce((acumulator, item) => {
@@ -47,10 +43,10 @@ function HaveProducts() {
     }
 
     return 0;
-  }, [orders]);
+  }, [cart]);
 
   const provisional = useMemo(() => {
-    const cloneOrders = orders?.filter((i) => i.isCheck);
+    const cloneOrders = cart?.filter((i) => i.isCheck);
 
     if (cloneOrders.length) {
       const totalOrdersPrice = cloneOrders.reduce((acumulator, item) => {
@@ -63,10 +59,10 @@ function HaveProducts() {
     }
 
     return 0;
-  }, [orders]);
+  }, [cart]);
 
   const renderListOrders = () =>
-    orders.map((item, index) => {
+    cart.map((item, index) => {
       return (
         <Row key={index} className='name_field'>
           <Product
@@ -76,8 +72,6 @@ function HaveProducts() {
             linkTo={item.linkTo}
             nameProducts={item.nameProducts}
             price={item.price}
-            setOrders={setOrders}
-            orders={orders}
             isCheck={item.isCheck}
             quantity={item.quantity}
           />
@@ -103,24 +97,27 @@ function HaveProducts() {
 
   const confirmDelete = () => {
     deleteToCart();
-
-    setOrders([]);
   };
+
+  const changeCheckAll = (e) => {
+    changeToCart({ isCheck: e.target.checked });
+  };
+
   return (
     <Wrapper>
       <Col span={22} offset={1} className='cart'>
         <Row>
           <Col lg={17} sm={24}>
             <Row className='name_field navbar_cart'>
-              <Col md={11}>
-                <Checkbox className='icon_check' />
+              <Col md={13}>
+                <Checkbox className='icon_check' onChange={changeCheckAll} />
                 {t('all_products')}
               </Col>
-              <Col md={4}>{t('unit_price')}</Col>
+              <Col md={3}>{t('unit_price')}</Col>
               <Col md={4}>{t('quantity')}</Col>
-              <Col md={4}>{t('into_money')}</Col>
+              <Col md={3}>{t('into_money')}</Col>
               <Col md={1}>
-                <Popconfirm title='Do you want to delete all?' okText='Yes' cancelText='No' onConfirm={confirmDelete}>
+                <Popconfirm title={t('delete_all')} okText={t('yes')} cancelText={t('no')} onConfirm={confirmDelete}>
                   <DeleteOutlined className='icon_delete' />
                 </Popconfirm>
               </Col>
@@ -128,14 +125,14 @@ function HaveProducts() {
             {renderListOrders()}
           </Col>
 
-          <Col lg={7} sm={24}>
+          <Col lg={7} sm={24} xs={24}>
             <Payment>
               <AddressShippingComp />
               <PromotionsComp />
               <ProvisionalCalculationComp price={total} provisional={provisional} />
               <Row className='btn_buy'>
                 <Col lg={24}>
-                  <Button type='primary' onClick={buyProducts}>
+                  <Button type='primary' onClick={buyProducts} disabled={!total}>
                     {t('buy_products')}
                   </Button>
                 </Col>

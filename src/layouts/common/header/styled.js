@@ -74,10 +74,12 @@ export const Header = styled.div`
       }
 
       @media (max-width: 768px) {
-        margin-top: 25px;
-
         .login_signUp {
           display: flex;
+        }
+
+        .search_and_logout {
+          margin-top: 25px;
         }
       }
     }

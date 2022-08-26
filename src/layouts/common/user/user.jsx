@@ -40,7 +40,7 @@ function UserItem() {
           <>
             <Col className='register_login'>
               <Row>{t('account')}</Row>
-              <Row>{currentUser.userName ? currentUser.userName : t('header:empty_name')}</Row>
+              <Row>{currentUser.username ? currentUser.username : t('header:empty_name')}</Row>
             </Col>
             <div className='user_infor'>
               <Row className='text_user-infor'>

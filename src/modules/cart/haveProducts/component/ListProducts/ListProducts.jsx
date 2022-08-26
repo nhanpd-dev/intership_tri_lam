@@ -6,11 +6,12 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { useMemo } from 'react';
 
 import { useProductStore } from '../../../../../hooks/useProductDetail';
+import { Wrapper } from './styled';
 
-function ListProducts({ img, linkTo, nameProducts, price, productId, discount, orders, setOrders, quantity, isCheck }) {
+function ListProducts({ img, linkTo, nameProducts, price, productId, discount, quantity, isCheck }) {
   const { Text } = Typography;
 
-  const { deleteToCart } = useProductStore();
+  const { deleteToCart, changeToCart } = useProductStore();
 
   const itemPrice = useMemo(() => {
     const total = quantity * price - quantity * price * discount;
@@ -19,64 +20,46 @@ function ListProducts({ img, linkTo, nameProducts, price, productId, discount, o
   }, [quantity]);
 
   const changeCheck = (e) => {
-    const newOrders = [...orders];
-
-    const indexProduct = newOrders.findIndex((item) => item.productId === productId);
-
-    if (indexProduct >= 0) {
-      newOrders[indexProduct].isCheck = e.target.checked;
-    }
-
-    setOrders(newOrders);
+    changeToCart({ isChecked: e.target.checked, id: productId, quantity: quantity });
   };
 
   const changeQuantity = (value) => {
-    const newOrders = [...orders];
-
-    const indexProduct = newOrders.findIndex((item) => item.productId === productId);
-
-    if (indexProduct >= 0) {
-      newOrders[indexProduct].quantity = value;
-    }
-
-    setOrders(newOrders);
+    changeToCart({ quantity: value, id: productId, isChecked: true });
   };
 
   const confirmDelete = () => {
-    const findProductDelete = orders.find((product) => product.productId === productId);
-
-    deleteToCart(findProductDelete);
-
-    const remainingOrder = orders.filter((product) => product.productId !== productId);
-
-    setOrders(remainingOrder);
+    deleteToCart(productId);
   };
 
   return (
-    <Row className='list_products-content'>
-      <Col md={11} sm={14} xs={24}>
-        <Checkbox className='icon_check' onChange={changeCheck} />
-        <Image preview={false} src={img} alt='anh' />
-        <Link to={linkTo}>{nameProducts}</Link>
-      </Col>
-      <Col md={4} className='selector_price unit_price'>
-        {price}đ
-        <Row>
-          <Text type='danger'>-{discount * 100}%</Text>
-        </Row>
-      </Col>
-      <Col md={4} sm={4} xs={8}>
-        <InputNumber min={1} max={10} disabled={!isCheck} defaultValue={quantity} onChange={changeQuantity} />
-      </Col>
-      <Col md={4} sm={5} xs={8} className='selector_price red_color'>
-        {itemPrice}đ
-      </Col>
-      <Col md={1} sm={1} xs={8}>
-        <Popconfirm title='Do you want to delete?' okText='Yes' cancelText='No' onConfirm={confirmDelete}>
-          <DeleteOutlined className='icon_delete' />
-        </Popconfirm>
-      </Col>
-    </Row>
+    <Wrapper>
+      <Row className='list_products-content'>
+        <Col md={13} sm={14} xs={24} className='info_product'>
+          <Checkbox className='icon_check' onChange={changeCheck} checked={isCheck} />
+          <Image className='img_product' preview={false} src={img} alt='anh' />
+          <Link className='name_product' to={`/product-detail/${productId}`}>
+            {nameProducts}
+          </Link>
+        </Col>
+        <Col md={3} className='selector_price unit_price'>
+          {price}đ
+          <Row>
+            <Text type='danger'>-{discount * 100}%</Text>
+          </Row>
+        </Col>
+        <Col md={4} sm={4} xs={8}>
+          <InputNumber min={0} max={1000} disabled={!isCheck} defaultValue={quantity} onChange={changeQuantity} />
+        </Col>
+        <Col md={3} sm={5} xs={8} className='selector_price red_color'>
+          {itemPrice}đ
+        </Col>
+        <Col md={1} sm={1} xs={8}>
+          <Popconfirm title='Do you want to delete?' okText='Yes' cancelText='No' onConfirm={confirmDelete}>
+            <DeleteOutlined className='icon_delete' />
+          </Popconfirm>
+        </Col>
+      </Row>
+    </Wrapper>
   );
 }
 

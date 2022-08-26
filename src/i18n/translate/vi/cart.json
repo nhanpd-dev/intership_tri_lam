@@ -16,5 +16,8 @@
   "total_money": "Tổng tiền",
   "orders_success": "Đặt hàng thành công",
   "orders_fail": "Đặt hàng không thành công",
-  "added_to_cart": "Đã thêm vào giỏ hàng"
+  "added_to_cart": "Đã thêm vào giỏ hàng",
+  "delete_all": "Xoá tất cả",
+  "yes": "Có",
+  "no": "Không"
 }
