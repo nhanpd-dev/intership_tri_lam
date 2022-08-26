@@ -6,7 +6,7 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
 import Product from './component/listProducts/ListProducts';
-import AddressShippingComp from './component/addressShipping/addressShipping';
+import AddressShippingComp from './component/addressShipping/AddressShipping';
 import PromotionsComp from './component/promotions/promotions';
 import ProvisionalCalculationComp from './component/provisionalCalculation/provisionalCalculation';
 import { useProductStore } from '../../../hooks/useProductDetail';
