@@ -41,7 +41,6 @@ export const ProductItem = styled.div`
 
   &:hover {
     box-shadow: 0px 0px 20px #ccc;
-    z-index: 1;
   }
 
   .thumbnail {
