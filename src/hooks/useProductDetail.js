@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useInjectReducer, useInjectSaga } from '../utils';
 import reducer from '../store/product/reducer';
 import saga from '../store/product/saga';
-import { getProductRequest, orderCart, deleteCart } from '../store/product/action';
+import { getProductRequest, orderCart, deleteCart, changeCart } from '../store/product/action';
 import {
   makeSelectLoading,
   makeSelectError,
@@ -40,6 +40,10 @@ export const useProductStore = () => {
     dispatch(deleteCart(data));
   };
 
+  const changeToCart = (data) => {
+    dispatch(changeCart(data));
+  };
+
   return {
     isLoading,
     error,
@@ -49,5 +53,6 @@ export const useProductStore = () => {
     getProductFunc,
     orderToCart,
     deleteToCart,
+    changeToCart,
   };
 };

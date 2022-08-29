@@ -15,7 +15,10 @@ export const Wrapper = styled.div`
     text-align: center;
     border-radius: 4px;
     border: none;
-    cursor: pointer;
+
+    &:disabled {
+      background-color: #e0c5c5;
+    }
   }
 
   .cart {
@@ -46,47 +49,23 @@ export const Wrapper = styled.div`
         cursor: pointer;
       }
     }
-
-    .list_products-content {
-      width: 100%;
-      align-items: center;
-      margin: 15px 0;
-
-      .red_color {
-        color: ${COLORS.red};
-      }
-
-      .selector_price {
-        font-weight: 500;
-      }
-
-      @media only screen and (max-width: 768px) {
-        .unit_price {
-          display: none;
-        }
-      }
-    }
   }
 `;
 
 export const Payment = styled.div`
   padding-left: 20px;
-
   .payment_content {
     background: ${COLORS.background_primary};
     margin-bottom: 10px;
     border-radius: 4px;
-
     .content_selector {
       padding: 5px 15px;
       align-items: center;
     }
-
     @media only screen and (max-width: 992px) {
       margin-top: 10px;
     }
   }
-
   @media only screen and (max-width: 992px) {
     padding-left: 0px;
   }

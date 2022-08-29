@@ -18,7 +18,7 @@ function EmptyProducts({ titleContent, titleButton }) {
           <Paragraph className='cart_content-title'>{titleContent}</Paragraph>
         </Row>
         <Row className='cart_content'>
-          <Link to='#'>
+          <Link to='/'>
             <Button className='cart_content-button'>{titleButton}</Button>
           </Link>
         </Row>

@@ -16,5 +16,8 @@
   "total_money": "Total money",
   "orders_success": "Orders Success",
   "orders_fail": "Orders Success",
-  "added_to_cart": "Added to cart"
+  "added_to_cart": "Added to cart",
+  "delete_all": "Do you want to delete all?",
+  "yes": "Yes",
+  "no": "No"
 }

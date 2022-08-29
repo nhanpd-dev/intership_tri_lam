@@ -11,11 +11,15 @@ import { Header } from './styled';
 import UserLayout from '../user/user';
 import Navbar from './component.navbar';
 import { IMG_FREESHIP, LOGO_TIKI } from '../../../assets/imgs/layout/index';
+import { useAuthStore } from '../../../hooks/useAuth';
 
 function HeaderLayout() {
   const { fetchProductsFunc, setParams, params } = useProductsListStore();
 
+  const { auth } = useAuthStore();
+
   const { watch, register } = useForm();
+
   const searchData = watch('search');
 
   const { t } = useTranslation(['header', 'register', 'common']);
@@ -62,7 +66,7 @@ function HeaderLayout() {
             </Link>
           </Col>
 
-          <Col md={12} sm={20} xs={17}>
+          <Col md={12} sm={20} xs={17} className='search_and_logout'>
             <Col md={22} sm={22} xs={22}>
               <input
                 className='ant-input'
@@ -71,15 +75,24 @@ function HeaderLayout() {
                 {...register('search')}
               />
             </Col>
-            <Col className='login_signUp'>
-              <LoginOutlined />
-              <Link className='login_selector' to='/login'>
-                {t('register:login_now')}
-              </Link>
-              <Link className='signUp_selector' to='/signUp'>
-                {t('register:sign_up')}
-              </Link>
-            </Col>
+            {auth ? (
+              <Col className='login_signUp'>
+                <LoginOutlined />
+                <Link className='login_selector' to='/login'>
+                  {t('register:sign_out')}
+                </Link>
+              </Col>
+            ) : (
+              <Col className='login_signUp'>
+                <LoginOutlined />
+                <Link className='login_selector' to='/login'>
+                  {t('register:login_now')}
+                </Link>
+                <Link className='signUp_selector' to='/signUp'>
+                  {t('register:sign_up')}
+                </Link>
+              </Col>
+            )}
           </Col>
 
           <Col md={7}>
@@ -88,7 +101,11 @@ function HeaderLayout() {
         </Col>
       </Row>
 
-      <Row className='header_layout-nav'>{renderNavItems()}</Row>
+      <Row className='header_layout-nav'>
+        <Col span={22} offset={1}>
+          <Row>{renderNavItems()}</Row>
+        </Col>
+      </Row>
     </Header>
   );
 }

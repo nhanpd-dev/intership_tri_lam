@@ -16,21 +16,23 @@ function AddressShippingComp() {
   return (
     <Address className='payment_content'>
       <Row className='content_selector'>
-        <Col span={18}>
+        <Col span={16}>
           <Text type='secondary' className='fs-16'>
             {t('delivered_to')}
           </Text>
         </Col>
-        <Col span={6}>
+        <Col span={8}>
           <Link to='#'>{t('change')}</Link>
         </Col>
       </Row>
       <Row className='content_selector'>
-        <Col span={10}>
+        <Col xl={10}>
           <Text strong>{currentUser?.username ? currentUser?.username : 'No name'}</Text>
         </Col>
-        <Divider type='vertical' />
-        <Col span={12}>
+        <Col xl={2}>
+          <Divider type='vertical' />
+        </Col>
+        <Col xl={12}>
           <Text strong>{currentUser?.phoneNumber ? currentUser?.phoneNumber : '113'}</Text>
         </Col>
       </Row>
