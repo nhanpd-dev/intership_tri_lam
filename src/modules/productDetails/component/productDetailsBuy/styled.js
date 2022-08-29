@@ -40,6 +40,10 @@ const ProductDetailsBuyWrap = styled.div`
           }
         }
       }
+
+      @media (min-width: 772px) and (max-width: 1023px) {
+        display: none;
+      }
     }
   }
 `;
@@ -144,10 +148,6 @@ const FormBuy = styled.div`
     justify-content: center;
     text-align: center;
     margin: 0 auto;
-  }
-
-  @media (min-width: 740px) and (max-width: 1023px) {
-    margin-top: 40px;
   }
 `;
 
