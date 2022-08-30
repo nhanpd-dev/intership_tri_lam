@@ -22,7 +22,7 @@ function AddressShippingComp() {
           </Text>
         </Col>
         <Col span={8}>
-          <Link to='#'>{t('change')}</Link>
+          <Link to='/account/profile'>{t('change')}</Link>
         </Col>
       </Row>
       <Row className='content_selector'>

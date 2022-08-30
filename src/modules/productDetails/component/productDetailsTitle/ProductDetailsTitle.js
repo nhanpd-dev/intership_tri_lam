@@ -7,15 +7,15 @@ import { TitleWrap, GroupStar } from './style';
 
 const { Text } = Typography;
 
-const ProductDetailsTitle = ({ categoryId, nameProduct, numberOfSell, id }) => {
-  const { t } = useTranslation(['productDetails']);
+const ProductDetailsTitle = ({ nameProduct, numberOfSell, id }) => {
+  const { t } = useTranslation(['productDetails, common']);
 
   return (
     <TitleWrap>
       <Row>
         <Col xs={24} sm={24} md={16} lg={16}>
           <Text className='category-text'>
-            {categoryId} / {id}
+            {t('home')} \ {t('list_products')} \ {t('id_product')}: {id}
           </Text>
         </Col>
       </Row>

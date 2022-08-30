@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 import COLORS from '../../../themes/colors';
+import MARGIN from '../../../themes/margin';
 
 export const Slider = styled.div`
   width: 100%;
-  margin-top: 20px;
+  margin-top: ${MARGIN.mt_100};
 
   .ant-image {
     height: 100%;

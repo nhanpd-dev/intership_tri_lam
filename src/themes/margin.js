@@ -1,5 +1,6 @@
 export const MARGIN = {
-  margin_top_10: '10px',
+  mt_10: '10px',
+  mt_100: '100px',
 };
 
 export default MARGIN;
