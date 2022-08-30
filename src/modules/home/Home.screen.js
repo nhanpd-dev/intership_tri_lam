@@ -1,7 +1,7 @@
 import React from 'react';
 
-const HomeModule = () => {
+const HomeScreen = () => {
   return <React.Fragment></React.Fragment>;
 };
 
-export default HomeModule;
+export default HomeScreen;
