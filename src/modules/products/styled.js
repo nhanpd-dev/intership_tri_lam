@@ -14,6 +14,10 @@ export const Container = styled.div`
   .ant-pagination {
     margin: 8px 0 0 0;
   }
+
+  .ant-spin-nested-loading {
+    z-index: 0;
+  }
 `;
 
 export const Products = styled.div`
