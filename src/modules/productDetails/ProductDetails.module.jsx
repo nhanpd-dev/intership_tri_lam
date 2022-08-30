@@ -24,6 +24,7 @@ const ProductDetailsModule = () => {
             nameProduct={dataProduct.name}
             numberOfSell={dataProduct.numberOfSell}
             discount={dataProduct.discount}
+            id={dataProduct._id}
           />
           <ProductDetailsBuy
             thumbnail={dataProduct.thumbnail}

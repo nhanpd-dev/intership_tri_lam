@@ -2,8 +2,11 @@
   "title": {
     "evaluate": "evaluate",
     "sold": "Sold",
-    "share": "Share"
+    "share": "Share",
+    "list_products": "List Products",
+    "id_product": "ID Product"
   },
+
   "buy": {
     "image_product": "image product",
     "price": "Price",
@@ -25,6 +28,7 @@
     "purchase": "Purchase",
     "buy_fashion_watches": "Buy Fashion Watches 40% off for Watches under 3 million, 30% off for Watches of 3 million or more"
   },
+
   "description": {
     "describe": "Describe"
   }

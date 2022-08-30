@@ -5,7 +5,7 @@ import MARGIN from '../../../themes/margin';
 
 export const Header = styled.div`
   .mt-10 {
-    margin-top: ${MARGIN.margin_top_10};
+    margin-top: ${MARGIN.mt_10};
   }
 
   .layout_img-selector {
@@ -42,9 +42,13 @@ export const Header = styled.div`
   }
 
   .header_layout {
-    height: 100px;
+    height: 90px;
     align-items: center;
-    background-color: ${COLORS.primary};
+    background-color: #1890ff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
 
     .header_layout-content {
       display: flex;

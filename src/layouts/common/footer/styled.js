@@ -5,8 +5,8 @@ import COLORS from '../../../themes/colors';
 export const Footer = styled.div`
   widht: 100%;
   display: flex;
-  margin-top: 20px;
   background-color: #fff;
+  margin-top: 20px;
 
   .border_right {
     border-right: 1px solid ${COLORS.primary};

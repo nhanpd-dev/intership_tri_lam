@@ -94,10 +94,6 @@ export const FormLogin = styled.div`
     padding: 3px 0;
     border-radius: 5px;
     margin-right: 15px;
-
-    &:hover {
-      background-color: ${COLORS.secondary};
-    }
   }
 
   .form__link,

@@ -1,3 +1,4 @@
+import { removeLocalStorage } from '../../utils';
 import { createReducer, updateObject } from '../../utils/redux';
 import * as Types from './constants';
 
@@ -51,7 +52,8 @@ const updatePasswordFail = (state, action) =>
 
 const logOutRequest = (state) => updateObject(state, { isLoading: true });
 
-const logOutSuccess = (state) => updateObject(state, { isLoading: false, authenticated: false });
+const logOutSuccess = (state) =>
+  updateObject(state, { isLoading: false, authenticated: false }, removeLocalStorage('CART'));
 
 const logOutFailure = (state, action) => updateObject(state, { isLoading: false, error: action.error });
 

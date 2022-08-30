@@ -1,8 +1,10 @@
 {
   "title": {
-    "evaluate": "đánh giá",
-    "sold": "Đã bán",
-    "share": "Chia sẻ"
+    "evaluate": "evaluate",
+    "sold": "Sold",
+    "share": "Share",
+    "list_products": "Danh sách sản phẩm",
+    "id_product": "Mã sản phẩm"
   },
   "buy": {
     "image_product": "ảnh sản phẩm",
