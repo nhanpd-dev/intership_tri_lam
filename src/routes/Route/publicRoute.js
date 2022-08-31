@@ -1,9 +1,9 @@
 import LoginScreen from '../../modules/auth/login/login.screen';
 import RegisterScreen from '../../modules/auth/register/register.screen';
 import DashboardScreen from '../../layouts/dashboard.layout';
-import HomeScreen from '../../modules/home/Home.screen';
 import NotFoundScreen from '../../modules/notFound/notFound.screen';
 import LoginAdminScreen from '../../modules/auth/admin/login/login.admin.screen';
+import ProductsModule from '../../modules/products/Product.module';
 
 const publicRoute = [
   {
@@ -11,7 +11,7 @@ const publicRoute = [
     children: [
       {
         path: '/',
-        element: <HomeScreen />,
+        element: <ProductsModule />,
       },
       {
         path: '*',

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useInjectReducer, useInjectSaga } from '../../utils';
 import reducer from '../../store/products/reducer';
 import saga from '../../store/products/saga';
+import { LIMIT_PRODUCTS, PAGE } from '../../store/constants';
 import { fetchProductsRequest } from '../../store/products/action';
 import { makeSelectLoading, makeSelectError, makeSelectProducts } from '../../store/products/selector';
 
@@ -17,12 +18,9 @@ export const useProductsListStore = () => {
   const error = useSelector(makeSelectError());
   const products = useSelector(makeSelectProducts());
 
-  const LIMIT = 10;
-  const PAGE = 1;
-
   const [params, setParams] = useState({
     page: PAGE,
-    limit: LIMIT,
+    limit: LIMIT_PRODUCTS,
     search: '',
   });
 
