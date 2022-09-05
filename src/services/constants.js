@@ -14,4 +14,11 @@ const PRODUCT = {
   GET_PRODUCT: '/product',
 };
 
-export { USER, ORDERS, PRODUCT };
+const PRODUCTS = {
+  FETCH_PRODUCTS: '/products',
+};
+
+const CATEGORIES = {
+  FETCH_CATEGORIES: '/categories',
+};
+export { USER, ORDERS, PRODUCT, PRODUCTS, CATEGORIES };

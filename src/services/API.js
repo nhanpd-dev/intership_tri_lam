@@ -98,4 +98,6 @@ class AxiosClient {
     });
 }
 
+export const axiosInstance = new AxiosClient();
+
 export default AxiosClient;
