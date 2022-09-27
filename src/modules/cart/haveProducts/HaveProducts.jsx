@@ -5,10 +5,10 @@ import { Button, Checkbox, Col, notification, Popconfirm, Row } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
-import Product from './component/listProducts/ListProducts';
+import Product from './component/ListProducts/ListProducts';
 import AddressShippingComp from './component/addressShipping/AddressShipping';
-import PromotionsComp from './component/promotions/promotions';
-import ProvisionalCalculationComp from './component/provisionalCalculation/provisionalCalculation';
+import PromotionsComp from './component/promotions/Promotions';
+import ProvisionalCalculationComp from './component/provisionalCalculation/ProvisionalCalculation';
 import { useProductStore } from '../../../hooks/useProductDetail';
 import { useOrderStore } from '../../../hooks/useOrder';
 import { Wrapper, Payment } from './styled';
